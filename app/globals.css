@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * CSS variables = design tokens du site.
+ * Source de vérité : siteConfig.colors (config/site.config.ts), injecté dans
+ * <html style="..."> par app/layout.tsx. Les valeurs :root ci-dessous ne sont
+ * qu'un FALLBACK (mêmes hex) pour un rendu sûr hors injection.
+ * Format « r g b » (canaux) pour les modificateurs d'opacité Tailwind.
+ */
+:root {
+  --color-primary-rgb: 11 79 138; /* #0B4F8A */
+  --color-primary-dark-rgb: 10 62 110; /* #0A3E6E */
+  --color-accent-rgb: 249 115 22; /* #F97316 */
+  --color-dark-rgb: 15 23 42; /* #0F172A */
+  --color-light-rgb: 246 249 252; /* #F6F9FC */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-white text-slate-700 font-sans antialiased;
+  }
+  h1, h2, h3 {
+    @apply text-slate-900 font-bold tracking-tight;
+  }
+  a {
+    @apply text-primary;
+  }
+  /* Cible tap ≥ 44px sur mobile (a11y / Lighthouse) */
+  a, button {
+    touch-action: manipulation;
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+  }
+  .section {
+    @apply py-12 md:py-16;
+  }
+  /* CTA principal = accent orange (urgence), toujours ≥ 48px de haut */
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3.5 min-h-[48px] font-semibold text-white transition-colors hover:bg-accent/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 min-h-[48px] font-semibold text-white transition-colors hover:bg-primary-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-primary/30 bg-white px-6 py-3.5 min-h-[48px] font-semibold text-primary transition-colors hover:border-primary hover:bg-primary/5;
+  }
+  .card {
+    @apply rounded-card border border-slate-200 bg-white p-6 shadow-sm;
+  }
+  .field {
+    @apply w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30;
+  }
+  .prose-content {
+    @apply max-w-3xl leading-relaxed;
+  }
+  .prose-content h2 {
+    @apply mt-8 text-2xl;
+  }
+  .prose-content p {
+    @apply mt-4;
+  }
+  .prose-content a {
+    @apply underline;
+  }
+
+  /* Corps d'article de blog (scoped : n'affecte pas les pages services). */
+  .article-prose {
+    @apply text-[1.0625rem] text-slate-700;
+  }
+  /* H2 bien détachés : filet fin + respiration au-dessus. */
+  .article-prose h2 {
+    @apply mt-12 border-t border-slate-100 pt-8 text-2xl font-bold text-slate-900 md:text-[1.75rem];
+  }
+  .article-prose h3 {
+    @apply mt-8 text-xl font-bold text-slate-900;
+  }
+  .article-prose p {
+    @apply mt-5;
+  }
+  .article-prose ul,
+  .article-prose ol {
+    @apply mt-5 list-outside space-y-2 pl-5;
+  }
+  .article-prose ul { @apply list-disc; }
+  .article-prose ol { @apply list-decimal; }
+  .article-prose a {
+    @apply font-medium text-primary underline underline-offset-2 hover:text-primary-dark;
+  }
+  /* Images markdown : largeur de colonne, coins arrondis, cadre léger. */
+  .article-prose img {
+    @apply mt-7 w-full rounded-card border border-slate-200 shadow-sm;
+  }
+  /* Légende = paragraphe en italique seul juste après l'image (`*légende*`). */
+  .article-prose p:has(> em:only-child) {
+    @apply mt-2 text-center text-sm not-italic text-slate-500;
+  }
+}

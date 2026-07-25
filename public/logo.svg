@@ -1,0 +1,12 @@
+<svg viewBox="0 0 220 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SOS Fuite d'Eau Angers">
+  <!-- Gouttelette -->
+  <path d="M24 4C24 4 10 18 10 28c0 9.4 6.3 16 14 16s14-6.6 14-16C38 18 24 4 24 4Z" fill="#0B4F8A"/>
+  <!-- Vague intérieure -->
+  <path d="M14 28C17 24 20 31 24 27C28 23 31 30 34 26" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- Reflet premium -->
+  <circle cx="19" cy="20" r="3" fill="white" opacity="0.25"/>
+  <!-- SOS FUITE D'EAU — majuscules, texte sombre (fond clair) -->
+  <text x="48" y="22" font-family="system-ui,-apple-system,sans-serif" font-weight="900" font-size="15" fill="#0F172A" letter-spacing="-0.3">SOS FUITE D'EAU</text>
+  <!-- ANGERS — accent orange -->
+  <text x="48" y="38" font-family="system-ui,-apple-system,sans-serif" font-weight="700" font-size="11" fill="#F97316" letter-spacing="2.5">ANGERS</text>
+</svg>

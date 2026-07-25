@@ -1,0 +1,22 @@
+export const SITE = {
+  commune: 'Angers',
+  communeCode: '49',
+  postalCode: '49000',
+  name: 'SOS Fuite Angers',
+  phone: '+33 7 56 85 31 25',
+  phoneHref: 'tel:+33756853125',
+  email: 'contact@sosfuite-angers.fr',
+  communesVoisines: [
+    'Trélazé',
+    'Avrillé',
+    'Beaucouzé',
+    "Saint-Barthélemy-d'Anjou",
+    'Les Ponts-de-Cé',
+    'Sainte-Gemmes-sur-Loire',
+    'Écouflant',
+  ],
+  prixRechercheMin: 150,
+  prixRechercheMax: 600,
+  prixAssechementMin: 400,
+  prixAssechementMax: 1600,
+}

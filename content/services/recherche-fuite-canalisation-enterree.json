@@ -1,0 +1,58 @@
+{
+  "slug": "recherche-fuite-canalisation-enterree",
+  "order": 3,
+  "icon": "pipe",
+  "navTitle": "Canalisation enterrée",
+  "h1": "Recherche de fuite sur canalisation enterrée à Angers",
+  "metaTitle": "Recherche de fuite canalisation enterrée à Angers",
+  "metaDescription": "Fuite sur canalisation enterrée à Angers : localisation précise par corrélation acoustique et gaz traceur, sans tranchée inutile.",
+  "intro": "Une canalisation enterrée qui fuit passe souvent longtemps inaperçue. Compteur qui tourne sans consommation visible, sol détrempé dans le jardin, affaissement de terrain : ce sont les signes d'une fuite souterraine. Nous intervenons à Angers et dans les environs pour localiser précisément la fuite par corrélation acoustique et gaz traceur, sans tranchée inutile.",
+  "bullets": [
+    "Corrélation acoustique",
+    "Gaz traceur",
+    "Sans tranchée inutile"
+  ],
+  "blocks": [
+    {
+      "heading": "Signes d'une fuite sur canalisation enterrée",
+      "body": "Une fuite souterraine est souvent insidieuse. Les indices à surveiller : une hausse anormale de votre facture d'eau sans explication ; un compteur qui tourne alors que tous les robinets sont fermés (testez en coupant l'eau à tous les points d'usage pendant 30 minutes) ; une zone du jardin anormalement verte, détrempée ou en léger affaissement ; de l'humidité qui remonte sous une dalle béton ou dans une cave ; un bruit sourd d'eau en mouvement sans consommation en cours. Si vous constatez l'un de ces signes, un test de pression permet de confirmer la présence d'une fuite active avant toute intervention sur le terrain.",
+      "image": "/services/recherche-fuite-canalisation-enterree-signe.jpg",
+      "imageAlt": "Zone de pelouse anormalement verte et détrempée près d'une allée de jardin",
+      "imageCaption": "Une zone du jardin anormalement verte ou détrempée est un signe fréquent."
+    },
+    {
+      "heading": "Nos méthodes de localisation",
+      "body": "Pour les canalisations enterrées, nous utilisons principalement deux techniques. La corrélation acoustique : des capteurs sont posés de part et d'autre de la canalisation suspecte. Ils enregistrent le bruit de la fuite et le corrélateur calcule sa position par triangulation, avec une précision habituelle de 50 cm à 1 m. Le gaz traceur : la canalisation est mise hors eau et le mélange azote/hydrogène est injecté. Le détecteur de surface suit la remontée du gaz et indique le point de fuite. Ces deux méthodes sont combinables sur les cas difficiles : canalisation profonde, réseau complexe, sol pavé ou bétonné. Elles permettent d'éviter d'ouvrir des tranchées à l'aveugle.",
+      "image": "/services/recherche-fuite-canalisation-enterree-correlation.jpg",
+      "imageAlt": "Corrélateur acoustique posé au sol dans un jardin, relié à un géophone planté dans l'herbe",
+      "imageCaption": "Corrélation acoustique en extérieur : le capteur enregistre le bruit de la fuite."
+    },
+    {
+      "heading": "Après la localisation",
+      "body": "Une fois la fuite localisée, nous vous remettons un rapport technique précis : profondeur estimée de la canalisation, emplacement marqué au sol (repères mesurés), méthode utilisée, photos. Ce document permet à votre plombier de n'ouvrir qu'à l'endroit nécessaire, sans chercher en aveugle. Il est reconnu par les assurances (convention IRSI pour les sinistres en copropriété). La réparation elle-même (soudure, manchon, remplacement d'un tronçon) est réalisée par votre plombier habituel."
+    }
+  ],
+  "relatedServices": [
+    "detection-fuite-non-destructive",
+    "urgence-fuite-eau"
+  ],
+  "faq": [
+    {
+      "q": "Comment savoir si ma canalisation enterrée fuit ?",
+      "a": "Fermez tous les robinets et regardez si votre compteur d'eau tourne encore. Si l'indicateur de débit bouge alors que vous n'utilisez pas d'eau, vous avez probablement une fuite dans le réseau. Un sol anormalement humide ou toujours vert en été dans le jardin est aussi un signe typique d'une fuite souterraine."
+    },
+    {
+      "q": "Faut-il creuser des tranchées pour trouver la fuite ?",
+      "a": "Non, pas avant d'avoir localisé la fuite. Nous localisons d'abord précisément la fuite par méthodes non destructives, puis votre plombier n'ouvre qu'à l'endroit exact. Cela évite des travaux de terrassement inutiles et coûteux."
+    },
+    {
+      "q": "L'assurance prend-elle en charge la recherche de fuite sur canalisation enterrée ?",
+      "a": "Cela dépend de votre contrat. De nombreuses assurances habitation incluent une garantie 'recherche de fuite'. La convention IRSI encadre les recours entre assureurs pour les sinistres en immeuble collectif. Notre rapport de localisation est le document de base demandé pour déclencher cette prise en charge."
+    },
+    {
+      "q": "Combien de temps dure une intervention sur canalisation enterrée ?",
+      "a": "Entre 1 h 30 et 4 h selon la longueur du réseau, la profondeur de la canalisation et la nature du sol. Nous vous donnons une estimation avant de démarrer l'intervention."
+    }
+  ],
+  "image": "/services/recherche-fuite-canalisation-enterree.jpg"
+}

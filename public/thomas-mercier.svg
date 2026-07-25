@@ -1,0 +1,23 @@
+<svg viewBox="0 0 400 480" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="480" fill="#EFF6FF"/>
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#DBEAFE"/>
+      <stop offset="100%" stop-color="#EFF6FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="480" fill="url(#bg)"/>
+  <!-- Silhouette artisan -->
+  <circle cx="200" cy="160" r="80" fill="#BFDBFE"/>
+  <ellipse cx="200" cy="440" rx="120" ry="80" fill="#BFDBFE"/>
+  <!-- Hard hat icon -->
+  <path d="M140 145 C140 115, 160 95, 200 92 C240 95, 260 115, 260 145 L265 165 L135 165 Z" fill="#0B4F8A"/>
+  <rect x="130" y="160" width="140" height="10" rx="5" fill="#0B4F8A"/>
+  <!-- Face placeholder -->
+  <circle cx="200" cy="180" r="50" fill="#DBEAFE"/>
+  <!-- Label -->
+  <text x="200" y="350" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="700" font-size="18" fill="#1E3A5F">Thomas Mercier</text>
+  <text x="200" y="378" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="400" font-size="14" fill="#64748B">Artisan détection fuite d'eau</text>
+  <text x="200" y="420" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#94A3B8">Photo à remplacer — fournie par Rémy</text>
+</svg>

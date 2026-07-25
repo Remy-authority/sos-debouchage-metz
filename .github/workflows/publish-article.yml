@@ -1,0 +1,53 @@
+name: Publier un article (autoblog)
+
+# Publie automatiquement le plus ancien article de content/drafts/ lundi, mercredi
+# et vendredi. Le push sur main déclenche le redéploiement Vercel.
+#
+# Fuseau : cron GitHub = UTC. On tire à 05:00 UTC toute l'année (~7h à Paris en été,
+# ~6h en hiver). L'heure exacte n'est pas critique, on ne gère donc pas le DST.
+
+on:
+  schedule:
+    - cron: '0 5 * * 1,3,5' # lun / mer / ven à 05:00 UTC
+  workflow_dispatch: {} # déclenchement manuel (test immédiat, sans attendre lundi)
+
+# Le GITHUB_TOKEN doit pouvoir committer/pusher sur main.
+permissions:
+  contents: write
+
+# Jamais deux publications simultanées (ex. cron + déclenchement manuel).
+concurrency:
+  group: publish-article
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Publier le plus ancien draft
+        id: pub
+        run: node scripts/publish-next-draft.mjs
+
+      - name: Commit & push sur main
+        if: steps.pub.outputs.published == 'true'
+        run: |
+          git config user.name "autoblog-bot"
+          git config user.email "autoblog-bot@users.noreply.github.com"
+          git add content/conseils content/drafts public/conseils
+          git commit -m "content(autoblog): publication de ${{ steps.pub.outputs.slug }}"
+          git push origin main
+
+      - name: Rien à publier
+        if: steps.pub.outputs.published != 'true'
+        run: echo "Aucun draft en attente dans content/drafts/. Workflow terminé sans publication."

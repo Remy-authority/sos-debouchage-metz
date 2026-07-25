@@ -1,0 +1,58 @@
+{
+  "slug": "recherche-fuite-piscine",
+  "order": 5,
+  "icon": "pool",
+  "navTitle": "Fuite de piscine",
+  "h1": "Recherche de fuite de piscine à Angers",
+  "metaTitle": "Recherche de fuite de piscine à Angers",
+  "metaDescription": "Votre piscine perd de l'eau ? Détection de fuite de piscine à Angers : liner, canalisations, pièces à sceller. Localisation précise.",
+  "intro": "Votre piscine perd de l'eau régulièrement et ce n'est pas de l'évaporation ? Nous intervenons à Angers et dans les environs pour localiser précisément les fuites de piscine (liner, bonde de fond, buses de refoulement, tuyauteries enterrées) avec un diagnostic ciblé, sans vider le bassin dans la grande majorité des cas.",
+  "bullets": [
+    "Liner",
+    "Canalisations",
+    "Pièces à sceller"
+  ],
+  "blocks": [
+    {
+      "heading": "Signes d'une fuite de piscine",
+      "body": "Avant de faire appel à nous, réalisez le test du seau : remplissez un seau d'eau de la même température que la piscine, posez-le sur une marche immergée (moitié dans l'eau, moitié hors d'eau), et comparez la perte de niveau du seau et du bassin au bout de 48 h sans baignade ni arrosage. Si la piscine perd davantage que le seau, il y a probablement une fuite. D'autres signes : apparition de zones humides ou d'affaissements autour du bassin, sol détrempé du côté des canalisations, fluctuation anormale du niveau même par temps couvert ou sans activité, consommation d'eau plus élevée que d'habitude en remplissage."
+    },
+    {
+      "heading": "Où se situent les fuites de piscine",
+      "body": "Les fuites de piscine se concentrent sur plusieurs zones. Le liner : piqûres, déchirures ou décollement aux ancrages (margelles, skimmers). Les pièces à sceller : bonde de fond, skimmers, buses de refoulement, projecteurs. Les joints vieillissent et se fissurent, en particulier après un hiver. Les canalisations enterrées : tuyaux d'aspiration et de refoulement. Causes fréquentes : rupture de joint, corrosion, mouvement de terrain. Le local technique : fuites sur les raccords de pompe, filtre ou échangeur de chaleur. Chaque zone nécessite une méthode de diagnostic différente.",
+      "image": "/services/recherche-fuite-piscine-pieces-sceller.jpg",
+      "imageAlt": "Injection de colorant traceur près d'une buse de refoulement immergée",
+      "imageCaption": "Le colorant traceur migre vers la fuite et devient visible sur une pièce à sceller."
+    },
+    {
+      "heading": "Nos méthodes de détection",
+      "body": "Pour les pièces à sceller et le circuit hydraulique, nous réalisons des tests de mise sous pression des lignes d'eau et utilisons l'injection de colorant (traceur inoffensif qui migre vers la fuite et devient visible). Pour les canalisations enterrées, nous injectons du gaz traceur après isolation de la ligne suspecte. Un test de pression préalable sur les différents circuits (aspiration, refoulement, contre-courant) permet de savoir si la fuite est dans le bassin ou dans les tuyauteries. Nous vous remettons un rapport avec la localisation exacte et les photos pour que votre pisciniste ou plombier puisse intervenir efficacement.",
+      "image": "/services/recherche-fuite-piscine-pression.jpg",
+      "imageAlt": "Manomètres de test de pression connectés au circuit hydraulique d'une piscine",
+      "imageCaption": "Le test de pression sur chaque circuit indique si la fuite vient du bassin ou des tuyauteries."
+    }
+  ],
+  "relatedServices": [
+    "detection-fuite-non-destructive",
+    "urgence-fuite-eau"
+  ],
+  "faq": [
+    {
+      "q": "Comment savoir si ma piscine fuit vraiment ou si c'est de l'évaporation ?",
+      "a": "Faites le test du seau : remplissez un seau d'eau de piscine, posez-le sur une marche (moitié immergé), et comparez la perte de niveau du seau et du bassin au bout de 48 h sans baignade ni arrosage. Si la piscine perd plus que le seau, c'est une fuite. Si les deux perdent la même quantité, c'est de l'évaporation normale."
+    },
+    {
+      "q": "Faut-il vider la piscine pour localiser une fuite ?",
+      "a": "Non, dans la grande majorité des cas. La plupart des fuites de piscine sont diagnostiquées avec le bassin en eau. Vider le bassin n'est nécessaire que dans de rares cas, par exemple pour une réparation de liner sur le fond nécessitant un accès direct."
+    },
+    {
+      "q": "Intervenez-vous en début ou fin de saison ?",
+      "a": "Oui. La détection peut se faire dès que la piscine est remplie, au printemps ou à l'automne. C'est souvent en début de saison, lors de la remise en eau, ou après une période de gel que les fuites apparaissent sur les joints et les pièces à sceller."
+    },
+    {
+      "q": "Qui effectue la réparation du liner ou des canalisations après la détection ?",
+      "a": "La réparation est réalisée par l'entreprise de piscine ou le pisciniste de votre choix sur la base de notre rapport. Si la fuite est sur le liner, un spécialiste liner procède à la soudure ou au remplacement. Si c'est une canalisation enterrée, un plombier intervient."
+    }
+  ],
+  "image": "/services/recherche-fuite-piscine.jpg"
+}

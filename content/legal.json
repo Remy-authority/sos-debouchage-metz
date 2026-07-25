@@ -1,0 +1,34 @@
+{
+  "_comment": "Mentions légales, éditeur = société propriétaire du site (DYONISOS LTD, droit UK). Données réelles fournies par Rémy (NOU-29). L'éditeur du site n'est PAS le prestataire des interventions : les infos d'un artisan (assurance RC pro/décennale) seront ajoutées à la location. Ne jamais inventer de valeurs. Hébergeur (Vercel) = fait, pré-rempli.",
+  "editeur": {
+    "raisonSociale": "DYONISOS LTD",
+    "formeJuridique": "Private Limited Company (société à responsabilité limitée de droit anglais)",
+    "numeroImmatriculation": "14807222",
+    "registre": "Companies House (Royaume-Uni)",
+    "adresse": "67 Eastover Road, High Littleton, Bristol, BS39 6HZ, Royaume-Uni",
+    "directeurPublication": "Remy Zaoui",
+    "emailContact": "contact@sosfuite-angers.fr",
+    "telephone": "07 56 85 31 25"
+  },
+  "assurance": {
+    "assureur": "",
+    "police": "",
+    "couverture": "Responsabilité civile professionnelle et décennale : références à compléter"
+  },
+  "hebergeur": {
+    "nom": "Vercel Inc.",
+    "adresse": "440 N Barranca Ave #4133, Covina, CA 91723, États-Unis",
+    "site": "https://vercel.com",
+    "contact": "privacy@vercel.com"
+  },
+  "confidentialite": {
+    "responsableTraitement": "DYONISOS LTD",
+    "finalite": "Traitement des demandes de contact et de devis envoyées via le formulaire du site.",
+    "baseLegale": "Consentement de la personne concernée (art. 6.1.a RGPD).",
+    "donneesCollectees": ["nom", "téléphone", "ville / code postal", "message"],
+    "conservation": "Les données sont conservées le temps du traitement de la demande, puis 3 ans à compter du dernier contact à des fins de suivi commercial.",
+    "destinataires": "Les données ne sont transmises qu'à l'artisan destinataire de la demande. Aucune revente à des tiers.",
+    "droits": "Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation et d'opposition. Pour l'exercer : contact@sosfuite-angers.fr.",
+    "cookies": "Le site n'utilise pas de cookies de suivi publicitaire. Seuls des cookies techniques strictement nécessaires peuvent être déposés."
+  }
+}
