@@ -1,16 +1,19 @@
 import type { Config } from 'tailwindcss'
 
 /**
- * tailwind.config.ts, Design tokens branchés sur CSS variables.
+ * tailwind.config.ts, design tokens branchés sur les CSS variables émises par
+ * lib/theme.ts depuis `siteConfig.palette`. Aucune couleur en dur ici : changer
+ * les 4 échelles dans site.config.ts re-thème tout le site (clé du template N+1).
  *
- * Les couleurs viennent de siteConfig.colors, injectées en CSS vars dans
- * app/layout.tsx (`--color-primary-rgb`, etc.). Changer 3 hex dans site.config.ts
- * re-thème TOUT le site (clé du template N+1), sans toucher aux composants.
- *
- * Les vars stockent des canaux RGB (« r g b ») → support des modificateurs
- * d'opacité Tailwind (bg-primary/10, text-accent/80…).
+ * Système de design transposé de la référence PROTEC-DARD :
+ *  - deux familles de police, Inter (UI, corps) et Fraunces (display, titres)
+ *  - rayons généreux (cartes 24px, panneaux 32px, blocs héros 40px, boutons ronds)
+ *  - ombres douces à deux couches, halos animés, textures de bruit et de grille
  */
-const withOpacity = (v: string) => `rgb(var(${v}) / <alpha-value>)`
+const c = (v: string) => `rgb(var(${v}) / <alpha-value>)`
+
+const scale = (family: string, levels: number[]) =>
+  Object.fromEntries(levels.map((l) => [l, c(`--c-${family}-${l}`)]))
 
 const config: Config = {
   content: [
@@ -22,38 +25,54 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          DEFAULT: withOpacity('--color-primary-rgb'),
-          dark: withOpacity('--color-primary-dark-rgb'),
+        ink: scale('ink', [600, 700, 800, 900, 950]),
+        sand: scale('sand', [50, 100, 200, 300, 400, 500, 600, 700]),
+        brand: {
+          ...scale('brand', [300, 400, 500, 600, 700]),
+          DEFAULT: c('--c-brand-600'),
         },
-        accent: withOpacity('--color-accent-rgb'),
-        dark: withOpacity('--color-dark-rgb'),
-        light: withOpacity('--color-light-rgb'),
+        accent: {
+          ...scale('accent', [300, 400, 500, 600]),
+          DEFAULT: c('--c-accent-500'),
+        },
       },
       fontFamily: {
-        sans: ['var(--font-sora)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-inter)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['var(--font-fraunces)', 'ui-serif', 'Georgia', 'serif'],
       },
       borderRadius: {
-        card: '20px',
+        card: '1.5rem',
+        panel: '2rem',
+        hero: '2.5rem',
+      },
+      boxShadow: {
+        card: '0 1px 2px rgb(7 26 30 / 0.05), 0 8px 24px -8px rgb(7 26 30 / 0.12)',
+        'card-hover': '0 4px 12px rgb(7 26 30 / 0.08), 0 24px 48px -12px rgb(7 26 30 / 0.2)',
+        glow: '0 0 40px -10px rgb(var(--c-accent-500) / 0.55)',
+        'glow-brand': '0 0 44px -12px rgb(var(--c-brand-400) / 0.5)',
       },
       keyframes: {
-        'hero-shine': {
-          '0%':   { transform: 'translateX(-120%) skewX(-18deg)', opacity: '0' },
-          '15%':  { opacity: '1' },
-          '85%':  { opacity: '1' },
-          '100%': { transform: 'translateX(300%) skewX(-18deg)', opacity: '0' },
+        shimmer: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
         },
-        /* Halo lumineux qui se déplace lentement derrière le hero (demande Rémy) */
-        'hero-glow': {
-          '0%, 100%': { transform: 'translate(0%, 0%) scale(1)' },
-          '25%':      { transform: 'translate(-10%, 12%) scale(1.08)' },
-          '50%':      { transform: 'translate(12%, 6%) scale(0.95)' },
-          '75%':      { transform: 'translate(4%, -10%) scale(1.04)' },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-12px)' },
+        },
+        /* Filet lumineux qui « descend » dans un tube : signature visuelle du métier. */
+        'flow-down': {
+          '0%': { transform: 'translateY(-120%)', opacity: '0' },
+          '18%': { opacity: '1' },
+          '82%': { opacity: '1' },
+          '100%': { transform: 'translateY(340%)', opacity: '0' },
         },
       },
       animation: {
-        'hero-shine': 'hero-shine 5s ease-in-out infinite',
-        'hero-glow':  'hero-glow 18s ease-in-out infinite',
+        shimmer: 'shimmer 8s linear infinite',
+        float: 'float 6s ease-in-out infinite',
+        'flow-down': 'flow-down 3.6s ease-in-out infinite',
       },
     },
   },

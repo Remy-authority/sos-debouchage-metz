@@ -1,0 +1,52 @@
+{
+  "slug": "debouchage-canalisation-enterree-regard",
+  "order": 6,
+  "icon": "buried",
+  "navTitle": "Canalisation enterrée et regard",
+  "h1": "Débouchage de canalisation enterrée et de regard à Metz",
+  "metaTitle": "Débouchage canalisation enterrée et regard, Metz",
+  "metaDescription": "Regard qui déborde ou canalisation enterrée bouchée à Metz ? Débouchage et curage par les accès existants, sans creuser. Devis annoncé avant.",
+  "intro": "Quand le regard de visite déborde ou que plusieurs évacuations de la maison refoulent en même temps, le bouchon n'est pas dans un appareil : il est sur la canalisation enterrée qui relie la maison au réseau public. Nous intervenons par les accès existants, sans creuser, à Metz et dans les communes de l'agglomération, et nous cherchons la cause du blocage plutôt que de simplement rétablir l'écoulement.",
+  "bullets": [
+    "Intervention par le regard",
+    "Sans terrassement",
+    "Cause identifiée, pas seulement le bouchon"
+  ],
+  "blocks": [
+    {
+      "heading": "Reconnaître un bouchon sur la partie enterrée",
+      "body": "Le signe le plus fiable est la simultanéité. Quand plusieurs appareils sans rapport entre eux se mettent à mal évacuer en même temps, WC, évier de cuisine, machine à laver, la cause est en aval, sur la canalisation qui les rassemble. Les autres indices sont un regard de visite rempli d'eau alors qu'il devrait être presque vide, des odeurs d'égout à l'extérieur près du regard ou du tampon, des remontées d'eau au point le plus bas de la maison, souvent la douche du rez-de-chaussée ou une évacuation de sous-sol, et des gargouillis dans les canalisations quand un autre appareil s'écoule. Une zone de pelouse anormalement verte ou un affaissement au-dessus du tracé signalent plutôt une conduite cassée qu'un simple bouchon."
+    },
+    {
+      "heading": "Notre intervention, par les accès existants",
+      "body": "Nous localisons d'abord les regards et les tampons de dégorgement, y compris ceux qui ont été recouverts au fil des aménagements de jardin ou de terrasse. Le regard ouvert nous dit déjà beaucoup : s'il est plein, le bouchon est en aval ; s'il est vide alors que la maison refoule, il est en amont. Nous engageons ensuite le furet ou l'hydrocureur dans la bonne direction, avec la buse adaptée au diamètre. Sur un réseau enterré, la haute pression est souvent la meilleure réponse car elle nettoie la paroi et ramène les dépôts vers l'aval au lieu de les tasser plus loin. Aucun terrassement n'est nécessaire pour l'intervention : creuser ne se justifie que si l'inspection montre une conduite cassée ou effondrée, et jamais sans que vous en ayez été informé avant."
+    },
+    {
+      "heading": "Les causes récurrentes sur les réseaux enterrés",
+      "body": "Les racines arrivent en tête. Elles entrent par un joint ou un emboîtement légèrement ouvert, se développent en chevelu à l'intérieur de la conduite et retiennent tout ce qui passe. Les arbres et les haies plantés près du tracé d'évacuation sont les premiers concernés. Viennent ensuite les affaissements et les contre-pentes, fréquents sur les réseaux anciens ou après des travaux de voirie ou de terrassement : l'eau stagne dans le creux et les matières s'y déposent. Enfin, les dépôts de graisse et de calcaire réduisent progressivement le diamètre utile, surtout sur les conduites de faible pente. Une inspection caméra après débouchage permet de savoir laquelle de ces trois causes vous concerne, et donc s'il faut prévoir un curage périodique ou une réparation."
+    }
+  ],
+  "relatedServices": [
+    "inspection-camera-canalisation",
+    "curage-canalisation-haute-pression"
+  ],
+  "faq": [
+    {
+      "q": "Où se trouve le regard de visite de ma maison ?",
+      "a": "Il se situe en général sur le tracé entre la maison et la limite de propriété, dans l'allée, la cour ou le jardin, sous un tampon rond ou carré en fonte, en béton ou en PVC. Sur les constructions récentes, il est souvent visible près de la clôture, côté rue. Sur les maisons anciennes, il a fréquemment été recouvert par une terrasse, du gravier ou de la pelouse. Si vous ne le trouvez pas, ne creusez pas au hasard : nous savons où chercher et nous disposons du matériel pour le localiser."
+    },
+    {
+      "q": "Faut-il creuser pour déboucher une canalisation enterrée ?",
+      "a": "Non, pas pour le débouchage. Le furet et l'hydrocureur passent par les accès existants, regard de visite ou tampon de dégorgement, et traitent la conduite sur toute sa longueur depuis ces points. Le terrassement ne devient nécessaire que pour réparer une canalisation cassée, écrasée ou effondrée, ce qui se constate à la caméra avant toute décision."
+    },
+    {
+      "q": "Les racines d'arbres peuvent-elles vraiment boucher une canalisation ?",
+      "a": "Oui, c'est même l'une des causes les plus fréquentes sur les réseaux enterrés anciens. Les racines sont attirées par l'humidité et pénètrent par un joint ou un emboîtement légèrement ouvert, où elles forment un chevelu qui retient lingettes, papier et graisses. Le curage haute pression avec tête de coupe rétablit le passage, mais tant que le point d'entrée n'est pas repris, les racines finissent par revenir."
+    },
+    {
+      "q": "Le bouchon est-il chez moi ou sur le réseau public ?",
+      "a": "Le regard de visite en limite de propriété sert justement de point de partage. S'il est plein et que le refoulement remonte vers la maison, le bouchon est en aval, potentiellement sur le branchement public. S'il est vide alors que la maison refoule, le bouchon est sur votre partie privative. Nous faisons ce constat en ouvrant le regard, et nous vous orientons vers le service compétent si la responsabilité est publique."
+    }
+  ],
+  "image": "/services/debouchage-canalisation-enterree-regard.jpg"
+}

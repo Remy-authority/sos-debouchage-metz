@@ -1,0 +1,52 @@
+{
+  "slug": "debouchage-bac-a-graisse",
+  "order": 7,
+  "icon": "grease",
+  "navTitle": "Bac à graisse (professionnels)",
+  "h1": "Débouchage et entretien de bac à graisse à Metz",
+  "metaTitle": "Bac à graisse à Metz, débouchage et entretien",
+  "metaDescription": "Débouchage, vidange et entretien de bac à graisse à Metz pour restaurants et collectivités. Intervention planifiée ou en urgence, bordereau remis.",
+  "intro": "Le bac à graisse retient les matières grasses avant qu'elles n'atteignent le réseau d'assainissement. Quand il n'est plus entretenu, il déborde, dégage des odeurs et laisse passer les graisses qui finissent par boucher la canalisation en aval. Nous intervenons auprès des restaurants, boulangeries, cantines et collectivités de Metz et de l'agglomération, en entretien planifié comme en urgence.",
+  "bullets": [
+    "Restaurants et collectivités",
+    "Entretien planifié ou urgence",
+    "Bordereau d'intervention remis"
+  ],
+  "blocks": [
+    {
+      "heading": "À quoi sert un bac à graisse et pourquoi il se bouche",
+      "body": "Le principe est simple : les eaux de cuisine arrivent dans une cuve où elles ralentissent. Les graisses, plus légères, remontent et forment une couche en surface ; les particules lourdes se déposent au fond ; l'eau intermédiaire seule repart vers le réseau. Le bac ne consomme rien et ne se régule pas tout seul : il se remplit. Quand la couche de graisse en surface devient trop épaisse, elle atteint le niveau de sortie et repart dans la canalisation, qu'elle colmate progressivement. Les signes qui doivent alerter sont l'évacuation qui ralentit en cuisine, une odeur persistante autour du bac, une couche solide visible à l'ouverture, et un refoulement au siphon de sol. Un bac négligé finit toujours par se traduire par un bouchon en aval, plus coûteux à traiter que l'entretien lui-même."
+    },
+    {
+      "heading": "Notre intervention sur un bac à graisse",
+      "body": "Nous ouvrons et vidons le bac, nous décollons les graisses figées sur les parois et sur les cloisons de séparation, puis nous curons les canalisations d'entrée et de sortie afin que le dépôt ne reparte pas immédiatement. Le contenu est pompé et évacué en filière agréée : les graisses alimentaires sont des déchets réglementés et ne peuvent pas être rejetées au réseau. Nous contrôlons ensuite l'état des cloisons et du panier de dégrillage, et nous vous remettons un bordereau d'intervention. Ce document est celui que l'on vous demandera en cas de contrôle sanitaire ou de contrôle du service d'assainissement."
+    },
+    {
+      "heading": "Périodicité et obligations",
+      "body": "Les établissements de restauration sont tenus d'équiper leurs rejets d'un dispositif de séparation des graisses et de l'entretenir régulièrement, selon la réglementation en vigueur et le règlement d'assainissement de la collectivité, qui peut fixer ses propres exigences. Nous ne donnons pas de fréquence universelle : elle dépend du volume du bac rapporté au nombre de couverts servis, du type de cuisine et de la présence ou non d'un dégrilleur en amont. Concrètement, un bac sous-dimensionné pour l'activité réelle demandera des passages bien plus rapprochés que le même bac dans un établissement à faible volume. Nous établissons avec vous un calendrier adapté à votre activité après avoir vu l'installation, plutôt qu'un abonnement standard qui serait soit inutile, soit insuffisant."
+    }
+  ],
+  "relatedServices": [
+    "curage-canalisation-haute-pression",
+    "debouchage-colonne-immeuble-copropriete"
+  ],
+  "faq": [
+    {
+      "q": "À quelle fréquence faut-il vidanger un bac à graisse ?",
+      "a": "Il n'existe pas de fréquence unique valable pour tous : elle dépend du volume du bac, du nombre de couverts servis et du type de cuisine, et le règlement d'assainissement de la collectivité peut imposer ses propres exigences. Le repère pratique est l'épaisseur de la couche de graisse en surface : dès qu'elle approche du niveau de sortie, le bac ne joue plus son rôle. Nous définissons un calendrier avec vous après avoir vu l'installation."
+    },
+    {
+      "q": "Que se passe-t-il si un bac à graisse n'est pas entretenu ?",
+      "a": "Les graisses franchissent le bac et se figent dans la canalisation en aval, qui se colmate progressivement jusqu'au refoulement en cuisine. S'y ajoutent des odeurs persistantes, un risque sanitaire dans une zone de préparation alimentaire, et une non-conformité lors d'un contrôle. Le coût d'un débouchage d'urgence en plein service dépasse largement celui d'un entretien planifié."
+    },
+    {
+      "q": "Faut-il fermer l'établissement pendant l'intervention ?",
+      "a": "Non dans la plupart des cas. Nous planifions l'intervention en dehors des heures de service, généralement le matin avant l'ouverture ou l'après-midi entre deux services, pour que la cuisine reste opérationnelle. Cela fait partie des points que nous calons lors de la prise de rendez-vous."
+    },
+    {
+      "q": "Remettez-vous un justificatif après la vidange ?",
+      "a": "Oui. Nous vous remettons un bordereau d'intervention précisant la date, la prestation réalisée et l'évacuation des déchets en filière agréée. C'est ce document qui est demandé en cas de contrôle sanitaire ou par le service d'assainissement, et il vaut mieux le conserver avec le registre de l'établissement."
+    }
+  ],
+  "image": "/services/debouchage-bac-a-graisse.jpg"
+}

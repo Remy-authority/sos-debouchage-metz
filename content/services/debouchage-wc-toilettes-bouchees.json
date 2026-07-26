@@ -1,0 +1,52 @@
+{
+  "slug": "debouchage-wc-toilettes-bouchees",
+  "order": 2,
+  "icon": "wc",
+  "navTitle": "WC et toilettes bouchés",
+  "h1": "Débouchage WC et toilettes bouchées à Metz",
+  "metaTitle": "WC bouché à Metz, débouchage de toilettes",
+  "metaDescription": "WC bouché à Metz ? Débouchage de toilettes sans casse, au furet ou à la haute pression. Intervention 7j/7, prix annoncé avant.",
+  "intro": "Des WC bouchés se règlent presque toujours par la cuvette, sans rien démonter et sans casse. Nous intervenons à Metz et dans les communes voisines pour déboucher des toilettes, identifier ce qui bloque et vérifier que l'évacuation reprend correctement. Si le problème revient régulièrement, la cause est ailleurs que dans la cuvette et nous la cherchons.",
+  "bullets": [
+    "Débouchage par la cuvette",
+    "Sans démontage dans la majorité des cas",
+    "Recherche de la cause si récidive"
+  ],
+  "blocks": [
+    {
+      "heading": "Pourquoi des toilettes se bouchent",
+      "body": "Trois causes couvrent la quasi-totalité des cas. La première est un objet ou une matière qui ne se désagrège pas : lingette, coton, protection hygiénique, papier épais, jouet, brosse. Les lingettes dites biodégradables restent la cause numéro un : elles ne se délitent pas assez vite et s'agglomèrent au premier coude. La deuxième cause est le tartre. À Metz, l'eau distribuée est calcaire, et le tartre réduit progressivement le diamètre utile de la sortie de cuvette et du siphon jusqu'à ce qu'un simple excès de papier suffise à bloquer l'ensemble. La troisième cause n'est pas dans les WC du tout : c'est un bouchon situé plus loin sur la chute ou le collecteur. Le signe qui ne trompe pas est que d'autres appareils réagissent aussi, par exemple la douche qui refoule quand vous tirez la chasse."
+    },
+    {
+      "heading": "Notre méthode pour déboucher des WC",
+      "body": "Nous commençons toujours par le moins invasif. Le furet à tête adaptée passe par la cuvette et permet de percer ou de ramener le bouchon sans déposer la cuvette. Sur un bouchon compact ou entartré, nous utilisons une pompe de dégorgement ou la haute pression à débit maîtrisé, qui nettoie aussi la paroi au passage plutôt que de simplement percer un passage. Le démontage de la cuvette reste l'exception, réservé aux objets solides coincés dans le siphon intégré. Avant de partir, nous faisons plusieurs chasses complètes pour vérifier que l'évacuation se fait à pleine section et pas seulement au goutte-à-goutte."
+    },
+    {
+      "heading": "Quand le problème revient sans arrêt",
+      "body": "Des WC qui se rebouchent toutes les quelques semaines ne posent pas un problème d'usage, mais un problème de réseau. Les causes habituelles sont un entartrage avancé de la chute, une pente d'évacuation insuffisante, un affaissement de canalisation ou des racines entrées par un joint sur la partie enterrée. Dans ce cas, déboucher une nouvelle fois ne fait que repousser l'échéance. Nous passons la caméra d'inspection pour voir l'état réel de la conduite, et nous vous disons franchement si la solution est un curage haute pression ou une réparation de canalisation. En copropriété, ce constat sert aussi à établir si la charge revient au logement ou aux parties communes."
+    }
+  ],
+  "relatedServices": [
+    "urgence-debouchage-canalisation",
+    "inspection-camera-canalisation"
+  ],
+  "faq": [
+    {
+      "q": "Comment déboucher des toilettes sans ventouse ?",
+      "a": "Si l'eau est simplement haute mais s'écoule lentement, versez un seau d'eau chaude, sans la faire bouillir, d'un coup et depuis une hauteur d'environ un mètre : la pression et la chaleur suffisent souvent à faire céder un bouchon de papier. Si l'eau ne descend pas du tout, n'insistez pas et ne tirez plus la chasse, vous risquez le débordement. N'utilisez pas non plus de déboucheur chimique sur une cuvette pleine. Un furet adapté aux WC reste le seul outil qui traite le bouchon là où il se trouve."
+    },
+    {
+      "q": "Faut-il démonter la cuvette pour déboucher des WC ?",
+      "a": "Dans la grande majorité des cas, non. Le débouchage se fait par la cuvette, au furet ou à la pompe de dégorgement. La dépose de la cuvette n'est nécessaire que lorsqu'un objet solide est coincé dans le siphon intégré et ne peut ni être percé ni être ramené. Nous vous le disons avant de le faire, et jamais comme un passage obligé."
+    },
+    {
+      "q": "Pourquoi mes toilettes se rebouchent-elles souvent ?",
+      "a": "Une récidive rapprochée signale que le bouchon n'a jamais été retiré, seulement percé, ou que la canalisation elle-même est en cause : entartrage, pente insuffisante, affaissement ou racines sur la partie enterrée. L'inspection caméra tranche en quelques minutes entre un problème d'usage et un défaut de canalisation, ce qui évite de payer plusieurs débouchages pour rien."
+    },
+    {
+      "q": "Les lingettes sont-elles vraiment un problème même si elles sont dites biodégradables ?",
+      "a": "Oui. La mention biodégradable indique que le textile finit par se dégrader, pas qu'il se délite dans les quelques secondes de son passage dans la canalisation. Les lingettes gardent leur résistance mécanique bien assez longtemps pour s'accrocher au premier coude, retenir le papier suivant et former un bouchon compact. C'est la cause la plus fréquente des WC bouchés que nous rencontrons."
+    }
+  ],
+  "image": "/services/debouchage-wc-toilettes-bouchees.jpg"
+}

@@ -1,33 +1,32 @@
 import Link from 'next/link'
+import { ChevronRight } from 'lucide-react'
 import { breadcrumbJsonLd, jsonLdScript } from '@/lib/seo'
 
 /**
- * Breadcrumbs, fil d'Ariane sur les pages profondes (services, zones, articles)
- * + JSON-LD BreadcrumbList. `items` = liste ordonnée (dernier = page courante).
+ * Fil d'Ariane posé sous le header fixe, sur le fond crème. Émet aussi le
+ * BreadcrumbList JSON-LD correspondant.
  */
-export default function Breadcrumbs({
-  items,
-}: {
-  items: { name: string; path: string }[]
-}) {
+export function Breadcrumbs({ items }: { items: { name: string; path: string }[] }) {
   return (
-    <nav aria-label="Fil d'Ariane" className="container-site pt-4 text-sm text-slate-500">
+    <nav aria-label="Fil d'Ariane" className="border-b border-sand-200 bg-sand-100/70 pt-24 lg:pt-28">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdScript(breadcrumbJsonLd(items)) }}
       />
-      <ol className="flex flex-wrap items-center gap-1.5">
+      <ol className="mx-auto flex max-w-7xl flex-wrap items-center gap-1.5 px-6 py-4 text-sm text-sand-500 lg:px-10">
         {items.map((item, i) => {
           const last = i === items.length - 1
           return (
-            <li key={i} className="flex items-center gap-1.5">
+            <li key={item.path} className="flex items-center gap-1.5">
+              {i > 0 && <ChevronRight size={14} className="text-sand-400" aria-hidden="true" />}
               {last ? (
-                <span aria-current="page" className="text-slate-700">{item.name}</span>
+                <span className="max-w-[22rem] truncate font-medium text-ink-900" aria-current="page">
+                  {item.name}
+                </span>
               ) : (
-                <>
-                  <Link href={item.path} className="hover:underline">{item.name}</Link>
-                  <span aria-hidden="true">›</span>
-                </>
+                <Link href={item.path} className="transition-colors hover:text-brand-600">
+                  {item.name}
+                </Link>
               )}
             </li>
           )
@@ -36,3 +35,5 @@ export default function Breadcrumbs({
     </nav>
   )
 }
+
+export default Breadcrumbs

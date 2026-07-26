@@ -1,70 +1,67 @@
+import { AnimatedSection } from '@/components/ui/AnimatedSection'
+import { SectionHeader } from '@/components/ui/SectionHeader'
+import { ServiceIcon } from '@/components/ui/ServiceIcon'
 import { siteConfig } from '@/config/site.config'
 
-const STEP_ICONS: Record<string, React.ReactNode> = {
-  phone: (
-    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
-    </svg>
-  ),
-  search: (
-    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-      <circle cx="11" cy="11" r="8" />
-      <path d="m21 21-4.35-4.35" />
-    </svg>
-  ),
-  tool: (
-    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-    </svg>
-  ),
-  check: (
-    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-      <path d="M9 11l3 3L22 4" />
-      <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-    </svg>
-  ),
-}
-
-export default function Process() {
+/**
+ * Déroulé d'intervention en 4 étapes, sur fond sombre. Les cartes sont reliées par
+ * un filet dégradé qui matérialise l'écoulement d'une étape à la suivante.
+ */
+export function Process() {
   const steps = siteConfig.process
 
   return (
-    <section className="section bg-light" aria-labelledby="process-title">
-      <div className="container-site">
-        <div className="mb-10 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-accent">Notre méthode</p>
-          <h2 id="process-title" className="text-2xl font-bold text-slate-900 md:text-3xl">
-            Comment ça se passe ?
-          </h2>
-        </div>
+    <section
+      id="deroulement"
+      className="noise-overlay relative overflow-hidden bg-gradient-to-b from-ink-950 to-ink-900 py-24 lg:py-32"
+      aria-labelledby="process-title"
+    >
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgb(var(--c-brand-500)/0.18),transparent_52%)]"
+      />
 
-        <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" role="list" style={{ alignItems: 'stretch' }}>
-          {steps.map((step, i) => (
-            <li key={step.title} className="relative flex">
-              {/* Ligne de connexion (desktop) */}
-              {i < steps.length - 1 && (
-                <div
-                  className="absolute left-full top-10 z-0 hidden h-0.5 w-6 bg-slate-200 lg:block"
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
+        <SectionHeader
+          id="process-title"
+          eyebrow="Comment ça se passe"
+          title={
+            <>
+              De votre appel
+              <span className="text-gradient-accent"> à l&apos;écoulement retrouvé</span>
+            </>
+          }
+          subtitle="Quatre étapes, sans zone d'ombre. Vous savez à chaque moment ce que nous faisons et pourquoi."
+          variant="dark"
+        />
+
+        <ol className="mt-20 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {steps.map((step, idx) => (
+            <AnimatedSection key={step.step} delay={idx * 0.1} as="li" className="relative">
+              {idx < steps.length - 1 && (
+                <span
                   aria-hidden="true"
+                  className="absolute left-[calc(100%-1rem)] top-12 hidden h-px w-[calc(100%-3rem)] bg-gradient-to-r from-brand-400/50 to-transparent lg:block"
                 />
               )}
-              <div className="card flex h-full w-full flex-col gap-4">
-                <div className="flex items-start gap-4">
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary text-white">
-                    {STEP_ICONS[step.icon] ?? (
-                      <span className="text-lg font-bold">{i + 1}</span>
-                    )}
-                  </span>
-                  <span className="mt-2 text-3xl font-extrabold text-slate-100 leading-none select-none">
-                    {String(i + 1).padStart(2, '0')}
+
+              <div className="group relative h-full overflow-hidden rounded-card border border-ink-700/55 bg-gradient-to-br from-ink-800/45 to-ink-950/65 p-8 transition-all duration-500 hover:-translate-y-1 hover:border-brand-400/45">
+                <div className="flex items-center justify-between">
+                  <span className="font-display text-5xl font-medium text-brand-400/30">{step.step}</span>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-500/12 text-brand-300 ring-1 ring-brand-400/25 transition-transform duration-500 group-hover:scale-110">
+                    <ServiceIcon icon={step.icon} className="h-5 w-5" strokeWidth={2} />
                   </span>
                 </div>
-                <div>
-                  <h3 className="font-bold text-slate-900">{step.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-slate-600">{step.desc}</p>
-                </div>
+
+                <h3 className="mt-6 text-xl text-sand-50">{step.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-sand-300">{step.desc}</p>
+
+                <p className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-ink-900/70 px-3 py-1 text-xs font-medium uppercase tracking-wider text-accent-300">
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent-400" aria-hidden="true" />
+                  {step.duration}
+                </p>
               </div>
-            </li>
+            </AnimatedSection>
           ))}
         </ol>
       </div>

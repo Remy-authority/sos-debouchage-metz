@@ -2,160 +2,261 @@
  * ─────────────────────────────────────────────────────────────────────────────
  *  site.config.ts, LE fichier unique qui pilote l'identité du site.
  * ─────────────────────────────────────────────────────────────────────────────
- *  C'est le cœur du template « site local N+1 ». Pour déployer un nouveau site
- *  (autre métier / ville / locataire) en < 1 jour : on édite CE fichier + le logo
- *  + les fichiers content/*.json, SANS toucher aux composants ni au SEO.
+ *  Coeur du template « site local N+1 ». Pour déployer un nouveau site (autre
+ *  métier / ville / locataire) : on édite CE fichier + le logo + content/*.json,
+ *  SANS toucher aux composants ni au SEO.
  *
- *  Personnalisation location : nom, logo, téléphone, email, couleurs, SIREN…
- *  tout est ici → un changement de locataire = édition de config, sans impact SEO.
- *
- *  ⚠️ Garde-fous (NOU-33) :
- *   - `colors` alimente les CSS variables (voir app/layout.tsx) → tailwind.config.ts.
- *   - `features.reviews=false` tant qu'il n'y a pas d'avis Google réels (aucun faux avis).
- *   - `legal` = gabarit paramétrable : NE PAS inventer SIREN / éditeur (fourni par Rémy).
- *   - `showAddress=false` par défaut : pas d'`address` dans le schema Plumber tant que
- *     Rémy n'a pas tranché (artisan à domicile vs adresse physique exposée).
+ *  ⚠️ Garde-fous :
+ *   - `palette` est la SOURCE UNIQUE des couleurs. lib/theme.ts la convertit en
+ *     CSS variables (canaux RGB) posées sur <html>, tailwind.config.ts les lit.
+ *     Changer la palette d'un site N+1 = éditer ce bloc, rien d'autre.
+ *   - `features.reviews=false` tant qu'il n'y a pas d'avis réels (aucun faux avis).
+ *   - `legal` = gabarit paramétrable : NE PAS inventer SIREN / éditeur.
+ *   - `showAddress=false` par défaut : pas d'`address` dans le schema tant que
+ *     Rémy n'a pas tranché (artisan mobile vs adresse physique exposée).
+ *   - Tout ce qui est marqué DEMO attend une donnée réelle de Rémy.
  */
 
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
   /* ── Identité commerciale (louable / remplaçable par l'artisan locataire) ── */
-  businessName: "SOS Fuite Angers",
-  trade: 'Recherche de fuite d’eau',
-  city: 'Angers',
-  region: 'Maine-et-Loire',
-  department: '49',
+  businessName: 'SOS Débouchage Metz',
+  trade: 'Débouchage de canalisation',
+  tradeShort: 'Débouchage',
+  city: 'Metz',
+  region: 'Grand Est',
+  departmentName: 'Moselle',
+  department: '57',
 
-  /* ── Contact (variables, remplaçables sans toucher au SEO) ── */
-  // Numéro réel de Rémy (commit 90d70fd). E.164 pour tel:, display pour l'affichage.
-  phone: '+33756853125',
-  phoneDisplay: '07 56 85 31 25',
-  email: 'contact@sosfuite-angers.fr',
+  /* ── Contact ── */
+  // DEMO – numéro de la plage réservée à la fiction (ARCEP, zone 03), volontairement
+  // non attribué. À remplacer par la ligne dédiée fournie par Rémy.
+  phone: '+33353012424',
+  phoneDisplay: '03 53 01 24 24',
+  phoneIsDemo: true,
+  // DEMO – domaine pas encore acheté.
+  email: 'contact@sos-debouchage-metz.fr',
 
-  /* ── Branding : ces 3 hex re-thèment tout le site via CSS vars ── */
+  /* ── Branding ── */
   logo: '/logo.svg',
-  colors: {
-    // Famille « eau » validée en preview (Gate B). Bleu eau + accent orange urgence.
-    primary: '#0B4F8A', // bleu eau (CTA secondaires, liens, titres)
-    primaryDark: '#0A3E6E',
-    accent: '#F97316', // orange urgence (CTA principal, téléphone/devis)
-    dark: '#0F172A', // fond sombre (hero / footer, cf. template de référence)
-    light: '#F6F9FC',
+
+  /**
+   * Palette du site. Quatre familles, chacune avec ses échelles :
+   *  - `ink`    : fonds sombres, bleu pétrole profond (sections sombres, footer)
+   *  - `sand`   : neutres chauds, écho à la pierre de Jaumont messine (sections claires)
+   *  - `brand`  : teal eau / canalisation (structure, icônes, liens, chrome)
+   *  - `accent` : vermillon (URGENCE et action uniquement : CTA, eyebrow, point vivant)
+   * Règle de composition : `brand` porte la structure, `accent` ne sert qu'à l'action.
+   */
+  palette: {
+    ink: {
+      600: '#1D5360',
+      700: '#16404A',
+      800: '#103138',
+      900: '#0B2429',
+      950: '#071A1E',
+    },
+    sand: {
+      50: '#FBF9F4',
+      100: '#F5F1E8',
+      200: '#E9E2D4',
+      300: '#D7CDB9',
+      400: '#B3A892',
+      500: '#8A8070',
+      600: '#645C50',
+      700: '#46403A',
+    },
+    brand: {
+      300: '#6FCBCE',
+      400: '#31A5AC',
+      500: '#12838C',
+      600: '#0C666E',
+      700: '#094E56',
+    },
+    accent: {
+      300: '#F58C7A',
+      400: '#EA5C46',
+      500: '#D93B28',
+      600: '#B22B1B',
+    },
   },
 
-  /* ── Réassurance / preuve (hero, badges, footer) ── */
+  /** Alias de compatibilité (manifest, thème navigateur, OG). */
+  colors: {
+    primary: '#0C666E',
+    primaryDark: '#094E56',
+    accent: '#D93B28',
+    dark: '#071A1E',
+    light: '#FBF9F4',
+  },
+
+  /* ── Réassurance / preuve ── */
   availability: '24h/24 · 7j/7',
-  responseTime: 'Intervention rapide sur Angers',
-  usps: ['Devis gratuit', 'Sans dégâts', 'Artisan local', 'Assurance décennale'],
-  methods: ['Gaz traceur', 'Caméra thermique', 'Détection acoustique'],
+  responseTime: 'Intervention rapide sur Metz et son agglomération',
+  usps: ['Devis avant intervention', 'Sans casse', 'Artisan local', 'Urgence 7j/7'],
+  methods: [
+    'Furet électrique',
+    'Hydrocurage haute pression',
+    'Inspection vidéo par caméra',
+    'Pompage et curage',
+  ],
 
   /* ── Zone d'intervention (schema areaServed + bloc zones) ── */
   serviceArea: {
-    base: 'Angers',
-    radiusKm: 25,
-    // Quartiers d'Angers cités pour la couverture géo fine (maillage, pas de page dédiée).
+    base: 'Metz',
+    radiusKm: 20,
+    // Quartiers de Metz cités pour la couverture géo fine (maillage, pas de page dédiée).
     districts: [
-      'Doutre', 'Belle-Beille', 'Lac de Maine', 'Monplaisir', 'La Roseraie',
-      'Justices', 'Saint-Serge', 'Madeleine', 'Centre-ville',
+      'Centre-ville', 'Sablon', 'Queuleu', 'Borny', 'Bellecroix',
+      'Devant-les-Ponts', 'Nouvelle Ville', 'Plantières', 'Magny',
+      'La Patrotte', 'Vallières', 'Les Îles',
     ],
   },
 
   /* ── Leads / formulaire ── */
-  // Endpoint de soumission. Vide => l'API interne /api/contact gère le fallback
-  // (log + email tier gratuit). Remplaçable par un webhook Formspree, etc.
-  // Aucune dépense engagée : défaut = fallback interne sans coût.
+  // Vide => l'API interne /api/contact gère le fallback (log + email tier gratuit).
   formEndpoint: '',
 
-  /* ── SEO global (défauts, surchargés par page, textes fournis par le SEO ST-2) ── */
+  /* ── SEO global ── */
   seo: {
-    // NB: basculer sur le domaine final au Gate C. Preview = URL vercel.
-    canonicalBase: 'https://www.sos-fuite-angers.fr',
-    defaultOgImage: '/og.png',
+    // NB : basculer sur le domaine final quand Rémy l'a acheté. Preview = URL Vercel.
+    canonicalBase: 'https://www.sos-debouchage-metz.fr',
+    defaultOgImage: '/og.jpg',
     locale: 'fr_FR',
     lang: 'fr',
   },
 
   /* ── Feature flags ── */
   features: {
-    reviews: false, // ⛔ aucun avis affiché tant que la fiche Google n'existe pas
-    gallery: true, // galerie réalisations active (placeholders, photos réelles à fournir par Rémy)
-    blog: true, // section /conseils (autoblog)
+    reviews: false, // ⛔ aucun avis affiché
+    gallery: true,
+    blog: true,
   },
 
   /* ── Persona artisan (DEMO, à remplacer par les infos du loueur) ── */
-  // DEMO – à remplacer par les infos du loueur
   persona: {
-    name: 'Thomas Mercier',
     // DEMO – à remplacer par les infos du loueur
-    photo: '/thomas-mercier.jpg', // Photo IA Canva, remplacement par photo réelle possible → public/thomas-mercier.jpg
-    title: "Artisan certifié détection non destructive",
+    name: 'Julien Kieffer',
+    // DEMO – portrait généré, remplaçable par une photo réelle
+    photo: '/persona.jpg',
+    // DEMO – à remplacer par les infos du loueur
+    title: 'Responsable des interventions canalisation',
+    // DEMO – à remplacer par les infos du loueur
+    quote:
+      'Un bouchon, ça se règle en une intervention quand on a le bon outil au bon endroit. On regarde avant de forcer.',
   },
 
-  /* ── Sections visuelles (ST-3), textes placeholder en attente ST-5 ── */
+  /* ── Bloc « à propos » ── */
   about: {
-    title: "Votre spécialiste fuite d'eau à Angers",
-    // DEMO – à remplacer par les infos du loueur
-    body: "Thomas Mercier dirige notre équipe spécialisée. Nous intervenons sur Angers et dans un rayon de 25 km pour détecter et localiser précisément vos fuites d'eau sans destruction. Nous maîtrisons les dernières technologies non invasives : gaz traceur, caméra thermique et acoustique, et vous remettons un rapport officiel reconnu par les assurances.",
-    // DEMO – à remplacer par les infos du loueur
-    highlight: 'Artisan certifié non destructif',
+    eyebrow: 'Qui sommes-nous',
+    title: 'Le débouchage,\nnotre seul métier',
+    // DEMO – texte à valider avec le loueur
+    body: [
+      "SOS Débouchage Metz intervient sur les canalisations bouchées à Metz et dans les communes de l'agglomération. Évier qui refoule, WC bouché, colonne d'immeuble saturée, regard qui déborde : nous traitons l'urgence puis nous cherchons la cause.",
+      "Nous ne faisons pas de plomberie générale. Nous faisons du débouchage, du curage et de l'inspection de réseau, avec le matériel correspondant : furet électrique, camion hydrocureur haute pression et caméra d'inspection. Le devis est annoncé avant l'intervention.",
+    ],
+    highlight: 'Un métier, un outillage dédié',
   },
 
+  /* ── Étapes d'intervention ── */
   process: [
-    { icon: 'phone', title: 'Vous nous appelez', desc: "Prise en charge immédiate, diagnostic téléphonique rapide. Disponible 24h/24, 7j/7." },
-    { icon: 'search', title: 'Diagnostic sur site', desc: "Inspection visuelle et tests de pression pour cibler la zone suspecte sans casser." },
-    { icon: 'tool', title: 'Détection précise', desc: "Gaz traceur, caméra thermique ou détection acoustique selon la configuration." },
-    { icon: 'check', title: 'Rapport & devis', desc: "Rapport de localisation officiel pour votre assurance + devis réparation si besoin." },
+    {
+      icon: 'phone',
+      step: '01',
+      title: 'Votre appel',
+      desc: "Vous décrivez le symptôme : évier lent, WC qui refoule, odeurs, regard qui déborde. Nous identifions le type de bouchon et l'urgence.",
+      duration: 'Immédiat',
+    },
+    {
+      icon: 'search',
+      step: '02',
+      title: 'Diagnostic sur place',
+      desc: "Nous repérons les regards et les accès, nous testons l'écoulement et nous déterminons où se situe le bouchon sur le réseau.",
+      duration: 'Sur site',
+    },
+    {
+      icon: 'tool',
+      step: '03',
+      title: 'Débouchage',
+      desc: "Furet électrique pour un bouchon localisé, hydrocurage haute pression pour un réseau encrassé ou des racines. Sans casse.",
+      duration: "Le jour de l'intervention",
+    },
+    {
+      icon: 'check',
+      step: '04',
+      title: 'Contrôle et conseil',
+      desc: "Nous vérifions l'écoulement, nous passons la caméra si la cause reste incertaine, et nous vous disons quoi faire pour éviter la récidive.",
+      duration: 'Avant de partir',
+    },
   ],
 
-  // DEMO – à remplacer par les infos du loueur (chiffres persona Thomas Mercier)
+  /**
+   * Chiffres affichés. Règle : uniquement des données vérifiables sur le site lui-même
+   * (disponibilité annoncée, rayon d'intervention, nombre de prestations et de communes).
+   * ⛔ Aucun chiffre d'activité inventé (interventions réalisées, années d'expérience).
+   */
   stats: [
-    { value: '+500', label: 'Fuites détectées' },       // DEMO – à remplacer par les infos du loueur
-    { value: '10 ans', label: "d'expérience" },          // DEMO – à remplacer par les infos du loueur
-    { value: '25 km', label: "Rayon d'intervention" },
+    { value: 24, suffix: 'h/24', label: 'Ligne urgence' },
+    { value: 7, suffix: 'j/7', label: 'Week-ends et fériés' },
+    { value: 20, suffix: ' km', label: 'Rayon autour de Metz' },
+    { value: 8, suffix: '', label: 'Prestations canalisation' },
   ],
 
   whyUs: [
-    { icon: 'shield', title: 'Aucune destruction inutile', desc: 'Nous localisons avant de couper. Votre carrelage, vos murs et vos sols sont préservés.' },
-    { icon: 'clock', title: 'Disponible 24h/24', desc: "Fuite urgente ou programmée, nous répondons 7j/7 avec un délai d'intervention rapide." },
-    // DEMO – à remplacer par les infos du loueur
-    { icon: 'star', title: 'Artisan certifié indépendant', desc: "Pas d'intermédiaire, pas de franchise. Un artisan local que vous pouvez rappeler directement." },
-    { icon: 'doc', title: 'Rapport pour assurance', desc: 'Rapport de localisation officiel pour votre assurance et syndic de copropriété.' },
+    {
+      icon: 'shield',
+      title: 'On regarde avant de forcer',
+      desc: "Un bouchon mal identifié se déplace ou revient. Nous localisons la zone concernée avant de choisir la méthode, pour ne pas abîmer le réseau.",
+    },
+    {
+      icon: 'clock',
+      title: 'Une ligne ouverte 7j/7',
+      desc: "Refoulement, WC bouché, odeurs : ces situations ne choisissent pas leur horaire. Vous nous joignez le week-end et les jours fériés.",
+    },
+    {
+      icon: 'euro',
+      title: 'Le prix annoncé avant',
+      desc: "Vous savez ce que coûte l'intervention avant qu'elle commence. Pas de supplément découvert une fois le camion sur place.",
+    },
+    {
+      icon: 'star',
+      title: 'Artisan local, pas une plateforme',
+      desc: "Vous parlez à la personne qui intervient. Pas de centrale d'appel qui revend votre demande au premier disponible.",
+    },
   ],
 
-  /* ── FAQ accueil (DEMO, contenu imaginé persona, à affiner par ST-5) ── */
-  // DEMO – à remplacer par les infos du loueur
+  /* ── FAQ accueil ── */
   homeFaq: [
     {
-      q: "Combien coûte une recherche de fuite d'eau à Angers ?",
-      // DEMO – à remplacer par les infos du loueur
-      a: "Le déplacement et le diagnostic de base sont gratuits et sans engagement. Le tarif de l'intervention dépend de la complexité de la fuite et de la méthode utilisée (gaz traceur, acoustique, thermique). Contactez-nous pour un devis personnalisé.",
+      q: 'Combien coûte un débouchage de canalisation à Metz ?',
+      a: "Le prix dépend de la prestation : un débouchage au furet sur un évier ou un WC n'a pas le même coût qu'un hydrocurage de colonne ou qu'une inspection caméra. Nous annonçons le tarif au téléphone en fonction de ce que vous décrivez, puis nous le confirmons sur place avant de commencer. Aucun travail n'est lancé sans votre accord.",
     },
     {
-      q: "Intervenez-vous en urgence les week-ends et jours fériés ?",
-      a: "Oui, nous intervenons 24h/24 et 7j/7, week-ends et jours fériés inclus, sur Angers et dans un rayon de 25 km.",
+      q: 'Intervenez-vous en urgence le soir, le week-end et les jours fériés ?',
+      a: "Oui. Un refoulement d'eaux usées ou des WC bouchés dans un logement occupé ne peuvent pas attendre le lundi. Notre ligne est ouverte 7j/7 pour les urgences sur Metz et les communes de l'agglomération dans un rayon d'environ 20 km.",
     },
     {
-      q: "Faut-il casser des murs ou du carrelage pour trouver la fuite ?",
-      // DEMO – à remplacer par les infos du loueur
-      a: "Non. Nos méthodes non destructives (gaz traceur, caméra thermique et acoustique) permettent de localiser précisément la fuite sans aucune destruction préalable. Nous indiquons l'emplacement exact avant toute intervention.",
+      q: 'Faut-il casser un mur ou creuser pour déboucher une canalisation ?',
+      a: "Dans la très grande majorité des cas, non. Le débouchage se fait par les accès existants : siphon, regard de visite, tampon de dégorgement, WC. Le furet et l'hydrocureur passent par ces ouvertures. Nous ne proposons une ouverture du réseau que si l'inspection caméra montre une canalisation cassée ou effondrée, et jamais sans vous l'expliquer avant.",
     },
     {
-      q: "Le rapport de localisation est-il accepté par les assurances ?",
-      // DEMO – à remplacer par les infos du loueur
-      a: "Oui. Nous rédigeons un rapport technique officiel de localisation de fuite, reconnu par les compagnies d'assurance et les syndics de copropriété pour la prise en charge des travaux.",
+      q: 'Les produits déboucheurs du commerce sont-ils une bonne solution ?',
+      a: "Ils peuvent aider sur un ralentissement léger dû aux graisses ou aux cheveux. Sur un bouchon compact, ils restent stagnants au-dessus de l'obstacle et attaquent la canalisation, surtout sur du PVC ancien ou du plomb. Ils sont aussi dangereux pour l'intervenant qui ouvrira le siphon ensuite. Si l'eau ne s'écoule plus du tout, arrêtez les produits et appelez.",
     },
     {
-      q: "Intervenez-vous dans tout le Maine-et-Loire ?",
-      a: "Nous couvrons Angers et ses environs dans un rayon de 25 km : Avrillé, Saint-Barthélemy, Trélazé, Bouchemaine, les Ponts-de-Cé, Sainte-Gemmes-sur-Loire et les communes alentour.",
+      q: "Qui paie le débouchage en location, le locataire ou le propriétaire ?",
+      a: "Le décret n° 87-712 place l'entretien courant des canalisations, dont le dégorgement, à la charge du locataire. En revanche, si le bouchon vient d'un défaut de la canalisation elle-même (vétusté, rupture, mauvaise pente, racines), la réparation revient au propriétaire. L'inspection caméra sert précisément à trancher : le rapport identifie la cause.",
+    },
+    {
+      q: "Qui appeler quand c'est la colonne de l'immeuble qui est bouchée ?",
+      a: "Quand plusieurs logements refoulent en même temps, le problème est sur la colonne ou le collecteur : c'est une partie commune, donc du ressort du syndic. Prévenez le syndic ou le gardien. Nous intervenons aussi bien pour un syndic ou un bailleur que pour un particulier, avec un compte rendu d'intervention.",
     },
   ],
 
-  /* ── Légal (GABARIT, à compléter par Rémy avant prod, cf. content/legal.json) ── */
+  /* ── Légal (GABARIT, à compléter par Rémy avant prod) ── */
   legal: {
-    // Ces champs restent le gabarit paramétrable. NE PAS inventer de valeurs.
-    showAddress: false, // false => schema Plumber SANS address (défaut NOU-33)
-    // address n'est utilisée QUE si showAddress=true.
-    address: { street: '', postalCode: '49000', city: 'Angers' },
+    showAddress: false, // false => schema SANS address
+    address: { street: '', postalCode: '57000', city: 'Metz' },
   },
 } as const

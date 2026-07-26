@@ -1,19 +1,29 @@
-import type { Metadata } from 'next'
-import { Sora } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+import { Fraunces, Inter } from 'next/font/google'
 import './globals.css'
 import { siteConfig } from '@/config/site.config'
 import { themeCssVars } from '@/lib/theme'
-import { absUrl, buildMetadata, jsonLdScript, plumberJsonLd } from '@/lib/seo'
-import Header from '@/components/sections/Header'
-import Footer from '@/components/sections/Footer'
-import MobileStickyBar from '@/components/ui/MobileStickyBar'
-import FloatingCallButton from '@/components/ui/FloatingCallButton'
+import { buildMetadata, jsonLdScript, localBusinessJsonLd } from '@/lib/seo'
+import { getServices } from '@/lib/content'
+import { Header } from '@/components/layout/Header'
+import { Footer } from '@/components/layout/Footer'
+import { StickyCTA } from '@/components/layout/StickyCTA'
 
-// next/font = polices self-hostées au build (pas de requête Google runtime, pas de FOUT).
-const sora = Sora({ subsets: ['latin'], variable: '--font-sora', display: 'swap' })
+/**
+ * Deux familles, comme la référence PROTEC-DARD : Inter pour l'interface et le
+ * corps de texte, Fraunces pour tous les titres. Les deux sont auto-hébergées au
+ * build par next/font (aucune requête Google au runtime, pas de FOUT).
+ */
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-fraunces',
+  display: 'swap',
+  axes: ['opsz', 'SOFT'],
+})
 
-const homeTitle = `${siteConfig.trade} à ${siteConfig.city}, ${siteConfig.businessName}`
-const homeDesc = `${siteConfig.trade} à ${siteConfig.city} et environs. Méthode non destructive, intervention rapide.`
+const homeTitle = `${siteConfig.trade} à ${siteConfig.city}, intervention rapide`
+const homeDesc = `Débouchage et curage de canalisations à ${siteConfig.city} et dans l'agglomération. WC, évier, douche, colonne d'immeuble, regard. Prix annoncé avant intervention.`
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.seo.canonicalBase),
@@ -24,27 +34,41 @@ export const metadata: Metadata = {
   ...buildMetadata({ title: homeTitle, description: homeDesc, path: '/' }),
 }
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: siteConfig.colors.light },
+    { media: '(prefers-color-scheme: dark)', color: siteConfig.colors.dark },
+  ],
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const services = getServices().map((s) => ({ slug: s.slug, navTitle: s.navTitle }))
+
   return (
-    <html lang={siteConfig.seo.lang} className={sora.variable} style={themeCssVars()}>
+    <html
+      lang={siteConfig.seo.lang}
+      className={`${inter.variable} ${fraunces.variable}`}
+      style={themeCssVars()}
+    >
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: jsonLdScript(plumberJsonLd()) }}
+          dangerouslySetInnerHTML={{ __html: jsonLdScript(localBusinessJsonLd()) }}
         />
       </head>
-      <body>
+      <body className="bg-sand-50">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-white focus:px-3 focus:py-2"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-ink-950 focus:px-5 focus:py-3 focus:text-sand-50"
         >
           Aller au contenu
         </a>
-        <Header />
+        <Header services={services} />
         <main id="main">{children}</main>
         <Footer />
-        <MobileStickyBar />
-        <FloatingCallButton />
+        <StickyCTA />
       </body>
     </html>
   )

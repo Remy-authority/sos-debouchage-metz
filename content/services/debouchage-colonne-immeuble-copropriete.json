@@ -1,0 +1,52 @@
+{
+  "slug": "debouchage-colonne-immeuble-copropriete",
+  "order": 8,
+  "icon": "building",
+  "navTitle": "Colonne d'immeuble et copropriété",
+  "h1": "Débouchage de colonne d'immeuble et copropriété à Metz",
+  "metaTitle": "Débouchage colonne d'immeuble à Metz, copropriété",
+  "metaDescription": "Débouchage et curage de colonne d'évacuation en immeuble à Metz. Intervention pour syndics, bailleurs et copropriétés, compte rendu remis.",
+  "intro": "Quand plusieurs logements d'un même immeuble refoulent ou s'évacuent mal en même temps, le problème n'est pas dans les appartements : il est sur la colonne d'évacuation ou sur le collecteur, donc sur une partie commune. Nous intervenons à Metz pour les syndics, les bailleurs et les conseils syndicaux, en débouchage d'urgence comme en curage périodique, avec un compte rendu utilisable en assemblée générale.",
+  "bullets": [
+    "Syndics, bailleurs, copropriétés",
+    "Urgence ou curage planifié",
+    "Compte rendu écrit"
+  ],
+  "blocks": [
+    {
+      "heading": "Reconnaître un problème de colonne",
+      "body": "Un bouchon dans un logement ne touche que ce logement. Un bouchon de colonne se voit à ce qu'il déborde du cadre d'un seul appartement. Les signaux typiques sont des refoulements dans les logements des étages bas ou en rez-de-chaussée alors que ce sont les étages hauts qui utilisent l'eau, des gargouillis dans les évacuations quand un voisin tire une chasse ou vide une baignoire, des odeurs d'égout dans plusieurs logements ou dans les parties communes, et des ralentissements simultanés signalés par plusieurs occupants sur la même verticale. Dès que deux logements distincts sont concernés au même moment, il faut traiter la colonne et non les appareils un par un."
+    },
+    {
+      "heading": "Comment nous intervenons en immeuble",
+      "body": "Nous travaillons depuis les accès communs chaque fois que possible : culotte de pied de colonne, tampon de dégorgement en sous-sol, regard extérieur. Cela évite d'avoir à entrer dans les logements, ce qui est rarement simple à organiser en urgence. Le débouchage se fait au furet électrique de forte capacité pour un obstacle localisé, et à l'hydrocureur haute pression quand la colonne est encrassée sur toute sa hauteur, ce qui est le cas le plus fréquent sur les colonnes de cuisine chargées en graisses. Nous vérifions ensuite l'écoulement depuis plusieurs niveaux, et nous remettons un compte rendu écrit précisant ce qui a été trouvé, à quel niveau, et ce que nous recommandons pour la suite."
+    },
+    {
+      "heading": "Qui paie quoi en copropriété et en location",
+      "body": "La règle générale est celle de la localisation du défaut. Une canalisation qui dessert un seul logement est privative, et son entretien courant revient à l'occupant. Une colonne ou un collecteur qui dessert plusieurs logements est une partie commune, et son entretien relève de la copropriété, donc du syndic. En location, le décret n° 87-712 place le dégorgement et l'entretien courant des canalisations à la charge du locataire, mais un défaut de la canalisation elle-même, vétusté, rupture, contre-pente ou racines, reste à la charge du propriétaire. C'est exactement ce que notre compte rendu, complété si besoin d'une inspection caméra, permet d'établir : il distingue un bouchon d'usage d'un défaut d'ouvrage, ce qui évite les discussions sans fin entre occupant, propriétaire et syndic."
+    }
+  ],
+  "relatedServices": [
+    "curage-canalisation-haute-pression",
+    "urgence-debouchage-canalisation"
+  ],
+  "faq": [
+    {
+      "q": "Qui doit appeler quand la colonne d'un immeuble est bouchée ?",
+      "a": "C'est au syndic de déclencher l'intervention, puisque la colonne d'évacuation est une partie commune. En pratique, prévenez le gardien ou le syndic dès que vous constatez que plusieurs logements sont touchés. En cas d'urgence avérée avec refoulement d'eaux usées, un copropriétaire ou le conseil syndical peut faire intervenir un professionnel, mais il vaut mieux prévenir le syndic en parallèle pour la prise en charge."
+    },
+    {
+      "q": "Qui paie le débouchage en copropriété ?",
+      "a": "Si le bouchon est sur une colonne ou un collecteur desservant plusieurs logements, il s'agit d'une partie commune et la dépense est répartie entre les copropriétaires selon les règles de la copropriété. S'il est sur la canalisation privative d'un seul logement, la charge revient à ce logement. Le compte rendu d'intervention, appuyé si nécessaire par une inspection caméra, sert précisément à situer le défaut."
+    },
+    {
+      "q": "En location, est-ce au locataire ou au propriétaire de payer ?",
+      "a": "Le décret n° 87-712 range le dégorgement et l'entretien courant des canalisations parmi les réparations locatives, donc à la charge du locataire. En revanche, si le bouchon résulte d'un défaut de la canalisation, vétusté, rupture, mauvaise pente ou racines, la charge revient au propriétaire. C'est la cause qui détermine qui paie, pas le simple fait qu'il y ait eu bouchon."
+    },
+    {
+      "q": "Proposez-vous un curage périodique des colonnes pour une copropriété ?",
+      "a": "Oui. Sur un immeuble qui connaît des refoulements récurrents, en particulier sur les colonnes de cuisine chargées en graisses, un curage planifié coûte moins cher que la succession d'interventions d'urgence et évite les dégâts des eaux chez les logements du bas. Nous établissons une proposition chiffrée présentable en assemblée générale, avec un intervalle défini après avoir vu l'installation."
+    }
+  ],
+  "image": "/services/debouchage-colonne-immeuble-copropriete.jpg"
+}

@@ -1,0 +1,43 @@
+{
+  "slug": "augny",
+  "name": "Augny",
+  "postalCode": "57685",
+  "context": "Commune du sud de l'agglomération messine, à l'habitat pavillonnaire récent, voisine de zones d'activités et de restauration.",
+  "metaTitle": "Débouchage de canalisation à Augny (57)",
+  "metaDescription": "Débouchage de canalisation à Augny : particuliers et professionnels. WC, évier, regard, bac à graisse, curage. Intervention 7j/7.",
+  "h1": "Débouchage de canalisation à Augny",
+  "intro": "Nous intervenons à Augny (57685) pour les particuliers comme pour les professionnels : débouchage de WC, d'éviers et de douches, curage haute pression, inspection caméra et entretien de bac à graisse. Située au sud de l'agglomération messine, la commune associe un habitat pavillonnaire récent et la proximité de zones d'activités, ce qui met côte à côte deux publics aux besoins très différents.",
+  "blocks": [
+    {
+      "heading": "Chez les particuliers, un réseau récent mais pas invulnérable",
+      "body": "Le pavillonnaire récent d'Augny est équipé de réseaux en PVC, ce qui écarte les problèmes d'entartrage et de rugosité qu'on rencontre sur les conduites anciennes. Deux causes restent néanmoins fréquentes. Les graisses de cuisine d'abord, qui refroidissent dans le premier mètre d'évacuation, se figent sur la paroi et emprisonnent ensuite tout ce qui passe : c'est la cause numéro un des éviers qui ralentissent. Les défauts de pente ensuite, apparus après un tassement de remblai ou des travaux d'aménagement extérieur, qui créent un point bas où les matières se déposent. Un curage haute pression traite les deux, et l'inspection caméra dit s'il s'agit d'un simple dépôt ou d'une déformation de la conduite."
+    },
+    {
+      "heading": "Pour les professionnels du secteur",
+      "body": "Restaurants, boulangeries, cantines et collectivités du secteur d'Augny relèvent d'un autre régime : celui du bac à graisse et du curage des réseaux de cuisine. Le bac retient les matières grasses avant qu'elles n'atteignent l'assainissement, mais il se remplit et ne se régule pas seul. Quand la couche de graisse en surface atteint le niveau de sortie, les graisses repartent dans la canalisation qu'elles colmatent progressivement. Nous vidons le bac, décollons les graisses figées sur les parois, curons les canalisations d'entrée et de sortie, évacuons le contenu en filière agréée et remettons un bordereau d'intervention. Nous intervenons en dehors des heures de service pour que la cuisine reste opérationnelle."
+    },
+    {
+      "heading": "Urgence et communes voisines",
+      "body": "Notre ligne est ouverte 7j/7, week-ends et jours fériés compris, à Augny comme sur le reste de l'agglomération. En cas de refoulement chez un particulier comme dans un établissement, arrêtez les usages d'eau concernés et appelez-nous. Depuis Augny, nous couvrons également Marly, Moulins-lès-Metz, Ars-sur-Moselle, Montigny-lès-Metz et les quartiers sud de Metz, dans un rayon d'environ 20 km."
+    }
+  ],
+  "neighbours": [
+    "Marly",
+    "Moulins-lès-Metz",
+    "Ars-sur-Moselle"
+  ],
+  "faq": [
+    {
+      "q": "Intervenez-vous pour les professionnels à Augny ?",
+      "a": "Oui. Nous traitons le débouchage et le curage des réseaux de cuisine, ainsi que la vidange et l'entretien des bacs à graisse, pour les restaurants, boulangeries, cantines et collectivités. Nous planifions l'intervention en dehors des heures de service et nous remettons un bordereau d'intervention, document demandé en cas de contrôle sanitaire ou par le service d'assainissement."
+    },
+    {
+      "q": "Mon logement est récent, pourquoi mon évier se bouche-t-il déjà ?",
+      "a": "L'âge du réseau ne protège pas des graisses. Les résidus versés dans l'évier refroidissent dans le premier mètre d'évacuation, se figent sur la paroi et retiennent ensuite restes alimentaires et filaments. Le phénomène est progressif : l'écoulement ralentit pendant des semaines, puis se bloque d'un coup. Ne versez jamais huile ni graisse de cuisson dans l'évier, laissez figer et jetez à la poubelle."
+    },
+    {
+      "q": "Un lotissement récent peut-il avoir un défaut de pente ?",
+      "a": "Oui, c'est même relativement fréquent. Le tassement du remblai dans les années qui suivent la construction, ou des travaux d'aménagement extérieur, peuvent créer un point bas sur une conduite pourtant posée correctement à l'origine. L'eau y stagne et les matières s'y déposent, ce qui se traduit par un réseau qui se rebouche toujours au même endroit. L'inspection caméra permet de le confirmer et de le localiser."
+    }
+  ]
+}

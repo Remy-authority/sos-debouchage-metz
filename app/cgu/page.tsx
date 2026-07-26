@@ -1,20 +1,69 @@
-import Link from 'next/link'
-import { SITE } from '@/lib/config'
 import type { Metadata } from 'next'
+import { siteConfig } from '@/config/site.config'
+import { buildMetadata } from '@/lib/seo'
+import { LegalPage } from '@/components/layout/LegalPage'
 
-export const metadata: Metadata = { title: "Conditions Generales d'Utilisation", robots: { index: false } }
+export const metadata: Metadata = buildMetadata({
+  title: "Conditions générales d'utilisation",
+  description: `Conditions générales d'utilisation du site ${siteConfig.businessName}.`,
+  path: '/cgu',
+  noindex: true,
+})
 
 export default function CGU() {
   return (
-    <main className="max-w-4xl mx-auto px-4 py-16 section-cream min-h-screen">
-      <Link href="/" className="font-medium mb-8 inline-block text-teal-500 hover:text-teal-400 transition-colors">← Retour a l'accueil</Link>
-      <h1 className="text-3xl font-black text-ink-900 mb-8">Conditions Generales d'Utilisation</h1>
-      <div className="space-y-8 text-ink-700">
-        <section><h2 className="text-xl font-bold text-ink-900 mb-3">1. Acceptation</h2><p>En naviguant sur {SITE.name}, vous acceptez les presentes CGU.</p></section>
-        <section><h2 className="text-xl font-bold text-ink-900 mb-3">2. Services</h2><p>Ce site presente les services de recherche de fuite d'eau et d'assechement a {SITE.commune} ({SITE.communeCode}). Devis gratuit avant toute intervention.</p></section>
-        <section><h2 className="text-xl font-bold text-ink-900 mb-3">3. Responsabilite</h2><p>L'editeur ne peut etre tenu responsable des dommages indirects resultant de l'utilisation du site.</p></section>
-        <section><h2 className="text-xl font-bold text-ink-900 mb-3">4. Droit applicable</h2><p>CGU regies par le droit francais. Tout litige releve des tribunaux francais.</p></section>
-      </div>
-    </main>
+    <LegalPage
+      title="Conditions générales d'utilisation"
+      subtitle={`Règles d'usage du site ${siteConfig.businessName}.`}
+    >
+      <section>
+        <h2>1. Acceptation</h2>
+        <p>
+          En consultant ce site, vous acceptez les présentes conditions générales
+          d&apos;utilisation. Si vous les refusez, il vous appartient de ne pas utiliser le site.
+        </p>
+      </section>
+      <section>
+        <h2>2. Objet du site</h2>
+        <p>
+          Le site présente des prestations de {siteConfig.trade.toLowerCase()} à {siteConfig.city} (
+          {siteConfig.departmentName}, {siteConfig.department}) et dans les communes voisines. Les
+          informations publiées ont une valeur indicative : seul le devis remis avant intervention
+          fait foi sur le contenu et le prix de la prestation.
+        </p>
+      </section>
+      <section>
+        <h2>3. Demandes envoyées via le site</h2>
+        <p>
+          L&apos;envoi d&apos;une demande via le formulaire ne vaut ni commande ni engagement
+          contractuel. Elle déclenche une prise de contact, à l&apos;issue de laquelle une
+          prestation peut être proposée, acceptée ou refusée par l&apos;une ou l&apos;autre partie.
+        </p>
+      </section>
+      <section>
+        <h2>4. Contenus des conseils</h2>
+        <p>
+          Les articles de la rubrique conseils sont des informations générales. Ils ne remplacent
+          pas un diagnostic sur place. Aucune responsabilité ne saurait être engagée en cas de
+          dommage résultant de la mise en oeuvre d&apos;un geste décrit sans vérification préalable
+          de la situation réelle.
+        </p>
+      </section>
+      <section>
+        <h2>5. Responsabilité</h2>
+        <p>
+          L&apos;éditeur met tout en oeuvre pour assurer l&apos;exactitude des informations
+          publiées, sans garantie d&apos;exhaustivité. Il ne peut être tenu responsable des dommages
+          indirects résultant de l&apos;utilisation du site ou d&apos;une interruption de service.
+        </p>
+      </section>
+      <section>
+        <h2>6. Droit applicable</h2>
+        <p>
+          Les présentes conditions sont régies par le droit français. Tout litige relève de la
+          compétence des tribunaux français.
+        </p>
+      </section>
+    </LegalPage>
   )
 }

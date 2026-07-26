@@ -1,192 +1,176 @@
-import Link from 'next/link'
+'use client'
+
+import { useRef } from 'react'
+import Image from 'next/image'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { ArrowRight, Camera, Euro, MapPin, Phone, ShieldCheck } from 'lucide-react'
+import { Button } from '@/components/ui/Button'
+import { GradientBlob } from '@/components/ui/GradientBlob'
+import { LiveDot } from '@/components/ui/LiveDot'
+import { EASE } from '@/lib/motion'
 import { siteConfig } from '@/config/site.config'
-import PhoneButton from '@/components/ui/PhoneButton'
 
-export default function Hero() {
+const badges = [
+  { icon: Euro, label: 'Prix annoncé avant' },
+  { icon: ShieldCheck, label: 'Sans casse' },
+  { icon: Camera, label: 'Inspection caméra' },
+  { icon: MapPin, label: `${siteConfig.serviceArea.radiusKm} km autour de ${siteConfig.city}` },
+]
+
+export function Hero() {
+  const ref = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
+  const y = useTransform(scrollYProgress, [0, 1], [0, 120])
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
+
   return (
-    <section className="relative overflow-hidden bg-dark" aria-labelledby="hero-title">
-      {/* Motif grille de points très discret */}
+    <section
+      ref={ref}
+      id="top"
+      className="noise-overlay relative isolate flex min-h-[92vh] items-center overflow-hidden bg-ink-950 pb-20 pt-28 lg:pt-36"
+    >
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
         aria-hidden="true"
-        style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
-          backgroundSize: '32px 32px',
-        }}
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgb(var(--c-ink-800)/0.75),transparent_62%),radial-gradient(ellipse_at_bottom_right,rgb(var(--c-accent-500)/0.16),transparent_55%),linear-gradient(180deg,rgb(var(--c-ink-950))_0%,rgb(var(--c-ink-900))_52%,rgb(var(--c-ink-950))_100%)]"
       />
 
-      {/* Halo statique principal, ancré en haut à gauche */}
+      {/* Photo d'ambiance, très en retrait. Fondue par le bas sur mobile (le texte
+          occupe le haut), fondue par la droite à partir du desktop. */}
       <div
-        className="pointer-events-none absolute -left-48 -top-48 h-[640px] w-[640px] rounded-full bg-primary/20 blur-[80px]"
         aria-hidden="true"
-      />
+        className="absolute inset-y-0 right-0 w-full opacity-[0.12] [mask-image:linear-gradient(180deg,transparent_35%,black)] lg:w-[54%] lg:opacity-20 lg:[mask-image:linear-gradient(90deg,transparent,black_48%)]"
+      >
+        <Image src="/hero.jpg" alt="" fill priority sizes="(min-width: 1024px) 54vw, 100vw" className="object-cover" />
+      </div>
 
-      {/* HALO ANIMÉ, lumière qui se déplace lentement (demande répétée Rémy).
-          Désactivé si prefers-reduced-motion activé (motion-safe). */}
-      <div
-        className="pointer-events-none absolute right-0 top-0 h-[480px] w-[480px] rounded-full bg-primary/30 blur-[100px] motion-safe:animate-hero-glow"
-        aria-hidden="true"
-      />
+      <div aria-hidden="true" className="bg-grid absolute inset-0" />
 
-      {/* Halo accent bas-droite, chaleur visuelle */}
-      <div
-        className="pointer-events-none absolute -bottom-24 right-1/4 h-72 w-72 rounded-full bg-accent/[0.08] blur-3xl"
-        aria-hidden="true"
-      />
+      <GradientBlob className="-left-40 top-4" color="deep" size={520} intensity="strong" duration={22} />
+      <GradientBlob className="-right-48 bottom-0" color="brand" size={620} intensity="strong" duration={18} />
+      <GradientBlob className="left-1/3 top-1/4" color="accent" size={440} intensity="strong" duration={15} />
 
-      {/* Balayage lumineux diagonal, façon sniperpestcontrol3dservices.fr */}
-      <div
-        className="pointer-events-none absolute inset-y-0 left-0 w-1/3 motion-safe:animate-hero-shine"
-        aria-hidden="true"
-        style={{
-          background:
-            'linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.06) 50%, transparent 70%)',
-        }}
-      />
-
-      <div className="container-site relative grid gap-10 py-14 md:grid-cols-2 md:items-center md:py-20 lg:gap-16">
-        {/* ── Colonne texte ── */}
-        <div>
-          {/* Badge urgence avec pulse */}
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-accent/10 px-4 py-1.5 text-sm font-semibold text-accent ring-1 ring-accent/20">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-accent" aria-hidden="true" />
-            {siteConfig.availability}
-          </div>
-
-          {/* H1, "Angers" avec soulignage dégradé accent */}
-          <h1
-            id="hero-title"
-            className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl"
+      <motion.div
+        style={{ y, opacity }}
+        className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 lg:px-10 xl:grid-cols-12"
+      >
+        <div className="xl:col-span-7">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: EASE }}
           >
-            Recherche de fuite d'eau à{' '}
-            <span className="relative inline-block text-accent">
-              {siteConfig.city}
-              {/* Trait dégradé sous "Angers" */}
-              <span
-                className="absolute -bottom-1 left-0 h-[3px] w-4/5 rounded-full"
-                style={{
-                  background:
-                    'linear-gradient(90deg, rgb(var(--color-accent-rgb)) 0%, transparent 100%)',
-                }}
-                aria-hidden="true"
-              />
-            </span>
-          </h1>
+            <LiveDot>Ligne urgence ouverte, week-ends et jours fériés compris</LiveDot>
+          </motion.div>
 
-          <p className="mt-4 text-base leading-relaxed text-slate-300 sm:text-lg">
-            {siteConfig.responseTime}. Détection non destructive par{' '}
-            {siteConfig.methods.join(', ')}. Devis gratuit, sans engagement.
-          </p>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
+            className="mt-7 text-[clamp(2.5rem,6vw,5rem)] leading-[1.05] text-sand-50"
+          >
+            Canalisation
+            <br />
+            bouchée à {siteConfig.city},
+            <br />
+            <span className="text-gradient-accent">réglée sans casse.</span>
+          </motion.h1>
 
-          {/* USPs, icônes SVG checkmark, zéro emoji */}
-          <ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-slate-300" role="list">
-            {siteConfig.usps.map((u) => (
-              <li key={u} className="flex items-center gap-2">
-                <svg
-                  className="h-4 w-4 shrink-0 text-accent"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 0 1 0 1.414l-8 8a1 1 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414L8 12.586l7.293-7.293a1 1 0 0 1 1.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                {u}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.25, ease: EASE }}
+            className="mt-7 max-w-xl text-lg leading-relaxed text-sand-200 md:text-xl"
+          >
+            Évier qui refoule, WC bouché, colonne d&apos;immeuble saturée, regard qui déborde.
+            Nous débouchons au furet ou à l&apos;hydrocureur, nous passons la caméra quand la cause
+            reste incertaine, et nous annonçons le prix avant de commencer.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4, ease: EASE }}
+            className="mt-10 flex flex-col gap-3 sm:flex-row"
+          >
+            <Button href={`tel:${siteConfig.phone}`} variant="accent" size="lg">
+              <Phone size={18} strokeWidth={2.5} />
+              {siteConfig.phoneDisplay}
+            </Button>
+            <Button href="/contact#formulaire" variant="ghost" size="lg">
+              Décrire mon problème
+              <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+            </Button>
+          </motion.div>
+
+          <motion.ul
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.6 }}
+            className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3"
+          >
+            {badges.map(({ icon: Icon, label }) => (
+              <li key={label} className="flex items-center gap-2 text-sm text-sand-300">
+                <Icon size={16} className="shrink-0 text-brand-300" strokeWidth={2.4} />
+                {label}
               </li>
             ))}
-          </ul>
-
-          {/* CTAs mobile */}
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row md:hidden">
-            <PhoneButton
-              label={`Appeler le ${siteConfig.phoneDisplay}`}
-              className="btn-accent justify-center text-base"
-            />
-            <Link
-              href="/contact"
-              className="btn-outline !border-white/30 !bg-transparent !text-white hover:!bg-white/10 justify-center"
-            >
-              Devis en 30 s →
-            </Link>
-          </div>
-
-          {/* CTAs desktop */}
-          <div className="mt-8 hidden md:flex md:items-center md:gap-4">
-            <a
-              href={`tel:${siteConfig.phone}`}
-              className="flex items-center gap-3 rounded-2xl bg-accent px-6 py-4 text-white shadow-lg shadow-accent/30 transition hover:bg-accent/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-              aria-label={`Appeler le ${siteConfig.phoneDisplay}`}
-            >
-              <svg className="h-6 w-6 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
-              </svg>
-              <div>
-                <p className="text-xs font-medium text-white/80">Appelez maintenant</p>
-                <p className="text-xl font-bold tracking-wide">{siteConfig.phoneDisplay}</p>
-              </div>
-            </a>
-            <Link
-              href="/contact"
-              className="rounded-2xl border border-white/20 bg-white/5 px-5 py-4 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/10"
-            >
-              Devis en 30 s →
-            </Link>
-          </div>
+          </motion.ul>
         </div>
 
-        {/* ── Colonne droite : Carte Garantie (façon template Pest Control) ── */}
-        <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur-sm">
-          {/* Ligne supérieure : badge + stat vedette */}
-          <div className="flex items-start justify-between gap-4">
-            <span className="rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-accent">
-              Garantie
-            </span>
-            <span className="text-4xl font-black leading-none text-accent">100 %</span>
-          </div>
-
-          {/* Titre */}
-          <h2 className="mt-4 text-lg font-bold leading-snug text-white">
-            Fuite trouvée ou nous revenons
-          </h2>
-          <p className="mt-2 text-sm leading-relaxed text-slate-400">
-            Si la fuite n'est pas localisée lors de notre passage, nous revenons sans frais
-            supplémentaire.
-          </p>
-
-          {/* 2 stats */}
-          <div className="mt-5 grid grid-cols-2 gap-3">
-            <div className="rounded-xl bg-white/5 px-4 py-3.5">
-              <p className="text-2xl font-black text-accent">30 min</p>
-              <p className="mt-0.5 text-xs text-slate-400">Réponse garantie</p>
-            </div>
-            <div className="rounded-xl bg-white/5 px-4 py-3.5">
-              <p className="text-2xl font-black text-accent">24h/7j</p>
-              <p className="mt-0.5 text-xs text-slate-400">Disponible</p>
-            </div>
-          </div>
-
-          {/* Pied de carte */}
-          <div className="mt-5 flex items-center gap-2 border-t border-white/10 pt-4">
-            <svg
-              className="h-4 w-4 shrink-0 text-slate-400"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: EASE }}
+          className="relative hidden xl:col-span-5 xl:block"
+        >
+          <div className="relative mx-auto max-w-md">
+            <div
               aria-hidden="true"
+              className="absolute -inset-8 -z-10 rounded-[3rem] bg-gradient-to-br from-brand-500/25 via-accent-500/10 to-transparent blur-3xl"
+            />
+
+            <div className="relative overflow-hidden rounded-hero border border-brand-400/25 bg-gradient-to-br from-ink-800/70 to-ink-950/85 p-8 backdrop-blur-xl">
+              <span className="inline-flex rounded-full border border-brand-400/40 bg-brand-500/10 px-3 py-1 text-xs uppercase tracking-wider text-brand-300">
+                Comment on travaille
+              </span>
+
+              <p className="mt-7 font-display text-2xl font-medium leading-snug text-sand-50">
+                Le prix est annoncé avant qu&apos;on ouvre la mallette.
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-sand-300">
+                Vous décrivez le symptôme, nous annonçons la prestation et son tarif. Si ce qu&apos;on
+                trouve sur place change la donne, vous le savez avant, pas après.
+              </p>
+
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                <div className="rounded-2xl bg-ink-900/70 p-4">
+                  <p className="font-display text-3xl font-medium text-accent-400">24h/24</p>
+                  <p className="mt-1 text-xs text-sand-400">Ligne urgence</p>
+                </div>
+                <div className="rounded-2xl bg-ink-900/70 p-4">
+                  <p className="font-display text-3xl font-medium text-accent-400">
+                    {siteConfig.serviceArea.radiusKm} km
+                  </p>
+                  <p className="mt-1 text-xs text-sand-400">Autour de {siteConfig.city}</p>
+                </div>
+              </div>
+
+              <p className="mt-6 flex items-start gap-2 text-xs leading-relaxed text-sand-400">
+                <ShieldCheck size={14} className="mt-0.5 shrink-0 text-brand-300" />
+                Furet électrique, hydrocureur haute pression et caméra d&apos;inspection dans le camion.
+              </p>
+            </div>
+
+            {/* Signature du métier : un filet qui descend dans un tube. */}
+            <div
+              aria-hidden="true"
+              className="absolute -right-5 -top-7 h-24 w-11 overflow-hidden rounded-full border border-brand-400/30 bg-ink-950/70 backdrop-blur"
             >
-              <path d="M12 2 3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z" />
-              <path d="m9 12 2 2 4-4" />
-            </svg>
-            <p className="text-xs text-slate-400">
-              Artisan local · Devis gratuit · Sans engagement
-            </p>
+              <span className="absolute left-1/2 top-0 h-8 w-1.5 -translate-x-1/2 animate-flow-down rounded-full bg-gradient-to-b from-transparent via-accent-400 to-transparent" />
+            </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }

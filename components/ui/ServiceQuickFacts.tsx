@@ -1,22 +1,25 @@
-import { BlockIcon } from './ServiceIcon'
+import { Check } from 'lucide-react'
+import { AnimatedSection } from '@/components/ui/AnimatedSection'
 
-/**
- * ServiceQuickFacts, reprend `service.bullets` (déjà utilisées sur les cartes
- * de la home) sous forme de puces iconographiées, juste sous l'intro « en bref ».
- * Aucune donnée nouvelle : casse le mur de texte avec ce qui existe déjà.
- */
-export default function ServiceQuickFacts({ bullets }: { bullets: string[] }) {
+/** Trois points clés d'une prestation, en bandeau juste sous la réponse courte. */
+export function ServiceQuickFacts({ bullets }: { bullets: string[] }) {
   if (!bullets?.length) return null
+
   return (
-    <ul className="mt-6 grid gap-3 sm:grid-cols-3" role="list">
+    <AnimatedSection delay={0.1} className="mt-6 grid gap-3 sm:grid-cols-3">
       {bullets.map((b) => (
-        <li key={b} className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3">
-          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-            <BlockIcon heading={b} className="h-4 w-4" />
+        <div
+          key={b}
+          className="flex items-start gap-3 rounded-card border border-sand-200 bg-white px-5 py-4 shadow-card"
+        >
+          <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-600 text-white">
+            <Check size={12} strokeWidth={3.5} aria-hidden="true" />
           </span>
-          <span className="text-sm font-semibold text-slate-800">{b}</span>
-        </li>
+          <span className="text-sm font-medium leading-snug text-ink-900">{b}</span>
+        </div>
       ))}
-    </ul>
+    </AnimatedSection>
   )
 }
+
+export default ServiceQuickFacts
