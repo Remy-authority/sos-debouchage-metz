@@ -358,3 +358,10 @@ ce site :**
   sur les deux lots. Rappel de Rémy sur les rôles : le CEO ne code jamais, toutes les modifs de
   code passent par des agents Builder missionnés (ce qui a été fait). RESTE À FAIRE : visuels
   des 65 drafts sans images (Builder, non bloquant), suivi indexation GSC, suivi leads Twilio.
+- **27/07/2026 (CEO site, visuels blog complets)** : 65 couvertures manquantes des drafts T2/T3
+  générées par 2 agents visuels en parallèle (photos réalistes dérivées du sujet de chaque
+  article, ancrage lorrain). Audit CEO : 0 couverture manquante sur les 80 drafts, 0 doublon MD5
+  sur tout public/conseils/, échantillon visuel conforme (aucun texte/visage). Anomalie
+  autodétectée par l'agent lot B (document au texte lisible) régénérée avant livraison.
+  Consolidation git par le CEO. Le pipeline blog est désormais 100 % autonome pour 6 mois :
+  80 articles habillés prêts à publier à 3/semaine.
