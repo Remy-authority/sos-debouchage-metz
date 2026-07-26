@@ -105,7 +105,7 @@ export const siteConfig = {
   /* ── Zone d'intervention (schema areaServed + bloc zones) ── */
   serviceArea: {
     base: 'Metz',
-    radiusKm: 20,
+    radiusKm: 30,
     // Quartiers de Metz cités pour la couverture géo fine (maillage, pas de page dédiée).
     districts: [
       'Centre-ville', 'Sablon', 'Queuleu', 'Borny', 'Bellecroix',
@@ -180,7 +180,7 @@ export const siteConfig = {
       step: '03',
       title: 'Débouchage',
       desc: "Furet électrique pour un bouchon localisé, hydrocurage haute pression pour un réseau encrassé ou des racines. Sans casse.",
-      duration: "Le jour de l'intervention",
+      duration: 'Jour J',
     },
     {
       icon: 'check',
@@ -234,7 +234,7 @@ export const siteConfig = {
     },
     {
       q: 'Intervenez-vous en urgence le soir, le week-end et les jours fériés ?',
-      a: "Oui. Un refoulement d'eaux usées ou des WC bouchés dans un logement occupé ne peuvent pas attendre le lundi. Notre ligne est ouverte 7j/7 pour les urgences sur Metz et les communes de l'agglomération dans un rayon d'environ 20 km.",
+      a: "Oui. Un refoulement d'eaux usées ou des WC bouchés dans un logement occupé ne peuvent pas attendre le lundi. Notre ligne est ouverte 7j/7 pour les urgences sur Metz et les communes de l'agglomération dans un rayon d'environ 30 km.",
     },
     {
       q: 'Faut-il casser un mur ou creuser pour déboucher une canalisation ?',

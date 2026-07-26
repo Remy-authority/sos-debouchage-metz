@@ -41,7 +41,7 @@ export function Faq({
             title ?? (
               <>
                 Questions
-                <span className="text-gradient-ink italic"> fréquentes</span>
+                <span className="text-gradient-ink ml-3 italic">fréquentes</span>
               </>
             )
           }

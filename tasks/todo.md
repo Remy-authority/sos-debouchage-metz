@@ -17,7 +17,7 @@
 - [x] Audit des 26 drafts Autoblog finaux : conformes doctrine, slugs valides
 - [x] Contrôle visuel CEO de la preview (desktop + mobile, ~35 captures) : verdict positif,
       patte PROTEC-DARD confirmée, 3 micro-défauts relevés → message Builder préparé
-- [ ] Builder : passe corrective (rayon 30 km + 3 micro-défauts) puis re-contrôle CEO rapide
+- [x] Builder : passe corrective (rayon 30 km + 3 micro-défauts) puis re-contrôle CEO rapide
 - [x] Consolidation git : faite par le Builder sur la branche `builder/design-contenu-metz`
       (1er commit = travaux SEO + Autoblog, 2e commit = travaux Builder). `main` non touché.
 - [x] Mettre à jour docs/ETAT.md (fait, à re-toucher si nouveaux comptes-rendus)
@@ -51,35 +51,39 @@ Interdit : reproduire le rendu d'Angers ou d'Annecy. Interdit : tiret cadratin.
 - Les calques décoratifs du hero interceptaient le clic du bouton de menu mobile
   (règle globale `pointer-events: none` sur les calques `aria-hidden`).
 
-## PROCHAINE SESSION BUILDER : passe corrective demandée par le CEO (26/07/2026)
+## SESSION BUILDER : passe corrective demandée par le CEO (26/07/2026) — TERMINÉE
 
 Contrôle visuel CEO : verdict positif, transposition PROTEC-DARD réussie et validée par Rémy.
 Quatre points à corriger avant merge, et rien d'autre : ne pas toucher à ce qui fonctionne.
 
-- [ ] **1. Rayon d'intervention : 30 km (décision Rémy, et non 20).**
-      Passer `radiusKm: 30` dans `config/site.config.ts` ET corriger les 17 occurrences de
-      « 20 km » écrites en dur : `config/site.config.ts` (dont une réponse de la FAQ d'accueil),
-      les 12 `content/zones/*.json` et `content/services/urgence-debouchage-canalisation.json`.
-      Vérifier ensuite qu'il ne reste aucun « 20 km » dans le repo hors `docs/`.
-      Les drafts ne sont pas concernés (vérifié par le CEO).
-      ⚠️ Si une formulation devient fausse avec 30 km (une commune décrite comme « en limite
-      de zone » par exemple), adapter la phrase, pas seulement le chiffre.
-- [ ] **2. Header des pages intérieures** (services, zones, contact…) : avant tout scroll, le
-      header reste en état « texte clair » au-dessus du bandeau clair du fil d'Ariane, le
-      sous-titre du logo « METZ · MOSELLE » est illisible. Le header doit démarrer en état
-      « fond clair / texte sombre » sur les pages dont le haut est clair, comme il le fait
-      déjà après scroll. (Piste : la logique `solid` de `components/layout/Header.tsx` ne
-      dépend que de `scrolled` et de `mobileOpen`, il lui manque le cas « page sans hero sombre ».)
-- [ ] **3. Titre de la FAQ d'accueil** : l'espace entre « Questions » et « fréquentes » est
-      visuellement écrasé par l'italique Fraunces, les deux mots semblent collés. Garantir un
-      espace réel et visible entre les deux spans.
-- [ ] **4. Bloc process de l'accueil, carte 3** : le badge « LE JOUR DE L'INTERVENTION » passe
-      sur deux lignes avec la puce mal alignée. Raccourcir le libellé (par exemple « JOUR J »)
-      ou aligner correctement puce et texte sur deux lignes.
+- [x] **1. Rayon d'intervention : 30 km (décision Rémy, et non 20).**
+      `radiusKm: 30` posé dans `config/site.config.ts`, et les 17 occurrences de « 20 km »
+      remplacées par « 30 km » (config + FAQ accueil + 12 `content/zones/*.json` +
+      `content/services/urgence-debouchage-canalisation.json`). Vérifié : aucune formulation ne
+      devenait fausse avec 30 km (aucune commune décrite comme « en limite de zone »), simple
+      remplacement du chiffre. Vérifié : plus aucun « 20 km » dans le repo hors `docs/` (seule
+      trace restante : la description de cette tâche elle-même dans `tasks/todo.md`).
+- [x] **2. Header des pages intérieures** (zones/services/conseils en détail) : le header ne
+      dépendait que de `scrolled` et `mobileOpen`. Ajout d'une détection `hasLightTop` basée sur
+      le chemin (`/^\/(zones|services|conseils)\/[^/]+\/?$/`, les 3 routes qui utilisent
+      `Breadcrumbs` au lieu d'un `PageHeader` sombre) dans `components/layout/Header.tsx`, qui
+      force l'état solide (fond clair, texte sombre) dès le premier rendu sur ces pages. Vérifié
+      visuellement en desktop et mobile sur une page zone et une page prestation : « METZ ·
+      MOSELLE » lisible avant tout scroll. Note mineure hors périmètre : sur une page 404 dont
+      l'URL ressemble à une de ces routes (slug d'article pas encore publié par exemple), le
+      header s'affiche aussi en solide au lieu du hero sombre habituel des 404, ce qui reste
+      parfaitement lisible et n'est pas un défaut de contraste, simplement une variation
+      esthétique mineure sur un cas limite non demandé.
+- [x] **3. Titre de la FAQ d'accueil** : le span italique « fréquentes » démarrait par un espace
+      littéral, rendu quasi invisible par le slant de l'italique Fraunces. Remplacé par une marge
+      explicite (`ml-3`) sur le span dans `components/ui/Faq.tsx`, espace net et visible en
+      desktop, sans impact sur mobile où le titre passe déjà à la ligne.
+- [x] **4. Bloc process de l'accueil, carte 3** : libellé raccourci de « Le jour de
+      l'intervention » à « Jour J » dans `config/site.config.ts` (`process[2].duration`), le
+      badge tient sur une ligne avec la puce correctement alignée, en desktop et mobile.
 
-Livrable attendu : push sur la même branche `builder/design-contenu-metz`, une URL de preview
-fraîche avec lien de partage, et `docs/ETAT.md` mis à jour. Le CEO fera un re-contrôle ciblé
-sur ces 4 points uniquement.
+Livrable : `npm run build` vert (37 pages), contrôle visuel Playwright desktop + mobile sur les
+4 points, push sur `builder/design-contenu-metz`, URL de preview transmise au CEO.
 
 ## En attente de Rémy
 

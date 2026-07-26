@@ -1,7 +1,7 @@
 # ETAT.md — Journal de bord SOS Débouchage Metz
 
 > Mémoire du projet. Chaque session lit ce fichier en arrivant et le met à jour avant de finir.
-> Dernière mise à jour : 2026-07-26 (session Autoblog : arbitrage appliqué, sujet 4 réécrit, 13 articles du calendrier rédigés).
+> Dernière mise à jour : 2026-07-26 (session Builder : passe corrective, rayon 30 km + 3 micro-défauts visuels traités, en attente re-contrôle CEO).
 
 ---
 
@@ -74,6 +74,7 @@ ce site :**
       historique). Restent à écrire, sans urgence : sujets complémentaires 26 (WC sans ventouse) et
       27 (lingettes/cheveux).
 - [x] Vérifier `robots.ts` en noindex tant que non validé (fait 26/07/2026 : `SEO_NOINDEX=1` posé en Production Vercel, robots.txt servi vérifié `Disallow: /` ; retirer la variable uniquement à l'Étape 6 sur validation Rémy)
+- [x] Builder : passe corrective post-contrôle CEO (rayon 30 km + 3 micro-défauts visuels) (fait 26/07/2026)
 - [ ] Contrôle visuel CEO → validation Rémy → mise en ligne (Étape 6 du playbook)
 
 ## 3. DÉCISIONS RÉMY
@@ -228,3 +229,23 @@ ce site :**
   17 occurrences de « 20 km » en dur (config/site.config.ts + 12 zones + 1 service), drafts non
   concernés (vérifié). Le slug service testé en 404 était une erreur de test du CEO (la route
   réelle est `/services/`, cohérente partout).
+- **26/07/2026 (Builder, passe corrective)** : les 4 points demandés par le CEO sont traités,
+  rien d'autre touché. 1) **Rayon 30 km** : `radiusKm: 30` dans `config/site.config.ts`, et les
+  17 occurrences de « 20 km » en dur remplacées par « 30 km » (config + FAQ accueil + 12
+  `content/zones/*.json` + `content/services/urgence-debouchage-canalisation.json`) ; aucune
+  formulation ne devenait fausse avec 30 km (pas de commune décrite « en limite de zone »), donc
+  simple remplacement du chiffre partout ; vérifié qu'il ne reste plus de « 20 km » dans le repo
+  hors `docs/`. 2) **Header pages intérieures** : ajout d'une détection `hasLightTop` dans
+  `components/layout/Header.tsx` basée sur le chemin (`/zones/:slug`, `/services/:slug`,
+  `/conseils/:slug`, les 3 routes qui posent un `Breadcrumbs` clair au lieu d'un `PageHeader`
+  sombre), qui force le header en état solide dès le premier rendu sur ces pages. « METZ ·
+  MOSELLE » vérifié lisible avant tout scroll, desktop et mobile. Note mineure hors périmètre :
+  sur une page 404 dont l'URL ressemble à une de ces routes, le header s'affiche aussi en solide
+  au lieu du hero sombre habituel des 404, toujours lisible, simple variation esthétique sur un
+  cas limite non demandé. 3) **Titre FAQ accueil** : le span italique démarrait par un espace
+  littéral quasi invisible avec le slant de l'italique Fraunces, remplacé par une marge explicite
+  (`ml-3`) dans `components/ui/Faq.tsx`. 4) **Badge process carte 3** : libellé raccourci de
+  « Le jour de l'intervention » à « Jour J » dans `config/site.config.ts`, tient sur une ligne,
+  puce alignée. Vérifications : `next build` vert (37 pages), contrôle visuel Playwright desktop
+  (1440) + mobile (390) ciblé sur les 4 points. Commit et push sur `builder/design-contenu-metz`.
+  EN ATTENTE : re-contrôle CEO ciblé sur ces 4 points, puis validation Rémy avant tout merge.
