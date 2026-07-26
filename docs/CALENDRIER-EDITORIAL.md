@@ -422,35 +422,214 @@ et les sujets 1-27 : zéro doublon d'angle.
 
 ---
 
-## Répartition par page service (vérification de couverture, lot T1 + T2)
+## Répartition par page service (vérification de couverture, lot T1 + T2 + T3)
 
 - `urgence-debouchage-canalisation` : articles 1, 4, 6, 8, 15, 16, 22, 23, 24,
-  25, 28, 30, 32, 59, 60
-- `debouchage-wc-toilettes-bouchees` : articles 2, 3, 17, 26, 27, 34, 35, 57
+  25, 28, 30, 32, 59, 60, 63, 69, 73, 84, 85 (20)
+- `debouchage-wc-toilettes-bouchees` : articles 2, 3, 17, 26, 27, 34, 35, 57,
+  67, 71, 81, 88 (12)
 - `debouchage-evier-lavabo-douche` : articles 5, 6, 7, 17, 21, 27, 29, 33, 36,
-  37, 38, 56
-- `curage-canalisation-haute-pression` : articles 4, 9, 11, 39, 40, 41, 42, 58
-- `inspection-camera-canalisation` : articles 4, 10, 20, 43, 44, 45
-- `debouchage-canalisation-enterree-regard` : articles 4, 12, 18, 31, 46, 47, 48
-- `debouchage-bac-a-graisse` : articles 13, 21, 49, 50, 51
+  37, 38, 56, 66, 78, 87, 90 (16)
+- `curage-canalisation-haute-pression` : articles 4, 9, 11, 39, 40, 41, 42,
+  58, 72, 74 (10)
+- `inspection-camera-canalisation` : articles 4, 10, 20, 43, 44, 45, 64, 76 (8)
+- `debouchage-canalisation-enterree-regard` : articles 4, 12, 18, 31, 46, 47,
+  48, 61, 65, 75, 77, 80 (12)
+- `debouchage-bac-a-graisse` : articles 13, 21, 49, 50, 51, 68, 79 (7)
 - `debouchage-colonne-immeuble-copropriete` : articles 14, 19, 39, 45, 52, 53,
-  54, 55
+  54, 55, 62, 70, 82, 83, 86, 89 (14)
 
 (Article 4 = draft `013`, rattaché aux 3 pages services de la désambiguïsation :
 `urgence-debouchage-canalisation`, `curage-canalisation-haute-pression`,
 `inspection-camera-canalisation`. Articles 39 et 45 rattachés à 2 pages
 chacun.)
 
-Chaque page service reçoit au moins 3 liens entrants depuis le blog après le
-lot T2 : pas de page orpheline.
+Chaque page service reçoit au moins 7 liens entrants depuis le blog après le
+lot T3 : pas de page orpheline.
 
-## Réserve de publication (mise à jour lot T2, 26/07/2026)
+## Réserve de publication (mise à jour lot T3, 27/07/2026)
 
-35 nouveaux drafts (`027` à `061`) rédigés le 26/07/2026 en réponse à une
-réserve jugée trop courte par le CEO (19 drafts restants pour une cadence de
-3 publications/semaine, soit un peu plus de 6 semaines). Objectif visé :
-environ 50 drafts en réserve, comme le pilote d'Angers. Décompte exact après
-le lot T2 dans `docs/ETAT.md`.
+35 drafts (`027` à `061`) rédigés le 26/07/2026 (lot T2, réserve alors trop
+courte : 19 drafts pour 3 publications/semaine), puis 30 drafts supplémentaires
+(`062` à `091`) rédigés le 27/07/2026 (lot T3, objectif Rémy porté à environ
+80 drafts en réserve, soit 6 mois pleins à 3 publications/semaine). Décompte
+exact après le lot T3 dans `docs/ETAT.md`.
+
+---
+
+## Lot T3 : angles logement / pièce / persona / idées reçues / été (27/07/2026, agent Autoblog)
+
+Étendu à la demande de Rémy le 27/07/2026 : objectif porté à environ 80
+drafts en réserve (6 mois pleins à 3 publications/semaine), contre 50 au
+moment de la mission. 30 nouveaux sujets ajoutés (61 à 90), tous rédigés et
+marqués ✅. Angles délibérément pas encore utilisés dans les 60 sujets
+précédents : type de logement (maison mitoyenne, appartement des années
+1960-1970, pavillon récent, local commercial), pièce (cave, buanderie, WC
+suspendus, cuisine professionnelle au-delà du seul bac à graisse), cas
+pratiques locataire / propriétaire bailleur / syndic, idées reçues à
+corriger (format « vrai ou faux »), préparation avant événement (extension,
+succession/enchères), et été (chaleur, sécheresse, piscine, barbecue,
+arrosage, réceptions, rentrée), la réserve couvrant désormais cette saison.
+Chaque sujet vérifié un par un contre les 61 articles existants et les
+sujets 1-60 : zéro doublon d'angle (détail des différenciations volontaires
+en note sous chaque sujet proche d'un thème déjà traité).
+
+61. **Maison de ville mitoyenne à Metz : les particularités de ses
+    canalisations partagées avec le voisinage**
+    > ✅ Couvert par `062-maison-mitoyenne-metz-canalisations-partagees.mdx`.
+    Distinct des sujets 41/49 (âge du bâti et matériaux) : angle mitoyenneté
+    et canalisations parfois communes avec le bien voisin. Lien vers
+    `debouchage-canalisation-enterree-regard`.
+62. **Appartement des années 1960-1970 à Metz : les colonnes d'évacuation à
+    surveiller**
+    > ✅ Couvert par `063-appartement-annees-1960-1970-metz-colonnes.mdx`.
+    Comble un angle d'ère intermédiaire entre les sujets 19/22 (copropriété
+    ancienne) et 56 (collectif neuf). Lien vers
+    `debouchage-colonne-immeuble-copropriete`.
+63. **Pavillon récent en périphérie de Metz : pourquoi les canalisations
+    neuves ne sont pas à l'abri de tout**
+    > ✅ Couvert par `064-pavillon-recent-peripherie-metz-canalisations.mdx`.
+    Distinct du sujet 56 (collectif neuf) : persona maison individuelle, pas
+    immeuble. Lien vers `urgence-debouchage-canalisation`.
+64. **Local commercial vacant repris : que vérifier sur les canalisations
+    avant l'ouverture**
+    > ✅ Couvert par `065-local-commercial-repris-verifier-avant-ouverture.mdx`.
+    Distinct du sujet 59 (entretien pour professionnels déjà en activité) :
+    diagnostic avant signature/ouverture. Lien vers
+    `inspection-camera-canalisation`.
+65. **Cave humide : le lien entre canalisations et infiltrations à
+    vérifier**
+    > ✅ Couvert par `066-cave-humide-canalisations-infiltrations.mdx`. Lien
+    vers `debouchage-canalisation-enterree-regard`.
+66. **Buanderie qui sent mauvais : les canalisations à vérifier en
+    priorité**
+    > ✅ Couvert par `067-buanderie-odeur-canalisations-verifier.mdx`.
+    Distinct du sujet 8 (odeur générale de la maison) : pièce et cause
+    spécifiques (lave-linge, siphon de sol). Lien vers
+    `debouchage-evier-lavabo-douche`.
+67. **WC suspendus qui se bouchent : ce qui change par rapport à un WC
+    classique**
+    > ✅ Couvert par `068-wc-suspendus-bouches-difference-wc-classique.mdx`.
+    Lien vers `debouchage-wc-toilettes-bouchees`.
+68. **Cuisine professionnelle : au-delà du bac à graisse, les autres points
+    de canalisation à surveiller**
+    > ✅ Couvert par `069-cuisine-professionnelle-au-dela-bac-a-graisse.mdx`.
+    Distinct des sujets 13/49/50/51/52 (centrés sur le bac lui-même) : plonge,
+    lave-vaisselle pro, sols siphonnés. Lien vers `debouchage-bac-a-graisse`.
+69. **Propriétaire bailleur à Metz : vos obligations d'entretien des
+    canalisations envers vos locataires**
+    > ✅ Couvert par `070-proprietaire-bailleur-metz-obligations-entretien.mdx`.
+    Persona symétrique du sujet 58 (locataire). Lien vers
+    `urgence-debouchage-canalisation`.
+70. **Syndic de copropriété : comment prioriser plusieurs signalements de
+    canalisation bouchée**
+    > ✅ Couvert par `071-syndic-copropriete-prioriser-signalements.mdx`.
+    Distinct des sujets 40/46/55 (organisation d'un curage, diagnostic,
+    règlement) : angle priorisation opérationnelle au quotidien. Lien vers
+    `debouchage-colonne-immeuble-copropriete`.
+71. **Locataire qui déménage : l'état des canalisations à vérifier pour
+    l'état des lieux de sortie**
+    > ✅ Couvert par `072-locataire-demenage-etat-des-lieux-canalisations.mdx`.
+    Distinct du sujet 58 (avant de signaler un problème en cours de bail) :
+    moment du départ. Lien vers `debouchage-wc-toilettes-bouchees`.
+72. **Acheter un bien à Metz : les questions à poser sur les canalisations
+    avant de signer**
+    > ✅ Couvert par `073-acheter-bien-metz-questions-canalisations-avant-signer.mdx`.
+    Format check-list de questions, distinct des sujets 23 (pourquoi
+    inspecter) et 42 (le vendeur fait curer). Lien vers
+    `curage-canalisation-haute-pression`.
+73. **Canalisations bouchées : 5 idées reçues qui retardent la bonne
+    solution**
+    > ✅ Couvert par `074-canalisations-bouchees-idees-recues.mdx`. Format
+    inédit (compilation vrai/faux), fort potentiel GEO. Lien vers
+    `urgence-debouchage-canalisation`.
+74. **Vrai ou faux : une canalisation neuve n'a besoin d'aucun entretien
+    avant plusieurs années**
+    > ✅ Couvert par `075-canalisation-neuve-pas-d-entretien-vrai-faux.mdx`.
+    Lien vers `curage-canalisation-haute-pression`.
+75. **Avant d'agrandir ou d'aménager vos combles : repérer le tracé de vos
+    canalisations existantes**
+    > ✅ Couvert par `076-avant-extension-reperer-trace-canalisations.mdx`.
+    Distinct du sujet 44 (vérifier après travaux) : anticiper avant que le
+    chantier ne démarre. Lien vers `debouchage-canalisation-enterree-regard`.
+76. **Bien reçu en héritage ou acheté aux enchères : vérifier l'état de
+    canalisations peu entretenues**
+    > ✅ Couvert par `077-heritage-encheres-verifier-canalisations-peu-entretenues.mdx`.
+    Persona distincte des sujets 23/42/72 (achat/vente classiques). Lien vers
+    `inspection-camera-canalisation`.
+77. **Été à Metz : ce que la chaleur et la sécheresse changent pour vos
+    canalisations enterrées**
+    > ✅ Couvert par `078-ete-metz-chaleur-secheresse-canalisations-enterrees.mdx`.
+    Premier sujet été du calendrier (la réserve couvre désormais cette
+    saison). Lien vers `debouchage-canalisation-enterree-regard`.
+78. **Vider une piscine hors-sol ou un petit bassin sans surcharger vos
+    canalisations**
+    > ✅ Couvert par `079-vider-piscine-hors-sol-sans-surcharger-canalisations.mdx`.
+    Lien vers `debouchage-evier-lavabo-douche`.
+79. **Barbecue et repas d'été en extérieur : les mêmes précautions sur les
+    graisses qu'en cuisine**
+    > ✅ Couvert par `080-barbecue-repas-ete-graisses-precautions.mdx`. Étend
+    la doctrine graisses (sujets 7, 24) à un contexte extérieur estival.
+    Lien vers `debouchage-bac-a-graisse`.
+80. **Jardin très arrosé l'été : un risque accru pour les racines dans vos
+    canalisations**
+    > ✅ Couvert par `081-jardin-arrose-ete-risque-racines-canalisations.mdx`.
+    Distinct des sujets 4/18/47/48 (diagnostic général racines) : angle
+    saisonnier, l'arrosage d'été qui attire les racines vers le réseau. Lien
+    vers `debouchage-canalisation-enterree-regard`.
+81. **Réception ou fête de famille l'été : anticiper l'affluence sur vos WC
+    et canalisations**
+    > ✅ Couvert par `082-reception-fete-famille-ete-affluence-wc.mdx`.
+    Distinct du sujet 35 (usage collectif commerce/bureau) : réception privée
+    ponctuelle. Lien vers `debouchage-wc-toilettes-bouchees`.
+82. **Colonne bouchée en immeuble : c'est forcément la faute d'un voisin,
+    vrai ou faux**
+    > ✅ Couvert par `083-colonne-bouchee-faute-voisin-vrai-faux.mdx`. Lien
+    vers `debouchage-colonne-immeuble-copropriete`.
+83. **Petite copropriété sans syndic professionnel : gérer un problème de
+    canalisation commune**
+    > ✅ Couvert par `084-petite-copropriete-sans-syndic-professionnel.mdx`.
+    Distinct des sujets 40/46/55/70 (qui supposent un syndic professionnel).
+    Lien vers `debouchage-colonne-immeuble-copropriete`.
+84. **Maison individuelle ou copropriété : ce qui change vraiment pour
+    l'entretien de vos canalisations**
+    > ✅ Couvert par `085-maison-individuelle-ou-copropriete-differences-entretien.mdx`.
+    Article d'orientation générale, distinct des sujets très ciblés déjà
+    écrits sur chaque cas. Lien vers `urgence-debouchage-canalisation`.
+85. **Sous-sol aménagé en pièce de vie : le point le plus exposé aux
+    refoulements de votre logement**
+    > ✅ Couvert par `086-sous-sol-amenage-point-expose-refoulements.mdx`.
+    Distinct du sujet 25 (refoulement, gestes généraux) et du sujet 65
+    (cave humide, infiltration) : vulnérabilité liée à l'altitude la plus
+    basse du logement. Lien vers `urgence-debouchage-canalisation`.
+86. **Local commercial en rez-de-chaussée d'immeuble ancien : une colonne
+    parfois partagée avec les logements**
+    > ✅ Couvert par `087-local-commercial-rdc-colonne-partagee-logements.mdx`.
+    Distinct du sujet 64 (diagnostic avant ouverture) : architecture du
+    réseau partagé commerce/logements. Lien vers
+    `debouchage-colonne-immeuble-copropriete`.
+87. **Cuisine ouverte sur le salon : pourquoi l'entretien de l'évacuation
+    compte encore plus**
+    > ✅ Couvert par `088-cuisine-ouverte-salon-entretien-evacuation.mdx`.
+    Lien vers `debouchage-evier-lavabo-douche`.
+88. **Chasse d'eau en mode économique qui semble ne plus évacuer : un vrai
+    bouchon ou un faux problème**
+    > ✅ Couvert par `089-chasse-eau-mode-economique-faux-probleme-bouchon.mdx`.
+    Diagnostic de désambiguïsation, reste dans le périmètre débouchage (ne
+    traite pas la réparation du mécanisme de chasse, hors périmètre). Lien
+    vers `debouchage-wc-toilettes-bouchees`.
+89. **Buanderie commune en copropriété : qui entretient les canalisations
+    du lave-linge collectif**
+    > ✅ Couvert par `090-buanderie-commune-copropriete-lave-linge-collectif.mdx`.
+    Distinct du sujet 66 (buanderie privée). Lien vers
+    `debouchage-colonne-immeuble-copropriete`.
+90. **Rentrée après les vacances d'été : le contrôle à faire sur les
+    canalisations avant de relancer un usage normal**
+    > ✅ Couvert par `091-rentree-apres-vacances-ete-controle-canalisations.mdx`.
+    Distinct du sujet 34 (avant de partir) : symétrique au retour. Lien vers
+    `debouchage-evier-lavabo-douche`.
+
+---
 
 ## Priorités ⭐ si on doit resserrer à 12 articles/an
 

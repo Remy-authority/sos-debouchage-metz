@@ -1,7 +1,7 @@
 # ETAT.md — Journal de bord SOS Débouchage Metz
 
 > Mémoire du projet. Chaque session lit ce fichier en arrivant et le met à jour avant de finir.
-> Dernière mise à jour : 2026-07-26 (session Autoblog lot T2 : 35 nouveaux drafts, réserve à 50 articles ≈ 4 mois).
+> Dernière mise à jour : 2026-07-27 (session Autoblog lot T3 : 30 nouveaux drafts, réserve à 80 articles ≈ 6 mois).
 
 ---
 
@@ -68,11 +68,11 @@ ce site :**
 - [x] Builder : réécrire `content/services/*.json` (8) et `content/zones/*.json` (12) selon le plan SEO (fait 26/07/2026)
 - [x] Builder sur Opus : COUCHE VISUELLE COMPLÈTE depuis le code PROTEC-DARD (fait 26/07/2026)
 - [x] Builder : logo, portrait persona, images (36 visuels générés, aucun texte/logo, décors lorrains) (fait 26/07/2026)
-- [x] Autoblog : drafts T1+T2, réserve à **50 drafts** dans `content/drafts/` (011 publiés depuis
-      le lancement, cadence lun/mer/ven ≈ 3/semaine, soit environ 16-17 semaines ≈ 4 mois de
-      contenu d'avance, objectif Rémy atteint). Les 60 sujets du calendrier (24 d'origine + 36
-      complémentaires dont le lot T2) sont tous couverts et marqués ✅ dans
-      `docs/CALENDRIER-EDITORIAL.md` (fait 26/07/2026, voir historique).
+- [x] Autoblog : drafts T1+T2+T3, réserve à **80 drafts** dans `content/drafts/` (11 publiés
+      depuis le lancement, cadence lun/mer/ven ≈ 3/semaine, soit environ 26-27 semaines ≈ 6 mois
+      de contenu d'avance, objectif Rémy du 27/07/2026 atteint). Les 90 sujets du calendrier (24
+      d'origine + 66 complémentaires dont les lots T2 et T3) sont tous couverts et marqués ✅ dans
+      `docs/CALENDRIER-EDITORIAL.md` (fait 27/07/2026, voir historique).
 - [x] Vérifier `robots.ts` en noindex tant que non validé (fait 26/07/2026 : `SEO_NOINDEX=1` posé en Production Vercel, robots.txt servi vérifié `Disallow: /` ; retirer la variable uniquement à l'Étape 6 sur validation Rémy)
 - [x] Builder : passe corrective post-contrôle CEO (rayon 30 km + 3 micro-défauts visuels) (fait 26/07/2026)
 - [ ] Contrôle visuel CEO → validation Rémy → mise en ligne (Étape 6 du playbook)
@@ -317,3 +317,29 @@ ce site :**
   `config/site.config.ts`, `tasks/lessons.md`, visuels `public/zones/`) constatées mais non
   touchées, hors périmètre de cette mission. Périmètre respecté : uniquement `content/drafts/` et
   `docs/CALENDRIER-EDITORIAL.md` modifiés (+ ce journal).
+- **27/07/2026 (Autoblog, lot T3 : réserve portée à 6 mois)** : mission Rémy exécutée, objectif
+  porté de 50 à environ 80 drafts en réserve (6 mois pleins à 3 publications/semaine). Départ de
+  session : resynchronisation avec `origin/main` (aucun commit en retard cette fois, lot T2 déjà
+  committé par une autre session : commit `881950e`). 1) Calendrier étendu de 60 à 90 sujets dans
+  `docs/CALENDRIER-EDITORIAL.md` : 30 nouveaux sujets (61 à 90), tous rattachés à l'une des 8 pages
+  services, creusant des angles pas encore utilisés (type de logement : maison mitoyenne,
+  appartement années 1960-1970, pavillon récent, local commercial ; pièce : cave, buanderie, WC
+  suspendus, cuisine professionnelle au-delà du bac à graisse ; cas pratiques locataire /
+  propriétaire bailleur / syndic ; idées reçues au format « vrai ou faux » ; préparation avant
+  événement (extension, héritage/enchères) ; et été, chaleur/sécheresse, piscine, barbecue,
+  arrosage/racines, réceptions, rentrée, la réserve couvrant désormais cette saison). Chaque sujet
+  vérifié un par un contre les 61 articles existants et les 60 sujets précédents : zéro doublon
+  d'angle (différenciations volontaires documentées en note sous chaque sujet proche d'un thème
+  déjà traité, ex. sujet 65 cave humide vs sujet 85 sous-sol aménagé, ou sujet 66 buanderie privée
+  vs sujet 89 buanderie commune copropriété). 2) 30 drafts rédigés (`062` à `091`), mêmes règles
+  que les lots précédents. 3) Script de vérification automatisée (Node + `gray-matter`) relancé
+  sur l'ensemble du dossier `content/drafts/` (pas seulement le nouveau lot) : **80 drafts, zéro
+  erreur** (frontmatter complet, slugs uniques, `relatedServices` tous valides contre les 8
+  `content/services/*.json` réels, FAQ ≥ 3 questions, corps substantiel) ; zéro doublon de slug
+  sur les 91 articles au total (11 publiés + 80 drafts). Contrôles manuels complémentaires : zéro
+  tiret cadratin, zéro chiffre inventé, zéro occurrence de « plombier », zéro tarif chiffré sur les
+  30 nouveaux fichiers. 4) Réserve finale : **80 drafts** (11 publiés), soit environ 6 mois de
+  publication automatique d'avance au rythme lun/mer/ven, objectif de Rémy atteint. Périmètre
+  respecté : uniquement `content/drafts/` et `docs/CALENDRIER-EDITORIAL.md` modifiés (+ ce
+  journal). Consigne de cette mission (contrairement aux précédentes) : commit et push du travail
+  par l'agent Autoblog lui-même, voir commit associé à cette entrée.
