@@ -1,20 +1,51 @@
-import Link from 'next/link'
-import { SITE } from '@/lib/config'
 import type { Metadata } from 'next'
+import { siteConfig } from '@/config/site.config'
+import { buildMetadata } from '@/lib/seo'
+import { LegalPage } from '@/components/layout/LegalPage'
 
-export const metadata: Metadata = { title: 'Politique de cookies', robots: { index: false } }
+export const metadata: Metadata = buildMetadata({
+  title: 'Politique de cookies',
+  description: `Utilisation des cookies sur le site ${siteConfig.businessName}.`,
+  path: '/politique-cookies',
+  noindex: true,
+})
 
 export default function PolitiqueCookies() {
   return (
-    <main className="max-w-4xl mx-auto px-4 py-16 section-cream min-h-screen">
-      <Link href="/" className="font-medium mb-8 inline-block text-teal-500 hover:text-teal-400 transition-colors">← Retour a l'accueil</Link>
-      <h1 className="text-3xl font-black text-ink-900 mb-8">Politique de cookies</h1>
-      <div className="space-y-8 text-ink-700">
-        <section><h2 className="text-xl font-bold text-ink-900 mb-3">Qu'est-ce qu'un cookie ?</h2><p>Un petit fichier texte depose sur votre appareil lors de la visite d'un site web.</p></section>
-        <section><h2 className="text-xl font-bold text-ink-900 mb-3">Cookies utilises</h2><p>Uniquement des cookies techniques strictement necessaires. <strong>Aucun cookie publicitaire ou tracking tiers.</strong></p></section>
-        <section><h2 className="text-xl font-bold text-ink-900 mb-3">Gestion</h2><p>Configurez votre navigateur pour refuser les cookies. La navigation reste possible.</p></section>
-        <section><h2 className="text-xl font-bold text-ink-900 mb-3">Contact</h2><p>{SITE.email}</p></section>
-      </div>
-    </main>
+    <LegalPage
+      title="Politique de cookies"
+      subtitle="Ce site ne dépose aucun cookie publicitaire ni traceur tiers."
+    >
+      <section>
+        <h2>Qu&apos;est-ce qu&apos;un cookie</h2>
+        <p>
+          Un cookie est un petit fichier texte déposé sur votre appareil lors de la consultation
+          d&apos;un site web. Il permet notamment de mémoriser une préférence ou de faire
+          fonctionner certaines fonctionnalités techniques.
+        </p>
+      </section>
+      <section>
+        <h2>Cookies utilisés sur ce site</h2>
+        <p>
+          Seuls des cookies strictement nécessaires au fonctionnement du site peuvent être déposés.
+          <strong> Aucun cookie publicitaire, aucun traceur tiers, aucune mesure d&apos;audience</strong>{' '}
+          n&apos;est utilisé en l&apos;état.
+        </p>
+      </section>
+      <section>
+        <h2>Gérer les cookies</h2>
+        <p>
+          Vous pouvez configurer votre navigateur pour refuser les cookies ou être averti de leur
+          dépôt. La navigation sur le site reste possible.
+        </p>
+      </section>
+      <section>
+        <h2>Contact</h2>
+        <p>
+          Pour toute question sur ce point :{' '}
+          <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
+        </p>
+      </section>
+    </LegalPage>
   )
 }

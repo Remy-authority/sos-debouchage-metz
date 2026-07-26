@@ -10,6 +10,7 @@
  */
 import type { Metadata } from 'next'
 import { siteConfig } from '@/config/site.config'
+import { getServices } from '@/lib/content'
 import type { Article, Service, Zone } from '@/lib/content'
 
 const BASE = siteConfig.seo.canonicalBase.replace(/\/$/, '')
@@ -71,8 +72,18 @@ export function buildMetadata({
 
 const ORG_ID = `${BASE}/#business`
 
-/** LocalBusiness → Plumber (global, layout). Sans address par défaut. */
-export function plumberJsonLd() {
+/**
+ * LocalBusiness du site (global, posé dans le layout).
+ *
+ * Choix du type (cf. docs/SEO-GEO-PLAN.md §3.5) : schema.org ne propose pas de
+ * sous-type « débouchage / assainissement ». `Plumber` reste le plus proche parmi
+ * les `HomeAndConstructionBusiness`, on le conserve mais on lève l'ambiguïté pour
+ * les moteurs génératifs avec `additionalType` (concept Wikidata « débouchage de
+ * canalisation ») et un `hasOfferCatalog` listant les prestations réelles.
+ *
+ * ⛔ Sans `address` par défaut, sans `aggregateRating`, sans `review`.
+ */
+export function localBusinessJsonLd() {
   const areaServed = [
     siteConfig.serviceArea.base,
     ...siteConfig.serviceArea.districts,
@@ -81,8 +92,9 @@ export function plumberJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'Plumber',
     '@id': ORG_ID,
+    additionalType: 'https://www.wikidata.org/wiki/Q5304993',
     name: siteConfig.businessName,
-    description: `${siteConfig.trade} à ${siteConfig.city} et ses environs. Détection non destructive, intervention rapide.`,
+    description: `${siteConfig.trade} à ${siteConfig.city} et dans l'agglomération : débouchage de WC, évier, douche, colonne d'immeuble et regard, curage haute pression et inspection caméra.`,
     url: BASE,
     telephone: siteConfig.phone,
     email: siteConfig.email,
@@ -110,6 +122,22 @@ export function plumberJsonLd() {
       postalCode: siteConfig.legal.address.postalCode,
       addressLocality: siteConfig.legal.address.city,
       addressCountry: 'FR',
+    }
+  }
+  // Catalogue de prestations : lu depuis content/services, jamais écrit en dur.
+  const services = getServices()
+  if (services.length) {
+    node.hasOfferCatalog = {
+      '@type': 'OfferCatalog',
+      name: `Prestations de ${siteConfig.trade.toLowerCase()} à ${siteConfig.city}`,
+      itemListElement: services.map((s) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: s.navTitle,
+          url: absUrl(`/services/${s.slug}`),
+        },
+      })),
     }
   }
   // ⛔ Aucun aggregateRating / review tant que features.reviews=false.

@@ -1,0 +1,55 @@
+{
+  "slug": "urgence-debouchage-canalisation",
+  "order": 1,
+  "icon": "alert",
+  "navTitle": "Urgence canalisation bouchée",
+  "h1": "Urgence débouchage canalisation à Metz",
+  "metaTitle": "Urgence débouchage canalisation à Metz, 7j/7",
+  "metaDescription": "Canalisation bouchée en urgence à Metz ? Intervention 7j/7 pour déboucher WC, évier ou colonne d'immeuble. Prix annoncé avant. Appelez-nous.",
+  "intro": "Une canalisation bouchée devient une urgence dès que l'eau ne s'évacue plus du tout ou qu'elle remonte dans un appareil. Nous intervenons à Metz et dans un rayon d'environ 30 km, week-ends et jours fériés compris. Vous décrivez le symptôme au téléphone, nous vous donnons le tarif et un créneau, et nous vous indiquons les gestes à faire en attendant.",
+  "bullets": [
+    "Ligne ouverte 7j/7",
+    "Diagnostic dès l'appel",
+    "Prix annoncé avant"
+  ],
+  "blocks": [
+    {
+      "heading": "Que faire en attendant notre arrivée",
+      "body": "Le premier réflexe est de ne plus rien envoyer dans le réseau. 1. Arrêtez d'utiliser tous les appareils reliés à l'évacuation concernée : chasse d'eau, lave-vaisselle, lave-linge, douche. Chaque litre supplémentaire aggrave le refoulement. 2. Ne versez aucun déboucheur chimique, surtout si l'eau stagne déjà. Le produit reste au-dessus du bouchon, attaque la canalisation et devient dangereux pour la personne qui ouvrira le siphon ensuite. 3. Protégez le sol autour de l'appareil avec des serpillières ou des vieux textiles, et dégagez ce qui se trouve au sol dans la pièce. 4. Coupez l'électricité de la pièce si l'eau approche d'une prise, d'une multiprise ou d'un appareil branché. 5. Photographiez la situation avant de nettoyer si des dégâts sont visibles : ces images serviront pour votre assurance ou votre syndic. Si vous êtes en appartement et que plusieurs logements refoulent en même temps, prévenez aussi le gardien ou le syndic : la cause est très probablement sur une partie commune.",
+      "image": "/services/urgence-debouchage-canalisation-gestes.jpg",
+      "imageAlt": "Serpillières disposées au sol autour du pied d'une cuvette de WC",
+      "imageCaption": "Protéger le sol et arrêter tout écoulement : les deux gestes utiles avant notre arrivée."
+    },
+    {
+      "heading": "Comment se déroule une intervention en urgence",
+      "body": "L'intervention commence au téléphone. Nous vous demandons quels appareils sont touchés, depuis quand, s'il y a des odeurs et si vous êtes en maison ou en appartement : ces quatre réponses suffisent le plus souvent à savoir si le bouchon est local ou situé plus loin sur le réseau. Sur place, nous repérons les accès existants, siphon, tampon de dégorgement ou regard de visite, et nous testons l'écoulement pour situer l'obstacle. Un bouchon proche se traite au furet électrique. Un réseau encrassé sur toute sa longueur ou un bouchon lointain demandent l'hydrocureur haute pression. Nous vérifions ensuite l'écoulement devant vous, et nous passons la caméra si la cause reste incertaine ou si le problème est déjà revenu plusieurs fois."
+    },
+    {
+      "heading": "Où nous intervenons en urgence",
+      "body": "Nous couvrons Metz dans tous ses quartiers, du centre-ville au Sablon, de Queuleu à Borny, de Devant-les-Ponts à Magny, ainsi que les communes de l'agglomération dans un rayon d'environ 30 km : Montigny-lès-Metz, Woippy, Marly, Moulins-lès-Metz, Longeville-lès-Metz, Le Ban-Saint-Martin, Saint-Julien-lès-Metz, Scy-Chazelles, Plappeville, Augny, Ars-sur-Moselle et Marange-Silvange. Si votre commune ne figure pas dans cette liste, appelez tout de même : notre zone est plus large que les pages dédiées de ce site."
+    }
+  ],
+  "relatedServices": [
+    "debouchage-wc-toilettes-bouchees",
+    "debouchage-colonne-immeuble-copropriete"
+  ],
+  "faq": [
+    {
+      "q": "À partir de quand une canalisation bouchée devient-elle une urgence ?",
+      "a": "Elle devient urgente dès que l'eau ne s'évacue plus du tout, qu'elle remonte dans un autre appareil ou que des eaux usées débordent. Un simple ralentissement, lui, peut attendre un rendez-vous en journée. Le signe qui doit faire appeler tout de suite est le refoulement : si l'eau de la douche remonte dans les WC ou si l'évier se vide dans la baignoire, le bouchon est sur une partie commune du réseau et il continuera de s'aggraver."
+    },
+    {
+      "q": "Intervenez-vous la nuit, le week-end et les jours fériés à Metz ?",
+      "a": "Oui, notre ligne est ouverte 7j/7, week-ends et jours fériés compris, pour les urgences sur Metz et les communes de l'agglomération. Le créneau exact vous est annoncé au téléphone en fonction du planning en cours : nous préférons donner une heure réaliste plutôt qu'une promesse générique."
+    },
+    {
+      "q": "Faut-il verser un déboucheur chimique en attendant le déboucheur ?",
+      "a": "Non, et c'est même à éviter. Sur un bouchon compact, le produit ne traverse pas l'obstacle : il stagne au-dessus, attaque la canalisation, particulièrement sur du PVC ancien ou du plomb, et rend l'ouverture du siphon dangereuse pour l'intervenant. Si l'eau ne s'écoule plus du tout, arrêtez tout produit et prévenez-nous que vous en avez déjà utilisé."
+    },
+    {
+      "q": "Combien coûte une intervention en urgence ?",
+      "a": "Le prix dépend de la prestation nécessaire, pas de l'heure de l'appel : un débouchage au furet sur un appareil isolé et un hydrocurage de réseau ne se facturent pas pareil. Nous annonçons le tarif au téléphone à partir de votre description, et nous le confirmons sur place avant de commencer. Si ce que nous trouvons change la prestation nécessaire, vous le savez avant, pas au moment de la facture."
+    }
+  ],
+  "image": "/services/urgence-debouchage-canalisation.jpg"
+}

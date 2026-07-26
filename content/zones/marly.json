@@ -1,0 +1,47 @@
+{
+  "slug": "marly",
+  "name": "Marly",
+  "postalCode": "57155",
+  "context": "Commune résidentielle au sud de Metz, largement pavillonnaire, avec de nombreux réseaux d'évacuation enterrés sous jardin ou terrasse.",
+  "metaTitle": "Débouchage de canalisation à Marly (57)",
+  "metaDescription": "Débouchage de canalisation à Marly, près de Metz : WC, évier, douche, regard et réseau enterré. Intervention 7j/7, prix annoncé avant.",
+  "h1": "Débouchage de canalisation à Marly",
+  "intro": "Nous intervenons à Marly (57155) pour le débouchage de WC, d'éviers, de douches et de canalisations enterrées. Commune résidentielle du sud de l'agglomération messine, Marly est essentiellement pavillonnaire : la plus grande partie du réseau d'évacuation y court sous les jardins et les terrasses, ce qui déplace les causes de blocage vers l'extérieur du logement.",
+  "blocks": [
+    {
+      "heading": "Ce que nous traitons à Marly",
+      "body": "À Marly, les demandes les plus fréquentes portent sur trois situations. Les WC bouchés, presque toujours réglés par la cuvette au furet, sans démontage. Les éviers de cuisine ralentis par les graisses figées dans le premier mètre d'évacuation, traités au démontage du siphon puis au furet ou à l'eau sous pression. Et surtout la canalisation enterrée entre la maison et le réseau public, sur laquelle nous intervenons par le regard de visite, sans creuser. Sur un pavillon, cette dernière situation est la plus coûteuse à laisser traîner : le refoulement finit par ressortir au point le plus bas de la maison, souvent une douche de rez-de-chaussée ou une évacuation de sous-sol."
+    },
+    {
+      "heading": "Pourquoi les réseaux enterrés se bouchent en secteur pavillonnaire",
+      "body": "Trois causes reviennent constamment. Les racines, d'abord : haies, arbustes et arbres plantés à proximité du tracé finissent par trouver un joint légèrement ouvert et s'y installent en chevelu qui retient tout ce qui passe. Les défauts de pente ensuite, soit d'origine, soit apparus après un affaissement du terrain ou des travaux d'aménagement extérieur : l'eau stagne dans le creux et les matières s'y déposent. Les dépôts enfin, graisses de cuisine et calcaire, qui réduisent lentement le diamètre utile de la conduite. Un débouchage rétablit l'écoulement dans les trois cas, mais seule une inspection caméra dit laquelle des trois vous concerne, et donc s'il faut prévoir un curage périodique ou une reprise de canalisation."
+    },
+    {
+      "heading": "Urgence et communes voisines",
+      "body": "Si votre regard déborde ou si plusieurs évacuations refoulent en même temps à Marly, arrêtez d'utiliser l'eau dans la maison et appelez-nous. Notre ligne est ouverte 7j/7, week-ends et jours fériés compris. Depuis Marly, nous couvrons également Metz et ses quartiers sud dont le Sablon et Magny, Montigny-lès-Metz, Augny et les autres communes du sud de l'agglomération, dans un rayon d'environ 30 km."
+    }
+  ],
+  "neighbours": [
+    "Metz",
+    "Montigny-lès-Metz",
+    "Augny"
+  ],
+  "faq": [
+    {
+      "q": "Intervenez-vous à Marly sans creuser dans le jardin ?",
+      "a": "Oui. Le débouchage et le curage se font par les accès existants : siphon, tampon de dégorgement ou regard de visite. Le furet et l'hydrocureur traitent la conduite sur toute sa longueur depuis ces points. Un terrassement ne devient nécessaire que pour réparer une canalisation cassée ou effondrée, ce qui se constate à la caméra avant toute décision et jamais sans votre accord."
+    },
+    {
+      "q": "Plusieurs évacuations refoulent en même temps chez moi, est-ce grave ?",
+      "a": "C'est le signe que le bouchon n'est dans aucun appareil mais sur la canalisation commune qui les rassemble, en général la partie enterrée. Il faut traiter cette conduite et non les siphons un par un. Arrêtez d'utiliser l'eau en attendant l'intervention : chaque litre supplémentaire aggrave le refoulement puisqu'il ne peut plus s'évacuer."
+    },
+    {
+      "q": "Faut-il faire un curage préventif sur une maison à Marly ?",
+      "a": "Ce n'est utile que si l'écoulement se dégrade progressivement, si des odeurs apparaissent près du regard, ou si le réseau s'est déjà bouché plusieurs fois. Sur une conduite récente qui fonctionne bien, cela n'a pas d'intérêt. Nous préférons vous le dire plutôt que de vous vendre un entretien dont vous n'avez pas besoin."
+    },
+    {
+      "q": "Le bouchon est-il chez moi ou sur le réseau public ?",
+      "a": "Le regard de visite en limite de propriété sert de point de partage. S'il est plein et que le refoulement remonte vers la maison, le bouchon est en aval, potentiellement sur le branchement public. S'il est vide alors que la maison refoule, il est sur votre partie privative. Nous faisons ce constat en ouvrant le regard et nous vous orientons vers le service compétent si la responsabilité est publique."
+    }
+  ]
+}

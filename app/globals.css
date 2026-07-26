@@ -3,106 +3,238 @@
 @tailwind utilities;
 
 /**
- * CSS variables = design tokens du site.
- * Source de vérité : siteConfig.colors (config/site.config.ts), injecté dans
- * <html style="..."> par app/layout.tsx. Les valeurs :root ci-dessous ne sont
- * qu'un FALLBACK (mêmes hex) pour un rendu sûr hors injection.
+ * Fallback des tokens de couleur.
+ * Source de vérité : siteConfig.palette (config/site.config.ts), injectée en CSS
+ * vars sur <html> par app/layout.tsx via lib/theme.ts. Les valeurs :root ci-dessous
+ * ne sont qu'un filet de sécurité (mêmes hex) pour un rendu correct hors injection.
  * Format « r g b » (canaux) pour les modificateurs d'opacité Tailwind.
  */
 :root {
-  --color-primary-rgb: 11 79 138; /* #0B4F8A */
-  --color-primary-dark-rgb: 10 62 110; /* #0A3E6E */
-  --color-accent-rgb: 249 115 22; /* #F97316 */
-  --color-dark-rgb: 15 23 42; /* #0F172A */
-  --color-light-rgb: 246 249 252; /* #F6F9FC */
+  --c-ink-600: 29 83 96;
+  --c-ink-700: 22 64 74;
+  --c-ink-800: 16 49 56;
+  --c-ink-900: 11 36 41;
+  --c-ink-950: 7 26 30;
+
+  --c-sand-50: 251 249 244;
+  --c-sand-100: 245 241 232;
+  --c-sand-200: 233 226 212;
+  --c-sand-300: 215 205 185;
+  --c-sand-400: 179 168 146;
+  --c-sand-500: 138 128 112;
+  --c-sand-600: 100 92 80;
+  --c-sand-700: 70 64 58;
+
+  --c-brand-300: 111 203 206;
+  --c-brand-400: 49 165 172;
+  --c-brand-500: 18 131 140;
+  --c-brand-600: 12 102 110;
+  --c-brand-700: 9 78 86;
+
+  --c-accent-300: 245 140 122;
+  --c-accent-400: 234 92 70;
+  --c-accent-500: 217 59 40;
+  --c-accent-600: 178 43 27;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
   }
   body {
-    @apply bg-white text-slate-700 font-sans antialiased;
+    @apply bg-sand-50 font-sans text-sand-700 antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
-  h1, h2, h3 {
-    @apply text-slate-900 font-bold tracking-tight;
+  /* Les titres passent en Fraunces (display) : graisse 500, interlettrage serré. */
+  h1, h2, h3, h4 {
+    @apply font-display font-medium tracking-tight text-ink-950;
   }
-  a {
-    @apply text-primary;
+  ::selection {
+    @apply bg-accent-300 text-ink-950;
   }
-  /* Cible tap ≥ 44px sur mobile (a11y / Lighthouse) */
+  /* Décalage d'ancre sous le header fixe. */
+  section[id], article[id] {
+    scroll-margin-top: 6rem;
+  }
+  /* Cible tap ≥ 44px sur mobile (a11y). */
   a, button {
     touch-action: manipulation;
+  }
+  /* Un calque décoratif en position absolue (dégradé, grille, halo, photo
+     d'ambiance) ne doit JAMAIS intercepter un clic. Sans cette règle, la photo
+     de fond du hero volait le clic du bouton de menu mobile. */
+  [aria-hidden='true'].absolute,
+  [aria-hidden='true'].fixed {
+    pointer-events: none;
   }
 }
 
 @layer components {
   .container-site {
-    @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+    @apply mx-auto w-full max-w-7xl px-6 lg:px-10;
   }
+  /* Rythme vertical de référence PROTEC-DARD : sections amples, respiration forte. */
   .section {
-    @apply py-12 md:py-16;
+    @apply py-24 lg:py-32;
   }
-  /* CTA principal = accent orange (urgence), toujours ≥ 48px de haut */
-  .btn-accent {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3.5 min-h-[48px] font-semibold text-white transition-colors hover:bg-accent/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
-  }
-  .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 min-h-[48px] font-semibold text-white transition-colors hover:bg-primary-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
-  }
-  .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-primary/30 bg-white px-6 py-3.5 min-h-[48px] font-semibold text-primary transition-colors hover:border-primary hover:bg-primary/5;
-  }
-  .card {
-    @apply rounded-card border border-slate-200 bg-white p-6 shadow-sm;
-  }
-  .field {
-    @apply w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30;
-  }
-  .prose-content {
-    @apply max-w-3xl leading-relaxed;
-  }
-  .prose-content h2 {
-    @apply mt-8 text-2xl;
-  }
-  .prose-content p {
-    @apply mt-4;
-  }
-  .prose-content a {
-    @apply underline;
+  .section-tight {
+    @apply py-16 lg:py-20;
   }
 
-  /* Corps d'article de blog (scoped : n'affecte pas les pages services). */
-  .article-prose {
-    @apply text-[1.0625rem] text-slate-700;
+  /* ── Fonds de section ─────────────────────────────────────────────── */
+  /* Grille technique masquée en ellipse, posée sur les sections sombres. */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgb(var(--c-brand-300) / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--c-brand-300) / 0.06) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 72%);
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 72%);
   }
-  /* H2 bien détachés : filet fin + respiration au-dessus. */
+  .bg-grid-tight {
+    background-image:
+      linear-gradient(rgb(var(--c-brand-300) / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--c-brand-300) / 0.05) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+  /* Filet dégradé horizontal, séparateur discret entre deux blocs sombres. */
+  .rule-glow {
+    @apply h-px w-full;
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgb(var(--c-brand-400) / 0.45),
+      transparent
+    );
+  }
+  /* Texture de bruit très légère, casse l'aplat des grands fonds sombres. */
+  .noise-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ── Titres dégradés ──────────────────────────────────────────────── */
+  .text-gradient-accent {
+    background-image: linear-gradient(
+      110deg,
+      rgb(var(--c-accent-500)) 0%,
+      rgb(var(--c-accent-300)) 50%,
+      rgb(var(--c-accent-500)) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 8s linear infinite;
+  }
+  .text-gradient-brand {
+    background-image: linear-gradient(
+      110deg,
+      rgb(var(--c-brand-400)) 0%,
+      rgb(var(--c-brand-300)) 50%,
+      rgb(var(--c-brand-400)) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 9s linear infinite;
+  }
+  /* Variante pour fonds clairs : dégradé encre, souvent en italique. */
+  .text-gradient-ink {
+    background-image: linear-gradient(
+      135deg,
+      rgb(var(--c-ink-950)) 0%,
+      rgb(var(--c-brand-700)) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    padding-right: 0.12em;
+    padding-bottom: 0.12em;
+    margin-right: 0.08em;
+    margin-bottom: -0.12em;
+  }
+
+  /* ── Champs de formulaire ─────────────────────────────────────────── */
+  .field {
+    @apply w-full rounded-2xl border border-sand-300 bg-white px-4 py-3.5 text-ink-950 placeholder-sand-400 transition-colors;
+    @apply focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/25;
+  }
+  .field-label {
+    @apply mb-1.5 block text-sm font-medium text-ink-900;
+  }
+
+  /* ── Prose (pages services / zones) ───────────────────────────────── */
+  .prose-content {
+    @apply leading-relaxed text-sand-700;
+  }
+  .prose-content h2 {
+    @apply mt-12 text-3xl leading-snug md:text-4xl;
+  }
+  .prose-content h3 {
+    @apply mt-8 text-xl;
+  }
+  .prose-content p {
+    @apply mt-5 text-[1.0625rem] leading-relaxed;
+  }
+  .prose-content strong {
+    @apply font-semibold text-ink-950;
+  }
+  .prose-content a {
+    @apply font-medium text-brand-600 underline underline-offset-2 hover:text-brand-500;
+  }
+
+  /* ── Corps d'article de blog ──────────────────────────────────────── */
+  .article-prose {
+    @apply text-[1.0625rem] leading-[1.75] text-sand-700;
+  }
   .article-prose h2 {
-    @apply mt-12 border-t border-slate-100 pt-8 text-2xl font-bold text-slate-900 md:text-[1.75rem];
+    @apply mt-12 border-t border-sand-200 pt-8 text-3xl;
   }
   .article-prose h3 {
-    @apply mt-8 text-xl font-bold text-slate-900;
+    @apply mt-9 text-xl;
   }
   .article-prose p {
     @apply mt-5;
   }
   .article-prose ul,
   .article-prose ol {
-    @apply mt-5 list-outside space-y-2 pl-5;
+    @apply mt-5 list-outside space-y-2 pl-6;
   }
   .article-prose ul { @apply list-disc; }
   .article-prose ol { @apply list-decimal; }
+  .article-prose li::marker { color: rgb(var(--c-accent-500)); }
+  .article-prose strong { @apply font-semibold text-ink-950; }
   .article-prose a {
-    @apply font-medium text-primary underline underline-offset-2 hover:text-primary-dark;
+    @apply font-medium text-brand-600 underline underline-offset-2 hover:text-brand-500;
   }
-  /* Images markdown : largeur de colonne, coins arrondis, cadre léger. */
+  .article-prose blockquote {
+    @apply mt-6 rounded-r-2xl border-l-4 border-accent-500 bg-sand-100 px-6 py-4 font-display text-lg italic text-ink-900;
+  }
   .article-prose img {
-    @apply mt-7 w-full rounded-card border border-slate-200 shadow-sm;
+    @apply mt-7 w-full rounded-card border border-sand-200 shadow-card;
   }
   /* Légende = paragraphe en italique seul juste après l'image (`*légende*`). */
   .article-prose p:has(> em:only-child) {
-    @apply mt-2 text-center text-sm not-italic text-slate-500;
+    @apply mt-2 text-center text-sm not-italic text-sand-500;
+  }
+}
+
+/* Respect de prefers-reduced-motion, y compris pour les animations Framer Motion
+   qui retombent sur des transitions CSS. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

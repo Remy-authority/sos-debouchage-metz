@@ -1,22 +1,18 @@
+/**
+ * lib/config.ts, raccourcis hérités du template.
+ *
+ * ⚠️ La source de vérité de l'identité du site est `config/site.config.ts`.
+ * Ce module ne fait que ré-exposer quelques valeurs pour les modules qui l'importaient
+ * historiquement. Ne rien y redéfinir en dur.
+ */
+import { siteConfig } from '@/config/site.config'
+
 export const SITE = {
-  commune: 'Angers',
-  communeCode: '49',
-  postalCode: '49000',
-  name: 'SOS Fuite Angers',
-  phone: '+33 7 56 85 31 25',
-  phoneHref: 'tel:+33756853125',
-  email: 'contact@sosfuite-angers.fr',
-  communesVoisines: [
-    'Trélazé',
-    'Avrillé',
-    'Beaucouzé',
-    "Saint-Barthélemy-d'Anjou",
-    'Les Ponts-de-Cé',
-    'Sainte-Gemmes-sur-Loire',
-    'Écouflant',
-  ],
-  prixRechercheMin: 150,
-  prixRechercheMax: 600,
-  prixAssechementMin: 400,
-  prixAssechementMax: 1600,
+  commune: siteConfig.city,
+  communeCode: siteConfig.department,
+  postalCode: siteConfig.legal.address.postalCode,
+  name: siteConfig.businessName,
+  phone: siteConfig.phoneDisplay,
+  phoneHref: `tel:${siteConfig.phone}`,
+  email: siteConfig.email,
 }

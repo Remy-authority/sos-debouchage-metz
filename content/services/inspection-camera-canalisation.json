@@ -1,0 +1,52 @@
+{
+  "slug": "inspection-camera-canalisation",
+  "order": 5,
+  "icon": "camera",
+  "navTitle": "Inspection caméra",
+  "h1": "Inspection caméra de canalisation à Metz",
+  "metaTitle": "Inspection caméra de canalisation à Metz",
+  "metaDescription": "Passage caméra de canalisation à Metz : voir l'état réel du réseau, localiser une casse, des racines ou une contre-pente. Compte rendu remis.",
+  "intro": "L'inspection caméra consiste à faire progresser une caméra étanche dans la canalisation pour voir son état réel, de l'intérieur, sans rien ouvrir ni creuser. Elle répond à une question précise : pourquoi ça se rebouche, et où exactement. Nous la proposons à Metz et dans l'agglomération quand le bouchon revient, quand la cause est incertaine, ou avant d'engager des travaux sur un réseau enterré.",
+  "bullets": [
+    "Sans creuser ni casser",
+    "Localisation précise du défaut",
+    "Compte rendu remis"
+  ],
+  "blocks": [
+    {
+      "heading": "Quand une inspection caméra est utile",
+      "body": "Elle est pertinente dans cinq situations. Quand un bouchon revient malgré plusieurs débouchages : le problème n'est alors pas l'usage mais la canalisation. Quand des odeurs persistent sans cause visible, souvent le signe d'un déboîtement ou d'un siphon désamorcé sur le réseau enterré. Quand un affaissement de terrain, une flaque persistante ou une zone de gazon anormalement verte apparaît au-dessus d'une conduite. Avant d'acheter un bien ancien avec un réseau d'assainissement dont personne ne connaît l'état. Et en copropriété, pour établir objectivement si un refoulement vient d'un défaut de partie commune ou d'un usage dans un logement. Dans tous les autres cas, elle n'est pas nécessaire et nous ne la proposons pas."
+    },
+    {
+      "heading": "Ce que la caméra montre",
+      "body": "La caméra remonte la conduite depuis un regard ou un point de dégorgement et affiche l'intérieur en direct. On y voit les dépôts et l'épaisseur de tartre restant sur la paroi, les racines entrées par un joint et leur point d'entrée exact, les fissures, les emboîtements décalés et les portions écrasées ou affaissées, ainsi que les contre-pentes où l'eau stagne au lieu de s'écouler. La sonde permet de repérer l'emplacement du défaut depuis la surface et sa profondeur, ce qui évite d'ouvrir au hasard si une réparation est nécessaire. Nous vous remettons un compte rendu avec ce qui a été observé et à quel endroit."
+    },
+    {
+      "heading": "Ce que l'inspection permet de décider",
+      "body": "Le but n'est pas de filmer pour filmer, c'est de trancher entre trois décisions très différentes de coût. Si la conduite est simplement encrassée, un curage haute pression suffit et le réseau repart pour des années. Si des racines fines sont entrées par un joint, on coupe et on surveille, ou on reprend le joint concerné. Si la canalisation est cassée, écrasée ou en contre-pente, aucun débouchage ne réglera durablement le problème et il faut envisager une reprise ciblée de la portion défectueuse. En location comme en copropriété, ce constat sert aussi à établir qui doit prendre en charge quoi, puisqu'il distingue un défaut de la canalisation d'un usage inadapté."
+    }
+  ],
+  "relatedServices": [
+    "curage-canalisation-haute-pression",
+    "debouchage-canalisation-enterree-regard"
+  ],
+  "faq": [
+    {
+      "q": "Comment se passe un passage caméra dans une canalisation ?",
+      "a": "Une caméra étanche montée sur un jonc semi-rigide est introduite par un accès existant, regard de visite, tampon de dégorgement ou culotte de pied de colonne. Elle progresse dans la conduite en renvoyant l'image en direct sur un écran. Aucune ouverture ni terrassement n'est nécessaire pour l'inspection elle-même. L'opération dure généralement moins d'une heure sur un réseau domestique."
+    },
+    {
+      "q": "Faut-il déboucher avant de passer la caméra ?",
+      "a": "Oui, dans la plupart des cas. Une canalisation pleine d'eau stagnante ou obstruée ne permet pas de voir la paroi. L'ordre logique est donc débouchage ou curage d'abord, inspection ensuite, sur une conduite propre. C'est aussi le moment où l'inspection est la plus informative, puisqu'on voit alors l'état réel du matériau et non la couche de dépôt."
+    },
+    {
+      "q": "L'inspection caméra permet-elle de savoir qui doit payer les travaux ?",
+      "a": "Elle donne les éléments factuels pour en décider. Le compte rendu distingue un bouchon d'usage, qui relève de l'entretien courant et donc du locataire en logement loué, d'un défaut de la canalisation elle-même, vétusté, rupture, contre-pente ou racines, qui relève du propriétaire. En copropriété, elle établit de la même façon si le défaut est sur une partie commune. C'est le syndic ou l'assureur qui décide ensuite, mais sur une base objective."
+    },
+    {
+      "q": "Peut-on inspecter une canalisation avant d'acheter une maison ?",
+      "a": "Oui, et c'est l'un des usages les plus utiles de la caméra sur un bien ancien. Le réseau enterré est ce que personne ne voit lors d'une visite, alors qu'une reprise de canalisation sous terrasse ou sous voirie représente un coût significatif. Une inspection avant compromis donne l'état réel de l'évacuation et de son raccordement."
+    }
+  ],
+  "image": "/services/inspection-camera-canalisation.jpg"
+}

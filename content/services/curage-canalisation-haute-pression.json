@@ -1,0 +1,52 @@
+{
+  "slug": "curage-canalisation-haute-pression",
+  "order": 4,
+  "icon": "pressure",
+  "navTitle": "Curage haute pression",
+  "h1": "Curage de canalisation haute pression à Metz",
+  "metaTitle": "Curage de canalisation haute pression à Metz",
+  "metaDescription": "Curage et hydrocurage de canalisation haute pression à Metz : nettoyage complet du réseau, racines et dépôts. Devis annoncé avant intervention.",
+  "intro": "Le curage haute pression, ou hydrocurage, nettoie la canalisation sur toute sa longueur au lieu de percer un simple passage dans le bouchon. Un jet d'eau à haute pression est envoyé dans la conduite par une buse rétropulsive qui décolle graisses, tartre et dépôts collés à la paroi, et ramène le tout vers l'aval. C'est la réponse aux réseaux qui se rebouchent, pas au bouchon isolé.",
+  "bullets": [
+    "Nettoyage sur toute la longueur",
+    "Graisses, tartre et racines",
+    "Sans produit chimique"
+  ],
+  "blocks": [
+    {
+      "heading": "Différence entre un débouchage et un curage",
+      "body": "Un débouchage traite un obstacle : il ouvre un passage à l'endroit précis où l'eau ne circule plus, et l'écoulement revient immédiatement. Un curage traite un état : il remet la canalisation à son diamètre utile sur toute sa longueur, en enlevant la couche de dépôt qui s'est accumulée sur la paroi au fil des années. La différence se voit dans le temps. Après un débouchage sur un réseau encrassé, le bouchon se reforme parce que la paroi reste rugueuse et rétrécie. Après un curage, il faut de nouveau des années d'accumulation avant d'en arriver au même point. Concrètement, si vous nous appelez pour la première fois, c'est un débouchage. Si c'est la troisième fois en un an, c'est un curage qu'il faut envisager."
+    },
+    {
+      "heading": "Comment se déroule un hydrocurage",
+      "body": "Nous repérons d'abord les points d'accès au réseau, regard de visite, tampon de dégorgement ou culotte de pied de colonne, puis nous engageons le flexible équipé de la buse adaptée au diamètre de la conduite. La pression et le débit sont réglés selon le matériau et l'ancienneté de la canalisation : une conduite en grès ancienne ou un PVC vieilli ne se traitent pas comme un réseau récent. La buse progresse en nettoyant la paroi et ramène les dépôts vers le point d'évacuation, où ils sont récupérés. Les racines fines et les concrétions calcaires sont traitées avec une tête spécifique. Le curage n'utilise que de l'eau, sans aucun produit chimique déversé dans le réseau."
+    },
+    {
+      "heading": "Pour qui et à quelle fréquence",
+      "body": "Le curage concerne autant les particuliers que les professionnels. Chez un particulier, il devient pertinent sur un réseau enterré qui se rebouche, sur une colonne de cuisine très engraissée ou avant la vente d'un bien pour partir sur une base propre. En copropriété, le curage périodique des colonnes d'évacuation et du collecteur est le meilleur moyen d'éviter les refoulements à répétition chez les logements du bas d'immeuble. En restauration, il complète l'entretien du bac à graisse. Nous ne pouvons pas donner une périodicité universelle : elle dépend du diamètre, de l'usage et de l'état de la conduite. Nous vous indiquons un intervalle réaliste après avoir vu votre réseau, plutôt qu'un chiffre commercial annoncé à l'avance."
+    }
+  ],
+  "relatedServices": [
+    "inspection-camera-canalisation",
+    "debouchage-colonne-immeuble-copropriete"
+  ],
+  "faq": [
+    {
+      "q": "Quelle différence entre débouchage et curage de canalisation ?",
+      "a": "Le débouchage supprime un obstacle ponctuel et rétablit l'écoulement immédiatement. Le curage nettoie la paroi de la canalisation sur toute sa longueur et lui rend son diamètre d'origine. Le premier règle une urgence, le second empêche qu'elle se répète. Sur un réseau qui se rebouche plusieurs fois par an, enchaîner les débouchages coûte plus cher qu'un curage."
+    },
+    {
+      "q": "L'hydrocurage peut-il abîmer une canalisation ancienne ?",
+      "a": "Pas si la pression et la buse sont adaptées au matériau et à l'état de la conduite. C'est précisément pourquoi nous inspectons ou questionnons avant d'intervenir : une canalisation en grès, en fonte ancienne ou un PVC vieilli ne se cure pas au même réglage qu'un réseau récent. Sur une conduite déjà fissurée ou déboîtée, l'hydrocurage n'est pas la bonne réponse et nous le disons."
+    },
+    {
+      "q": "L'hydrocurage vient-il à bout des racines d'arbres ?",
+      "a": "Sur des radicelles fines entrées par un joint, oui : une tête de coupe adaptée les sectionne et le jet les évacue. Sur une racine ligneuse installée depuis des années, le curage dégage le passage mais ne traite pas la cause, puisque la racine repoussera par le même défaut d'étanchéité. Dans ce cas, l'inspection caméra permet de localiser précisément le point d'entrée pour envisager une réparation ciblée."
+    },
+    {
+      "q": "Faut-il curer une canalisation même si elle n'est pas bouchée ?",
+      "a": "C'est utile quand l'écoulement se dégrade progressivement, quand des odeurs apparaissent, ou dans un immeuble où plusieurs logements signalent des ralentissements. Un curage préventif se planifie, coûte moins qu'une urgence et évite les dégâts liés à un refoulement d'eaux usées. Il n'a en revanche aucun intérêt sur un réseau récent qui fonctionne bien."
+    }
+  ],
+  "image": "/services/curage-canalisation-haute-pression.jpg"
+}

@@ -1,0 +1,43 @@
+{
+  "slug": "plappeville",
+  "name": "Plappeville",
+  "postalCode": "57050",
+  "context": "Village de coteau à l'ouest de Metz, au pied du Mont Saint-Quentin, fait de maisons individuelles et d'un bâti ancien de caractère.",
+  "metaTitle": "Débouchage de canalisation à Plappeville (57)",
+  "metaDescription": "Débouchage de canalisation à Plappeville, près de Metz : WC, évier, douche, regard, curage haute pression. Intervention 7j/7.",
+  "h1": "Débouchage de canalisation à Plappeville",
+  "intro": "Nous intervenons à Plappeville (57050) pour le débouchage de canalisations, le curage haute pression et l'inspection caméra. Village de coteau au pied du Mont Saint-Quentin, à l'ouest de Metz, Plappeville se compose de maisons individuelles et d'un bâti ancien de caractère, avec des cours, des murs de pierre et des accès parfois étroits qui demandent d'arriver avec le bon matériel.",
+  "blocks": [
+    {
+      "heading": "Un bâti ancien, des accès à anticiper",
+      "body": "À Plappeville, la difficulté est rarement le bouchon lui-même : c'est l'accès au réseau. Rues étroites, cours fermées, murs de clôture, regards recouverts au fil des aménagements de jardin ou de terrasse. Nous préférons donc poser quelques questions au téléphone avant de venir : où se trouve le regard s'il est connu, quel est l'accès véhicule, s'agit-il d'une maison sur cave ou de plain-pied. Cela nous évite de découvrir la contrainte sur place et de devoir revenir. Quand le regard a disparu sous un aménagement, nous savons où chercher et nous disposons du matériel pour le localiser sans abîmer votre extérieur."
+    },
+    {
+      "heading": "Réseaux anciens et bons réflexes",
+      "body": "Une partie du bâti ancien de Plappeville comporte des réseaux d'évacuation en fonte ou en grès, avec des emboîtements qui ont travaillé. Sur ces matériaux, les déboucheurs chimiques du commerce sont à éviter : fortement corrosifs, ils attaquent les joints et fragilisent la conduite sans dissoudre un bouchon compact, qu'ils se contentent de surmonter. Ils rendent aussi l'ouverture d'un siphon dangereuse pour l'intervenant. Sur ces réseaux, le furet traite le bouchon localisé et l'hydrocurage, réglé selon le matériau, redonne son diamètre utile à la conduite. Si vous avez déjà versé un produit, dites-le nous : ce n'est pas un reproche, c'est une précaution de sécurité."
+    },
+    {
+      "heading": "Urgence et communes voisines",
+      "body": "Notre ligne est ouverte 7j/7 pour les urgences à Plappeville, week-ends et jours fériés compris. En cas de refoulement, arrêtez tous les usages d'eau, protégez le sol et appelez-nous. Depuis Plappeville, nous couvrons également Le Ban-Saint-Martin, Woippy, Scy-Chazelles, Longeville-lès-Metz et les quartiers ouest et nord de Metz, dans un rayon d'environ 30 km."
+    }
+  ],
+  "neighbours": [
+    "Metz",
+    "Le Ban-Saint-Martin",
+    "Woippy"
+  ],
+  "faq": [
+    {
+      "q": "Mon regard de visite a été recouvert par une terrasse, comment faire ?",
+      "a": "Ne cassez rien et ne creusez pas au hasard. Il existe souvent un autre point d'accès au réseau, tampon de dégorgement en pied de chute ou regard situé plus loin sur le tracé, par lequel nous pouvons intervenir. Si aucun accès n'est disponible, nous disposons du matériel pour localiser le regard existant sans dégrader votre aménagement."
+    },
+    {
+      "q": "Pouvez-vous intervenir dans une rue étroite ou une cour fermée ?",
+      "a": "Oui. Signalez-nous la contrainte d'accès au moment de l'appel : nous arrivons avec un matériel dimensionné en conséquence, furet électrique compact pour les évacuations d'appareils, flexible de curage capable de travailler depuis un point situé à distance du bâtiment. Cela nous évite un aller-retour et vous fait gagner du temps."
+    },
+    {
+      "q": "J'ai versé un déboucheur chimique, est-ce un problème pour l'intervention ?",
+      "a": "Cela ne l'empêche pas, mais il faut nous le signaler avant. Un produit corrosif qui stagne dans un siphon ou dans la canalisation est dangereux pour la personne qui va l'ouvrir. En le sachant, nous prenons les précautions nécessaires. Sur du grès, de la fonte ou du plomb ancien, ces produits fragilisent en outre la conduite : mieux vaut ne pas en remettre."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "slug": "debouchage-evier-lavabo-douche",
+  "order": 3,
+  "icon": "shower",
+  "navTitle": "Évier, lavabo et douche",
+  "h1": "Débouchage évier, lavabo et douche à Metz",
+  "metaTitle": "Évier ou douche bouchés à Metz, débouchage",
+  "metaDescription": "Évier, lavabo ou douche bouchés à Metz ? Débouchage du siphon et de l'évacuation, sans casse. Intervention rapide, prix annoncé avant.",
+  "intro": "Un évier de cuisine, un lavabo ou une douche qui s'évacuent mal se traitent presque toujours au niveau du siphon ou du premier mètre d'évacuation. Nous intervenons à Metz et dans l'agglomération pour retirer le bouchon plutôt que de le percer, et pour nettoyer la paroi de la canalisation afin que le problème ne revienne pas dans les jours suivants.",
+  "bullets": [
+    "Cuisine et salle de bain",
+    "Siphon et évacuation nettoyés",
+    "Sans produit corrosif"
+  ],
+  "blocks": [
+    {
+      "heading": "Ce qui bouche un évier et ce qui bouche une douche",
+      "body": "Les deux ne se bouchent pas pour les mêmes raisons, et cela change la méthode. En cuisine, le coupable est la graisse : les résidus versés dans l'évier refroidissent en quelques mètres, se figent sur la paroi et emprisonnent ensuite tout ce qui passe, restes alimentaires, marc de café, filaments. La canalisation se rétrécit lentement, l'écoulement ralentit sur plusieurs semaines, puis se bloque d'un coup. En salle de bain, c'est un mélange de cheveux et de résidus de savon qui forme une masse accrochée à la crépine ou au siphon, souvent visible dès qu'on démonte. Dans les deux cas, le calcaire de l'eau messine accélère le phénomène en donnant une surface rugueuse à laquelle tout s'accroche."
+    },
+    {
+      "heading": "Comment nous intervenons",
+      "body": "Nous démontons d'abord le siphon, avec un seau dessous, pour voir ce qu'il contient : c'est le diagnostic le plus rapide et le plus fiable. Si le bouchon est là, il est retiré à la main puis le siphon est nettoyé. S'il est plus loin, le furet manuel ou électrique remonte l'évacuation jusqu'à l'obstacle et le ramène plutôt que de le percer, ce qui évite qu'il se reforme trois mètres plus loin. Sur une colonne d'évier très engraissée, un passage à l'eau sous pression décolle le dépôt collé à la paroi. Nous laissons ensuite couler abondamment pour vérifier que la section est bien libérée, et nous remontons le siphon avec un joint neuf si celui d'origine est fatigué."
+    },
+    {
+      "heading": "Éviter que ça recommence",
+      "body": "En cuisine, ne versez jamais d'huile, de graisse de cuisson ni de sauce dans l'évier : laissez figer et jetez à la poubelle. Un passage d'eau très chaude une fois par semaine sur l'évacuation limite l'accumulation, sans agresser la canalisation. En salle de bain, une grille sur la bonde retient les cheveux et évite l'essentiel des bouchons de douche. Évitez les déboucheurs chimiques en usage régulier : ils attaquent les joints et les canalisations anciennes, et sur du plomb ou du PVC vieilli, ils font plus de dégâts que le bouchon. Si le ralentissement revient malgré tout à intervalle régulier, c'est le signe que la colonne d'évacuation elle-même est encrassée et qu'un curage haute pression est plus pertinent qu'un énième débouchage ponctuel."
+    }
+  ],
+  "relatedServices": [
+    "curage-canalisation-haute-pression",
+    "urgence-debouchage-canalisation"
+  ],
+  "faq": [
+    {
+      "q": "Comment déboucher un évier naturellement ?",
+      "a": "Sur un simple ralentissement, versez une demi-tasse de bicarbonate de soude dans la bonde, puis une tasse de vinaigre blanc, laissez agir une trentaine de minutes et rincez à l'eau très chaude. Cela dissout une partie du dépôt gras récent. En revanche, sur un évier totalement bouché, cette méthode ne fonctionne pas : le mélange ne traverse pas le bouchon et reste au-dessus. Il faut alors démonter le siphon ou passer un furet."
+    },
+    {
+      "q": "L'eau remonte dans ma douche quand j'utilise l'évier, est-ce grave ?",
+      "a": "Ce n'est pas un problème de douche, c'est le signe que le bouchon se trouve en aval, sur la canalisation commune aux deux appareils. L'eau chassée par un appareil ne peut plus descendre et ressort par le point le plus bas, en général la douche ou la baignoire. Un débouchage limité au siphon de la douche ne servirait à rien : il faut traiter l'évacuation commune."
+    },
+    {
+      "q": "Un déboucheur du commerce peut-il abîmer mes canalisations ?",
+      "a": "Oui, en usage répété. Ces produits sont fortement basiques ou acides. Ils dégradent les joints, fragilisent le PVC ancien et attaquent le plomb encore présent dans certains immeubles anciens de Metz. Ils sont aussi dangereux à l'ouverture du siphon si le liquide y stagne encore. Sur un léger ralentissement gras, ils peuvent dépanner ; sur un bouchon avéré, ils ne font que retarder l'intervention."
+    },
+    {
+      "q": "Intervenez-vous aussi pour une baignoire ou un bac à douche à l'italienne ?",
+      "a": "Oui. Une baignoire se traite comme une douche, par la bonde et le trop-plein. Une douche à l'italienne demande un peu plus d'attention car le siphon est encastré dans le sol et son accès est parfois réduit : nous passons par la bonde avec un furet de petit diamètre, sans déposer le receveur ni toucher au carrelage."
+    }
+  ],
+  "image": "/services/debouchage-evier-lavabo-douche.jpg"
+}
