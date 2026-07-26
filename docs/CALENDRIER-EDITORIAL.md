@@ -24,34 +24,39 @@ hors périmètre (cf. cadrage `SEO-GEO-PLAN.md` section 0).
 12 drafts (001 à 012) ont été rédigés dans `content/drafts/` **avant** que ce
 calendrier n'existe, à partir des sujets fournis directement en consigne.
 Correspondance établie a posteriori avec les 24 sujets ci-dessous (marqueurs
-inline sur chaque sujet concerné) :
+inline sur chaque sujet concerné). Arbitrage Rémy du 26/07/2026 appliqué
+ci-dessous (voir aussi `docs/ETAT.md` section 3, décisions Rémy).
 
-- ✅ **Couvert** (angle et page service alignés, ne pas réécrire) : sujets 8,
-  11, 18, 14, 22.
-- ⚠️ **Partiellement couvert** (thème proche mais angle différent de la
-  consigne calendrier, à réécrire ou pas selon décision Rémy/CEO) : sujets 2,
-  4, 5, 7, 10, 17.
+- ✅ **Couvert** (angle et page service alignés ou jugés suffisants par Rémy,
+  ne pas réécrire) : sujets 2, 4, 5, 7, 8, 10, 11, 14, 17, 18, 22, 25.
+  - Sujet 4 : réécrit intégralement en article dédié `013-debouchage-curage-
+    inspection-camera-differences.mdx` (le draft `010`, plus étroit, reste en
+    place comme article distinct sur furet vs haute pression).
+  - Sujets 2, 5, 7, 10, 17 : arbitrage Rémy du 26/07/2026, drafts existants
+    jugés suffisants malgré un angle partiellement différent de la consigne
+    calendrier d'origine. Les angles manquants (« sans ventouse » pour le
+    sujet 2, lingettes/cheveux pour le sujet 17) deviennent des sujets
+    complémentaires 26 et 27 (voir section dédiée en fin de fichier).
+  - Sujet 25 : sujet ajouté au calendrier le 26/07/2026 pour intégrer
+    officiellement le draft `009` (refoulement d'égout), voir section
+    "Sujets complémentaires" en fin de fichier.
 - **Non couvert, à écrire dans l'ordre pour le prochain lot** : 1, 3, 6, 9,
   12, 13, 15, 16, 19, 20, 21, 23, 24.
 
 **Prochain sujet à rédiger en priorité (règle "dans l'ordre") : sujet 1**
 (`canalisation-bouchee-signes-a-reperer`), puis sujet 3, puis sujet 6, etc.
-selon la liste "non couvert" ci-dessus, sauf arbitrage contraire de Rémy/CEO
-sur les sujets ⚠️ partiels.
+selon la liste "non couvert" ci-dessus.
 
-**Drafts sans aucune correspondance dans ce calendrier** (rédigés sur des
-sujets hors des 24 prévus, à garder ou retirer selon décision Rémy/CEO) :
+**Draft conservé hors cadence prioritaire** (rédigé sur un angle hors des 24
+sujets d'origine, conservé sur décision Rémy du 26/07/2026 mais placé en fin
+de file de publication) :
 
-- `005-calcaire-eau-dure-metz-canalisations.mdx` : angle calcaire/eau dure,
-  absent des 24 sujets. Contenu solide et dans le périmètre métier (entretien,
-  service `curage-canalisation-haute-pression`), mais ne correspond à aucune
-  requête de la carte mots-clés `SEO-GEO-PLAN.md` section 1. Proposition :
-  garder, mais hors cadence prioritaire.
-- `009-refoulement-egout-que-faire-urgence.mdx` : angle refoulement/reflux
-  d'égout en urgence, absent des 24 sujets, mais couvre la requête prioritaire
-  « eau qui remonte évacuation » listée en section 1.1 du `SEO-GEO-PLAN.md`.
-  Proposition : garder, et signaler au SEO pour ajout au calendrier (angle à
-  fort potentiel urgence/GEO manquant de la liste actuelle).
+- `990-calcaire-eau-dure-metz-canalisations.mdx` (ex-`005-...`, renommé pour
+  publier en dernier dans la file `content/drafts/` : angle calcaire/eau dure,
+  absent des 24 sujets d'origine et des sujets complémentaires. Contenu solide
+  et dans le périmètre métier (entretien, service
+  `curage-canalisation-haute-pression`), mais ne correspond à aucune requête
+  de la carte mots-clés `SEO-GEO-PLAN.md` section 1.
 
 ---
 
@@ -62,11 +67,10 @@ sujets hors des 24 prévus, à garder ou retirer selon décision Rémy/CEO) :
    question/réponse. Lien vers `urgence-debouchage-canalisation`.
 2. **Comment déboucher des WC sans ventouse : les méthodes qui marchent (et
    celles à éviter)**
-   > ⚠️ Partiellement couvert par `001-wc-bouche-que-faire-avant-professionnel.mdx`
-   > (thème WC bouché + même page service, mais l'angle "sans ventouse" n'est
-   > pas respecté : le draft 001 présente la ventouse comme méthode
-   > principale). À réécrire avec l'angle exact si on veut ce sujet précis, ou
-   > considérer 001 comme suffisant.
+   > ✅ Couvert par `001-wc-bouche-que-faire-avant-professionnel.mdx` (décision
+   > Rémy du 26/07/2026 : suffisant malgré l'angle "sans ventouse" non
+   > respecté). L'angle manquant devient le sujet complémentaire 26 en fin de
+   > calendrier.
    Angle GEO : réponse directe en tête, désambiguïsation méthodes maison vs
    intervention pro. Lien vers `debouchage-wc-toilettes-bouchees`.
 
@@ -76,11 +80,11 @@ sujets hors des 24 prévus, à garder ou retirer selon décision Rémy/CEO) :
    Causes réelles (lingettes, entartrage, pente insuffisante, racines) sans
    inventer de statistiques. Lien vers `debouchage-wc-toilettes-bouchees`.
 4. ⭐ **Débouchage vs curage vs inspection caméra : quelle différence ?**
-   > ⚠️ Partiellement couvert par `010-debouchage-mecanique-ou-haute-pression.mdx`
-   > (désambiguïsation de méthodes, mais périmètre plus étroit : furet vs
-   > haute pression, sans traiter l'inspection caméra comme 3e volet attendu
-   > ici). Article ⭐ prioritaire : recommandé de le réécrire avec le périmètre
-   > complet plutôt que de considérer 010 comme suffisant.
+   > ✅ Couvert par `013-debouchage-curage-inspection-camera-differences.mdx`
+   > (article réécrit intégralement le 26/07/2026, périmètre complet : les
+   > trois interventions, réponse directe en ouverture, lien vers les 3 pages
+   > services). Le draft `010` (furet vs haute pression, périmètre plus
+   > étroit) reste en place comme article distinct, non retiré.
    Article de désambiguïsation métier, fort potentiel GEO (repris tel quel par
    les IA sur les requêtes « différence entre X et Y »). Lien vers les 3 pages
    services concernées.
@@ -88,10 +92,9 @@ sujets hors des 24 prévus, à garder ou retirer selon décision Rémy/CEO) :
 ## Mois 3
 
 5. **Évier qui s'évacue mal : les bons gestes avant d'appeler un pro**
-   > ⚠️ Partiellement couvert par `006-evacuation-lente-evier-douche-causes.mdx`
-   > (traite évier ET douche ensemble, angle causes/diagnostic plutôt que
-   > gestes pratiques détaillés). Voir aussi note sujet 7 : les deux sujets
-   > 5 et 7 sont fusionnés dans ce draft unique.
+   > ✅ Couvert par `006-evacuation-lente-evier-douche-causes.mdx` (décision
+   > Rémy du 26/07/2026 : suffisant, malgré la fusion évier + douche dans un
+   > seul draft au lieu de deux articles distincts). Voir aussi sujet 7.
    Gestes sûrs et simples (eau chaude, bicarbonate/vinaigre, éviter les
    déboucheurs chimiques agressifs). Lien vers `debouchage-evier-lavabo-douche`.
 6. **Déboucheurs chimiques : ce qu'ils font vraiment à vos canalisations**
@@ -102,12 +105,8 @@ sujets hors des 24 prévus, à garder ou retirer selon décision Rémy/CEO) :
 ## Mois 4
 
 7. **Douche qui se vide lentement : identifier un siphon bouché**
-   > ⚠️ Partiellement couvert par `006-evacuation-lente-evier-douche-causes.mdx`
-   > (même draft que le sujet 5, fusionne évier + douche). Sujets 5 et 7 sont
-   > prévus comme deux articles distincts à deux mois différents dans le
-   > calendrier (cadence de maillage vers `debouchage-evier-lavabo-douche`) :
-   > décider si 006 suffit pour les deux mois ou si l'un des deux doit être
-   > réécrit séparément pour respecter la cadence de publication prévue.
+   > ✅ Couvert par `006-evacuation-lente-evier-douche-causes.mdx` (décision
+   > Rémy du 26/07/2026 : suffisant, même draft que le sujet 5).
    Diagnostic simple avant intervention (cheveux, savon, tartre). Lien vers
    `debouchage-evier-lavabo-douche`.
 8. **Odeur d'égout dans la maison : d'où ça vient et que faire**
@@ -123,11 +122,9 @@ sujets hors des 24 prévus, à garder ou retirer selon décision Rémy/CEO) :
    Explication factuelle du procédé, quand c'est nécessaire vs un simple
    débouchage. Lien vers `curage-canalisation-haute-pression`.
 10. **Inspection caméra de canalisation : pourquoi et quand la demander**
-    > ⚠️ Partiellement couvert par `008-inspection-camera-canalisation-deroulement.mdx`
-    > (même service, mais angle "comment ça se déroule" plutôt que "pourquoi
-    > et quand la demander"). Complémentaire plus que redondant : les deux
-    > angles peuvent coexister sans duplication forte si on choisit d'écrire
-    > aussi ce sujet.
+    > ✅ Couvert par `008-inspection-camera-canalisation-deroulement.mdx`
+    > (décision Rémy du 26/07/2026 : suffisant, malgré un angle "comment ça se
+    > déroule" plutôt que "pourquoi et quand la demander").
     Cas d'usage concrets (bouchons récurrents, avant achat immobilier, diagnostic
     réseau ancien). Lien vers `inspection-camera-canalisation`.
 
@@ -176,10 +173,10 @@ sujets hors des 24 prévus, à garder ou retirer selon décision Rémy/CEO) :
 
 17. **Lingettes, huile de cuisson, cheveux : ce qu'il ne faut jamais jeter dans
     vos canalisations**
-    > ⚠️ Partiellement couvert par `007-bouchons-graisse-cuisine-prevention.mdx`
-    > (traite uniquement le volet graisses/huile, sans lingettes ni cheveux).
-    > À réécrire avec le périmètre complet (3 causes) si on veut ce sujet
-    > précis, ou considérer 007 comme un sous-angle déjà traité.
+    > ✅ Couvert par `007-bouchons-graisse-cuisine-prevention.mdx` (décision
+    > Rémy du 26/07/2026 : suffisant pour le volet graisses/huile). Le volet
+    > manquant (lingettes/cheveux) devient le sujet complémentaire 27 en fin
+    > de calendrier.
     Contenu préventif pédagogique, fort potentiel de partage/citation. Lien
     vers `debouchage-evier-lavabo-douche` et `debouchage-wc-toilettes-bouchees`.
 18. **Racines d'arbres dans les canalisations : un problème fréquent dans les
@@ -228,16 +225,49 @@ sujets hors des 24 prévus, à garder ou retirer selon décision Rémy/CEO) :
 
 ---
 
+## Sujets complémentaires (ajoutés le 26/07/2026, arbitrage Rémy)
+
+Ces sujets s'ajoutent aux 24 d'origine, soit pour intégrer officiellement un
+draft déjà écrit hors calendrier (25), soit pour couvrir un angle identifié
+comme manquant lors de l'arbitrage du 26/07/2026 sur les sujets 2 et 17
+(26, 27). Priorité de rédaction : après les 13 sujets d'origine encore non
+couverts (1, 3, 6, 9, 12, 13, 15, 16, 19, 20, 21, 23, 24), sauf réordonnancement
+décidé par Rémy/CEO.
+
+25. **Eau qui remonte dans les canalisations : que faire en cas de refoulement
+    d'égout**
+    > ✅ Couvert par `009-refoulement-egout-que-faire-urgence.mdx`. Répond à
+    > la requête prioritaire « eau qui remonte évacuation » listée en section
+    > 1.1 du `SEO-GEO-PLAN.md` (angle absent des 24 sujets d'origine). Lien
+    > vers `urgence-debouchage-canalisation`.
+26. **Déboucher des WC sans ventouse : les méthodes alternatives qui marchent**
+    Angle manquant du sujet 2 (le draft `001` traite la ventouse comme méthode
+    principale). À écrire : méthodes sans ventouse (eau chaude, furet manuel,
+    bicarbonate/vinaigre) et quand elles ne suffisent pas. Lien vers
+    `debouchage-wc-toilettes-bouchees`.
+27. **Lingettes et cheveux dans les canalisations : les gestes à éviter au
+    quotidien**
+    Angle manquant du sujet 17 (le draft `007` traite uniquement les graisses
+    de cuisine). À écrire : focus lingettes (même « biodégradables ») et
+    cheveux, complémentaire du draft 007 plutôt que redondant. Lien vers
+    `debouchage-evier-lavabo-douche` et `debouchage-wc-toilettes-bouchees`.
+
+---
+
 ## Répartition par page service (vérification de couverture)
 
-- `urgence-debouchage-canalisation` : articles 1, 6, 8, 15, 16, 22, 23, 24
-- `debouchage-wc-toilettes-bouchees` : articles 2, 3, 17
-- `debouchage-evier-lavabo-douche` : articles 5, 6, 7, 17, 21
+- `urgence-debouchage-canalisation` : articles 1, 4, 6, 8, 15, 16, 22, 23, 24, 25
+- `debouchage-wc-toilettes-bouchees` : articles 2, 3, 17, 26, 27
+- `debouchage-evier-lavabo-douche` : articles 5, 6, 7, 17, 21, 27
 - `curage-canalisation-haute-pression` : articles 4, 9, 11
 - `inspection-camera-canalisation` : articles 4, 10, 20
 - `debouchage-canalisation-enterree-regard` : articles 4, 12, 18
 - `debouchage-bac-a-graisse` : articles 13, 21
 - `debouchage-colonne-immeuble-copropriete` : articles 14, 19
+
+(Article 4 = draft `013`, rattaché aux 3 pages services de la désambiguïsation :
+`urgence-debouchage-canalisation`, `curage-canalisation-haute-pression`,
+`inspection-camera-canalisation`.)
 
 Chaque page service reçoit au moins 2 liens entrants depuis le blog sur les 12
 mois : pas de page orpheline.
