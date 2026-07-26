@@ -280,3 +280,14 @@ ce site :**
   redéployer, vérifier robots.txt public, puis Search Console (propriété Domaine, TXT DNS par
   Rémy) et test de l'Action autoblog. L'assurance reste absente des mentions légales tant que
   le site n'est pas loué (décision Rémy, aucune donnée inventée).
+- **27/07/2026 (CEO site, SITE PUBLIC)** : lancement public terminé. DNS OVH posés par Rémy
+  (A @ 76.76.21.21 unique après suppression du parking, CNAME www, MX + TXT ForwardEmail vers
+  remy@remyzaoui.com, TXT google-site-verification). Certificat SSL émis, site servi sur
+  https://www.sos-debouchage-metz.fr, redirection 308 apex -> www posée par le CEO via l'API
+  Vercel. `SEO_NOINDEX` RETIRÉ de l'env Production + redéploiement : robots.txt public en
+  Allow avec crawlers IA autorisés, sitemap 25 URLs en canonique www. Search Console : propriété
+  Domaine validée par Rémy, sitemap à soumettre : https://www.sos-debouchage-metz.fr/sitemap.xml.
+  Test manuel de l'Action autoblog RÉUSSI : article 001 (WC bouché) publié dans content/conseils/
+  et en ligne ; 25 drafts restent en réserve (cadence lun/mer/ven automatique). Le site n°3 est
+  EN LIGNE ET INDEXABLE. Prochains jalons : suivi indexation GSC, premiers leads via le journal
+  d'appels Twilio (09 39 03 05 13), démarchage locataire quand le trafic monte.
