@@ -343,3 +343,18 @@ ce site :**
   respecté : uniquement `content/drafts/` et `docs/CALENDRIER-EDITORIAL.md` modifiés (+ ce
   journal). Consigne de cette mission (contrairement aux précédentes) : commit et push du travail
   par l'agent Autoblog lui-même, voir commit associé à cette entrée.
+- **27/07/2026 (CEO site, corrections post-lancement)** : 1) Rémy a repéré « 20 km » sur le
+  compteur animé de l'accueil : dernière occurrence NUMÉRIQUE (value: 20) ratée par le
+  remplacement textuel, corrigée par le Builder (commit 6f4828a), vérifiée « 30 km » en prod au
+  navigateur ; leçon consignée (chercher formes texte ET nombre). 2) Rémy a repéré des photos
+  identiques entre pages communes : cause racine HERO_POOL de 3 images partagées ; RÈGLE
+  PERMANENTE « une image unique par commune » gravée dans CLAUDE.md (template N+1), lessons.md
+  et la mémoire CEO ; 12 photos uniques générées (agent visuel, Gemini) et câblées par le
+  Builder par slug avec repli générique (commit a5adcaf) ; VÉRIFIÉ en production : les 12 pages
+  servent chacune /zones/<slug>.jpg. 3) Lot de lancement blog : 11 articles publiés le jour 1
+  (pattern du pilote), puis Autoblog T2 (35 drafts, calendrier à 60 sujets, consolidé par le CEO,
+  commit 881950e) et T3 (30 drafts, calendrier à 90 sujets, commit dddcf61 par l'Autoblog) :
+  RÉSERVE FINALE 80 DRAFTS = ~6 mois à 3/semaine, objectif Rémy atteint, audits CEO conformes
+  sur les deux lots. Rappel de Rémy sur les rôles : le CEO ne code jamais, toutes les modifs de
+  code passent par des agents Builder missionnés (ce qui a été fait). RESTE À FAIRE : visuels
+  des 65 drafts sans images (Builder, non bloquant), suivi indexation GSC, suivi leads Twilio.
