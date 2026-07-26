@@ -13,7 +13,11 @@
 - [x] Vérifier que la GitHub Action `publish-article.yml` est active sur le nouveau repo
 - [x] Vérifier que le build Vercel passe (déploiement `sos-debouchage-metz-2paiu0qmh` Ready, robots.txt = `Disallow: /`)
 - [x] Audit CEO des livrables SEO (2 docs) et Autoblog (6 drafts) : conformes à la doctrine
-- [ ] Superviser les comptes-rendus SEO / Builder / Autoblog collés par Rémy
+- [x] Superviser les comptes-rendus SEO / Builder / Autoblog collés par Rémy
+- [x] Audit des 26 drafts Autoblog finaux : conformes doctrine, slugs valides
+- [x] Contrôle visuel CEO de la preview (desktop + mobile, ~35 captures) : verdict positif,
+      patte PROTEC-DARD confirmée, 3 micro-défauts relevés → message Builder préparé
+- [ ] Builder : passe corrective (rayon 30 km + 3 micro-défauts) puis re-contrôle CEO rapide
 - [x] Consolidation git : faite par le Builder sur la branche `builder/design-contenu-metz`
       (1er commit = travaux SEO + Autoblog, 2e commit = travaux Builder). `main` non touché.
 - [x] Mettre à jour docs/ETAT.md (fait, à re-toucher si nouveaux comptes-rendus)
@@ -47,6 +51,36 @@ Interdit : reproduire le rendu d'Angers ou d'Annecy. Interdit : tiret cadratin.
 - Les calques décoratifs du hero interceptaient le clic du bouton de menu mobile
   (règle globale `pointer-events: none` sur les calques `aria-hidden`).
 
+## PROCHAINE SESSION BUILDER : passe corrective demandée par le CEO (26/07/2026)
+
+Contrôle visuel CEO : verdict positif, transposition PROTEC-DARD réussie et validée par Rémy.
+Quatre points à corriger avant merge, et rien d'autre : ne pas toucher à ce qui fonctionne.
+
+- [ ] **1. Rayon d'intervention : 30 km (décision Rémy, et non 20).**
+      Passer `radiusKm: 30` dans `config/site.config.ts` ET corriger les 17 occurrences de
+      « 20 km » écrites en dur : `config/site.config.ts` (dont une réponse de la FAQ d'accueil),
+      les 12 `content/zones/*.json` et `content/services/urgence-debouchage-canalisation.json`.
+      Vérifier ensuite qu'il ne reste aucun « 20 km » dans le repo hors `docs/`.
+      Les drafts ne sont pas concernés (vérifié par le CEO).
+      ⚠️ Si une formulation devient fausse avec 30 km (une commune décrite comme « en limite
+      de zone » par exemple), adapter la phrase, pas seulement le chiffre.
+- [ ] **2. Header des pages intérieures** (services, zones, contact…) : avant tout scroll, le
+      header reste en état « texte clair » au-dessus du bandeau clair du fil d'Ariane, le
+      sous-titre du logo « METZ · MOSELLE » est illisible. Le header doit démarrer en état
+      « fond clair / texte sombre » sur les pages dont le haut est clair, comme il le fait
+      déjà après scroll. (Piste : la logique `solid` de `components/layout/Header.tsx` ne
+      dépend que de `scrolled` et de `mobileOpen`, il lui manque le cas « page sans hero sombre ».)
+- [ ] **3. Titre de la FAQ d'accueil** : l'espace entre « Questions » et « fréquentes » est
+      visuellement écrasé par l'italique Fraunces, les deux mots semblent collés. Garantir un
+      espace réel et visible entre les deux spans.
+- [ ] **4. Bloc process de l'accueil, carte 3** : le badge « LE JOUR DE L'INTERVENTION » passe
+      sur deux lignes avec la puce mal alignée. Raccourcir le libellé (par exemple « JOUR J »)
+      ou aligner correctement puce et texte sur deux lignes.
+
+Livrable attendu : push sur la même branche `builder/design-contenu-metz`, une URL de preview
+fraîche avec lien de partage, et `docs/ETAT.md` mis à jour. Le CEO fera un re-contrôle ciblé
+sur ces 4 points uniquement.
+
 ## En attente de Rémy
 
 - Validation + achat du domaine `sos-debouchage-metz.fr`
@@ -54,5 +88,5 @@ Interdit : reproduire le rendu d'Angers ou d'Annecy. Interdit : tiret cadratin.
   (`03 53 01 24 24`, marqué `phoneIsDemo: true`), à remplacer avant toute mise en ligne
 - Email de contact réel
 - Nom commercial et identité réelle de l'artisan (le persona `Julien Kieffer` est en DEMO)
-- Validation du rayon d'intervention de 20 km proposé par le SEO
+- ~~Validation du rayon d'intervention~~ TRANCHÉ le 26/07/2026 : 30 km (à appliquer par le Builder)
 - Assurance de l'artisan (RC pro / décennale) pour compléter `content/legal.json`

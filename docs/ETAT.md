@@ -87,6 +87,9 @@ ce site :**
   articles complémentaires de fin de calendrier ; 3) drafts 005 et 009 conservés, le 009
   (refoulement d'égout) est à intégrer officiellement au calendrier, le 005 (calcaire) passe en
   fin de file de publication.
+- 26/07/2026 : Rémy valide le site livré par le Builder (preview branche `builder/design-contenu-metz`)
+  sur le plan visuel. Décision : rayon d'intervention porté à 30 km (et non 20 proposé par le SEO
+  ni 25 comme Angers). Corrections mineures Builder avant merge, listées en historique.
 
 ## 4. HISTORIQUE DES SESSIONS
 
@@ -208,3 +211,20 @@ ce site :**
   sujets complémentaires 26 et 27. Prochaine étape naturelle : contrôle CEO des 14 nouveaux drafts
   avant que l'Action `publish-article.yml` ne commence à les publier (lun/mer/ven, file actuelle de
   26 drafts, plusieurs mois de contenu déjà en réserve).
+- **26/07/2026 (CEO site, contrôle visuel)** : audit des 26 drafts Autoblog finaux : conformes
+  (zéro tiret cadratin, zéro chiffre inventé, zéro « plombier », zéro tarif chiffré dans l'article
+  prix, slugs relatedServices tous valides). Contrôle visuel CEO de la preview Builder au
+  navigateur (desktop 1440 + mobile 390, défilement lent, ~35 captures : accueil, service urgence,
+  zone Montigny, blog, contact, légal, 404, menu mobile) : VERDICT POSITIF. La patte PROTEC-DARD
+  est là (Fraunces display, ease [0.22,1,0.36,1], alternance pétrole/sable, vermillon réservé à
+  l'urgence), aucune ressemblance avec Angers/Annecy. Menu mobile opaque OK. Compteurs animés OK
+  (les valeurs intermédiaires sur captures sont l'animation de comptage). Le « header au milieu de
+  page » sur captures pleine page est un artefact de capture du header sticky, pas un défaut.
+  Micro-défauts relevés pour le Builder : 1) header en haut des pages intérieures : texte clair
+  (logo « METZ · MOSELLE », nav) sur bandeau clair translucide au-dessus du fil d'Ariane, contraste
+  insuffisant avant le premier scroll ; 2) espace visuellement écrasé entre « Questions » et
+  « fréquentes » (titre FAQ, italique Fraunces) ; 3) badge « LE JOUR DE L'INTERVENTION » du bloc
+  process passe sur deux lignes avec puce mal alignée. Et la décision 30 km : `radiusKm: 30` +
+  17 occurrences de « 20 km » en dur (config/site.config.ts + 12 zones + 1 service), drafts non
+  concernés (vérifié). Le slug service testé en 404 était une erreur de test du CEO (la route
+  réelle est `/services/`, cohérente partout).
