@@ -1,7 +1,7 @@
 # ETAT.md — Journal de bord SOS Débouchage Metz
 
 > Mémoire du projet. Chaque session lit ce fichier en arrivant et le met à jour avant de finir.
-> Dernière mise à jour : 2026-07-26 (session Builder : livraison de la couche visuelle, du contenu et des visuels).
+> Dernière mise à jour : 2026-07-26 (session Autoblog : arbitrage appliqué, sujet 4 réécrit, 13 articles du calendrier rédigés).
 
 ---
 
@@ -68,9 +68,11 @@ ce site :**
 - [x] Builder : réécrire `content/services/*.json` (8) et `content/zones/*.json` (12) selon le plan SEO (fait 26/07/2026)
 - [x] Builder sur Opus : COUCHE VISUELLE COMPLÈTE depuis le code PROTEC-DARD (fait 26/07/2026)
 - [x] Builder : logo, portrait persona, images (36 visuels générés, aucun texte/logo, décors lorrains) (fait 26/07/2026)
-- [x] Autoblog : drafts T1 (préfixes 001-…), 12 drafts rédigés puis réconciliés avec le calendrier
-      éditorial (fait 26/07/2026, voir historique). Reste à écrire dans l'ordre pour les prochains
-      lots : sujets 1, 3, 6, 9, 12, 13, 15, 16, 19, 20, 21, 23, 24 du `CALENDRIER-EDITORIAL.md`.
+- [x] Autoblog : drafts T1+T2, 26 drafts au total dans `content/drafts/` (001-004, 006-026, plus
+      `990-` en fin de file). Les 24 sujets d'origine du calendrier + les 3 sujets complémentaires
+      (25 couvert, 26 et 27 à écrire) sont soit couverts soit rédigés (fait 26/07/2026, voir
+      historique). Restent à écrire, sans urgence : sujets complémentaires 26 (WC sans ventouse) et
+      27 (lingettes/cheveux).
 - [x] Vérifier `robots.ts` en noindex tant que non validé (fait 26/07/2026 : `SEO_NOINDEX=1` posé en Production Vercel, robots.txt servi vérifié `Disallow: /` ; retirer la variable uniquement à l'Étape 6 sur validation Rémy)
 - [ ] Contrôle visuel CEO → validation Rémy → mise en ligne (Étape 6 du playbook)
 
@@ -183,3 +185,26 @@ ce site :**
   en résumé dans `CALENDRIER-EDITORIAL.md`, zéro tiret cadratin dans les drafts. Recommandations
   d'arbitrage transmises à Rémy (sujet 4 ⭐ à réécrire, fusion 5+7 à conserver, drafts 005/009 à
   garder dont 009 à intégrer au calendrier), en attente de sa décision.
+- **26/07/2026 (Autoblog, arbitrage appliqué + lot suivant)** : arbitrage Rémy du 26/07/2026 exécuté
+  intégralement. 1) Sujet 4 ⭐ réécrit à neuf (`013-debouchage-curage-inspection-camera-differences.mdx`,
+  périmètre complet des 3 interventions, réponse directe en ouverture, lien vers les 3 pages
+  services concernées) ; le draft `010` (comparaison furet/haute pression, angle plus étroit) reste
+  en place tel quel comme article distinct. 2) Draft `009` intégré officiellement au calendrier
+  comme sujet complémentaire 25 (✅ couvert, rattaché à `urgence-debouchage-canalisation`, note sur
+  la requête prioritaire « eau qui remonte évacuation » du plan SEO). 3) Sujets 2, 5, 7, 10, 17
+  repassés de ⚠️ à ✅ dans `CALENDRIER-EDITORIAL.md` (drafts existants jugés suffisants) ; les angles
+  manquants (WC sans ventouse, lingettes/cheveux) transformés en 2 nouveaux sujets complémentaires
+  non encore écrits (26, 27) en fin de calendrier. 4) Draft `005` conservé et renommé
+  `990-calcaire-eau-dure-metz-canalisations.mdx` pour publier en dernier dans la file
+  `content/drafts/` (tri alphabétique du script de publication), note ajoutée dans le calendrier.
+  5) Lot suivant rédigé dans l'ordre strict du calendrier : les 13 sujets restants (1, 3, 6, 9, 12,
+  13, 15, 16, 19, 20, 21, 23, 24) ont été écrits en drafts `014` à `026`, chacun rattaché à sa page
+  service prévue par le calendrier, réponse directe en ouverture, FAQ, CTA final. Total : 26 drafts
+  en attente de publication dans `content/drafts/`. Vérifications faites sur l'ensemble des
+  fichiers touchés : zéro tiret cadratin, zéro chiffre inventé (seuls chiffres présents : dates,
+  numéros de liste à puces, et le délai légal de 5 jours ouvrés pour une déclaration de sinistre),
+  zéro occurrence de « plombier ». Périmètre respecté : uniquement `content/drafts/` et
+  `docs/CALENDRIER-EDITORIAL.md` modifiés (+ ce journal). Restent à écrire, sans urgence, les 2
+  sujets complémentaires 26 et 27. Prochaine étape naturelle : contrôle CEO des 14 nouveaux drafts
+  avant que l'Action `publish-article.yml` ne commence à les publier (lun/mer/ven, file actuelle de
+  26 drafts, plusieurs mois de contenu déjà en réserve).

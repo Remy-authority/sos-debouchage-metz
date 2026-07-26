@@ -138,6 +138,17 @@ export function getZone(slug: string): Zone | undefined {
 
 /* ───────────────────────── Conseils (MDX) ───────────────────────── */
 
+/**
+ * Un article peut déclarer un `cover:` dont le fichier n'a pas encore été produit
+ * (l'Autoblog écrit les textes, les visuels arrivent ensuite). On vérifie donc au
+ * build que l'image existe vraiment : sinon la carte et l'en-tête d'article
+ * s'affichent proprement sans visuel, au lieu d'une image cassée.
+ */
+function coverIfExists(cover: unknown): string | undefined {
+  if (typeof cover !== 'string' || !cover.startsWith('/')) return undefined
+  return fs.existsSync(path.join(process.cwd(), 'public', cover)) ? cover : undefined
+}
+
 export function getArticles(): Article[] {
   const dir = path.join(CONTENT_DIR, 'conseils')
   if (!fs.existsSync(dir)) return []
@@ -153,7 +164,7 @@ export function getArticles(): Article[] {
         description: (data.description as string) || '',
         date: (data.date as string) || '1970-01-01',
         category: (data.category as string) || 'Conseils',
-        cover: data.cover as string | undefined,
+        cover: coverIfExists(data.cover),
         relatedServices: (data.relatedServices as string[]) || [],
         faq: (data.faq as FaqItem[]) || [],
         content,

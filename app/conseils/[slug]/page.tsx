@@ -17,6 +17,7 @@ import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 import { Faq } from '@/components/ui/Faq'
 import { CtaBanner } from '@/components/ui/CtaBanner'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
+import { ArticleImage } from '@/components/ui/ArticleImage'
 import { ServiceIcon } from '@/components/ui/ServiceIcon'
 
 export const dynamicParams = false
@@ -49,12 +50,7 @@ function formatDateFr(iso: string): string {
   return `${d} ${MOIS[m - 1]} ${y}`
 }
 
-const mdxComponents = {
-  // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
-  img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
-    <img loading="lazy" decoding="async" alt="" {...props} />
-  ),
-}
+const mdxComponents = { img: ArticleImage }
 
 export default function ArticlePage({ params }: { params: { slug: string } }) {
   const article = getArticle(params.slug)
