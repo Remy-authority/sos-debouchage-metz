@@ -249,3 +249,19 @@ ce site :**
   puce alignée. Vérifications : `next build` vert (37 pages), contrôle visuel Playwright desktop
   (1440) + mobile (390) ciblé sur les 4 points. Commit et push sur `builder/design-contenu-metz`.
   EN ATTENTE : re-contrôle CEO ciblé sur ces 4 points, puis validation Rémy avant tout merge.
+- **26/07/2026 (CEO site, re-contrôle et clôture)** : re-contrôle CEO ciblé sur la preview
+  corrigée (`sos-debouchage-metz-b1ke6v4c2`) : les 4 corrections sont VÉRIFIÉES (rayon 30 km
+  partout, zéro « 20 km » résiduel sur accueil/service/zone ; header clair et lisible dès le
+  premier rendu des pages intérieures ; espace net dans « Questions fréquentes » ; badge « JOUR J »
+  sur une ligne). Le site est prêt sur le plan design et contenu, branche
+  `builder/design-contenu-metz` poussée, `main` intact, noindex actif partout.
+
+  **PROCHAINE SESSION, reprise ici** : tout ce qui reste dépend de Rémy (voir checklist section 2) :
+  1) achat du domaine `sos-debouchage-metz.fr`, 2) téléphone dédié réel (l'actuel est un numéro
+  fictif ARCEP marqué DEMO), 3) email réel, 4) nom commercial + identité artisan (persona
+  « Julien Kieffer » en DEMO), 5) assurance pour `content/legal.json`. Après réception : Builder
+  injecte les vraies valeurs, puis validation finale Rémy sur preview, puis merge `main`
+  (= déploiement production, toujours noindex tant que `SEO_NOINDEX=1` est en place), puis
+  Étape 6 du playbook (domaine, canonicalBase, Search Console, retrait du noindex sur ordre de
+  Rémy uniquement). Les liens de partage Vercel expirent le 27/07 : le CEO en régénère à la
+  demande via l'outil Vercel.

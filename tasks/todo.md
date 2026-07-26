@@ -21,7 +21,10 @@
 - [x] Consolidation git : faite par le Builder sur la branche `builder/design-contenu-metz`
       (1er commit = travaux SEO + Autoblog, 2e commit = travaux Builder). `main` non touché.
 - [x] Mettre à jour docs/ETAT.md (fait, à re-toucher si nouveaux comptes-rendus)
-- [ ] Contrôle visuel CEO de la preview Builder, puis validation Rémy
+- [x] Contrôle visuel CEO de la preview Builder : fait, verdict positif
+- [x] Re-contrôle CEO des 4 corrections (30 km, header, FAQ, Jour J) : tout vérifié conforme
+- [ ] SESSION SUIVANTE : attendre les vraies valeurs de Rémy (domaine, téléphone, email,
+      identité artisan, assurance) → Builder les injecte → validation finale Rémy → merge `main`
 
 ## Session du 26/07/2026 (Builder, Opus) — TERMINÉE
 
