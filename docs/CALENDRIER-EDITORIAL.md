@@ -241,36 +241,216 @@ décidé par Rémy/CEO.
     > 1.1 du `SEO-GEO-PLAN.md` (angle absent des 24 sujets d'origine). Lien
     > vers `urgence-debouchage-canalisation`.
 26. **Déboucher des WC sans ventouse : les méthodes alternatives qui marchent**
-    Angle manquant du sujet 2 (le draft `001` traite la ventouse comme méthode
-    principale). À écrire : méthodes sans ventouse (eau chaude, furet manuel,
-    bicarbonate/vinaigre) et quand elles ne suffisent pas. Lien vers
-    `debouchage-wc-toilettes-bouchees`.
+    > ✅ Couvert par `027-debouchage-wc-sans-ventouse-methodes.mdx` (lot T2,
+    > 26/07/2026). Angle manquant du sujet 2 (le draft `001` traite la
+    > ventouse comme méthode principale). Lien vers
+    > `debouchage-wc-toilettes-bouchees`.
 27. **Lingettes et cheveux dans les canalisations : les gestes à éviter au
     quotidien**
-    Angle manquant du sujet 17 (le draft `007` traite uniquement les graisses
-    de cuisine). À écrire : focus lingettes (même « biodégradables ») et
-    cheveux, complémentaire du draft 007 plutôt que redondant. Lien vers
-    `debouchage-evier-lavabo-douche` et `debouchage-wc-toilettes-bouchees`.
+    > ✅ Couvert par `028-lingettes-cheveux-canalisations-gestes-a-eviter.mdx`
+    > (lot T2, 26/07/2026). Angle manquant du sujet 17 (le draft `007` traite
+    > uniquement les graisses de cuisine). Lien vers
+    > `debouchage-evier-lavabo-douche` et `debouchage-wc-toilettes-bouchees`.
 
 ---
 
-## Répartition par page service (vérification de couverture)
+## Lot T2 : sujets complémentaires supplémentaires (26/07/2026, agent Autoblog)
 
-- `urgence-debouchage-canalisation` : articles 1, 4, 6, 8, 15, 16, 22, 23, 24, 25
-- `debouchage-wc-toilettes-bouchees` : articles 2, 3, 17, 26, 27
-- `debouchage-evier-lavabo-douche` : articles 5, 6, 7, 17, 21, 27
-- `curage-canalisation-haute-pression` : articles 4, 9, 11
-- `inspection-camera-canalisation` : articles 4, 10, 20
-- `debouchage-canalisation-enterree-regard` : articles 4, 12, 18
-- `debouchage-bac-a-graisse` : articles 13, 21
-- `debouchage-colonne-immeuble-copropriete` : articles 14, 19
+Étendu à la demande du CEO le 26/07/2026 : réserve de publication trop courte
+(19 drafts restants à ce moment pour une cadence de 3/semaine). 33 nouveaux
+sujets ajoutés (28 à 60), tous rédigés et marqués ✅. Puisés dans la longue
+traîne locale du `SEO-GEO-PLAN.md` (section 1.4), les questions fréquentes
+copropriété messine / maisons anciennes, la saisonnalité automne/hiver/dégel
+(formulée avec la même prudence que le sujet 21 : facteur ponctuel, pas une
+saisonnalité forte du métier), et des variantes « symptôme » (bruit, eau qui
+stagne, mousse/eau colorée). Vérifié un par un contre les 26 titres existants
+et les sujets 1-27 : zéro doublon d'angle.
+
+28. **Bruit de glouglou dans les canalisations : que signifie-t-il vraiment ?**
+    > ✅ Couvert par `029-bruit-glouglou-canalisations-signification.mdx`.
+    Angle GEO fort (requête très recherchée telle quelle), explication du
+    mécanisme (poche d'air, siphon) plutôt qu'une simple liste de symptômes
+    (déjà couverte par le sujet 1). Lien vers `urgence-debouchage-canalisation`.
+29. **Eau qui stagne dans la douche ou l'évier sans odeur : faut-il
+    s'inquiéter ?**
+    > ✅ Couvert par `030-eau-qui-stagne-sans-odeur-inquietude.mdx`. Cas
+    > particulier non couvert par le sujet 6 (évacuation lente). Lien vers
+    `debouchage-evier-lavabo-douche`.
+30. **Mousse ou eau colorée qui remonte par les canalisations : que faire**
+    > ✅ Couvert par `031-mousse-eau-coloree-qui-remonte-canalisations.mdx`.
+    Variante symptôme du refoulement (sujet 25), cas moins grave à
+    désambiguïser. Lien vers `urgence-debouchage-canalisation`.
+31. **Feuilles mortes et regard extérieur bouché en automne : un problème
+    saisonnier à Metz**
+    > ✅ Couvert par `032-feuilles-mortes-regard-bouche-automne.mdx`. Angle
+    saisonnier automne (facteur ponctuel, pas une saisonnalité forte du
+    métier). Lien vers `debouchage-canalisation-enterree-regard`.
+32. **Clapet anti-retour : faut-il en installer un pour éviter les
+    refoulements ?**
+    > ✅ Couvert par `033-clapet-anti-retour-faut-il-installer.mdx`.
+    Approfondit un point seulement évoqué en FAQ du sujet 25, sans le
+    redoubler. Lien vers `urgence-debouchage-canalisation`.
+33. **Canalisations et vacances : ce qu'il faut vérifier avant de partir
+    plusieurs semaines**
+    > ✅ Couvert par `034-canalisations-vacances-avant-de-partir.mdx`. Lien
+    vers `debouchage-evier-lavabo-douche`.
+34. **WC dans un commerce ou un bureau qui se bouche souvent : les causes
+    propres à un usage collectif**
+    > ✅ Couvert par `035-wc-commerce-bureau-bouche-souvent-usage-collectif.mdx`.
+    Angle B2B/collectif, distinct de l'usage résidentiel déjà couvert (sujets
+    2, 3, 26). Lien vers `debouchage-wc-toilettes-bouchees`.
+35. **Après des travaux de rénovation, du plâtre ou du ciment bouche vos
+    WC : comment réagir**
+    > ✅ Couvert par `036-travaux-renovation-platre-ciment-wc-bouches.mdx`.
+    Cause non couverte par le sujet 3 (lingettes, entartrage, pente, racines).
+    Lien vers `debouchage-wc-toilettes-bouchees`.
+36. **Lavabo de salle de bain qui se bouche plus vite qu'un évier de
+    cuisine : pourquoi**
+    > ✅ Couvert par `037-lavabo-vs-evier-cuisine-pourquoi-se-bouche-plus-vite.mdx`.
+    Lien vers `debouchage-evier-lavabo-douche`.
+37. **Douche à l'italienne : pourquoi son évacuation se bouche plus
+    facilement**
+    > ✅ Couvert par `038-douche-italienne-evacuation-bouche-facilement.mdx`.
+    Lien vers `debouchage-evier-lavabo-douche`.
+38. **Salle de bain d'enfant : cheveux, jouets et bouchons, les bons
+    réflexes**
+    > ✅ Couvert par `039-salle-de-bain-enfant-cheveux-jouets-bouchons.mdx`.
+    Lien vers `debouchage-evier-lavabo-douche`.
+39. **Curage de canalisation en copropriété : comment ça s'organise**
+    > ✅ Couvert par `040-curage-canalisation-copropriete-comment-ca-s-organise.mdx`.
+    Angle procédural (décision, accès aux parties communes), distinct du
+    sujet 14 (qui paie). Lien vers `curage-canalisation-haute-pression` et
+    `debouchage-colonne-immeuble-copropriete`.
+40. **À quelle fréquence curer les canalisations d'une maison ancienne du
+    centre-ville de Metz**
+    > ✅ Couvert par `041-frequence-curage-maison-ancienne-centre-ville-metz.mdx`.
+    Angle hyper-local, complémentaire du sujet 11 (fréquence générale). Lien
+    vers `curage-canalisation-haute-pression`.
+41. **Curage de canalisation avant la revente d'un bien : une précaution
+    utile**
+    > ✅ Couvert par `042-curage-avant-revente-bien-immobilier.mdx`. Persona
+    vendeur, symétrique du sujet 20 (persona acheteur). Lien vers
+    `curage-canalisation-haute-pression`.
+42. **Curage de canalisation et jardin : les précautions à prendre près des
+    plantations**
+    > ✅ Couvert par `043-curage-canalisation-jardin-precautions-plantations.mdx`.
+    Lien vers `curage-canalisation-haute-pression`.
+43. **Inspection caméra après des travaux de rénovation : vérifier que rien
+    n'a été endommagé**
+    > ✅ Couvert par `044-inspection-camera-apres-travaux-renovation.mdx`.
+    Lien vers `inspection-camera-canalisation`.
+44. **Comprendre le rapport d'inspection caméra : ce que signifient les
+    termes techniques**
+    > ✅ Couvert par `045-comprendre-rapport-inspection-camera-termes.mdx`.
+    Contenu glossaire, fort potentiel GEO (citation directe par les IA). Lien
+    vers `inspection-camera-canalisation`.
+45. **Inspection caméra en copropriété : à qui profite le diagnostic**
+    > ✅ Couvert par `046-inspection-camera-copropriete-a-qui-profite.mdx`.
+    Lien vers `inspection-camera-canalisation` et
+    `debouchage-colonne-immeuble-copropriete`.
+46. **Regard de canalisation introuvable dans le jardin : comment le
+    localiser**
+    > ✅ Couvert par `047-regard-canalisation-introuvable-jardin-localiser.mdx`.
+    Lien vers `debouchage-canalisation-enterree-regard`.
+47. **Canalisation enterrée qui s'affaisse : les signes visibles dans le
+    jardin**
+    > ✅ Couvert par `048-canalisation-enterree-affaisse-signes-jardin.mdx`.
+    Nouveau mode de défaillance (affaissement), distinct des racines (sujets
+    4, 18). Lien vers `debouchage-canalisation-enterree-regard`.
+48. **Maisons anciennes en pierre de Jaumont à Metz : que savoir sur l'état
+    de vos canalisations enterrées**
+    > ✅ Couvert par `049-maisons-pierre-jaumont-metz-canalisations-enterrees.mdx`.
+    Angle patrimoine local messin (âge du bâti et des matériaux de réseau
+    d'époque, pas d'effet inventé de la pierre elle-même sur les
+    canalisations). Lien vers `debouchage-canalisation-enterree-regard`.
+49. **Bac à graisse saturé : les signes qui doivent alerter avant le
+    bouchon**
+    > ✅ Couvert par `050-bac-a-graisse-sature-signes-alerte.mdx`. Angle
+    diagnostic, distinct du sujet 13 (obligations et entretien). Lien vers
+    `debouchage-bac-a-graisse`.
+50. **Bac à graisse pour un food truck ou une petite restauration : ce qui
+    change**
+    > ✅ Couvert par `051-bac-a-graisse-food-truck-petite-restauration.mdx`.
+    Lien vers `debouchage-bac-a-graisse`.
+51. **Bac à graisse manuel ou séparateur automatique : quelle différence**
+    > ✅ Couvert par `052-bac-a-graisse-manuel-ou-separateur-automatique.mdx`.
+    Article de désambiguïsation, même logique GEO que le sujet 4. Lien vers
+    `debouchage-bac-a-graisse`.
+52. **Colonne d'évacuation bouchée la nuit ou le week-end en copropriété :
+    qui contacter**
+    > ✅ Couvert par `053-colonne-bouchee-nuit-week-end-copropriete-qui-contacter.mdx`.
+    Angle urgence/procédure, distinct du sujet 14 (qui paie). Lien vers
+    `debouchage-colonne-immeuble-copropriete`.
+53. **Rénovation énergétique d'un immeuble ancien : l'occasion de vérifier
+    les colonnes d'évacuation**
+    > ✅ Couvert par `054-renovation-energetique-immeuble-verifier-colonnes.mdx`.
+    Lien vers `debouchage-colonne-immeuble-copropriete`.
+54. **Travaux sur une colonne commune en copropriété : ce que prévoit le
+    règlement de copropriété**
+    > ✅ Couvert par `055-travaux-colonne-commune-reglement-copropriete.mdx`.
+    Lien vers `debouchage-colonne-immeuble-copropriete`.
+55. **Immeuble récent qui se bouche déjà : les causes possibles dans un
+    collectif neuf**
+    > ✅ Couvert par `056-immeuble-recent-bouche-deja-causes-collectif-neuf.mdx`.
+    Contrepoint volontaire du sujet 19 (copropriété ancienne) : un immeuble
+    récent n'est pas à l'abri, causes différentes (usage intensif, pose).
+    Lien vers `debouchage-colonne-immeuble-copropriete`.
+56. **Douche qui gargouille quand la machine à laver tourne : un signe à
+    comprendre**
+    > ✅ Couvert par `057-douche-gargouille-machine-a-laver-tourne.mdx`.
+    Lien vers `debouchage-evier-lavabo-douche`.
+57. **Locataire à Metz : que vérifier avant de signaler un WC bouché à
+    votre propriétaire**
+    > ✅ Couvert par `058-locataire-metz-wc-bouche-avant-de-signaler-proprietaire.mdx`.
+    Lien vers `debouchage-wc-toilettes-bouchees`.
+58. **Cabinet médical, salon de coiffure : l'entretien des canalisations
+    pour les professionnels recevant du public**
+    > ✅ Couvert par `059-cabinet-medical-salon-coiffure-entretien-canalisations.mdx`.
+    Angle B2B distinct du bac à graisse (pas de graisses alimentaires ici :
+    cheveux, produits, désinfectants). Lien vers
+    `curage-canalisation-haute-pression`.
+59. **Après un dégel, vérifier ses canalisations : les précautions du
+    printemps à Metz**
+    > ✅ Couvert par `060-apres-degel-verifier-canalisations-printemps-metz.mdx`.
+    Symétrique du sujet 22 (prévention avant l'hiver) côté sortie d'hiver.
+    Lien vers `urgence-debouchage-canalisation`.
+60. **Combien de temps une canalisation bouchée peut-elle attendre avant
+    d'endommager le logement**
+    > ✅ Couvert par `061-canalisation-bouchee-combien-de-temps-attendre-risque.mdx`.
+    Angle risque/urgence à agir, distinct du sujet 23 (durée de
+    l'intervention elle-même). Lien vers `urgence-debouchage-canalisation`.
+
+---
+
+## Répartition par page service (vérification de couverture, lot T1 + T2)
+
+- `urgence-debouchage-canalisation` : articles 1, 4, 6, 8, 15, 16, 22, 23, 24,
+  25, 28, 30, 32, 59, 60
+- `debouchage-wc-toilettes-bouchees` : articles 2, 3, 17, 26, 27, 34, 35, 57
+- `debouchage-evier-lavabo-douche` : articles 5, 6, 7, 17, 21, 27, 29, 33, 36,
+  37, 38, 56
+- `curage-canalisation-haute-pression` : articles 4, 9, 11, 39, 40, 41, 42, 58
+- `inspection-camera-canalisation` : articles 4, 10, 20, 43, 44, 45
+- `debouchage-canalisation-enterree-regard` : articles 4, 12, 18, 31, 46, 47, 48
+- `debouchage-bac-a-graisse` : articles 13, 21, 49, 50, 51
+- `debouchage-colonne-immeuble-copropriete` : articles 14, 19, 39, 45, 52, 53,
+  54, 55
 
 (Article 4 = draft `013`, rattaché aux 3 pages services de la désambiguïsation :
 `urgence-debouchage-canalisation`, `curage-canalisation-haute-pression`,
-`inspection-camera-canalisation`.)
+`inspection-camera-canalisation`. Articles 39 et 45 rattachés à 2 pages
+chacun.)
 
-Chaque page service reçoit au moins 2 liens entrants depuis le blog sur les 12
-mois : pas de page orpheline.
+Chaque page service reçoit au moins 3 liens entrants depuis le blog après le
+lot T2 : pas de page orpheline.
+
+## Réserve de publication (mise à jour lot T2, 26/07/2026)
+
+35 nouveaux drafts (`027` à `061`) rédigés le 26/07/2026 en réponse à une
+réserve jugée trop courte par le CEO (19 drafts restants pour une cadence de
+3 publications/semaine, soit un peu plus de 6 semaines). Objectif visé :
+environ 50 drafts en réserve, comme le pilote d'Angers. Décompte exact après
+le lot T2 dans `docs/ETAT.md`.
 
 ## Priorités ⭐ si on doit resserrer à 12 articles/an
 
