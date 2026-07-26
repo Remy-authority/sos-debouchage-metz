@@ -30,11 +30,9 @@ export const siteConfig = {
   department: '57',
 
   /* ── Contact ── */
-  // DEMO – numéro de la plage réservée à la fiction (ARCEP, zone 03), volontairement
-  // non attribué. À remplacer par la ligne dédiée fournie par Rémy.
-  phone: '+33353012424',
-  phoneDisplay: '03 53 01 24 24',
-  phoneIsDemo: true,
+  phone: '+33939030513',
+  phoneDisplay: '09 39 03 05 13',
+  phoneIsDemo: false,
   // DEMO – domaine pas encore acheté.
   email: 'contact@sos-debouchage-metz.fr',
 
