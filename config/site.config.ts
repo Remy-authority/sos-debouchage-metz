@@ -197,7 +197,7 @@ export const siteConfig = {
   stats: [
     { value: 24, suffix: 'h/24', label: 'Ligne urgence' },
     { value: 7, suffix: 'j/7', label: 'Week-ends et fériés' },
-    { value: 20, suffix: ' km', label: 'Rayon autour de Metz' },
+    { value: 30, suffix: ' km', label: 'Rayon autour de Metz' },
     { value: 8, suffix: '', label: 'Prestations canalisation' },
   ],
 
