@@ -265,3 +265,18 @@ ce site :**
   Étape 6 du playbook (domaine, canonicalBase, Search Console, retrait du noindex sur ordre de
   Rémy uniquement). Les liens de partage Vercel expirent le 27/07 : le CEO en régénère à la
   demande via l'outil Vercel.
+- **27/07/2026 (CEO site, MISE EN PRODUCTION)** : décisions Rémy : passage en public immédiat,
+  numéro de téléphone réel via Twilio. Faits : 1) TÉLÉPHONE : réutilisation du 09 déjà payé du
+  compte Twilio (+33 9 39 03 05 13, ex « Voltapro Pool », inventaire Twilio sans aucun 09 neuf
+  disponible ce jour) ; renommé « SOS Debouchage Metz - NE PAS REATTRIBUER », VoiceUrl = twimlets
+  forward vers le 07 56 85 31 25 de Rémy, journal d'appels Twilio = compteur de leads ; note
+  d'avertissement posée dans le projet RépondeurIA/leadcatch (son pool de numéros ne doit jamais
+  le réimporter). 2) Builder (sous-agent) : vrai numéro injecté dans config/site.config.ts +
+  content/legal.json, phoneIsDemo=false, build vert, commit 7f10332. 3) MERGE sur main (validation
+  explicite Rémy) : production Vercel déployée et Ready, toujours noindex (SEO_NOINDEX=1 encore en
+  place). 4) Domaine sos-debouchage-metz.fr livré par OVH (NS ovh.ca actifs) et rattaché au projet
+  Vercel (www + apex). RESTE : enregistrements DNS chez OVH (geste Rémy : A @ -> 76.76.21.21,
+  CNAME www -> cname.vercel-dns.com.), puis CEO : vérifier apex->www, retirer SEO_NOINDEX,
+  redéployer, vérifier robots.txt public, puis Search Console (propriété Domaine, TXT DNS par
+  Rémy) et test de l'Action autoblog. L'assurance reste absente des mentions légales tant que
+  le site n'est pas loué (décision Rémy, aucune donnée inventée).
