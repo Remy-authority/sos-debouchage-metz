@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import { existsSync } from 'node:fs'
+import { join } from 'node:path'
 import { notFound } from 'next/navigation'
 import { MapPin, Phone } from 'lucide-react'
 import { getServices, getZone, getZones } from '@/lib/content'
@@ -31,11 +33,19 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 }
 
 /**
- * Pool d'images partagé (logique template N+1) : chaque commune reçoit un visuel
- * d'en-tête et un visuel de corps, assignés de façon déterministe par sa position
- * dans la liste triée. Ajouter un JSON de commune suffit, aucun visuel à produire.
+ * Image de tête : UNIQUE par commune, câblée sur son slug (public/zones/<slug>.jpg).
+ * Repli générique (logique template N+1) : si le visuel dédié n'a pas encore été
+ * produit pour une nouvelle commune, on retombe sur une image de secours existante
+ * plutôt que d'afficher une image cassée au build.
  */
-const HERO_POOL = ['/zones/zone-rue.jpg', '/zones/zone-pavillon.jpg', '/zones/zone-collectif.jpg']
+const HERO_FALLBACK = '/zones/zone-rue.jpg'
+
+function getHeroSrc(slug: string): string {
+  const dedicated = `/zones/${slug}.jpg`
+  const existsOnDisk = existsSync(join(process.cwd(), 'public', 'zones', `${slug}.jpg`))
+  return existsOnDisk ? dedicated : HERO_FALLBACK
+}
+
 const BODY_POOL = [
   {
     src: '/zones/zone-regard.jpg',
@@ -63,7 +73,7 @@ export default function ZonePage({ params }: { params: { slug: string } }) {
     0,
     zones.findIndex((z) => z.slug === zone.slug),
   )
-  const hero = HERO_POOL[idx % HERO_POOL.length]
+  const hero = getHeroSrc(zone.slug)
   const body = BODY_POOL[(idx + 1) % BODY_POOL.length]
 
   // Maillage : les prestations les plus probables sur une commune résidentielle.
