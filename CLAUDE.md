@@ -39,6 +39,11 @@
   différente de celle d'Angers et d'Annecy).
 - **Pas de vide/trou asymétrique** : une colonne de texte doit être centrée ou occuper une
   largeur cohérente, jamais collée à gauche avec un grand blanc à droite.
+- **Images UNIQUES par page locale (règle permanente, décision Rémy 27/07/2026)** : chaque
+  page de commune a SA propre image de tête (`public/zones/<slug>.jpg`), au décor réellement
+  différencié par ville. Interdiction des pools d'images partagées entre communes (défaut
+  récurrent des sites précédents). Le contrôle visuel CEO compare les pages communes entre
+  elles avant toute validation. Vaut pour tout site N+1 issu de ce template.
 - **Typographie — INTERDIT : le tiret cadratin « — ».** Nulle part dans le texte visible.
   On utilise une **virgule** ou un **point** à la place. Vaut pour tout agent (Builder, Autoblog).
 
