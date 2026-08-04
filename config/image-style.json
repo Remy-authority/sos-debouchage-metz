@@ -1,0 +1,6 @@
+{
+  "_role": "Ancrage visuel du site, lu par scripts/generate-article-images.mjs. Il fixe l'identite des images generees a la publication des articles. Deux sites du portefeuille ne doivent JAMAIS partager le meme ancrage (regle anti-footprint, docs/RECETTE-VISUELS-ARTICLES.md).",
+  "contexte": "Metz et la Moselle, France : pierre de Jaumont jaune, facades lorraines, cours et sous-sols urbains",
+  "metier": "debouchage de canalisation, curage et inspection video",
+  "ambiance": "photographie technique franche, palette jaune pierre et gris acier, materiel d'hydrocurage et cameras d'inspection"
+}

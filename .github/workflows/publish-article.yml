@@ -39,6 +39,21 @@ jobs:
         id: pub
         run: node scripts/publish-next-draft.mjs
 
+      - name: Installer les dependances
+        if: steps.pub.outputs.published == 'true'
+        run: npm ci --no-audit --no-fund
+
+      # Genere la couverture manquante et le visuel de corps de l'article qui vient d'etre
+      # publie (recette RENT & RANK/docs/RECETTE-VISUELS-ARTICLES.md). Si la generation
+      # echoue, cette etape sort en erreur : l'etape de commit ci-dessous ne s'execute pas,
+      # main reste intact et le brouillon repart au prochain passage. Aucun article ne se
+      # publie sans ses images.
+      - name: Generer les visuels de l'article
+        if: steps.pub.outputs.published == 'true'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node scripts/generate-article-images.mjs "${{ steps.pub.outputs.slug }}"
+
       - name: Commit & push sur main
         if: steps.pub.outputs.published == 'true'
         run: |
