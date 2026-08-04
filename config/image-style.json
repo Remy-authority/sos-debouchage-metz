@@ -2,5 +2,7 @@
   "_role": "Ancrage visuel du site, lu par scripts/generate-article-images.mjs. Il fixe l'identite des images generees a la publication des articles. Deux sites du portefeuille ne doivent JAMAIS partager le meme ancrage (regle anti-footprint, docs/RECETTE-VISUELS-ARTICLES.md).",
   "contexte": "Metz et la Moselle, France : pierre de Jaumont jaune, facades lorraines, cours et sous-sols urbains",
   "metier": "debouchage de canalisation, curage et inspection video",
-  "ambiance": "photographie technique franche, palette jaune pierre et gris acier, materiel d'hydrocurage et cameras d'inspection"
+  "ambiance": "photographie technique franche, palette jaune pierre et gris acier, materiel d'hydrocurage et cameras d'inspection",
+  "convention": "plat",
+  "_convention_role": "Ou poser les images quand le brouillon ne declare aucun cover. dossier = public/conseils/<slug>/cover.jpg ; plat = public/conseils/<slug>.jpg. Doit refleter ce que le site sert deja en production."
 }

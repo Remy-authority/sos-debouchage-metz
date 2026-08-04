@@ -66,7 +66,7 @@ if (!raw.startsWith('---') || finFrontmatter === -1) {
   console.error('Article sans frontmatter exploitable.')
   process.exit(1)
 }
-const frontmatterBrut = raw.slice(0, finFrontmatter + 4)
+let frontmatterBrut = raw.slice(0, finFrontmatter + 4)
 let body = raw.slice(finFrontmatter + 4)
 
 /** Prompt commun : ancrage local + consignes de rendu. */
@@ -198,17 +198,42 @@ function insererVisuel(texte, ligneSection, markdown) {
 async function main() {
   console.log(`Visuels de l'article « ${fm.title ?? slug} »`)
 
-  // 1. Couverture, décrite par coverAlt (rédigé en amont par l'autoblog).
-  const coverRel = fm.cover
-  if (!coverRel) throw new Error('Frontmatter sans `cover:` : impossible de savoir où poser la couverture.')
+  // 1. Couverture, décrite par coverAlt quand l'autoblog l'a rédigé.
+  //
+  // Beaucoup de brouillons n'ont aucun `cover:` (constat du 04/08 : 5 sites sur 17, dont
+  // tous ceux de Besançon). On ne se bloque pas pour autant : on calcule le chemin selon la
+  // convention déclarée du site et on insère la ligne dans le frontmatter, sans toucher au
+  // reste du bloc.
+  let coverRel = fm.cover
+  let coverAAjouter = false
+  if (!coverRel) {
+    coverRel = style.convention === 'dossier'
+      ? `/conseils/${slug}/cover.jpg`
+      : `/conseils/${slug}.jpg`
+    coverAAjouter = true
+    console.log(`  aucun \`cover:\` déclaré, chemin retenu : ${coverRel}`)
+  }
   const coverDest = path.join(PUBLIC, coverRel.replace(/^\//, ''))
 
   if (fs.existsSync(coverDest)) {
     console.log(`  couverture déjà présente, conservée : ${coverRel}`)
   } else {
+    // Sans coverAlt, le titre de l'article fait une description de scène acceptable.
     const sceneCover = fm.coverAlt || fm.title || slug
     const octets = await genererAvecReprises(habillerPrompt(sceneCover), 'couverture')
     await ecrireJpeg(octets, coverDest)
+  }
+
+  // Déclare la couverture dans le frontmatter si elle n'y était pas. Insertion d'une seule
+  // ligne juste avant le `---` de fermeture : le reste du bloc n'est jamais reformaté.
+  if (coverAAjouter) {
+    const lignes = frontmatterBrut.split('\n')
+    const fin = lignes.lastIndexOf('---')
+    const alt = (fm.title || slug).replace(/"/g, "'")
+    lignes.splice(fin, 0, `cover: "${coverRel}"`, `coverAlt: "${alt}"`)
+    frontmatterBrut = lignes.join('\n')
+    fs.writeFileSync(articlePath, frontmatterBrut + body)
+    console.log('  `cover:` et `coverAlt:` ajoutés au frontmatter')
   }
 
   // 2. Visuel de corps, s'il n'y en a pas déjà un.
