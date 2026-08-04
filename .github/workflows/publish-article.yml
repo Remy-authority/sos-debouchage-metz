@@ -59,7 +59,7 @@ jobs:
         run: |
           git config user.name "autoblog-bot"
           git config user.email "autoblog-bot@users.noreply.github.com"
-          git add content/conseils content/drafts public/conseils
+          git add content public
           git commit -m "content(autoblog): publication de ${{ steps.pub.outputs.slug }}"
           git push origin main
 
