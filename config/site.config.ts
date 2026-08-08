@@ -30,8 +30,8 @@ export const siteConfig = {
   department: '57',
 
   /* ── Contact ── */
-  phone: '+33939030513',
-  phoneDisplay: '09 39 03 05 13',
+  phone: '+33353010057',
+  phoneDisplay: '03 53 01 00 57',
   phoneIsDemo: false,
   // DEMO – domaine pas encore acheté.
   email: 'contact@sos-debouchage-metz.fr',
