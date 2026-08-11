@@ -19,6 +19,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { execFileSync } from 'node:child_process'
 import matter from 'gray-matter'
+import { imagePorteUnDocument } from './check-image-text.mjs'
 
 const MODEL = 'gemini-3.1-flash-image-preview'
 const ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`
@@ -33,9 +34,14 @@ if (!slug) {
   process.exit(1)
 }
 
-const apiKey = process.env.GEMINI_API_KEY
+const provider = process.env.IMAGE_PROVIDER || 'flux'
+const apiKey = provider === 'flux' ? process.env.FAL_KEY : process.env.GEMINI_API_KEY
 if (!apiKey) {
-  console.error('GEMINI_API_KEY absent de l\'environnement.')
+  console.error(
+    provider === 'flux'
+      ? 'FAL_KEY absent de l\'environnement.'
+      : 'GEMINI_API_KEY absent de l\'environnement.',
+  )
   process.exit(1)
 }
 
@@ -83,8 +89,34 @@ function habillerPrompt(scene) {
   ].join(' ')
 }
 
+const FLUX_ENDPOINT = 'https://fal.run/fal-ai/flux/dev'
+
 /** Appelle l'API image et renvoie les octets de l'image. */
 async function genererImage(prompt) {
+  if (provider === 'flux') {
+    const res = await fetch(FLUX_ENDPOINT, {
+      method: 'POST',
+      headers: { Authorization: `Key ${apiKey}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        prompt,
+        // JAMAIS 'landscape_16_9' (rend 1024x576) : docs/RECETTE-IMAGES-FLUX.md du
+        // portefeuille, correction du 11/08.
+        image_size: { width: 1600, height: 896 },
+        num_images: 1,
+        num_inference_steps: 28,
+        enable_safety_checker: false,
+      }),
+    })
+    if (!res.ok) throw new Error(`FLUX ${res.status} : ${(await res.text()).slice(0, 300)}`)
+    const json = await res.json()
+    const url = json?.images?.[0]?.url
+    if (!url) throw new Error('Réponse FLUX sans image.')
+    const bin = await fetch(url)
+    if (!bin.ok) throw new Error(`Téléchargement image ${bin.status}`)
+    return Buffer.from(await bin.arrayBuffer())
+  }
+
+  // Repli Gemini, conservé tel quel pour IMAGE_PROVIDER=gemini.
   const res = await fetch(`${ENDPOINT}?key=${apiKey}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -116,6 +148,14 @@ async function genererAvecReprises(prompt, etiquette) {
   for (let essai = 1; essai <= MAX_TENTATIVES; essai++) {
     try {
       const octets = await genererImage(prompt)
+
+      // GARDE-FOU DU 11/08/2026 (docs/RECETTE-GARDE-FOU-IMAGES.md du portefeuille) :
+      // le cron publie sans qu'aucun humain ne voie l'image. Une image portant un
+      // document, un panneau ou un montant est refusée et régénérée. Le rejet
+      // réutilise la boucle de reprises existante.
+      const verdict = await imagePorteUnDocument(octets)
+      if (verdict.rejet) throw new Error(`image refusée par le garde-fou : ${verdict.motif}`)
+
       console.log(`  ${etiquette} : image obtenue (essai ${essai}, ${Math.round(octets.length / 1024)} Ko bruts)`)
       return octets
     } catch (err) {
@@ -216,7 +256,14 @@ async function main() {
   const coverDest = path.join(PUBLIC, coverRel.replace(/^\//, ''))
 
   if (fs.existsSync(coverDest)) {
-    console.log(`  couverture déjà présente, conservée : ${coverRel}`)
+    // GARDE-FOU DU 11/08/2026, section « 3 bis » de docs/RECETTE-GARDE-FOU-IMAGES.md :
+    // une image PRÉ-EXISTANTE (brouillon pré-illustré, asset déplacé par
+    // publish-next-draft) ne passait par aucun contrôle. On la vérifie ici aussi.
+    const verdict = await imagePorteUnDocument(fs.readFileSync(coverDest))
+    if (verdict.rejet) {
+      throw new Error(`couverture pré-existante refusée par le garde-fou (${coverRel}) : ${verdict.motif}`)
+    }
+    console.log(`  couverture déjà présente, conservée et contrôlée : ${coverRel}`)
   } else {
     // Sans coverAlt, le titre de l'article fait une description de scène acceptable.
     const sceneCover = fm.coverAlt || fm.title || slug

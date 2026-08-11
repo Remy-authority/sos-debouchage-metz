@@ -51,6 +51,8 @@ jobs:
       - name: Generer les visuels de l'article
         if: steps.pub.outputs.published == 'true'
         env:
+          IMAGE_PROVIDER: flux
+          FAL_KEY: ${{ secrets.FAL_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: node scripts/generate-article-images.mjs "${{ steps.pub.outputs.slug }}"
 
