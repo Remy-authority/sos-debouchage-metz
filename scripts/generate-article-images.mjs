@@ -101,7 +101,7 @@ async function genererImage(prompt) {
         prompt,
         // JAMAIS 'landscape_16_9' (rend 1024x576) : docs/RECETTE-IMAGES-FLUX.md du
         // portefeuille, correction du 11/08.
-        image_size: { width: 1600, height: 896 },
+        image_size: { width: 1280, height: 720 },
         num_images: 1,
         num_inference_steps: 28,
         enable_safety_checker: false,
