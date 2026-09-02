@@ -1,0 +1,44 @@
+# Rattrapage MANUEL des visuels d'articles jamais générés (constaté par le contrôle
+# portefeuille check-images-pages.py du 02/09/2026 : des articles publiés au lancement
+# référencent des images de corps qui n'existent pas). Réutilise le générateur du site,
+# idempotent : il ne crée que ce qui manque pour chaque slug fourni.
+name: generate-missing-visuals
+permissions:
+  contents: write
+on:
+  workflow_dispatch:
+    inputs:
+      slugs:
+        description: "Slugs d'articles à compléter, séparés par des espaces"
+        required: true
+concurrency:
+  group: publish-article
+  cancel-in-progress: false
+jobs:
+  visuals:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main, fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci --no-audit --no-fund
+      - name: Generer les visuels manquants
+        continue-on-error: true
+        env:
+          IMAGE_PROVIDER: flux
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: |
+          for s in ${{ inputs.slugs }}; do
+            echo "=== $s"
+            node scripts/generate-article-images.mjs "$s" || echo "ECHEC $s"
+          done
+      - name: Commit & push
+        run: |
+          git config user.name "autoblog-bot"
+          git config user.email "bot@site"
+          git add public content
+          git diff --cached --quiet && echo "rien à committer" && exit 0
+          git commit -m "fix(visuels): rattrapage des visuels d'articles manquants (contrôle portefeuille 02/09)"
+          git pull --rebase origin main
+          git push origin main
