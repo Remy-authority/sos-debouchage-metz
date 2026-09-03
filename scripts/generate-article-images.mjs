@@ -284,7 +284,21 @@ async function main() {
   }
 
   // 2. Visuel de corps, s'il n'y en a pas déjà un.
-  const aDejaVisuel = /!\[[^\]]*\]\(|<Figure|<Image/.test(body)
+  // ⚠️ CORRECTION DU 03/09/2026 (11 visuels restés en 404 sur 3 sites du portefeuille).
+  // L'ancien test regardait si le TEXTE cite une image, JAMAIS si le FICHIER existe. Un
+  // article citant une image absente était donc « déjà illustré » à vie : le générateur
+  // n'avait rien à produire, le workflow de rattrapage rien à committer, et il sortait
+  // VERT. Un test d'idempotence porte sur l'ARTEFACT, pas sur sa DÉCLARATION.
+  const citees = [...body.matchAll(/!\[([^\]]*)\]\((\/[^)\s]+)\)/g)].map((m) => ({ alt: m[1], rel: m[2] }))
+  for (const c of citees) {
+    const dest = path.join(PUBLIC, c.rel.replace(/^\//, ''))
+    if (fs.existsSync(dest)) continue
+    console.log(`  visuel cité par l'article mais absent du disque, régénéré à son adresse : ${c.rel}`)
+    const scene = `${c.alt || fm.title || slug}. Article : ${fm.title || slug}.`
+    const octets = await genererAvecReprises(habillerPrompt(scene), 'visuel de corps manquant')
+    await ecrireJpeg(octets, dest)
+  }
+  const aDejaVisuel = citees.length > 0 || /<Figure|<Image/.test(body)
   if (aDejaVisuel) {
     console.log('  visuel de corps déjà présent, rien à ajouter.')
   } else {
