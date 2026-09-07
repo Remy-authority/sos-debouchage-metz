@@ -82,6 +82,61 @@ async function deliver(lead: Lead): Promise<void> {
   console.log('[LEAD]', subject, '\n' + text)
 }
 
+/**
+ * Alerte SMS immédiate à Rémy (07/09/2026, étendue au lot 3). Appelle Rank OS
+ * (cockpit), seul dépositaire des identifiants Twilio (aucun n'est copié ici)
+ * via `cockpit/app/api/alertes/formulaire/route.ts`, protégée par le secret
+ * dédié `COCKPIT_ALERTES_SECRET`.
+ *
+ * ⛔ NE DOIT JAMAIS FAIRE ÉCHOUER LE FORMULAIRE : le lead passe avant
+ * l'alerte. Si la variable n'est pas posée sur ce site, on sort sans rien
+ * tenter. Toute erreur (Rank OS ou Twilio en panne, lent, hors solde) est
+ * avalée et journalisée.
+ *
+ * Délai coupé à 1,5 s (07/09/2026) : cette fonction est AWAIT dans `POST`
+ * juste avant la réponse au visiteur. `@vercel/functions` n'est pas installé
+ * sur ce site ; 1,5 s est le compromis, borné, sous la lenteur perceptible
+ * d'un clic.
+ */
+async function alerterSms(lead: Lead): Promise<void> {
+  const secret = process.env.COCKPIT_ALERTES_SECRET
+  if (!secret) return
+
+  const projet = [lead.probleme, lead.ville].filter(Boolean).join(', ') || 'non précisé'
+  const precisions =
+    [
+      lead.message ? `Précisions : ${lead.message}` : null,
+    ]
+      .filter(Boolean)
+      .join('. ') || null
+
+  const controller = new AbortController()
+  const delai = setTimeout(() => controller.abort(), 1500)
+  try {
+    await fetch('https://cockpit-psi-three.vercel.app/api/alertes/formulaire', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        site: 'sos-debouchage-metz',
+        cle: secret,
+        nom: lead.nom,
+        telephone: lead.telephone,
+        projet,
+        commune: lead.ville,
+        message: precisions,
+      }),
+      signal: controller.signal,
+    })
+  } catch (error) {
+    console.error(
+      '[alerte SMS formulaire] échec, non bloquant pour le lead :',
+      error instanceof Error ? error.message : String(error),
+    )
+  } finally {
+    clearTimeout(delai)
+  }
+}
+
 export async function POST(request: NextRequest) {
   const formPost = isFormPost(request)
   try {
@@ -101,6 +156,7 @@ export async function POST(request: NextRequest) {
     }
 
     await deliver(lead)
+    await alerterSms(lead)
 
     return formPost
       ? NextResponse.redirect(new URL('/merci', request.url), 303)
