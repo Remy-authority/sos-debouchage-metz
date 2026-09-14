@@ -30,10 +30,10 @@ export const siteConfig = {
   department: '57',
 
   /* ── Contact ── */
-  phone: '+33353010057',
-  phoneDisplay: '03 53 01 00 57',
+  phone: '+33939200310',
+  phoneDisplay: '09 39 20 03 10',
   phoneIsDemo: false,
-  // DEMO – domaine pas encore acheté.
+  // 09 Twilio réel depuis le 14/09/2026, renvoyé vers le partenaire Eco Assainissement (Rank OS).
   email: 'contact@sos-debouchage-metz.fr',
 
   /* ── Branding ── */
