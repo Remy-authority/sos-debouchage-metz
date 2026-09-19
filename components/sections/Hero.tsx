@@ -83,11 +83,15 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
             className="mt-7 text-[clamp(3rem,6vw,5rem)] leading-[1.03] text-sand-50 [text-shadow:0_2px_18px_rgb(7_26_30/0.55)] lg:[text-shadow:none]"
           >
-            Canalisation
-            <br />
-            bouchée à {siteConfig.city},
-            <br />
-            <span className="text-gradient-accent">réglée sans casse.</span>
+            {/* Les retours forcés servent au téléphone (4 lignes). Sur ordinateur ils
+                disparaissent et le titre coule tout seul en 3 lignes, comme avant.
+                Les {' '} sont obligatoires : sans eux, le texte se colle dès que le
+                <br /> est masqué, et les contrôles lisaient « Canalisationbouchée ». */}
+            Canalisation{' '}
+            <br className="lg:hidden" />
+            bouchée à {siteConfig.city}&nbsp;:{' '}
+            <br className="lg:hidden" />
+            <span className="text-gradient-accent">débouchage sans casse.</span>
           </motion.h1>
 
           <motion.p
