@@ -629,6 +629,59 @@ en note sous chaque sujet proche d'un thème déjà traité).
     Distinct du sujet 34 (avant de partir) : symétrique au retour. Lien vers
     `debouchage-evier-lavabo-douche`.
 
+## Lot T4 : passage à 5 publications/semaine, sujets Search Console (20/09/2026)
+
+Cadence portée de 3 à 5 publications/semaine : 5 sujets ajoutés (91 à 95)
+pour tenir la réserve, choisis directement sur les requêtes qui rentrent
+réellement en Search Console sur ce site (90 derniers jours), pas sur des
+angles théoriques. Chaque sujet proche d'un article existant vérifié un par
+un pour un angle réellement distinct.
+
+91. **SOS canalisation bouchée : les gestes à faire et à ne pas faire dans
+    la première heure, avant même d'appeler**
+    > ✅ Couvert par `092-sos-canalisation-bouchee-premiere-heure.mdx`. Cible
+    la requête « sos canalisation bouchée » (58 impressions). Distinct des
+    sujets 61-classiques `wc-bouche-que-faire-avant-professionnel` (centré
+    WC) et `canalisation-bouchee-combien-de-temps-attendre-risque` (délai
+    raisonnable) : ici, uniquement les gestes de la première heure, tous
+    sanitaires confondus. Lien vers `urgence-debouchage-canalisation`.
+92. **Eau qui remonte dans les canalisations : pourquoi, et ce que ça
+    indique sur l'emplacement du bouchon**
+    > ✅ Couvert par `093-eau-qui-remonte-canalisations-pourquoi.mdx`. Cible
+    la requête récurrente « eau qui remonte dans les canalisations ».
+    Distinct de `mousse-eau-coloree-qui-remonte-canalisations` (cas
+    particulier mousse/couleur liée à un appareil) et de
+    `refoulement-egout-que-faire-urgence` (gestes d'urgence complets) :
+    ici, la mécanique du phénomène et le diagnostic de localisation par
+    l'endroit où l'eau ressort. Lien vers `urgence-debouchage-canalisation`.
+93. **Le lavabo fait des bulles quand le lave-vaisselle est en marche :
+    ce que ça signale**
+    > ✅ Couvert par `094-lavabo-bulles-lave-vaisselle-en-marche.mdx`. Cible
+    la requête « le lavabo fait des bulles quand le lave-vaisselle est en
+    marche ». Distinct de l'article publié
+    `bruit-glouglou-canalisations-signification` (bruit général, colonne
+    partagée en immeuble) : ici, angle resserré sur le tronçon partagé
+    lavabo/lave-vaisselle en cuisine et le rejet sous pression de l'appareil.
+    Lien vers `debouchage-evier-lavabo-douche`.
+94. **Diagnostic de canalisation : ce qu'il contient, l'ordre des étapes,
+    et la décision qui en ressort**
+    > ✅ Couvert par `095-diagnostic-canalisation-etapes-decision.mdx`. Cible
+    les requêtes « diagnostic canalisation » et « réhabilitation de
+    canalisation ». Distinct du sujet 45
+    (`comprendre-rapport-inspection-camera-termes`, lecture du rapport déjà
+    fait) et de `inspection-camera-canalisation-deroulement` (déroulement
+    de la seule inspection caméra) : ici, la démarche complète, du
+    symptôme rapporté à la décision finale (entretien, intervention ciblée
+    ou réhabilitation). Lien vers `inspection-camera-canalisation`.
+95. **Marange-Silvange : le jardin, les racines et le regard, ce qu'il
+    faut surveiller sur son réseau enterré**
+    > ✅ Couvert par `096-marange-silvange-jardin-racines-regards.mdx`. Cible
+    « plombier marange-silvange » (37 impressions). Angle terrain
+    (secteur pavillonnaire de la vallée de l'Orne, jardin, racines, regard),
+    distinct de la page `/zones/marange-silvange` elle-même (axée sol minier
+    et contre-pente) vers laquelle l'article renvoie explicitement. Lien
+    vers `debouchage-canalisation-enterree-regard`.
+
 ---
 
 ## Priorités ⭐ si on doit resserrer à 12 articles/an

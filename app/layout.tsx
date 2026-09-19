@@ -22,8 +22,8 @@ const fraunces = Fraunces({
   axes: ['opsz', 'SOFT'],
 })
 
-const homeTitle = `${siteConfig.trade} à ${siteConfig.city}, intervention rapide`
-const homeDesc = `Débouchage et curage de canalisations à ${siteConfig.city} et dans l'agglomération. WC, évier, douche, colonne d'immeuble, regard. Prix annoncé avant intervention.`
+const homeTitle = `Débouchage canalisation ${siteConfig.city}, SOS urgence 7j/7`
+const homeDesc = `Canalisation bouchée à ${siteConfig.city} ? WC, évier, douche, regard ou colonne d'immeuble débouchés sans casse, 7j/7. Prix annoncé avant l'intervention.`
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.seo.canonicalBase),

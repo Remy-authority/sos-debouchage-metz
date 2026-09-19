@@ -35,7 +35,11 @@ export function TrustBar() {
       <div className="mx-auto max-w-7xl px-6 py-10 lg:px-10">
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
           {items.map(({ icon: Icon, label, description }, i) => (
-            <AnimatedSection key={label} delay={i * 0.06} className="flex items-center gap-4">
+            <AnimatedSection
+              key={label}
+              delay={i * 0.06}
+              className="flex flex-col items-center gap-3 text-center lg:flex-row lg:items-center lg:gap-4 lg:text-left"
+            >
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-600/10 text-brand-600">
                 <Icon size={22} strokeWidth={2} />
               </span>

@@ -29,35 +29,50 @@ export function Hero() {
       id="top"
       className="noise-overlay relative isolate flex min-h-[92vh] items-center overflow-hidden bg-ink-950 pb-20 pt-28 lg:pt-36"
     >
+      {/* ORDINATEUR ET TABLETTE : fonds d'origine, strictement inchangés. */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgb(var(--c-ink-800)/0.75),transparent_62%),radial-gradient(ellipse_at_bottom_right,rgb(var(--c-accent-500)/0.16),transparent_55%),linear-gradient(180deg,rgb(var(--c-ink-950))_0%,rgb(var(--c-ink-900))_52%,rgb(var(--c-ink-950))_100%)]"
+        className="absolute inset-0 hidden lg:block bg-[radial-gradient(ellipse_at_top,rgb(var(--c-ink-800)/0.75),transparent_62%),radial-gradient(ellipse_at_bottom_right,rgb(var(--c-accent-500)/0.16),transparent_55%),linear-gradient(180deg,rgb(var(--c-ink-950))_0%,rgb(var(--c-ink-900))_52%,rgb(var(--c-ink-950))_100%)]"
       />
-
-      {/* Photo d'ambiance, très en retrait. Fondue par le bas sur mobile (le texte
-          occupe le haut), fondue par la droite à partir du desktop. */}
       <div
         aria-hidden="true"
-        className="absolute inset-y-0 right-0 w-full opacity-[0.12] [mask-image:linear-gradient(180deg,transparent_35%,black)] lg:w-[54%] lg:opacity-20 lg:[mask-image:linear-gradient(90deg,transparent,black_48%)]"
+        className="absolute inset-y-0 right-0 hidden w-[54%] opacity-20 lg:block lg:[mask-image:linear-gradient(90deg,transparent,black_48%)]"
       >
-        <Image src="/hero.jpg" alt="" fill priority sizes="(min-width: 1024px) 54vw, 100vw" className="object-cover" />
+        <Image src="/hero.jpg" alt="" fill priority sizes="54vw" className="object-cover" />
       </div>
+      <div aria-hidden="true" className="bg-grid absolute inset-0 hidden lg:block" />
+      <GradientBlob className="-left-40 top-4 hidden lg:block" color="deep" size={520} intensity="strong" duration={22} />
+      <GradientBlob className="-right-48 bottom-0 hidden lg:block" color="brand" size={620} intensity="strong" duration={18} />
+      <GradientBlob className="left-1/3 top-1/4 hidden lg:block" color="accent" size={440} intensity="strong" duration={15} />
 
-      <div aria-hidden="true" className="bg-grid absolute inset-0" />
-
-      <GradientBlob className="-left-40 top-4" color="deep" size={520} intensity="strong" duration={22} />
-      <GradientBlob className="-right-48 bottom-0" color="brand" size={620} intensity="strong" duration={18} />
-      <GradientBlob className="left-1/3 top-1/4" color="accent" size={440} intensity="strong" duration={15} />
+      {/* TÉLÉPHONE ET TABLETTE : la photo du métier est le FOND du bloc, nette et
+          entière (regard ouvert, furet et enrouleur au premier plan), sous un voile
+          léger qui garde le texte lisible. Aucun halo flou, aucune trame. */}
+      <div aria-hidden="true" className="absolute inset-0 bg-ink-950 lg:hidden">
+        <Image
+          src="/hero-mobile.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgb(var(--c-ink-950)/0.78)_0%,rgb(var(--c-ink-950)/0.5)_34%,rgb(var(--c-ink-950)/0.28)_60%,rgb(var(--c-ink-950)/0.5)_100%)] lg:hidden"
+      />
 
       <motion.div
         style={{ y, opacity }}
-        className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 lg:px-10 xl:grid-cols-12"
+        className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 text-center lg:px-10 lg:text-left xl:grid-cols-12"
       >
         <div className="xl:col-span-7">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: EASE }}
+            className="flex justify-center lg:justify-start"
           >
             <LiveDot>Ligne urgence ouverte, week-ends et jours fériés compris</LiveDot>
           </motion.div>
@@ -66,7 +81,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
-            className="mt-7 text-[clamp(2.5rem,6vw,5rem)] leading-[1.05] text-sand-50"
+            className="mt-7 text-[clamp(2.5rem,6vw,5rem)] leading-[1.05] text-sand-50 [text-shadow:0_2px_18px_rgb(7_26_30/0.55)] lg:[text-shadow:none]"
           >
             Canalisation
             <br />
@@ -79,7 +94,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.25, ease: EASE }}
-            className="mt-7 max-w-xl text-lg leading-relaxed text-sand-200 md:text-xl"
+            className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-sand-100 [text-shadow:0_1px_12px_rgb(7_26_30/0.65)] md:text-xl lg:mx-0 lg:text-sand-200 lg:[text-shadow:none]"
           >
             Évier qui refoule, WC bouché, colonne d&apos;immeuble saturée, regard qui déborde.
             Nous débouchons au furet ou à l&apos;hydrocureur, nous passons la caméra quand la cause
@@ -90,7 +105,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4, ease: EASE }}
-            className="mt-10 flex flex-col gap-3 sm:flex-row"
+            className="mt-10 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start"
           >
             <Button href={`tel:${siteConfig.phone}`} variant="accent" size="lg">
               <Phone size={18} strokeWidth={2.5} />
@@ -106,10 +121,10 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.6 }}
-            className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3"
+            className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 lg:justify-start"
           >
             {badges.map(({ icon: Icon, label }) => (
-              <li key={label} className="flex items-center gap-2 text-sm text-sand-300">
+              <li key={label} className="flex items-center gap-2 text-sm text-sand-200 lg:text-sand-300">
                 <Icon size={16} className="shrink-0 text-brand-300" strokeWidth={2.4} />
                 {label}
               </li>

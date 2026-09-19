@@ -27,13 +27,13 @@ export function WhyUs() {
             <AnimatedSection
               key={item.title}
               delay={(idx % 2) * 0.1}
-              className="group relative overflow-hidden rounded-card border border-sand-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-400/40 hover:shadow-card-hover"
+              className="group relative overflow-hidden rounded-card border border-sand-200 bg-white p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:border-brand-400/40 hover:shadow-card-hover lg:text-left"
             >
               <span
                 aria-hidden="true"
                 className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-brand-500/6 blur-2xl transition-opacity duration-500 group-hover:bg-accent-500/10"
               />
-              <span className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-ink-950 text-brand-300">
+              <span className="relative mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-ink-950 text-brand-300 lg:mx-0">
                 <ServiceIcon icon={item.icon} className="h-6 w-6" />
               </span>
               <h3 className="relative mt-6 text-2xl leading-snug">{item.title}</h3>

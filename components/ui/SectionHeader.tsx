@@ -27,7 +27,11 @@ export function SectionHeader({
 }: Props) {
   const dark = variant === 'dark'
   return (
-    <AnimatedSection className={`max-w-3xl ${align === 'center' ? 'mx-auto text-center' : 'text-left'}`}>
+    <AnimatedSection
+      className={`max-w-3xl ${
+        align === 'center' ? 'mx-auto text-center' : 'mx-auto text-center lg:mx-0 lg:text-left'
+      }`}
+    >
       {eyebrow && (
         <p
           className={`mb-4 text-sm font-semibold uppercase tracking-[0.2em] ${

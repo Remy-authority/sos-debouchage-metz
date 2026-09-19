@@ -40,16 +40,16 @@ export function ServiceArea({ zones }: { zones: Zone[] }) {
               <div aria-hidden="true" className="bg-grid-tight absolute inset-0 opacity-70" />
 
               <div className="relative">
-                <p className="flex items-center gap-3 text-brand-300">
+                <p className="flex items-center justify-center gap-3 text-brand-300 lg:justify-start">
                   <MapPin size={22} />
                   <span className="text-xs font-semibold uppercase tracking-[0.2em]">
                     {departmentName} · {department}
                   </span>
                 </p>
 
-                <h3 className="mt-6 text-3xl text-sand-50">Communes desservies</h3>
+                <h3 className="mt-6 text-center text-3xl text-sand-50 lg:text-left">Communes desservies</h3>
 
-                <ul className="mt-8 flex flex-wrap gap-2.5">
+                <ul className="mt-8 flex flex-wrap justify-center gap-2.5 lg:justify-start">
                   {zones.map((z) => (
                     <li key={z.slug}>
                       <Link
@@ -63,14 +63,14 @@ export function ServiceArea({ zones }: { zones: Zone[] }) {
                   ))}
                 </ul>
 
-                <p className="mt-8 text-sm leading-relaxed text-sand-400">
-                  Votre commune n&apos;est pas dans la liste ? Notre zone est plus large que ces
+                <p className="mt-8 text-center text-sm leading-relaxed text-sand-400 lg:text-left">
+                  Votre commune n&apos;est pas dans la liste&nbsp;? Notre zone est plus large que ces
                   pages dédiées. Appelez, nous vous dirons tout de suite si nous couvrons votre rue.
                 </p>
 
                 <Link
                   href="/zones"
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent-400 transition-colors hover:text-accent-300"
+                  className="mt-6 flex items-center justify-center gap-2 text-sm font-medium text-accent-400 transition-colors hover:text-accent-300 lg:inline-flex lg:justify-start"
                 >
                   Voir toutes les zones
                   <ArrowUpRight size={14} />
@@ -80,8 +80,8 @@ export function ServiceArea({ zones }: { zones: Zone[] }) {
           </AnimatedSection>
 
           <div className="space-y-5 lg:col-span-5">
-            <AnimatedSection delay={0.1} className="rounded-card border border-sand-200 bg-white p-8">
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-600/10 text-brand-600">
+            <AnimatedSection delay={0.1} className="rounded-card border border-sand-200 bg-white p-8 text-center lg:text-left">
+              <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-600/10 text-brand-600 lg:mx-0">
                 <MapPin size={22} />
               </span>
               <h3 className="mt-5 text-xl">Tous les quartiers de {city}</h3>
@@ -90,8 +90,8 @@ export function ServiceArea({ zones }: { zones: Zone[] }) {
               </p>
             </AnimatedSection>
 
-            <AnimatedSection delay={0.2} className="rounded-card border border-sand-200 bg-white p-8">
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-600/10 text-brand-600">
+            <AnimatedSection delay={0.2} className="rounded-card border border-sand-200 bg-white p-8 text-center lg:text-left">
+              <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-600/10 text-brand-600 lg:mx-0">
                 <Timer size={22} />
               </span>
               <h3 className="mt-5 text-xl">Le délai, dit au téléphone</h3>

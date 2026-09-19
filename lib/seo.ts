@@ -35,6 +35,12 @@ type BuildMetaArgs = {
   /** Force noindex sur une page utilitaire (merci, cgu, cookies…). */
   noindex?: boolean
   ogImage?: string
+  /**
+   * Titre servi tel quel, sans le suffixe « , SOS Débouchage Metz » du gabarit
+   * (layout.tsx). Sert aux pages dont le titre visé occupe déjà toute la place
+   * affichée par Google, comme /tarifs.
+   */
+  absoluteTitle?: boolean
 }
 
 /** Fabrique une Metadata Next complète (canonical, OG, robots). */
@@ -44,11 +50,12 @@ export function buildMetadata({
   path,
   noindex = false,
   ogImage,
+  absoluteTitle = false,
 }: BuildMetaArgs): Metadata {
   const url = absUrl(path)
   const index = !noindex && !IS_NOINDEX
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates: { canonical: url },
     openGraph: {

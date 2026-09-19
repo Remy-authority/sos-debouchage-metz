@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Check } from 'lucide-react'
+import { ArrowRight, Check } from 'lucide-react'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { ServiceIcon } from '@/components/ui/ServiceIcon'
@@ -38,7 +38,7 @@ export function Services({ services }: { services: Service[] }) {
             <AnimatedSection key={service.slug} delay={(idx % 3) * 0.1}>
               <Link
                 href={`/services/${service.slug}`}
-                className="group relative flex h-full flex-col overflow-hidden rounded-card border border-ink-700/50 bg-ink-900/45 p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:border-brand-400/45 hover:bg-ink-800/60"
+                className="group relative flex h-full flex-col items-center overflow-hidden rounded-card border border-ink-700/50 bg-ink-900/45 p-8 text-center backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:border-brand-400/45 hover:bg-ink-800/60 lg:items-start lg:text-left"
               >
                 <span
                   aria-hidden="true"
@@ -51,9 +51,9 @@ export function Services({ services }: { services: Service[] }) {
 
                 <h3 className="mt-8 text-2xl leading-snug text-sand-50">{service.navTitle}</h3>
 
-                <ul className="mt-5 space-y-2.5">
+                <ul className="mt-5 w-full space-y-2.5">
                   {service.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-2.5 text-sm text-sand-200">
+                    <li key={b} className="flex items-start justify-center gap-2.5 text-sm text-sand-200 lg:justify-start">
                       <Check size={16} strokeWidth={3} className="mt-0.5 shrink-0 text-accent-400" />
                       {b}
                     </li>
@@ -68,6 +68,21 @@ export function Services({ services }: { services: Service[] }) {
             </AnimatedSection>
           ))}
         </div>
+
+        {/* Renvoi vers /tarifs : paragraphe de corps uniquement. La page Tarifs
+            n'est jamais au menu ni en bouton du bloc 1 (règle Rémy, 18/09/2026). */}
+        <p className="mt-12 text-center text-base leading-relaxed text-sand-300">
+          Vous cherchez d&apos;abord un ordre de prix&nbsp;? Les fourchettes publiées pour chacune de
+          ces interventions sont reprises poste par poste, avec leur source et leur date, sur{' '}
+          <Link
+            href="/tarifs"
+            className="inline-flex items-center gap-1.5 font-medium text-accent-400 underline underline-offset-4 transition-colors hover:text-accent-300"
+          >
+            notre page des tarifs
+            <ArrowRight size={15} aria-hidden="true" />
+          </Link>
+          .
+        </p>
       </div>
     </section>
   )

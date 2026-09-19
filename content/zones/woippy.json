@@ -2,9 +2,17 @@
   "slug": "woippy",
   "name": "Woippy",
   "postalCode": "57140",
+  "reperes": {
+    "insee": "57751",
+    "population": "14 967 habitants",
+    "surface": "14,6 km²",
+    "epci": "Metz Métropole",
+    "bati": "Une commune étendue qui associe de grands ensembles collectifs denses et de larges secteurs pavillonnaires, au nord de l'agglomération.",
+    "reseau": "Une dualité de réseau selon le secteur, colonnes collectives à forte charge autour des immeubles, canalisations privatives isolées en pavillonnaire."
+  },
   "context": "Commune au nord de Metz, qui associe de grands ensembles collectifs et des secteurs pavillonnaires avec jardins.",
-  "metaTitle": "Débouchage de canalisation à Woippy (57)",
-  "metaDescription": "Débouchage de canalisation à Woippy : WC, évier, colonne d'immeuble, canalisation enterrée. Intervention 7j/7, prix annoncé avant.",
+  "metaTitle": "Débouchage canalisation Woippy (57) : WC et évier",
+  "metaDescription": "À Woippy, nous débouchons WC, éviers, douches et colonnes d'immeuble au furet ou à la haute pression. Ligne urgence ouverte 7j/7, tarif dit avant.",
   "h1": "Débouchage de canalisation à Woippy",
   "intro": "Nous intervenons à Woippy (57140) pour le débouchage de canalisations, le curage haute pression et l'inspection caméra. Commune du nord de l'agglomération messine, Woippy associe de grands ensembles collectifs et des secteurs de maisons individuelles avec jardin : deux types d'habitat qui ne se bouchent pas pour les mêmes raisons et n'appellent pas le même traitement.",
   "blocks": [
@@ -19,6 +27,10 @@
     {
       "heading": "Urgence et communes voisines",
       "body": "En cas de refoulement à Woippy, cessez d'utiliser les appareils concernés, protégez le sol et appelez-nous. Notre ligne est ouverte 7j/7, week-ends et jours fériés compris. Depuis Woippy, nous couvrons aussi Metz et ses quartiers nord dont Devant-les-Ponts et La Patrotte, Plappeville, Saint-Julien-lès-Metz et Marange-Silvange, dans un rayon d'environ 30 km autour de Metz."
+    },
+    {
+      "heading": "Le réseau d'assainissement à Woippy",
+      "body": "Woippy s'étend sur 14,6 km² pour 14 967 habitants, une superficie importante qui explique la coexistence de grands ensembles très denses et de secteurs pavillonnaires bien plus étendus. Le réseau d'assainissement suit cette dualité : autour des immeubles, les canalisations publiques et les colonnes collectives sont proches les unes des autres et desservent un nombre élevé de logements sur une faible surface ; dans les quartiers pavillonnaires, les canalisations privatives sont plus longues et isolées, chacune reliant une seule maison au réseau public de Metz Métropole. Cette différence de configuration signifie que le même symptôme, un refoulement, n'a pas la même cause probable selon le secteur de la commune : colonne chargée en collectif, canalisation enterrée dégradée en pavillonnaire. Avant d'intervenir, nous demandons toujours le type de logement et le secteur concerné, ce qui oriente le matériel à emporter dès le départ."
     }
   ],
   "neighbours": [
@@ -38,6 +50,13 @@
     {
       "q": "Un arbre du jardin peut-il boucher ma canalisation ?",
       "a": "Oui, c'est une cause fréquente sur les réseaux enterrés. Les racines sont attirées par l'humidité et entrent par un joint ou un emboîtement légèrement ouvert, où elles forment un chevelu qui retient tout ce qui passe. Le curage haute pression avec tête de coupe rétablit le passage, mais tant que le point d'entrée n'est pas repris, les racines finissent par revenir. L'inspection caméra permet de le localiser précisément."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Population, superficie et code INSEE : API Géo (INSEE, La Poste)",
+      "url": "https://geo.api.gouv.fr/communes?nom=Woippy&codeDepartement=57",
+      "date": "consulté le 20 septembre 2026"
     }
   ]
 }

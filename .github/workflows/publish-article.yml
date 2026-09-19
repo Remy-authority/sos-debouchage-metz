@@ -1,14 +1,15 @@
 name: Publier un article (autoblog)
 
-# Publie automatiquement le plus ancien article de content/drafts/ lundi, mercredi
-# et vendredi. Le push sur main déclenche le redéploiement Vercel.
+# Publie automatiquement le plus ancien article de content/drafts/ du lundi au vendredi.
+# Le push sur main déclenche le redéploiement Vercel. Cadence portée de 3 à 5 par semaine
+# le 20/09/2026 (décision Rémy).
 #
 # Fuseau : cron GitHub = UTC. On tire à 05:00 UTC toute l'année (~7h à Paris en été,
 # ~6h en hiver). L'heure exacte n'est pas critique, on ne gère donc pas le DST.
 
 on:
   schedule:
-    - cron: '17 5 * * 1,3,5' # lun / mer / ven à 05:17 UTC (minute décalée le 29/08/2026 : GitHub saute les crons à l'heure pile)
+    - cron: '17 5 * * 1-5' # du lundi au vendredi à 05:17 UTC (minute décalée le 29/08/2026 : GitHub saute les crons à l'heure pile)
   workflow_dispatch: {} # déclenchement manuel (test immédiat, sans attendre lundi)
 
 # Le GITHUB_TOKEN doit pouvoir committer/pusher sur main.

@@ -61,13 +61,15 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       <section className="noise-overlay relative overflow-hidden bg-gradient-to-b from-ink-950 via-ink-900 to-ink-950 py-16 lg:py-20">
         <div aria-hidden="true" className="bg-grid absolute inset-0" />
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-12 lg:px-10">
-          <div className="lg:col-span-7">
-            <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-300 ring-1 ring-brand-400/25">
+          <div className="text-center lg:col-span-7 lg:text-left">
+            <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-300 ring-1 ring-brand-400/25 lg:mx-0">
               <ServiceIcon icon={service.icon} className="h-6 w-6" />
             </span>
             <h1 className="mt-6 text-4xl leading-[1.1] text-sand-50 md:text-5xl">{service.h1}</h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-sand-200">{service.intro}</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-sand-200 lg:mx-0">
+              {service.intro}
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
               <Button href={`tel:${siteConfig.phone}`} variant="accent" size="lg">
                 <Phone size={18} strokeWidth={2.5} />
                 {siteConfig.phoneDisplay}
@@ -106,9 +108,28 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             ))}
           </div>
 
+          <AnimatedSection className="mt-14">
+            <div className="rounded-card border border-sand-200 bg-white p-6 text-center shadow-card lg:p-7 lg:text-left">
+              <h2 className="text-xl">Ce que coûte cette intervention</h2>
+              <p className="mt-3 leading-relaxed text-sand-600">
+                Nous annonçons le prix au téléphone puis le confirmons sur place avant de
+                commencer. Pour situer l&apos;ordre de grandeur avant d&apos;appeler, les
+                fourchettes publiées sont reprises poste par poste, avec leur source et leur
+                date, sur notre{' '}
+                <Link
+                  href="/tarifs"
+                  className="font-medium text-brand-700 underline underline-offset-2 hover:text-brand-600"
+                >
+                  page des tarifs
+                </Link>
+                .
+              </p>
+            </div>
+          </AnimatedSection>
+
           {related.length > 0 && (
             <AnimatedSection className="mt-16">
-              <h2 className="text-2xl">Prestations liées</h2>
+              <h2 className="text-center text-2xl lg:text-left">Prestations liées</h2>
               <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                 {related.map((r) => (
                   <li key={r.slug}>

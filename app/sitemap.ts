@@ -10,7 +10,7 @@ import { getServices, getZones, getArticles } from '@/lib/content'
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString()
 
-  const staticPaths = ['/', '/zones', '/contact', '/mentions-legales']
+  const staticPaths = ['/', '/zones', '/tarifs', '/contact', '/mentions-legales']
   if (siteConfig.features.blog) staticPaths.push('/conseils')
 
   const entries: MetadataRoute.Sitemap = staticPaths.map((p) => ({

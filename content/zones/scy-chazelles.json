@@ -2,9 +2,17 @@
   "slug": "scy-chazelles",
   "name": "Scy-Chazelles",
   "postalCode": "57160",
+  "reperes": {
+    "insee": "57642",
+    "population": "2 753 habitants",
+    "surface": "4,4 km²",
+    "epci": "Metz Métropole",
+    "bati": "Un habitat individuel dispersé sur les pentes du Mont Saint-Quentin, sur de grandes parcelles boisées et végétalisées.",
+    "reseau": "Des canalisations privatives longues qui traversent des jardins en pente, avec une exposition marquée aux racines sur tout le tracé."
+  },
   "context": "Commune des coteaux à l'ouest de Metz, sur les pentes du Mont Saint-Quentin, à l'habitat individuel dispersé et végétalisé.",
-  "metaTitle": "Débouchage de canalisation à Scy-Chazelles (57)",
-  "metaDescription": "Débouchage de canalisation à Scy-Chazelles : WC, évier, douche, regard, racines et curage. Intervention 7j/7, prix annoncé avant.",
+  "metaTitle": "Débouchage canalisation Scy-Chazelles (57), urgence 7j/7",
+  "metaDescription": "Racines, dépôts ou bouchon franc à Scy-Chazelles : débouchage et curage de canalisation, week-ends et jours fériés compris. Prix annoncé avant.",
   "h1": "Débouchage de canalisation à Scy-Chazelles",
   "intro": "Nous intervenons à Scy-Chazelles (57160) pour le débouchage de canalisations, le curage haute pression et l'inspection caméra. Accrochée aux coteaux du Mont Saint-Quentin à l'ouest de Metz, la commune se caractérise par un habitat individuel dispersé, des terrains en pente et une végétation abondante : le trio qui explique la majorité des blocages sur réseau enterré.",
   "blocks": [
@@ -19,6 +27,10 @@
     {
       "heading": "Urgence et communes voisines",
       "body": "Notre ligne est ouverte 7j/7, week-ends et jours fériés compris, pour les urgences à Scy-Chazelles. En cas de regard qui déborde ou de refoulement dans la maison, arrêtez tous les usages d'eau et appelez-nous. Depuis Scy-Chazelles, nous couvrons également Longeville-lès-Metz, Moulins-lès-Metz, Le Ban-Saint-Martin, Plappeville et Metz, dans un rayon d'environ 30 km."
+    },
+    {
+      "heading": "Le réseau d'assainissement à Scy-Chazelles",
+      "body": "Scy-Chazelles compte 2 753 habitants sur 4,4 km², une densité modérée qui correspond à un habitat dispersé sur les pentes du Mont Saint-Quentin. Les parcelles y sont généralement grandes et boisées, ce qui allonge la distance entre la maison et le réseau public géré par Metz Métropole : la canalisation privative traverse souvent un jardin en pente, avec un ou plusieurs regards intermédiaires avant le raccordement définitif. Sur un terrain de cette nature, chaque mètre de canalisation privative supplémentaire est aussi un mètre de racines potentielles à surveiller, la végétation étant abondante sur l'ensemble de la commune. Nous considérons donc qu'un simple débouchage localisé près de la maison ne suffit presque jamais ici : il faut suivre le tracé jusqu'au bout, regard par regard, pour identifier le point exact où la conduite a été atteinte, avant d'envisager un curage complet ou une réparation ciblée."
     }
   ],
   "neighbours": [
@@ -38,6 +50,13 @@
     {
       "q": "Mon terrain est en pente et le tracé est long, cela pose-t-il problème ?",
       "a": "Cela déplace surtout l'endroit où il faut chercher. Une forte pente fait filer l'eau plus vite que les matières solides, qui se déposent au premier point où la conduite s'aplatit, souvent loin de la maison. Nous intervenons avec un flexible de longueur adaptée et nous partons du regard le plus bas du tracé, ce qui permet de situer le blocage rapidement."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Population, superficie et code INSEE : API Géo (INSEE, La Poste)",
+      "url": "https://geo.api.gouv.fr/communes?nom=Scy-Chazelles&codeDepartement=57",
+      "date": "consulté le 20 septembre 2026"
     }
   ]
 }

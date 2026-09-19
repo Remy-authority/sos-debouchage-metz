@@ -93,7 +93,7 @@ export function Gallery() {
                   className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/45 to-transparent"
                 />
               </div>
-              <div className="absolute inset-x-0 bottom-0 p-6">
+              <div className="absolute inset-x-0 bottom-0 p-6 text-center lg:text-left">
                 <p className="font-display text-xl font-medium text-sand-50">{item.title}</p>
                 <p className="mt-1.5 text-sm leading-relaxed text-sand-300">{item.caption}</p>
               </div>

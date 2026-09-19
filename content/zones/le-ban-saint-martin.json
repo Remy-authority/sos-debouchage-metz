@@ -2,9 +2,17 @@
   "slug": "le-ban-saint-martin",
   "name": "Le Ban-Saint-Martin",
   "postalCode": "57050",
+  "reperes": {
+    "insee": "57049",
+    "population": "4 684 habitants",
+    "surface": "1,6 km²",
+    "epci": "Metz Métropole",
+    "bati": "Un bâti très dense pour une petite superficie, avec de nombreux petits collectifs et des rues étroites, en rive gauche de la Moselle.",
+    "reseau": "Des colonnes d'évacuation partagées entre plusieurs logements et des canalisations privatives courtes, accessibles principalement depuis les parties communes."
+  },
   "context": "Petite commune très dense en rive gauche de la Moselle, aux portes de Metz, avec un bâti serré et beaucoup de petits collectifs.",
-  "metaTitle": "Débouchage de canalisation au Ban-Saint-Martin (57)",
-  "metaDescription": "Débouchage de canalisation au Ban-Saint-Martin, près de Metz : WC, évier, colonne d'immeuble. Intervention 7j/7, prix annoncé avant.",
+  "metaTitle": "Débouchage canalisation Ban-Saint-Martin (57), 7j/7",
+  "metaDescription": "Au Ban-Saint-Martin, nous traitons WC bouchés, éviers qui refoulent et colonnes d'immeuble saturées. Intervention 7j/7, prix annoncé avant de commencer.",
   "h1": "Débouchage de canalisation au Ban-Saint-Martin",
   "intro": "Nous intervenons au Ban-Saint-Martin (57050) pour déboucher WC, éviers, douches et colonnes d'évacuation. Commune de petite superficie mais très densément bâtie, en rive gauche de la Moselle et directement accolée à Metz, elle se caractérise par un habitat serré, beaucoup de petits collectifs et des accès parfois étroits qui demandent un matériel adapté.",
   "blocks": [
@@ -19,6 +27,10 @@
     {
       "heading": "Urgence et communes voisines",
       "body": "En cas de refoulement au Ban-Saint-Martin, arrêtez tout écoulement, protégez le sol autour de l'appareil concerné et appelez-nous. Notre ligne est ouverte 7j/7, week-ends et jours fériés compris. Depuis Le Ban-Saint-Martin, nous couvrons aussi Metz et ses quartiers de la rive gauche, Longeville-lès-Metz, Plappeville, Scy-Chazelles et Woippy, dans un rayon d'environ 30 km autour de Metz."
+    },
+    {
+      "heading": "Le réseau d'assainissement au Ban-Saint-Martin",
+      "body": "Le Ban-Saint-Martin est la plus petite commune de ce secteur par la surface, 1,6 km² pour 4 684 habitants, ce qui en fait aussi l'une des plus densément peuplées de l'agglomération. Cette densité se traduit par un réseau d'assainissement compact, avec des collecteurs publics proches de chaque parcelle mais des canalisations privatives qui traversent souvent des cours communes ou des pieds d'immeuble avant de rejoindre la rue. Dans les petits collectifs, plusieurs logements partagent une même colonne, ce qui déplace la cause du bouchon vers une partie commune gérée par la copropriété plutôt que par un seul occupant. Nous distinguons systématiquement ce qui relève du logement, ce qui relève de la colonne partagée et ce qui relève du réseau public de Metz Métropole, en repérant depuis quel accès nous devons intervenir avant même de sortir le matériel."
     }
   ],
   "neighbours": [
@@ -38,6 +50,13 @@
     {
       "q": "Intervenez-vous pour un petit immeuble de quelques logements ?",
       "a": "Oui, sans minimum de taille. Le principe est le même que pour un grand ensemble : si plusieurs logements sont touchés en même temps, la cause est sur la colonne, donc sur une partie commune, et nous intervenons depuis les accès communs avec un compte rendu écrit remis au syndic ou au propriétaire."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Population, superficie et code INSEE : API Géo (INSEE, La Poste)",
+      "url": "https://geo.api.gouv.fr/communes?nom=Le Ban-Saint-Martin&codeDepartement=57",
+      "date": "consulté le 20 septembre 2026"
     }
   ]
 }

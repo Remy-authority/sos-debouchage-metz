@@ -55,10 +55,28 @@ export interface Service {
   image?: string
 }
 
+/** Source publique citée sur la page (label, lien, date de consultation). */
+export interface SourceRef {
+  label: string
+  url: string
+  date: string
+}
+
 export interface Zone {
   slug: string
   name: string
   postalCode: string
+  /** Repères factuels de la commune, chiffres issus de geo.api.gouv.fr. */
+  reperes?: {
+    insee: string
+    population: string
+    surface: string
+    epci: string
+    bati: string
+    reseau: string
+  }
+  /** Sources publiques des chiffres de `reperes`, affichées sur la page. */
+  sources?: SourceRef[]
   /** Phrase de contexte courte (carte du hub /zones). Optionnel. */
   context?: string
   metaTitle: string

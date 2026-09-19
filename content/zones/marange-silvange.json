@@ -2,9 +2,17 @@
   "slug": "marange-silvange",
   "name": "Marange-Silvange",
   "postalCode": "57535",
+  "reperes": {
+    "insee": "57443",
+    "population": "6 539 habitants",
+    "surface": "15,2 km²",
+    "epci": "CC du Pays Orne Moselle",
+    "bati": "Un habitat individuel étalé sur un vaste territoire d'ancien bassin minier, avec des sols qui ont pu légèrement se tasser au fil du temps.",
+    "reseau": "Des canalisations privatives souvent longues, sur un terrain qui a pu bouger, avec un risque accru de défauts de pente localisés."
+  },
   "context": "Commune du nord-ouest de l'agglomération messine, ancien secteur minier, avec un habitat individuel étendu et des terrains qui ont bougé.",
-  "metaTitle": "Débouchage de canalisation à Marange-Silvange (57)",
-  "metaDescription": "Débouchage de canalisation à Marange-Silvange : WC, évier, regard, curage haute pression et inspection caméra. Intervention 7j/7.",
+  "metaTitle": "Débouchage canalisation Marange-Silvange (57) : WC, évier",
+  "metaDescription": "Évier lent, WC bouché ou racines dans la conduite enterrée à Marange-Silvange ? Intervention 7j/7 par le regard, sans creuser. Prix annoncé avant.",
   "h1": "Débouchage de canalisation à Marange-Silvange",
   "intro": "Nous intervenons à Marange-Silvange (57535) pour le débouchage de canalisations, le curage haute pression et l'inspection caméra. Commune étendue du nord-ouest de l'agglomération messine, dans un ancien secteur minier, elle présente un habitat largement individuel et des sols qui ont pu travailler : deux facteurs qui pèsent directement sur l'état des réseaux enterrés.",
   "blocks": [
@@ -19,6 +27,10 @@
     {
       "heading": "Urgence et communes voisines",
       "body": "Notre ligne est ouverte 7j/7 pour les urgences à Marange-Silvange, week-ends et jours fériés compris. En cas de refoulement, arrêtez tous les usages d'eau et appelez-nous. Depuis Marange-Silvange, nous couvrons également Woippy, les quartiers nord de Metz et les communes du nord-ouest de l'agglomération, dans un rayon d'environ 30 km autour de Metz."
+    },
+    {
+      "heading": "Le réseau d'assainissement à Marange-Silvange",
+      "body": "Marange-Silvange s'étend sur 15,2 km², l'une des plus grandes superficies de ce secteur, pour 6 539 habitants : un habitat individuel étalé sur un ancien territoire minier. Contrairement aux communes de la proche agglomération, l'assainissement n'y relève pas de Metz Métropole mais de la Communauté de communes du Pays Orne Moselle, ce qui ne change rien à notre façon d'intervenir mais explique pourquoi les schémas de réseau et les plans peuvent différer d'une commune à l'autre du secteur. Sur un territoire aussi étendu, les canalisations privatives parcourent souvent de longues distances avant de rejoindre le collecteur, ce qui multiplie les points sensibles, en particulier là où le sol a pu légèrement se tasser au fil des décennies. Nous adaptons la longueur de flexible engagée à ces tracés longs, et nous vérifions le regard le plus proche du collecteur avant de conclure à une simple accumulation de dépôts."
     }
   ],
   "neighbours": [
@@ -38,6 +50,13 @@
     {
       "q": "L'inspection caméra est-elle utile avant d'acheter une maison ici ?",
       "a": "Oui, c'est l'un de ses usages les plus pertinents sur un bien ancien. Le réseau enterré est ce que personne ne voit lors d'une visite, alors qu'une reprise de canalisation sous terrasse ou sous voirie représente un coût significatif. Une inspection avant compromis donne l'état réel de l'évacuation et de son raccordement au réseau public."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Population, superficie et code INSEE : API Géo (INSEE, La Poste)",
+      "url": "https://geo.api.gouv.fr/communes?nom=Marange-Silvange&codeDepartement=57",
+      "date": "consulté le 20 septembre 2026"
     }
   ]
 }

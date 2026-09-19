@@ -48,7 +48,8 @@ export function Header({ services }: { services: NavService[] }) {
   // Les pages détail zone/prestation/conseil n'ont pas de hero sombre : elles
   // démarrent directement sur le bandeau clair du fil d'Ariane (Breadcrumbs),
   // contrairement aux autres pages qui posent un PageHeader sombre en haut.
-  const hasLightTop = /^\/(zones|services|conseils)\/[^/]+\/?$/.test(pathname)
+  const hasLightTop =
+    /^\/(zones|services|conseils)\/[^/]+\/?$/.test(pathname) || /^\/tarifs\/?$/.test(pathname)
 
   // Le menu mobile ouvert force l'en-tête clair : sinon la barre sombre flotte
   // au-dessus d'un panneau crème, sans cohérence.
