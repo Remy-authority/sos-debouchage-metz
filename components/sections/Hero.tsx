@@ -50,7 +50,7 @@ export function Hero() {
           léger qui garde le texte lisible. Aucun halo flou, aucune trame. */}
       <div aria-hidden="true" className="absolute inset-0 bg-ink-950 lg:hidden">
         <Image
-          src="/hero-mobile.jpg"
+          src="/hero-mobile-2.jpg"
           alt=""
           fill
           priority
@@ -60,7 +60,7 @@ export function Hero() {
       </div>
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(180deg,rgb(var(--c-ink-950)/0.78)_0%,rgb(var(--c-ink-950)/0.5)_34%,rgb(var(--c-ink-950)/0.28)_60%,rgb(var(--c-ink-950)/0.5)_100%)] lg:hidden"
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgb(var(--c-ink-950)/0.7)_0%,rgb(var(--c-ink-950)/0.44)_34%,rgb(var(--c-ink-950)/0.24)_62%,rgb(var(--c-ink-950)/0.46)_100%)] lg:hidden"
       />
 
       <motion.div
@@ -81,7 +81,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
-            className="mt-7 text-[clamp(2.5rem,6vw,5rem)] leading-[1.05] text-sand-50 [text-shadow:0_2px_18px_rgb(7_26_30/0.55)] lg:[text-shadow:none]"
+            className="mt-7 text-[clamp(3rem,6vw,5rem)] leading-[1.03] text-sand-50 [text-shadow:0_2px_18px_rgb(7_26_30/0.55)] lg:[text-shadow:none]"
           >
             Canalisation
             <br />

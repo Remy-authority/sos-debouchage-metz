@@ -33,7 +33,7 @@ export function About() {
               align="left"
             />
 
-            <AnimatedSection delay={0.15} className="mx-auto mt-8 max-w-2xl space-y-5 text-center text-lg leading-relaxed text-sand-600 lg:mx-0 lg:text-left">
+            <AnimatedSection delay={0.15} className="mx-auto mt-8 max-w-2xl space-y-4 text-center text-[0.975rem] leading-relaxed text-sand-600 sm:text-base lg:mx-0 lg:space-y-5 lg:text-left lg:text-lg">
               {about.body.map((p) => (
                 <p key={p.slice(0, 24)}>{p}</p>
               ))}

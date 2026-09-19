@@ -33,7 +33,7 @@ export function TrustBar() {
   return (
     <section className="relative border-b border-sand-200 bg-sand-50">
       <div className="mx-auto max-w-7xl px-6 py-10 lg:px-10">
-        <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-x-5 gap-y-7 sm:gap-x-8 lg:grid-cols-4">
           {items.map(({ icon: Icon, label, description }, i) => (
             <AnimatedSection
               key={label}

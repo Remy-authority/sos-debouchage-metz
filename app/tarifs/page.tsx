@@ -67,7 +67,7 @@ export default function TarifsPage() {
       <section className="noise-overlay relative overflow-hidden bg-gradient-to-b from-ink-950 via-ink-900 to-ink-950 py-16 lg:py-20">
         <div aria-hidden="true" className="bg-grid absolute inset-0 hidden lg:block" />
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-12 lg:px-10">
-          <div className="order-2 text-center lg:order-none lg:col-span-7 lg:text-left">
+          <div className="text-center lg:col-span-7 lg:text-left">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent-400">
               Tarifs {siteConfig.tradeShort.toLowerCase()} · {siteConfig.city}
             </p>
@@ -83,13 +83,13 @@ export default function TarifsPage() {
                 {siteConfig.phoneDisplay}
               </Button>
               <Button href="#devis" variant="ghost" size="lg">
-                Faire estimer ma situation
+                Décrire ma situation
                 <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
               </Button>
             </div>
           </div>
 
-          <div className="order-1 lg:order-none lg:col-span-5">
+          <div className="lg:col-span-5">
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-panel border border-brand-400/20 shadow-card lg:aspect-[4/3]">
               <Image
                 src={tarifs.image}
@@ -277,7 +277,7 @@ export default function TarifsPage() {
         <div className="mx-auto max-w-3xl px-6 lg:px-10">
           <SectionHeader
             id="devis-tarifs"
-            eyebrow="Faire estimer ma situation"
+            eyebrow="Décrire ma situation"
             title={
               <>
                 Trois questions,
