@@ -33,9 +33,18 @@ Commande de Rémy : 6 chantiers, une branche de travail, rien sur `main` sans GO
 
 ## Ce qui reste, et qui dépend de Rémy (au 20/09/2026)
 
-- [ ] **Test du formulaire** : envoyer une demande depuis le site et vérifier que le mail
-      arrive bien dans contact@sos-debouchage-metz.fr. Tant que ce test n'a pas eu lieu,
-      `check-fin-de-site.py` compte un défaut « aucun email tracé ».
+- [x] **Test du formulaire : ABANDONNÉ, décision de Rémy du 20/09/2026.** Motif : la chaîne
+      est bien branchée, et c'est justement le problème. `contact@sos-debouchage-metz.fr`
+      est livré EN MÊME TEMPS à Rémy, à `eco_assainissement@yahoo.fr` (M. Akin) et au
+      webhook Rank OS ; le 09 39 20 03 10 renvoie sur le 06 51 79 24 20 de M. Akin et chaque
+      appel compte comme une demande facturable à 10 €. Un test de recette dérangerait donc
+      un partenaire payant. La coupure temporaire a été écartée : la règle Forward Email a
+      une durée de vie d'une heure, « 5 minutes » n'existe pas.
+      CONSÉQUENCE ASSUMÉE : `check-fin-de-site.py` gardera le défaut « Resend : aucun email
+      tracé » tant qu'un VRAI client n'aura pas rempli le formulaire. Ce n'est pas une
+      panne : les clés Resend sont bien posées en production sur le projet Vercel (vérifié
+      le 20/09), et deux vraies demandes sont déjà entrées dans Rank OS, arrivées par mail
+      direct sur contact@. Seul le chemin « formulaire du site » n'a jamais été emprunté.
 - [ ] **H1 de l'accueil** : le contrôle de ciblage demande le mot « débouchage » dans le H1,
       qui dit aujourd'hui « Canalisation bouchée à Metz, réglée sans casse. ». Proposition
       soumise à Rémy : « Canalisation bouchée à Metz : débouchage sans casse. ». Rien n'est

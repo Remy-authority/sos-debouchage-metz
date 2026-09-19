@@ -425,3 +425,21 @@ ce site :**
   gabarit commun aux 5 sites frères).
   Plan des sites et page d'indexation mis à jour : le site est le 14e du plan avec ses 5 cases
   cochées, et ses 15 pages sont en tête de la file d'indexation.
+- **20/09/2026 (CEO du site, test du formulaire abandonné, décision de Rémy)** : le dernier
+  défaut de `check-fin-de-site.py` (« Resend : aucun email tracé ») ne sera pas levé par un test
+  de recette. Constat établi ce jour, pièces à l'appui : la règle Forward Email du domaine livre
+  `contact@sos-debouchage-metz.fr` à TROIS destinataires en même temps, `remy@remyzaoui.com`,
+  `eco_assainissement@yahoo.fr` (M. Akin, partenaire payant) et le webhook Rank OS ; et le
+  09 39 20 03 10 renvoie sur le 06 51 79 24 20 de M. Akin, chaque appel étant enregistré comme
+  une demande facturable à 10 €. Un test dérangerait donc un partenaire qui paie.
+  La coupure temporaire proposée par Rémy a été écartée pour un motif technique : le TTL de
+  l'enregistrement TXT est de 3600 secondes, une coupure « de 5 minutes » n'est pas réalisable,
+  il faudrait compter environ une heure avant et une heure après.
+  Le filtre `estLeadDeTest` de Rank OS (un nom commençant par « TEST » n'est ni enregistré, ni
+  notifié, ni facturé) aurait permis un test sans fausser la facturation, mais le mail serait
+  quand même parti chez M. Akin : Rémy a préféré s'en passer.
+  À RETENIR : ce n'est PAS une panne. `RESEND_API_KEY` et `RESEND_FROM` sont bien posées en
+  environnement Production sur le projet Vercel (vérifié le 20/09), et deux vraies demandes sont
+  déjà enregistrées dans Rank OS pour ce site, arrivées par mail direct sur `contact@`. Seul le
+  chemin « formulaire du site vers Resend » n'a jamais été emprunté par personne, c'est ce que
+  mesure le contrôle. La preuve viendra du premier vrai client qui remplira le formulaire.
