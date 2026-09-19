@@ -22,8 +22,25 @@ Commande de Rémy : 6 chantiers, une branche de travail, rien sur `main` sans GO
       prouvés inchangés par captures avant/après.
 - [x] 6. Autoblog à 5 par semaine (cron lundi au vendredi) + 5 brouillons de plus (65 au
       total), sujets choisis sur ce qui rentre en Search Console.
-- [ ] 7. Fiche Rank OS (notes, autoblogEndsAt, entrée `travaux`) : APRÈS le GO de Rémy.
-- [ ] Merge sur `main`, contrôle de fin de site, docs/ETAT.md : APRÈS le GO de Rémy.
+- [x] 7. Fiche Rank OS : notes réécrites, `dates.autoblogEndsAt` au 15/12/2026 (62 brouillons
+      à 5 par semaine), entrée `travaux` du 20/09, cadence relevée. Poussée sur le cockpit.
+- [x] Retours de Rémy sur l'aperçu : 6 photos de galerie refaites en premium, photo du bloc 1
+      mobile remplacée par une cuisine (la rue ne disait pas le métier), titre du bloc 1
+      agrandi sur téléphone, bandeau de réassurance sur deux colonnes, texte « qui sommes-nous »
+      moins haut, page Tarifs (H1, bouton, photo après le titre sur téléphone).
+- [x] GO de Rémy, merge sur `main`, site public vérifié en 200 avec le vrai titre.
+- [x] Protection des aperçus Vercel remise en `all_except_custom_domains`.
+
+## Ce qui reste, et qui dépend de Rémy (au 20/09/2026)
+
+- [ ] **Test du formulaire** : envoyer une demande depuis le site et vérifier que le mail
+      arrive bien dans contact@sos-debouchage-metz.fr. Tant que ce test n'a pas eu lieu,
+      `check-fin-de-site.py` compte un défaut « aucun email tracé ».
+- [ ] **H1 de l'accueil** : le contrôle de ciblage demande le mot « débouchage » dans le H1,
+      qui dit aujourd'hui « Canalisation bouchée à Metz, réglée sans casse. ». Proposition
+      soumise à Rémy : « Canalisation bouchée à Metz : débouchage sans casse. ». Rien n'est
+      changé tant qu'il n'a pas tranché : ce H1 fait partie du design qu'il a validé.
+- [ ] **Indexation** : Rémy demande l'indexation des pages dans sa Search Console.
 
 
 > Suivi opérationnel des sessions. La checklist de référence long terme vit dans

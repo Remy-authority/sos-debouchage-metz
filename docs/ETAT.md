@@ -365,3 +365,47 @@ ce site :**
   autodétectée par l'agent lot B (document au texte lisible) régénérée avant livraison.
   Consolidation git par le CEO. Le pipeline blog est désormais 100 % autonome pour 6 mois :
   80 articles habillés prêts à publier à 3/semaine.
+- **20/09/2026 (CEO du site, optimisation complète, EN LIGNE)** : chantier commandé par Rémy en
+  six points, mené sur la branche `optim/tarifs-zones-mobile` puis mis en ligne sur son GO
+  (merges `81209ce`, `a352505`, `f821af4`).
+  1) **Page `/tarifs` créée** : 16 fourchettes de prix, chacune avec sa source publique et sa date
+  AFFICHÉES sur la page (8 sources : MesDépanneurs.fr, Bacgraisse.com, Fédération du Chemisage).
+  Chaque URL a été rouverte et relue par le CEO avant publication ; aucun chiffre sans source.
+  Aucun prix dans le JSON-LD (ni `priceRange`, ni `Offer` chiffrée). La page est reliée depuis le
+  PIED DE PAGE, les pages prestation et un paragraphe de corps de l'accueil, jamais au menu ni au
+  bloc 1 (règle Rémy du 18/09).
+  2) **12 pages de commune** : bloc de repères (population, superficie, intercommunalité) relevé à
+  `geo.api.gouv.fr` par un sous-agent PUIS recontrôlé une à une à l'API par le CEO, source et date
+  citées sur la page ; un bloc « Le réseau d'assainissement à X » ; un bloc prix vers `/tarifs`.
+  3) **Accueil** : bloc des communes desservies placé en 8e position. Rien d'autre touché.
+  4) **Titres et descriptions** réécrits : accueil, hub zones, 12 communes, 4 prestations, 5 articles.
+  Les 12 titres de commune sont 12 formulations différentes portant toutes « débouchage + commune
+  + (57) ». Les collisions de métadonnées sont passées de 65 paires à 3.
+  5) **Mobile seulement** : la photo du métier était voilée à 12 % dans le bloc 1, invisible ; elle
+  est maintenant le fond du bloc, sous un voile léger, avec un titre nettement agrandi (plancher du
+  clamp à 3rem, sans effet au-dessus de 800 px). Textes et titres centrés, bandeau de réassurance
+  sur deux colonnes, pied de page court et dépliant. **Ordinateur et tablette prouvés inchangés**
+  par captures avant/après (`docs/captures-20-09/`).
+  6) **Autoblog** du lundi au vendredi (cron `17 5 * * 1-5`), 5 brouillons de plus.
+  **Réparé en plus**, parce que les contrôles les refusaient DÉJÀ avant ce chantier (vérifié sur la
+  version en ligne) : les menus déroulants de l'en-tête (les zones n'en avaient aucun, et le
+  déclencheur des prestations n'avait pas d'`aria-haspopup`), la page contact qui était un
+  formulaire nu (FAQ de 5 questions + 8 prestations liées), et l'absence de visuel de corps sur les
+  20 pages prestation et commune (20 visuels uniques générés, le pool de 3 photos partagées entre
+  communes est supprimé).
+  **Retours de Rémy sur l'aperçu** : les 6 photos de la galerie étaient sombres et vétustes
+  (« un film d'horreur ») ; elles sont refaites en intérieurs modernes et propres, comme la
+  couverture de `/tarifs` et la photo du bloc 1 mobile. Toutes passent le garde-fou anti-texte.
+  Les images remplacées ont été RENOMMÉES (`-2`) : sous le même nom, les caches continuaient de
+  servir les anciennes.
+  **Contrôles au commit livré** : `navigation`, `blocs-pages` et `visuels-articles` CODE 0 (les deux
+  premiers étaient ROUGES avant le chantier). Restent rouges, à l'identique de l'état d'avant :
+  `audit-design` (4 défauts, tous dans le bloc 1 et la grille de l'accueil validés par Rémy, que le
+  CEO n'a pas le droit de modifier) et `check-footprint` (37 phrases identiques aux 5 sites frères,
+  toutes issues du gabarit commun : pages légales, `LeadForm`, `ServiceArea`, `site.config`, et
+  d'articles publiés en juillet ; aucune ne vient de ce chantier).
+  `check-fin-de-site.py` : ramené de 4 défauts à 2. Restent, et ils dépendent de Rémy : le test de
+  bout en bout du formulaire vers `contact@`, et le mot « débouchage » absent du H1 de l'accueil
+  (proposition soumise, non appliquée sans son accord).
+  **Fiche Rank OS** poussée : notes réécrites, `dates.autoblogEndsAt` au 15/12/2026, entrée
+  `travaux` datée, cadence relevée à 5 par semaine. Protection des aperçus Vercel remise.
