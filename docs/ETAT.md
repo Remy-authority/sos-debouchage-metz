@@ -409,3 +409,19 @@ ce site :**
   (proposition soumise, non appliquée sans son accord).
   **Fiche Rank OS** poussée : notes réécrites, `dates.autoblogEndsAt` au 15/12/2026, entrée
   `travaux` datée, cadence relevée à 5 par semaine. Protection des aperçus Vercel remise.
+- **20/09/2026 (CEO du site, titre du bloc 1)** : sur GO de Rémy, le H1 de l'accueil passe de
+  « Canalisation bouchée à Metz, réglée sans casse. » à « Canalisation bouchée à Metz :
+  débouchage sans casse. ». Motif : le contrôle de ciblage de `check-fin-de-site.py` exige la
+  requête d'argent du site (« débouchage canalisation Metz ») dans le title ET dans le H1 de
+  l'accueil, et le mot « débouchage » y manquait. Les retours à la ligne forcés du titre ne
+  valent plus que sur téléphone (`<br className="lg:hidden" />`, 4 lignes) : sur ordinateur le
+  titre coule seul en 3 lignes, comme avant, ce que vérifie `audit-design`. Les espaces
+  explicites `{' '}` corrigent un défaut ancien du gabarit : sans eux le texte se colle dès que
+  le retour est masqué, et les contrôles lisaient « Canalisationbouchée à Metz ».
+  **`check-fin-de-site.py` ne compte plus qu'UN défaut** : le test de bout en bout du formulaire
+  vers `contact@sos-debouchage-metz.fr`, qui est un geste de Rémy. Série des 5 contrôles au
+  commit `92e8339` : navigation, blocs-pages et visuels-articles CODE 0 ; design et footprint
+  rouges à l'identique de l'état d'avant chantier (bloc 1 ordinateur validé par Rémy, et
+  gabarit commun aux 5 sites frères).
+  Plan des sites et page d'indexation mis à jour : le site est le 14e du plan avec ses 5 cases
+  cochées, et ses 15 pages sont en tête de la file d'indexation.
