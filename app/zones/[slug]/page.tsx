@@ -47,35 +47,12 @@ function getHeroSrc(slug: string): string {
   return existsOnDisk ? dedicated : HERO_FALLBACK
 }
 
-const BODY_POOL = [
-  {
-    src: '/zones/zone-regard.jpg',
-    alt: 'Regard de visite ouvert dans une allée, flexible de curage engagé',
-    caption: "Le regard de visite, premier point d'accès au réseau enterré.",
-  },
-  {
-    src: '/zones/zone-siphon.jpg',
-    alt: 'Siphon de lavabo démonté au-dessus d’un seau',
-    caption: 'Sur un bouchon proche, le démontage du siphon suffit souvent.',
-  },
-  {
-    src: '/zones/zone-camera.jpg',
-    alt: "Écran d'inspection caméra montrant l'intérieur d'une canalisation",
-    caption: "La caméra tranche entre bouchon d'usage et défaut de canalisation.",
-  },
-]
-
 export default function ZonePage({ params }: { params: { slug: string } }) {
   const zone = getZone(params.slug)
   if (!zone) notFound()
 
   const zones = getZones()
-  const idx = Math.max(
-    0,
-    zones.findIndex((z) => z.slug === zone.slug),
-  )
   const hero = getHeroSrc(zone.slug)
-  const body = BODY_POOL[(idx + 1) % BODY_POOL.length]
 
   // Maillage : les prestations les plus probables sur une commune résidentielle.
   const mainServices = getServices()
@@ -176,25 +153,8 @@ export default function ZonePage({ params }: { params: { slug: string } }) {
           )}
 
           <div className="prose-content space-y-10">
-            {zone.blocks.map((b, i) => (
-              <div key={b.heading}>
-                <ServiceBlock block={b} />
-                {i === 0 && (
-                  <figure className="mt-8">
-                    <div className="relative aspect-[3/2] w-full overflow-hidden rounded-card border border-sand-200 shadow-card">
-                      <Image
-                        src={body.src}
-                        alt={body.alt}
-                        fill
-                        sizes="(min-width: 768px) 768px, 100vw"
-                        className="object-cover"
-                        loading="lazy"
-                      />
-                    </div>
-                    <figcaption className="mt-3 text-sm text-sand-500">{body.caption}</figcaption>
-                  </figure>
-                )}
-              </div>
+            {zone.blocks.map((b) => (
+              <ServiceBlock key={b.heading} block={b} />
             ))}
           </div>
 

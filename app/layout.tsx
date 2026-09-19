@@ -4,7 +4,7 @@ import './globals.css'
 import { siteConfig } from '@/config/site.config'
 import { themeCssVars } from '@/lib/theme'
 import { buildMetadata, jsonLdScript, localBusinessJsonLd } from '@/lib/seo'
-import { getServices } from '@/lib/content'
+import { getServices, getZones } from '@/lib/content'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { StickyCTA } from '@/components/layout/StickyCTA'
@@ -45,6 +45,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const services = getServices().map((s) => ({ slug: s.slug, navTitle: s.navTitle }))
+  const zones = getZones().map((z) => ({ slug: z.slug, name: z.name }))
 
   return (
     <html
@@ -65,7 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Aller au contenu
         </a>
-        <Header services={services} />
+        <Header services={services} zones={zones} />
         <main id="main">{children}</main>
         <Footer />
         <StickyCTA />

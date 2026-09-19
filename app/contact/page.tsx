@@ -5,8 +5,12 @@ import { buildMetadata } from '@/lib/seo'
 import { PageHeader } from '@/components/layout/PageHeader'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { Button } from '@/components/ui/Button'
+import Link from 'next/link'
 import { LeadForm } from '@/components/ui/LeadForm'
+import { Faq } from '@/components/ui/Faq'
 import { CtaBanner } from '@/components/ui/CtaBanner'
+import { ServiceIcon } from '@/components/ui/ServiceIcon'
+import { getServices } from '@/lib/content'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Contact et demande d’intervention',
@@ -25,7 +29,36 @@ const infos = [
   },
 ]
 
+/**
+ * FAQ propre à la prise de contact : ce qu'on demande avant d'appeler, pas les
+ * questions techniques de l'accueil (règle de navigation du portefeuille,
+ * 03/09/2026 : une page contact n'est jamais un formulaire nu).
+ */
+const contactFaq = [
+  {
+    q: 'Vaut-il mieux appeler ou remplir le formulaire ?',
+    a: "Si l'eau monte, si un regard déborde ou si plusieurs évacuations refoulent en même temps, appelez : nous vous guidons tout de suite sur les gestes à faire en attendant, et nous vous donnons un créneau. Le formulaire convient pour un écoulement qui ralentit, une odeur persistante ou un devis d'entretien, tout ce qui peut attendre quelques heures.",
+  },
+  {
+    q: 'Que faut-il me dire au téléphone pour que le prix soit juste ?',
+    a: "Quel appareil est touché (WC, évier, douche, regard, colonne), depuis quand, si une seule ou plusieurs évacuations sont concernées, si vous avez un regard de visite accessible, et si vous êtes locataire, propriétaire ou syndic. Avec ces cinq éléments, nous savons dans quelle prestation vous êtes et nous annonçons son tarif avant de nous déplacer.",
+  },
+  {
+    q: 'Répondez-vous le soir, le week-end et les jours fériés ?',
+    a: "Oui, la ligne est ouverte 7j/7 pour les urgences sur Metz et les communes de l'agglomération. Un refoulement d'eaux usées dans un logement occupé ne peut pas attendre le lundi.",
+  },
+  {
+    q: 'Que se passe-t-il après l\u2019envoi du formulaire ?',
+    a: "Votre demande arrive directement chez nous, sans passer par une plateforme. Nous vous rappelons pour préciser la situation, confirmer la prestation et son prix, puis fixer un créneau. Vous n'êtes engagé à rien tant que vous n'avez pas dit oui.",
+  },
+  {
+    q: 'Intervenez-vous pour un syndic, un bailleur ou une entreprise ?',
+    a: "Oui. Colonne d'immeuble, parties communes, bac à graisse de restaurant, réseau d'un local commercial : nous intervenons pour les professionnels comme pour les particuliers, avec un compte rendu d'intervention.",
+  },
+]
+
 export default function ContactPage() {
+  const services = getServices()
   return (
     <>
       <PageHeader
@@ -93,7 +126,49 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
+
+        <div className="mx-auto mt-16 max-w-7xl px-6 lg:px-10">
+          <AnimatedSection>
+            <h2 className="text-center text-2xl lg:text-left">
+              Pour quelle intervention nous écrivez-vous ?
+            </h2>
+            <p className="mt-3 text-center leading-relaxed text-sand-600 lg:text-left">
+              Chaque prestation a sa page : ce qu&apos;elle traite, comment elle se déroule et ce
+              qu&apos;elle coûte. Le détail des prix est réuni sur la{' '}
+              <Link
+                href="/tarifs"
+                className="font-medium text-brand-700 underline underline-offset-2 hover:text-brand-600"
+              >
+                page des tarifs
+              </Link>
+              .
+            </p>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {services.map((s) => (
+                <li key={s.slug}>
+                  <Link
+                    href={`/services/${s.slug}`}
+                    className="group flex h-full items-center gap-3 rounded-card border border-sand-200 bg-white p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-400/40 hover:shadow-card"
+                  >
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-brand-600/10 text-brand-600">
+                      <ServiceIcon icon={s.icon} className="h-5 w-5" />
+                    </span>
+                    <span className="text-sm font-medium text-ink-900 group-hover:text-brand-700">
+                      {s.navTitle}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </AnimatedSection>
+        </div>
       </section>
+
+      <Faq
+        items={contactFaq}
+        eyebrow="Avant de nous écrire"
+        subtitle="Ce qu'on nous demande le plus souvent au moment de prendre contact."
+      />
 
       <CtaBanner />
     </>

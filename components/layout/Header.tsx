@@ -11,6 +11,7 @@ import { EASE } from '@/lib/motion'
 import { siteConfig } from '@/config/site.config'
 
 export type NavService = { slug: string; navTitle: string }
+export type NavZone = { slug: string; name: string }
 
 /**
  * En-tête fixe. Deux états visuels : posé sur le hero sombre (translucide, texte
@@ -18,11 +19,13 @@ export type NavService = { slug: string; navTitle: string }
  * 500 ms. Le menu des prestations s'ouvre en panneau animé au survol sur desktop,
  * en accordéon sur mobile : c'est la version multi-pages du header de référence.
  */
-export function Header({ services }: { services: NavService[] }) {
+export function Header({ services, zones }: { services: NavService[]; zones: NavZone[] }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
+  const [zonesOpen, setZonesOpen] = useState(false)
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
+  const [mobileZonesOpen, setMobileZonesOpen] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -36,14 +39,20 @@ export function Header({ services }: { services: NavService[] }) {
   useEffect(() => {
     setMobileOpen(false)
     setServicesOpen(false)
+    setZonesOpen(false)
     setMobileServicesOpen(false)
+    setMobileZonesOpen(false)
   }, [pathname])
 
   const links = [
-    { href: '/zones', label: "Zones d'intervention" },
     { href: '/conseils', label: 'Conseils' },
     { href: '/contact', label: 'Contact' },
   ]
+
+  // Six communes au menu, puis « voir tout » : la liste des douze tiendrait sur
+  // deux écrans de panneau. Règle de navigation du portefeuille (03/09/2026) :
+  // deux sous-menus d'au moins trois liens, sur ordinateur ET sur téléphone.
+  const zonesMenu = zones.slice(0, 6)
 
   // Les pages détail zone/prestation/conseil n'ont pas de hero sombre : elles
   // démarrent directement sur le bandeau clair du fil d'Ariane (Breadcrumbs),
@@ -80,6 +89,7 @@ export function Header({ services }: { services: NavService[] }) {
           >
             <button
               type="button"
+              aria-haspopup="true"
               aria-expanded={servicesOpen}
               onClick={() => setServicesOpen((v) => !v)}
               className={`group relative flex items-center gap-1.5 py-2 text-sm font-medium transition-colors ${linkTone}`}
@@ -114,6 +124,58 @@ export function Header({ services }: { services: NavService[] }) {
                         </span>
                       </Link>
                     ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          <div
+            className="relative"
+            onMouseEnter={() => setZonesOpen(true)}
+            onMouseLeave={() => setZonesOpen(false)}
+          >
+            <button
+              type="button"
+              aria-haspopup="true"
+              aria-expanded={zonesOpen}
+              onClick={() => setZonesOpen((v) => !v)}
+              className={`group relative flex items-center gap-1.5 py-2 text-sm font-medium transition-colors ${linkTone}`}
+            >
+              Zones d&apos;intervention
+              <ChevronDown
+                size={15}
+                className={`transition-transform duration-300 ${zonesOpen ? 'rotate-180' : ''}`}
+              />
+              <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-accent-500 transition-all duration-300 group-hover:w-[calc(100%-1.4rem)]" />
+            </button>
+
+            <AnimatePresence>
+              {zonesOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 8 }}
+                  transition={{ duration: 0.22, ease: EASE }}
+                  className="absolute left-1/2 top-full w-[20rem] -translate-x-1/2 pt-3"
+                >
+                  <div className="overflow-hidden rounded-panel border border-sand-200 bg-sand-50/95 p-2 shadow-card-hover backdrop-blur-xl">
+                    {zonesMenu.map((z) => (
+                      <Link
+                        key={z.slug}
+                        href={`/zones/${z.slug}`}
+                        className="flex items-center justify-between gap-3 rounded-2xl px-4 py-2.5 text-sm font-medium text-ink-900 transition-colors hover:bg-brand-600/10 hover:text-brand-700"
+                      >
+                        {z.name}
+                      </Link>
+                    ))}
+                    <Link
+                      href="/zones"
+                      className="mt-1 flex items-center justify-between gap-3 rounded-2xl border-t border-sand-200 px-4 py-3 text-sm font-semibold text-brand-700 transition-colors hover:bg-brand-600/10"
+                    >
+                      Voir toutes les communes
+                      <span aria-hidden="true">&rarr;</span>
+                    </Link>
                   </div>
                 </motion.div>
               )}
@@ -192,6 +254,49 @@ export function Header({ services }: { services: NavService[] }) {
                           {s.navTitle}
                         </Link>
                       ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <button
+                type="button"
+                aria-expanded={mobileZonesOpen}
+                onClick={() => setMobileZonesOpen((v) => !v)}
+                className="flex items-center justify-between rounded-2xl px-4 py-3 text-base font-medium text-ink-900 transition-colors hover:bg-brand-600/10"
+              >
+                Zones d&apos;intervention
+                <ChevronDown
+                  size={18}
+                  className={`transition-transform duration-300 ${mobileZonesOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+
+              <AnimatePresence initial={false}>
+                {mobileZonesOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.28, ease: EASE }}
+                    className="overflow-hidden"
+                  >
+                    <div className="ml-3 border-l border-sand-200 pl-3">
+                      {zonesMenu.map((z) => (
+                        <Link
+                          key={z.slug}
+                          href={`/zones/${z.slug}`}
+                          className="block rounded-xl px-4 py-2.5 text-sm text-sand-700 transition-colors hover:bg-brand-600/10 hover:text-brand-700"
+                        >
+                          {z.name}
+                        </Link>
+                      ))}
+                      <Link
+                        href="/zones"
+                        className="block rounded-xl px-4 py-2.5 text-sm font-semibold text-brand-700 transition-colors hover:bg-brand-600/10"
+                      >
+                        Voir toutes les communes
+                      </Link>
                     </div>
                   </motion.div>
                 )}
