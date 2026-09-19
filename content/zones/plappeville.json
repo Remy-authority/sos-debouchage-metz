@@ -2,9 +2,17 @@
   "slug": "plappeville",
   "name": "Plappeville",
   "postalCode": "57050",
+  "reperes": {
+    "insee": "57545",
+    "population": "2 027 habitants",
+    "surface": "2,5 km²",
+    "epci": "Metz Métropole",
+    "bati": "Un petit village de coteau au bâti ancien de caractère, avec des cours fermées et des murs de pierre, adossé au Mont Saint-Quentin.",
+    "reseau": "Des canalisations privatives anciennes, aux tracés parfois peu rectilignes hérités de l'histoire du bâti, avec des accès à repérer avant intervention."
+  },
   "context": "Village de coteau à l'ouest de Metz, au pied du Mont Saint-Quentin, fait de maisons individuelles et d'un bâti ancien de caractère.",
-  "metaTitle": "Débouchage de canalisation à Plappeville (57)",
-  "metaDescription": "Débouchage de canalisation à Plappeville, près de Metz : WC, évier, douche, regard, curage haute pression. Intervention 7j/7.",
+  "metaTitle": "Débouchage canalisation Plappeville (57), sans creuser",
+  "metaDescription": "À Plappeville, débouchage de WC, d'évier, de douche et de regard, au furet ou à la haute pression. Le tarif est dit avant. Ligne ouverte 7j/7.",
   "h1": "Débouchage de canalisation à Plappeville",
   "intro": "Nous intervenons à Plappeville (57050) pour le débouchage de canalisations, le curage haute pression et l'inspection caméra. Village de coteau au pied du Mont Saint-Quentin, à l'ouest de Metz, Plappeville se compose de maisons individuelles et d'un bâti ancien de caractère, avec des cours, des murs de pierre et des accès parfois étroits qui demandent d'arriver avec le bon matériel.",
   "blocks": [
@@ -14,11 +22,18 @@
     },
     {
       "heading": "Réseaux anciens et bons réflexes",
-      "body": "Une partie du bâti ancien de Plappeville comporte des réseaux d'évacuation en fonte ou en grès, avec des emboîtements qui ont travaillé. Sur ces matériaux, les déboucheurs chimiques du commerce sont à éviter : fortement corrosifs, ils attaquent les joints et fragilisent la conduite sans dissoudre un bouchon compact, qu'ils se contentent de surmonter. Ils rendent aussi l'ouverture d'un siphon dangereuse pour l'intervenant. Sur ces réseaux, le furet traite le bouchon localisé et l'hydrocurage, réglé selon le matériau, redonne son diamètre utile à la conduite. Si vous avez déjà versé un produit, dites-le nous : ce n'est pas un reproche, c'est une précaution de sécurité."
+      "body": "Une partie du bâti ancien de Plappeville comporte des réseaux d'évacuation en fonte ou en grès, avec des emboîtements qui ont travaillé. Sur ces matériaux, les déboucheurs chimiques du commerce sont à éviter : fortement corrosifs, ils attaquent les joints et fragilisent la conduite sans dissoudre un bouchon compact, qu'ils se contentent de surmonter. Ils rendent aussi l'ouverture d'un siphon dangereuse pour l'intervenant. Sur ces réseaux, le furet traite le bouchon localisé et l'hydrocurage, réglé selon le matériau, redonne son diamètre utile à la conduite. Si vous avez déjà versé un produit, dites-le nous : ce n'est pas un reproche, c'est une précaution de sécurité.",
+      "image": "/zones/corps-plappeville.jpg",
+      "imageAlt": "Regard maçonné en pierre ouvert sur une terrasse de gravier, câble de furet à côté",
+      "imageCaption": "Sur les terrasses en pente, le réseau ancien se visite depuis les regards maçonnés."
     },
     {
       "heading": "Urgence et communes voisines",
       "body": "Notre ligne est ouverte 7j/7 pour les urgences à Plappeville, week-ends et jours fériés compris. En cas de refoulement, arrêtez tous les usages d'eau, protégez le sol et appelez-nous. Depuis Plappeville, nous couvrons également Le Ban-Saint-Martin, Woippy, Scy-Chazelles, Longeville-lès-Metz et les quartiers ouest et nord de Metz, dans un rayon d'environ 30 km."
+    },
+    {
+      "heading": "Le réseau d'assainissement à Plappeville",
+      "body": "Plappeville est la commune la moins peuplée de ce secteur, 2 027 habitants sur 2,5 km² de coteau. Ce format de village resserré, adossé au Mont Saint-Quentin, a produit un réseau d'assainissement ancien et compact, où les canalisations suivent souvent d'anciens chemins ruraux devenus rues, avec des pentes marquées héritées du relief. Les maisons de caractère du centre ont des canalisations privatives qui traversent des cours fermées ou des murs de pierre avant de rejoindre le collecteur public, ce qui explique l'importance de bien localiser l'accès avant toute intervention. Le réseau public relève de Metz Métropole, mais sur un village de cette taille, les repères administratifs comptent parfois moins que la connaissance fine du terrain : un ancien regard oublié sous un aménagement récent, ou une canalisation qui suit un tracé non rectiligne hérité de l'histoire du bâti. Nous nous appuyons sur cette lecture du terrain plutôt que sur un plan type."
     }
   ],
   "neighbours": [
@@ -38,6 +53,13 @@
     {
       "q": "J'ai versé un déboucheur chimique, est-ce un problème pour l'intervention ?",
       "a": "Cela ne l'empêche pas, mais il faut nous le signaler avant. Un produit corrosif qui stagne dans un siphon ou dans la canalisation est dangereux pour la personne qui va l'ouvrir. En le sachant, nous prenons les précautions nécessaires. Sur du grès, de la fonte ou du plomb ancien, ces produits fragilisent en outre la conduite : mieux vaut ne pas en remettre."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Population, superficie et code INSEE : API Géo (INSEE, La Poste)",
+      "url": "https://geo.api.gouv.fr/communes?nom=Plappeville&codeDepartement=57",
+      "date": "consulté le 20 septembre 2026"
     }
   ]
 }

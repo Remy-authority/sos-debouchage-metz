@@ -2,9 +2,17 @@
   "slug": "montigny-les-metz",
   "name": "Montigny-lès-Metz",
   "postalCode": "57950",
+  "reperes": {
+    "insee": "57480",
+    "population": "21 718 habitants",
+    "surface": "6,7 km²",
+    "epci": "Metz Métropole",
+    "bati": "Une commune très densément peuplée, mêlant immeubles collectifs nombreux et quartiers pavillonnaires anciens, juste au sud de Metz.",
+    "reseau": "Un réseau mature, avec des colonnes d'immeuble à forte charge et des canalisations pavillonnaires plus anciennes selon les quartiers."
+  },
   "context": "Grande commune limitrophe au sud de Metz, très dense, avec une part importante d'immeubles collectifs et d'habitat ancien.",
-  "metaTitle": "Débouchage de canalisation à Montigny-lès-Metz (57)",
-  "metaDescription": "Débouchage de canalisation à Montigny-lès-Metz : WC, évier, colonne d'immeuble, regard. Intervention 7j/7, prix annoncé avant.",
+  "metaTitle": "Débouchage canalisation Montigny-lès-Metz (57), prix annoncé",
+  "metaDescription": "Canalisation bouchée à Montigny-lès-Metz ? WC, évier, douche ou colonne d'immeuble débouchés sans casse. Nous décrochons 7j/7, prix annoncé avant.",
   "h1": "Débouchage de canalisation à Montigny-lès-Metz",
   "intro": "Nous intervenons à Montigny-lès-Metz (57950) pour déboucher WC, éviers, douches, colonnes d'évacuation d'immeuble et canalisations enterrées. Deuxième commune de l'agglomération messine par la population et directement limitrophe de Metz, Montigny compte une forte proportion de logements collectifs et de bâti ancien : les colonnes d'évacuation partagées y sont l'une des causes de blocage les plus fréquentes.",
   "blocks": [
@@ -14,11 +22,18 @@
     },
     {
       "heading": "Le réflexe utile en habitat collectif",
-      "body": "Si vous habitez un immeuble de Montigny-lès-Metz, une question permet de gagner beaucoup de temps : est-ce que vous êtes le seul à avoir le problème ? Si votre voisin du dessous a des remontées d'eau quand vous videz votre baignoire, ou si plusieurs logements de la même verticale signalent des ralentissements, la cause est sur la colonne et non chez vous. Dans ce cas, prévenez le syndic ou le gardien avant tout : la colonne est une partie commune, son entretien relève de la copropriété. Nous intervenons aussi bien pour un syndic ou un bailleur que pour un particulier, et nous remettons un compte rendu écrit qui situe précisément le défaut."
+      "body": "Si vous habitez un immeuble de Montigny-lès-Metz, une question permet de gagner beaucoup de temps : est-ce que vous êtes le seul à avoir le problème ? Si votre voisin du dessous a des remontées d'eau quand vous videz votre baignoire, ou si plusieurs logements de la même verticale signalent des ralentissements, la cause est sur la colonne et non chez vous. Dans ce cas, prévenez le syndic ou le gardien avant tout : la colonne est une partie commune, son entretien relève de la copropriété. Nous intervenons aussi bien pour un syndic ou un bailleur que pour un particulier, et nous remettons un compte rendu écrit qui situe précisément le défaut.",
+      "image": "/zones/corps-montigny-les-metz.jpg",
+      "imageAlt": "Colonne d’évacuation en fonte et trappe de visite ouverte dans un sous-sol d’immeuble",
+      "imageCaption": "En collectif, la trappe de visite de la colonne évite d’intervenir logement par logement."
     },
     {
       "heading": "Urgence et communes voisines",
       "body": "En cas de refoulement d'eaux usées à Montigny-lès-Metz, arrêtez d'utiliser tous les appareils reliés à l'évacuation concernée et appelez-nous : chaque litre supplémentaire aggrave la situation. Ne versez aucun déboucheur chimique si l'eau stagne déjà. Notre ligne est ouverte 7j/7, week-ends et jours fériés compris. Depuis Montigny, nous couvrons également Metz et ses quartiers sud, Marly, Longeville-lès-Metz, Moulins-lès-Metz et Augny, dans un rayon d'environ 30 km autour de Metz."
+    },
+    {
+      "heading": "Le réseau d'assainissement à Montigny-lès-Metz",
+      "body": "Montigny-lès-Metz compte 21 718 habitants sur seulement 6,7 km², ce qui en fait l'une des communes les plus densément peuplées de l'agglomération messine après Metz elle-même. Cette densité s'accompagne d'un réseau d'assainissement mature, posé pour l'essentiel au vingtième siècle et dimensionné pour desservir des immeubles collectifs autant que des maisons individuelles. Dans les copropriétés, la limite entre logement et parties communes se situe à la colonne d'évacuation, gérée par le syndic ; dans le pavillonnaire, elle se situe au regard de branchement, à la charge du propriétaire. Le réseau public, lui, relève de Metz Métropole dès la sortie de propriété. Sur une commune de cette taille, où les immeubles voisinent avec des rues pavillonnaires parfois anciennes, nous commençons toujours par identifier ce régime avant d'intervenir, car la méthode et l'accès ne sont pas les mêmes selon qu'on traite une colonne partagée ou une canalisation individuelle."
     }
   ],
   "neighbours": [
@@ -42,6 +57,13 @@
     {
       "q": "Les immeubles anciens de Montigny posent-ils des problèmes particuliers ?",
       "a": "Oui, deux surtout. Les colonnes en fonte anciennes s'entartrent et se chargent de graisses sur toute leur hauteur, ce qui réduit le diamètre utile et provoque des refoulements répétés dans les logements bas. Et certains réseaux comportent encore du plomb, sur lequel les déboucheurs chimiques du commerce font de vrais dégâts. Sur ce type d'immeuble, un curage haute pression bien réglé est plus pertinent qu'une succession de débouchages."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Population, superficie et code INSEE : API Géo (INSEE, La Poste)",
+      "url": "https://geo.api.gouv.fr/communes?nom=Montigny-lès-Metz&codeDepartement=57",
+      "date": "consulté le 20 septembre 2026"
     }
   ]
 }

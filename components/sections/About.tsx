@@ -33,17 +33,17 @@ export function About() {
               align="left"
             />
 
-            <AnimatedSection delay={0.15} className="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-sand-600">
+            <AnimatedSection delay={0.15} className="mx-auto mt-8 max-w-2xl space-y-4 text-center text-[0.975rem] leading-relaxed text-sand-600 sm:text-base lg:mx-0 lg:space-y-5 lg:text-left lg:text-lg">
               {about.body.map((p) => (
                 <p key={p.slice(0, 24)}>{p}</p>
               ))}
             </AnimatedSection>
 
             <AnimatedSection delay={0.25} className="mt-10">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-sand-500">
+              <p className="mb-4 text-center text-xs font-semibold uppercase tracking-[0.2em] text-sand-500 lg:text-left">
                 Les techniques que nous utilisons
               </p>
-              <ul className="flex flex-wrap gap-2.5">
+              <ul className="flex flex-wrap justify-center gap-2.5 lg:justify-start">
                 {methods.map((m) => (
                   <li
                     key={m}
@@ -83,14 +83,14 @@ export function About() {
                 </div>
               </div>
 
-              <div className="relative -mt-8 ml-auto mr-4 w-[85%] rounded-card border border-sand-200 bg-white p-6 shadow-card">
+              <div className="relative -mt-8 mx-auto w-[85%] rounded-card border border-sand-200 bg-white p-6 shadow-card lg:ml-auto lg:mr-4">
                 <Quote size={20} className="text-accent-500" aria-hidden="true" />
                 <blockquote className="mt-3 font-display text-lg font-medium italic leading-snug text-ink-950">
                   {persona.quote}
                 </blockquote>
               </div>
 
-              <div className="mt-6 flex items-center gap-3 rounded-card border border-brand-600/20 bg-brand-600/5 p-5">
+              <div className="mt-6 flex flex-col items-center gap-3 rounded-card border border-brand-600/20 bg-brand-600/5 p-5 text-center lg:flex-row lg:text-left">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-brand-600 text-white">
                   <ServiceIcon icon="tool" className="h-5 w-5" />
                 </span>

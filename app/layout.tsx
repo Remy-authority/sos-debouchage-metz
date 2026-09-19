@@ -4,7 +4,7 @@ import './globals.css'
 import { siteConfig } from '@/config/site.config'
 import { themeCssVars } from '@/lib/theme'
 import { buildMetadata, jsonLdScript, localBusinessJsonLd } from '@/lib/seo'
-import { getServices } from '@/lib/content'
+import { getServices, getZones } from '@/lib/content'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { StickyCTA } from '@/components/layout/StickyCTA'
@@ -22,8 +22,8 @@ const fraunces = Fraunces({
   axes: ['opsz', 'SOFT'],
 })
 
-const homeTitle = `${siteConfig.trade} à ${siteConfig.city}, intervention rapide`
-const homeDesc = `Débouchage et curage de canalisations à ${siteConfig.city} et dans l'agglomération. WC, évier, douche, colonne d'immeuble, regard. Prix annoncé avant intervention.`
+const homeTitle = `Débouchage canalisation ${siteConfig.city}, SOS urgence 7j/7`
+const homeDesc = `Canalisation bouchée à ${siteConfig.city} ? WC, évier, douche, regard ou colonne d'immeuble débouchés sans casse, 7j/7. Prix annoncé avant l'intervention.`
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.seo.canonicalBase),
@@ -45,6 +45,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const services = getServices().map((s) => ({ slug: s.slug, navTitle: s.navTitle }))
+  const zones = getZones().map((z) => ({ slug: z.slug, name: z.name }))
 
   return (
     <html
@@ -65,7 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Aller au contenu
         </a>
-        <Header services={services} />
+        <Header services={services} zones={zones} />
         <main id="main">{children}</main>
         <Footer />
         <StickyCTA />

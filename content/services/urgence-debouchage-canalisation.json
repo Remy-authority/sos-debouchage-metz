@@ -4,7 +4,7 @@
   "icon": "alert",
   "navTitle": "Urgence canalisation bouchée",
   "h1": "Urgence débouchage canalisation à Metz",
-  "metaTitle": "Urgence débouchage canalisation à Metz, 7j/7",
+  "metaTitle": "Canalisation bouchée en urgence à Metz, 7j/7",
   "metaDescription": "Canalisation bouchée en urgence à Metz ? Intervention 7j/7 pour déboucher WC, évier ou colonne d'immeuble. Prix annoncé avant. Appelez-nous.",
   "intro": "Une canalisation bouchée devient une urgence dès que l'eau ne s'évacue plus du tout ou qu'elle remonte dans un appareil. Nous intervenons à Metz et dans un rayon d'environ 30 km, week-ends et jours fériés compris. Vous décrivez le symptôme au téléphone, nous vous donnons le tarif et un créneau, et nous vous indiquons les gestes à faire en attendant.",
   "bullets": [
@@ -22,7 +22,10 @@
     },
     {
       "heading": "Comment se déroule une intervention en urgence",
-      "body": "L'intervention commence au téléphone. Nous vous demandons quels appareils sont touchés, depuis quand, s'il y a des odeurs et si vous êtes en maison ou en appartement : ces quatre réponses suffisent le plus souvent à savoir si le bouchon est local ou situé plus loin sur le réseau. Sur place, nous repérons les accès existants, siphon, tampon de dégorgement ou regard de visite, et nous testons l'écoulement pour situer l'obstacle. Un bouchon proche se traite au furet électrique. Un réseau encrassé sur toute sa longueur ou un bouchon lointain demandent l'hydrocureur haute pression. Nous vérifions ensuite l'écoulement devant vous, et nous passons la caméra si la cause reste incertaine ou si le problème est déjà revenu plusieurs fois."
+      "body": "L'intervention commence au téléphone. Nous vous demandons quels appareils sont touchés, depuis quand, s'il y a des odeurs et si vous êtes en maison ou en appartement : ces quatre réponses suffisent le plus souvent à savoir si le bouchon est local ou situé plus loin sur le réseau. Sur place, nous repérons les accès existants, siphon, tampon de dégorgement ou regard de visite, et nous testons l'écoulement pour situer l'obstacle. Un bouchon proche se traite au furet électrique. Un réseau encrassé sur toute sa longueur ou un bouchon lointain demandent l'hydrocureur haute pression. Nous vérifions ensuite l'écoulement devant vous, et nous passons la caméra si la cause reste incertaine ou si le problème est déjà revenu plusieurs fois.",
+      "image": "/services/corps-urgence-debouchage-canalisation.jpg",
+      "imageAlt": "Machine de débouchage à câble posée sur un tapis de protection dans un couloir, salle de bain dégagée au fond",
+      "imageCaption": "En urgence, le matériel entre protégé et ressort sans rien laisser derrière lui."
     },
     {
       "heading": "Où nous intervenons en urgence",

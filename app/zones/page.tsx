@@ -10,8 +10,8 @@ import { Faq } from '@/components/ui/Faq'
 import { CtaBanner } from '@/components/ui/CtaBanner'
 
 export const metadata: Metadata = buildMetadata({
-  title: `Zones d'intervention, débouchage autour de ${siteConfig.city}`,
-  description: `Communes desservies autour de ${siteConfig.city} pour le débouchage et le curage de canalisations : rayon d'environ ${siteConfig.serviceArea.radiusKm} km.`,
+  title: `Débouchage canalisation autour de ${siteConfig.city} (57)`,
+  description: `Les communes où nous débouchons et curons les canalisations autour de ${siteConfig.city}, dans un rayon d'environ ${siteConfig.serviceArea.radiusKm} km. Une page par commune, ligne ouverte 7j/7.`,
   path: '/zones',
 })
 

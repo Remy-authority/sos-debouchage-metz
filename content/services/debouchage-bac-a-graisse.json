@@ -4,7 +4,7 @@
   "icon": "grease",
   "navTitle": "Bac à graisse (professionnels)",
   "h1": "Débouchage et entretien de bac à graisse à Metz",
-  "metaTitle": "Bac à graisse à Metz, débouchage et entretien",
+  "metaTitle": "Bac à graisse bouché à Metz : vidange et curage",
   "metaDescription": "Débouchage, vidange et entretien de bac à graisse à Metz pour restaurants et collectivités. Intervention planifiée ou en urgence, bordereau remis.",
   "intro": "Le bac à graisse retient les matières grasses avant qu'elles n'atteignent le réseau d'assainissement. Quand il n'est plus entretenu, il déborde, dégage des odeurs et laisse passer les graisses qui finissent par boucher la canalisation en aval. Nous intervenons auprès des restaurants, boulangeries, cantines et collectivités de Metz et de l'agglomération, en entretien planifié comme en urgence.",
   "bullets": [
@@ -19,7 +19,10 @@
     },
     {
       "heading": "Notre intervention sur un bac à graisse",
-      "body": "Nous ouvrons et vidons le bac, nous décollons les graisses figées sur les parois et sur les cloisons de séparation, puis nous curons les canalisations d'entrée et de sortie afin que le dépôt ne reparte pas immédiatement. Le contenu est pompé et évacué en filière agréée : les graisses alimentaires sont des déchets réglementés et ne peuvent pas être rejetées au réseau. Nous contrôlons ensuite l'état des cloisons et du panier de dégrillage, et nous vous remettons un bordereau d'intervention. Ce document est celui que l'on vous demandera en cas de contrôle sanitaire ou de contrôle du service d'assainissement."
+      "body": "Nous ouvrons et vidons le bac, nous décollons les graisses figées sur les parois et sur les cloisons de séparation, puis nous curons les canalisations d'entrée et de sortie afin que le dépôt ne reparte pas immédiatement. Le contenu est pompé et évacué en filière agréée : les graisses alimentaires sont des déchets réglementés et ne peuvent pas être rejetées au réseau. Nous contrôlons ensuite l'état des cloisons et du panier de dégrillage, et nous vous remettons un bordereau d'intervention. Ce document est celui que l'on vous demandera en cas de contrôle sanitaire ou de contrôle du service d'assainissement.",
+      "image": "/services/corps-debouchage-bac-a-graisse.jpg",
+      "imageAlt": "Bac à graisse inox ouvert et vidé dans une cour de service, flexible d’aspiration enroulé au sol",
+      "imageCaption": "Un bac vidé et nettoyé : la fréquence dépend du volume et de l’activité."
     },
     {
       "heading": "Périodicité et obligations",

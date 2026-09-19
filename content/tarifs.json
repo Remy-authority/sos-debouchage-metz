@@ -1,0 +1,252 @@
+{
+  "slug": "tarifs",
+  "navTitle": "Tarifs",
+  "metaTitle": "Tarifs et prix d'un débouchage de canalisation à Metz",
+  "metaDescription": "Prix d'un débouchage de canalisation à Metz, poste par poste : WC, évier, regard, colonne d'immeuble, hydrocurage, caméra. Fourchettes sourcées et datées.",
+  "h1": "Le prix d'une intervention sur vos canalisations à Metz, poste par poste",
+  "image": "/tarifs/couverture-2.jpg",
+  "imageAlt": "Regard de visite ouvert dans une cour pavée, enrouleur de flexible haute pression et machine de débouchage à câble posés à côté",
+  "intro": "Un débouchage simple de WC, d'évier ou de lavabo se situe le plus souvent entre 100 et 250 € TTC, déplacement compris. Un hydrocurage au camion haute pression va d'environ 250 à 350 € pour une maison individuelle, et de 700 à 900 € pour la colonne d'un immeuble.",
+  "introSuite": "Les fourchettes de cette page sont des prix publiés au niveau national. Chacune cite sa source et sa date juste en dessous. Elles servent à savoir à quoi s'attendre, pas à remplacer un devis : chez vous, c'est l'accès, la longueur de conduite et la nature du bouchon qui font le prix. Nous annonçons le nôtre au téléphone, puis nous le confirmons sur place avant de commencer.",
+  "chiffresCles": [
+    {
+      "valeur": "100 à 250 €",
+      "libelle": "Débouchage d'un WC, d'un évier ou d'un lavabo, cas courant",
+      "sourceKeys": ["wc", "evier"]
+    },
+    {
+      "valeur": "250 à 350 €",
+      "libelle": "Camion hydrocureur sur une maison individuelle, moyenne",
+      "sourceKeys": ["hautePression"]
+    },
+    {
+      "valeur": "90 à 190 €",
+      "libelle": "Inspection caméra seule, une heure, sans rapport écrit",
+      "sourceKeys": ["camera"]
+    }
+  ],
+  "tableGroups": [
+    {
+      "titre": "Dans le logement",
+      "rows": [
+        {
+          "poste": "WC bouché, débouchage simple",
+          "fourchette": "100 à 180 € TTC",
+          "inclus": "Déplacement, main-d'œuvre et matériel",
+          "sourceKeys": ["wc"]
+        },
+        {
+          "poste": "WC bouché, débouchage mécanique au furet",
+          "fourchette": "100 à 250 € TTC",
+          "inclus": "Furet manuel ou électrique par la cuvette",
+          "sourceKeys": ["wc"]
+        },
+        {
+          "poste": "Évier ou lavabo, débouchage au furet",
+          "fourchette": "150 à 180 €, jusqu'à 220 €",
+          "inclus": "Démontage du siphon et passage du furet",
+          "sourceKeys": ["evier"]
+        },
+        {
+          "poste": "Évier ou lavabo équipé d'un broyeur",
+          "fourchette": "150 à 250 €",
+          "inclus": "Intervention sur l'appareil et son évacuation",
+          "sourceKeys": ["evier"]
+        },
+        {
+          "poste": "Hydrocurage d'une évacuation intérieure",
+          "fourchette": "250 à 400 €",
+          "inclus": "Débouchage, détartrage et rinçage de la conduite",
+          "sourceKeys": ["evier"]
+        }
+      ]
+    },
+    {
+      "titre": "Réseau enterré et extérieur",
+      "rows": [
+        {
+          "poste": "Canalisation enterrée, furet par le regard",
+          "fourchette": "100 à 250 €",
+          "inclus": "Ouverture du regard, passage du furet",
+          "sourceKeys": ["enterree"]
+        },
+        {
+          "poste": "Canalisation enterrée, hydrocurage",
+          "fourchette": "200 à 600 €",
+          "inclus": "Nettoyage haute pression sur toute la longueur",
+          "sourceKeys": ["enterree"]
+        },
+        {
+          "poste": "Camion hydrocureur, maison individuelle",
+          "fourchette": "250 à 350 € en moyenne",
+          "inclus": "Camion, opérateur et évacuation des matières",
+          "sourceKeys": ["hautePression"]
+        },
+        {
+          "poste": "Engin spécialisé, camion de pompage",
+          "fourchette": "300 à 800 € et plus",
+          "inclus": "Cas profonds, conduite très encrassée ou endommagée",
+          "sourceKeys": ["enterree"]
+        }
+      ]
+    },
+    {
+      "titre": "Immeuble et professionnels",
+      "rows": [
+        {
+          "poste": "Colonne d'immeuble, camion hydrocureur",
+          "fourchette": "700 à 900 € en moyenne",
+          "inclus": "Partie commune, intervention sur la colonne",
+          "sourceKeys": ["hautePression"]
+        },
+        {
+          "poste": "Vidange d'un bac à graisse de 30 à 200 litres",
+          "fourchette": "80 à 250 € HT",
+          "inclus": "Pompage, nettoyage et évacuation, hors taxes",
+          "sourceKeys": ["bacGraisse"]
+        }
+      ]
+    },
+    {
+      "titre": "Diagnostic et réparation",
+      "rows": [
+        {
+          "poste": "Inspection caméra seule, une heure",
+          "fourchette": "90 à 190 € TTC",
+          "inclus": "Passage de la caméra, sans rapport écrit",
+          "sourceKeys": ["camera"]
+        },
+        {
+          "poste": "Inspection caméra avec rapport écrit",
+          "fourchette": "jusqu'à 290 € TTC",
+          "inclus": "Rapport détaillé transmissible à une assurance",
+          "sourceKeys": ["camera"]
+        },
+        {
+          "poste": "Inspection caméra d'un réseau enterré",
+          "fourchette": "150 à 300 €",
+          "inclus": "Repérage depuis le regard de visite",
+          "sourceKeys": ["enterree"]
+        },
+        {
+          "poste": "Chemisage sans tranchée, conduite de 80 à 200 mm",
+          "fourchette": "150 à 400 € le mètre",
+          "inclus": "Inspection, préparation, gaine, polymérisation, contrôle",
+          "sourceKeys": ["chemisage"]
+        }
+      ]
+    },
+    {
+      "titre": "À ajouter au devis",
+      "rows": [
+        {
+          "poste": "Frais de déplacement",
+          "fourchette": "30 à 60 €",
+          "inclus": "Selon la distance et la zone",
+          "sourceKeys": ["deplacement"]
+        }
+      ]
+    }
+  ],
+  "majoration": {
+    "heading": "Nuit, week-end et jours fériés : ce que dit le marché",
+    "body": "Aucun texte ne fixe le prix d'une intervention de nuit ou un jour férié. Ce qui existe, ce sont des pratiques observées par les comparateurs de prix : une majoration de 20 à 30 % en soirée, qui peut atteindre 50 à 100 % la nuit, le dimanche et les jours fériés. Certaines enseignes annoncent au contraire un tarif identique à toute heure. La seule chose qui vous protège est la même dans les deux cas : faire dire le prix avant, créneau horaire compris. C'est ce que nous faisons au téléphone, avant de nous déplacer.",
+    "sourceKeys": ["deplacement"]
+  },
+  "variations": {
+    "heading": "Ce qui fait vraiment varier la facture",
+    "items": [
+      {
+        "titre": "L'endroit du bouchon",
+        "texte": "Un bouchon dans le siphon d'un lavabo se règle en quelques minutes. Le même bouchon à quinze mètres, sur la conduite enterrée entre la maison et le réseau public, demande un enrouleur, un accès par le regard et parfois un camion."
+      },
+      {
+        "titre": "L'accès au réseau",
+        "texte": "Un regard de visite dégagé fait gagner du temps à tout le monde. Un tampon scellé, un regard sous une terrasse ou une cave encombrée rallongent l'intervention avant même que le débouchage commence."
+      },
+      {
+        "titre": "La nature du bouchon",
+        "texte": "Graisses et cheveux cèdent au furet. Des racines installées dans un joint, des lingettes compactées ou du calcaire sur toute la longueur demandent de l'eau sous pression, donc un matériel plus lourd."
+      },
+      {
+        "titre": "Ce qu'on trouve derrière",
+        "texte": "Quand le bouchon revient au même endroit, le problème n'est pas le bouchon mais la canalisation : pente faible, emboîtement déboîté, conduite fissurée. La caméra le dit, et c'est ce constat qui oriente vers une réparation plutôt que vers un énième débouchage."
+      }
+    ]
+  },
+  "engagement": {
+    "heading": "Comment nous annonçons notre prix",
+    "body": [
+      "Vous décrivez ce qui se passe au téléphone : quel appareil refoule, depuis quand, si plusieurs évacuations sont touchées, s'il y a un regard accessible. Avec ça, nous savons dans quelle prestation vous êtes et nous vous annonçons son tarif avant de nous déplacer.",
+      "Sur place, nous confirmons ce prix avant de sortir le matériel. Si ce que nous découvrons change la prestation, par exemple un réseau enterré au lieu d'un siphon, vous le savez à ce moment-là et vous décidez. Rien ne commence sans votre accord."
+    ]
+  },
+  "faq": [
+    {
+      "q": "Combien coûte un débouchage de canalisation à Metz ?",
+      "a": "Pour un WC, un évier ou un lavabo, les prix publiés au niveau national se situent le plus souvent entre 100 et 250 € TTC, déplacement compris. Un hydrocurage au camion revient en moyenne à 250 à 350 € sur une maison individuelle et à 700 à 900 € sur la colonne d'un immeuble. Ces fourchettes viennent de guides de prix nationaux datés, citées sur cette page. Le prix qui vous concerne dépend de l'endroit du bouchon et de l'accès au réseau : nous vous l'annonçons au téléphone puis le confirmons sur place."
+    },
+    {
+      "q": "Le déplacement est-il facturé en plus ?",
+      "a": "Cela dépend des entreprises. Les guides de prix situent les frais de déplacement entre 30 et 60 € selon la distance et la zone, mais beaucoup d'interventions de débouchage sont annoncées déplacement inclus. La bonne question à poser avant de raccrocher est donc simple : le prix annoncé comprend-il le déplacement, oui ou non."
+    },
+    {
+      "q": "Pourquoi un devis ferme n'est-il possible qu'après le diagnostic ?",
+      "a": "Parce que le même symptôme peut venir de trois situations très différentes. Des WC qui refoulent peuvent être un bouchon dans la cuvette, une évacuation d'étage saturée ou une conduite enterrée pleine de racines. Le premier cas se règle au furet, le dernier demande un hydrocureur. Une estimation au téléphone reste fiable dans la majorité des cas, mais elle se confirme en voyant le réseau."
+    },
+    {
+      "q": "Un tarif de nuit ou de week-end est-il réglementé ?",
+      "a": "Non. Aucun texte ne fixe de majoration pour une intervention de nuit, un dimanche ou un jour férié. Les comparateurs observent des majorations de 20 à 30 % en soirée, pouvant atteindre 50 à 100 % la nuit et les jours fériés, et certaines entreprises annoncent au contraire un prix identique à toute heure. Demandez le prix du créneau concerné avant l'intervention."
+    },
+    {
+      "q": "Qui paie le débouchage, le locataire ou le propriétaire ?",
+      "a": "Le décret n° 87-712 place le dégorgement des canalisations dans l'entretien courant, donc à la charge du locataire. Si le bouchon vient d'un défaut de la canalisation elle-même, vétusté, rupture, mauvaise pente ou racines, la réparation revient au propriétaire. C'est précisément ce que tranche une inspection caméra : le rapport identifie la cause, et donc qui doit payer."
+    },
+    {
+      "q": "Et quand c'est la colonne de l'immeuble qui est bouchée ?",
+      "a": "Quand plusieurs logements refoulent en même temps, le bouchon est sur la colonne ou le collecteur, donc sur une partie commune. La facture revient à la copropriété et la commande passe par le syndic ou le gardien. Les guides de prix situent ce type d'intervention au camion hydrocureur entre 700 et 900 € en moyenne."
+    }
+  ],
+  "sources": {
+    "wc": {
+      "label": "Prix du débouchage de WC, MesDépanneurs.fr",
+      "url": "https://www.mesdepanneurs.fr/blog/prix-debouchage-wc",
+      "date": "publié le 12/02/2025, mis à jour le 30/12/2025"
+    },
+    "evier": {
+      "label": "Prix du débouchage d'évier, MesDépanneurs.fr",
+      "url": "https://www.mesdepanneurs.fr/blog/prix-debouchage-evier",
+      "date": "publié le 06/02/2026, mis à jour le 20/02/2026"
+    },
+    "enterree": {
+      "label": "Déboucher une canalisation enterrée, MesDépanneurs.fr",
+      "url": "https://www.mesdepanneurs.fr/blog/deboucher-canalisation-enterree",
+      "date": "publié le 17/09/2024, mis à jour le 30/12/2025"
+    },
+    "hautePression": {
+      "label": "Prix du débouchage à haute pression, MesDépanneurs.fr",
+      "url": "https://www.mesdepanneurs.fr/blog/prix-debouchage-canalisation-haute-pression",
+      "date": "publié le 03/09/2024, mis à jour le 09/03/2026"
+    },
+    "camera": {
+      "label": "Prix d'une inspection caméra de canalisation, MesDépanneurs.fr",
+      "url": "https://www.mesdepanneurs.fr/blog/inspection-camera-canalisation-prix",
+      "date": "publié le 17/02/2025, mis à jour le 30/12/2025"
+    },
+    "bacGraisse": {
+      "label": "Prix d'une vidange de bac à graisse, Bacgraisse.com",
+      "url": "https://www.bacgraisse.com/blogs/guide-bac-a-graisse/vidange-bac-a-graisse-prix-frequence-prestataires-2026",
+      "date": "mis à jour le 15/05/2026"
+    },
+    "chemisage": {
+      "label": "Prix du chemisage de canalisation au mètre, Fédération du Chemisage",
+      "url": "https://federationduchemisage.com/blog/prix-chemisage-canalisation/",
+      "date": "publié le 12/09/2025"
+    },
+    "deplacement": {
+      "label": "Tarifs moyens et majorations horaires, MesDépanneurs.fr",
+      "url": "https://www.mesdepanneurs.fr/blog/tarifs-moyens-plombier",
+      "date": "mis à jour le 04/09/2026"
+    }
+  }
+}

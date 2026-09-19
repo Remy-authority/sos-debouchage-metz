@@ -15,7 +15,7 @@ export function ServiceBlock({ block, eager = false }: { block: ContentBlock; ea
 
   return (
     <AnimatedSection as="section" className="scroll-mt-28">
-      <h2>{block.heading}</h2>
+      <h2 className="text-center lg:text-left">{block.heading}</h2>
 
       {steps ? (
         <>

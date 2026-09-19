@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { Clock, Phone } from 'lucide-react'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { Button } from '@/components/ui/Button'
@@ -12,8 +13,8 @@ export function CtaBanner({
   title,
   subtitle,
 }: {
-  title?: string
-  subtitle?: string
+  title?: ReactNode
+  subtitle?: ReactNode
 }) {
   return (
     <section

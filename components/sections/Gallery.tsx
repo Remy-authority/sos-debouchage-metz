@@ -11,38 +11,38 @@ import { SectionHeader } from '@/components/ui/SectionHeader'
  */
 const items = [
   {
-    src: '/gallery/01-furet-electrique.jpg',
-    alt: "Furet électrique déroulé devant un siphon d'évier ouvert",
+    src: '/gallery/01-furet-electrique-2.jpg',
+    alt: "Machine de débouchage à câble posée devant un meuble sous évier ouvert, siphon apparent",
     title: 'Furet électrique',
     caption: 'Le bouchon localisé, attaqué par le siphon ou le tampon de visite.',
   },
   {
-    src: '/gallery/02-hydrocurage.jpg',
-    alt: 'Flexible haute pression engagé dans un regard de visite ouvert',
+    src: '/gallery/02-hydrocurage-2.jpg',
+    alt: 'Enrouleur de flexible haute pression posé près d’un regard de visite ouvert dans une cour pavée',
     title: 'Hydrocurage',
     caption: 'Pour un réseau encrassé sur toute sa longueur, pas seulement bouché.',
   },
   {
-    src: '/gallery/03-inspection-camera.jpg',
-    alt: "Écran de contrôle d'une caméra d'inspection posé au bord d'un regard",
+    src: '/gallery/03-inspection-camera-2.jpg',
+    alt: "Caméra d'inspection de canalisation, écran et enrouleur posés devant l'évacuation d'une douche",
     title: 'Inspection caméra',
     caption: 'Quand la cause reste incertaine ou que le bouchon revient.',
   },
   {
-    src: '/gallery/04-regard-exterieur.jpg',
-    alt: 'Regard de visite en béton ouvert dans une allée pavée',
+    src: '/gallery/04-regard-exterieur-2.jpg',
+    alt: 'Regard de visite ouvert en bordure de pelouse, sur une terrasse en pierre claire',
     title: 'Regard et canalisation enterrée',
     caption: 'Racines, affaissement, mauvaise pente : ça se voit au regard.',
   },
   {
-    src: '/gallery/05-colonne-immeuble.jpg',
-    alt: "Colonne d'évacuation en fonte dans un local technique d'immeuble",
+    src: '/gallery/05-colonne-immeuble-2.jpg',
+    alt: "Colonne d'évacuation et tampon de visite ouvert dans un local technique d'immeuble",
     title: "Colonne d'immeuble",
     caption: 'Plusieurs logements qui refoulent en même temps, une seule cause.',
   },
   {
-    src: '/gallery/06-bac-a-graisse.jpg',
-    alt: 'Bac à graisse ouvert à l’arrière d’une cuisine professionnelle',
+    src: '/gallery/06-bac-a-graisse-2.jpg',
+    alt: 'Bac à graisse inox encastré, couvercle relevé, dans une cuisine professionnelle',
     title: 'Bac à graisse',
     caption: 'Restauration et collectivités, entretien à périodicité régulière.',
   },
@@ -93,7 +93,7 @@ export function Gallery() {
                   className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/45 to-transparent"
                 />
               </div>
-              <div className="absolute inset-x-0 bottom-0 p-6">
+              <div className="absolute inset-x-0 bottom-0 p-6 text-center lg:text-left">
                 <p className="font-display text-xl font-medium text-sand-50">{item.title}</p>
                 <p className="mt-1.5 text-sm leading-relaxed text-sand-300">{item.caption}</p>
               </div>

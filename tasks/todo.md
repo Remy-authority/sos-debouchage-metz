@@ -1,5 +1,31 @@
 # tasks/todo.md — SOS Débouchage Metz
 
+## Session du 20/09/2026 (CEO du site, branche `optim/tarifs-zones-mobile`)
+
+Commande de Rémy : 6 chantiers, une branche de travail, rien sur `main` sans GO.
+
+- [x] 1. Page `/tarifs` : titre visé, H1 grand, photo de couverture, 16 fourchettes de prix
+      TOUTES sourcées (source + date affichées, chaque URL rouverte et vérifiée par le CEO),
+      majoration nuit et week-end, ce qui fait varier le prix, FAQ, formulaire en bas.
+      Reliée depuis le PIED DE PAGE, les pages prestation et un paragraphe de corps. Jamais
+      au menu, jamais dans le bloc 1. Aucun prix au JSON-LD.
+- [x] 2. 12 pages communes : bloc « repères » (population, superficie, intercommunalité)
+      relevé à geo.api.gouv.fr et recontrôlé à l'API par le CEO, un bloc de contenu
+      « Le réseau d'assainissement à X », un bloc prix qui renvoie à /tarifs.
+- [x] 3. Accueil : bloc des communes placé en 8e position (jamais en bloc 2). Le reste de la
+      structure de l'accueil n'est pas touché.
+- [x] 4. Titres et descriptions réécrits : accueil, hub zones, 12 communes, 4 prestations,
+      2 articles très vus sans clic. Format « Débouchage canalisation + commune (57) »,
+      30 à 60 caractères, descriptions 120 à 160, 5 gabarits de titre (anti-copie).
+- [x] 5. Mobile SEULEMENT : photo du métier visible en fond du bloc 1 (elle était voilée à
+      12 %), textes et titres centrés, pied de page court et dépliant. Ordinateur et tablette
+      prouvés inchangés par captures avant/après.
+- [x] 6. Autoblog à 5 par semaine (cron lundi au vendredi) + 5 brouillons de plus (65 au
+      total), sujets choisis sur ce qui rentre en Search Console.
+- [ ] 7. Fiche Rank OS (notes, autoblogEndsAt, entrée `travaux`) : APRÈS le GO de Rémy.
+- [ ] Merge sur `main`, contrôle de fin de site, docs/ETAT.md : APRÈS le GO de Rémy.
+
+
 > Suivi opérationnel des sessions. La checklist de référence long terme vit dans
 > `docs/ETAT.md` (section 2). Ici : les tâches des sessions en cours.
 

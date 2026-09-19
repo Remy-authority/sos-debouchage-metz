@@ -2,9 +2,17 @@
   "slug": "moulins-les-metz",
   "name": "Moulins-lès-Metz",
   "postalCode": "57160",
+  "reperes": {
+    "insee": "57487",
+    "population": "5 265 habitants",
+    "surface": "7,0 km²",
+    "epci": "Metz Métropole",
+    "bati": "Un centre ancien resserré entouré de lotissements plus récents, dans une organisation en anneaux typique des communes de l'ouest de l'agglomération.",
+    "reseau": "Des réseaux d'âges différents selon le quartier, anciens et proches au centre, plus récents et plus longs en périphérie."
+  },
   "context": "Commune de l'ouest de l'agglomération messine, qui mêle un centre ancien et des lotissements plus récents.",
-  "metaTitle": "Débouchage de canalisation à Moulins-lès-Metz (57)",
-  "metaDescription": "Débouchage de canalisation à Moulins-lès-Metz : WC, évier, douche, regard, curage haute pression. Intervention 7j/7, prix annoncé avant.",
+  "metaTitle": "Moulins-lès-Metz (57), débouchage de canalisation sans casse",
+  "metaDescription": "Évier bouché, WC qui refoule ou conduite enterrée pleine à Moulins-lès-Metz ? Furet, hydrocurage et caméra si besoin. Nous répondons 7j/7.",
   "h1": "Débouchage de canalisation à Moulins-lès-Metz",
   "intro": "Nous intervenons à Moulins-lès-Metz (57160) pour déboucher WC, éviers, douches et canalisations enterrées, et pour le curage haute pression. La commune mêle un centre ancien et des lotissements plus récents : selon le secteur, on n'a pas affaire aux mêmes matériaux ni aux mêmes causes de blocage, et la méthode change en conséquence.",
   "blocks": [
@@ -14,11 +22,18 @@
     },
     {
       "heading": "Ce que nous traitons à Moulins-lès-Metz",
-      "body": "Nous intervenons sur toutes les évacuations du logement : WC bouchés traités par la cuvette au furet, sans démontage dans la grande majorité des cas ; éviers de cuisine ralentis par les graisses, traités au démontage du siphon puis au furet ou à l'eau sous pression ; douches et baignoires par la bonde. À l'extérieur, nous débouchons et curons la canalisation enterrée par le regard de visite, sans terrassement. Sur un réseau qui se rebouche ou dont la cause reste incertaine, l'inspection caméra permet de voir la paroi de l'intérieur et de localiser précisément le défaut, ce qui évite d'ouvrir au hasard si une réparation devient nécessaire."
+      "body": "Nous intervenons sur toutes les évacuations du logement : WC bouchés traités par la cuvette au furet, sans démontage dans la grande majorité des cas ; éviers de cuisine ralentis par les graisses, traités au démontage du siphon puis au furet ou à l'eau sous pression ; douches et baignoires par la bonde. À l'extérieur, nous débouchons et curons la canalisation enterrée par le regard de visite, sans terrassement. Sur un réseau qui se rebouche ou dont la cause reste incertaine, l'inspection caméra permet de voir la paroi de l'intérieur et de localiser précisément le défaut, ce qui évite d'ouvrir au hasard si une réparation devient nécessaire.",
+      "image": "/zones/corps-moulins-les-metz.jpg",
+      "imageAlt": "Regard ouvert dans une allée pavée, unité d’hydrocurage posée devant un garage",
+      "imageCaption": "Sur une allée carrossable, l’hydrocureuse se pose au plus près du regard."
     },
     {
       "heading": "Urgence et communes voisines",
       "body": "En cas de refoulement à Moulins-lès-Metz, arrêtez tous les usages d'eau reliés à l'évacuation concernée et appelez-nous. Ne versez pas de déboucheur chimique si l'eau stagne déjà : le produit ne traversera pas le bouchon et compliquera l'intervention. Notre ligne est ouverte 7j/7. Depuis Moulins-lès-Metz, nous couvrons aussi Metz, Scy-Chazelles, Longeville-lès-Metz, Augny et Ars-sur-Moselle, dans un rayon d'environ 30 km."
+    },
+    {
+      "heading": "Le réseau d'assainissement à Moulins-lès-Metz",
+      "body": "Moulins-lès-Metz s'étend sur 7 km² pour 5 265 habitants, une commune de taille intermédiaire où le bâti ancien du centre côtoie des lotissements plus récents en périphérie. Cette organisation en anneaux se retrouve dans le réseau d'assainissement : au centre, les canalisations publiques et privatives sont anciennes et souvent proches les unes des autres, avec des tracés courts hérités d'un urbanisme dense ; en périphérie, les lotissements plus récents ont des parcelles plus grandes et des canalisations privatives plus longues, posées en PVC. Le réseau public relève de Metz Métropole sur l'ensemble de la commune, mais son état et son âge varient donc fortement selon le quartier. Avant d'intervenir, nous situons toujours la maison dans cette géographie, ce qui oriente immédiatement nos hypothèses sur la cause probable du blocage et sur la longueur de flexible à engager."
     }
   ],
   "neighbours": [
@@ -38,6 +53,13 @@
     {
       "q": "Quel est le délai d'intervention à Moulins-lès-Metz ?",
       "a": "La commune est à quelques minutes de Metz : le délai dépend du planning en cours, pas de la distance. Nous vous annonçons un créneau réaliste au moment de l'appel et nous vous prévenons s'il évolue, plutôt que de promettre une heure que nous ne pourrions pas tenir."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Population, superficie et code INSEE : API Géo (INSEE, La Poste)",
+      "url": "https://geo.api.gouv.fr/communes?nom=Moulins-lès-Metz&codeDepartement=57",
+      "date": "consulté le 20 septembre 2026"
     }
   ]
 }

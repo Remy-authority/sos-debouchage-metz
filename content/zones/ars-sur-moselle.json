@@ -2,9 +2,17 @@
   "slug": "ars-sur-moselle",
   "name": "Ars-sur-Moselle",
   "postalCode": "57130",
+  "reperes": {
+    "insee": "57032",
+    "population": "4 616 habitants",
+    "surface": "11,7 km²",
+    "epci": "Metz Métropole",
+    "bati": "Un bâti resserré de fond de vallée, avec des maisons anciennes de pierre et quelques petits collectifs, implantées entre la Moselle et le coteau.",
+    "reseau": "Des canalisations souvent anciennes, en fonte ou en grès, avec des tracés courts entre la maison et le collecteur du fond de vallée."
+  },
   "context": "Commune de la vallée de la Moselle, au sud-ouest de Metz, avec un bâti ancien de fond de vallée et des réseaux souvent anciens.",
-  "metaTitle": "Débouchage de canalisation à Ars-sur-Moselle (57)",
-  "metaDescription": "Débouchage de canalisation à Ars-sur-Moselle : WC, évier, douche, regard, curage haute pression. Intervention 7j/7, prix annoncé avant.",
+  "metaTitle": "Débouchage de canalisation à Ars-sur-Moselle (57), 7j/7",
+  "metaDescription": "Refoulement, odeurs ou regard plein à Ars-sur-Moselle ? Débouchage et curage haute pression par les accès existants. Appelez, nous décrochons 7j/7.",
   "h1": "Débouchage de canalisation à Ars-sur-Moselle",
   "intro": "Nous intervenons à Ars-sur-Moselle (57130) pour le débouchage de canalisations, le curage haute pression et l'inspection caméra. Installée dans la vallée de la Moselle au sud-ouest de Metz, la commune compte un bâti de fond de vallée souvent ancien, avec des réseaux d'évacuation qui ont plusieurs décennies et méritent d'être traités avec les bons réglages.",
   "blocks": [
@@ -14,11 +22,18 @@
     },
     {
       "heading": "Fond de vallée et points bas",
-      "body": "Dans un habitat de fond de vallée, le point bas du réseau est souvent une cave, un sous-sol ou une buanderie en demi-niveau. C'est là que ressort en premier tout ce qui ne peut plus s'évacuer. Une remontée d'eau au siphon de sol d'une cave n'est donc pas un problème de cave : c'est le symptôme visible d'un blocage situé plus loin sur la conduite. Le bon réflexe est d'arrêter immédiatement tous les usages d'eau de la maison, puisque chaque litre envoyé ressortira au même endroit, puis de nous appeler. Nous intervenons sur la canalisation par les accès existants, regard de visite ou tampon de dégorgement, sans terrassement."
+      "body": "Dans un habitat de fond de vallée, le point bas du réseau est souvent une cave, un sous-sol ou une buanderie en demi-niveau. C'est là que ressort en premier tout ce qui ne peut plus s'évacuer. Une remontée d'eau au siphon de sol d'une cave n'est donc pas un problème de cave : c'est le symptôme visible d'un blocage situé plus loin sur la conduite. Le bon réflexe est d'arrêter immédiatement tous les usages d'eau de la maison, puisque chaque litre envoyé ressortira au même endroit, puis de nous appeler. Nous intervenons sur la canalisation par les accès existants, regard de visite ou tampon de dégorgement, sans terrassement.",
+      "image": "/zones/corps-ars-sur-moselle.jpg",
+      "imageAlt": "Tampon de fonte déposé sur les pavés mouillés d’une rue ancienne, enrouleur de flexible à côté",
+      "imageCaption": "Dans les rues anciennes, l’accès au réseau passe par le tampon de fonte."
     },
     {
       "heading": "Urgence et communes voisines",
       "body": "Notre ligne est ouverte 7j/7 pour les urgences à Ars-sur-Moselle, week-ends et jours fériés compris. Depuis Ars, nous couvrons également Moulins-lès-Metz, Augny, Scy-Chazelles et les communes du sud-ouest de l'agglomération, ainsi que Metz, dans un rayon d'environ 30 km."
+    },
+    {
+      "heading": "Le réseau d'assainissement à Ars-sur-Moselle",
+      "body": "Ars-sur-Moselle compte 4 616 habitants sur 11,7 km² de vallée, un territoire resserré où l'essentiel du bâti se concentre en fond de vallée, entre la Moselle et le coteau. Cette configuration limite la longueur des réseaux privatifs : la plupart des maisons sont proches du collecteur public, ce qui simplifie l'accès mais ne dispense pas d'entretien, car les canalisations posées il y a plusieurs décennies restent sensibles à l'entartrage et aux racines. La limite entre partie privative et réseau public se situe au regard de branchement, en limite de propriété : en amont, l'entretien vous revient ; en aval, il relève de Metz Métropole, compétente en assainissement collectif sur la commune. Quand un bouchon se situe côté rue, nous le signalons pour orienter la bonne intervention. Notre rôle reste le débouchage et le curage de la partie privative, du regard jusqu'à l'intérieur du logement."
     }
   ],
   "neighbours": [
@@ -38,6 +53,13 @@
     {
       "q": "Intervenez-vous aussi dans les communes voisines de la vallée ?",
       "a": "Oui. Depuis Ars-sur-Moselle, nous couvrons Moulins-lès-Metz, Augny, Jouy-aux-Arches, Scy-Chazelles et les autres communes du sud-ouest de l'agglomération messine, dans un rayon d'environ 30 km autour de Metz. Si votre commune n'a pas de page dédiée sur ce site, appelez tout de même : la zone couverte est plus large que cette liste."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Population, superficie et code INSEE : API Géo (INSEE, La Poste)",
+      "url": "https://geo.api.gouv.fr/communes?nom=Ars-sur-Moselle&codeDepartement=57",
+      "date": "consulté le 20 septembre 2026"
     }
   ]
 }

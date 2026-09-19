@@ -2,9 +2,17 @@
   "slug": "augny",
   "name": "Augny",
   "postalCode": "57685",
+  "reperes": {
+    "insee": "57039",
+    "population": "2 207 habitants",
+    "surface": "15,0 km²",
+    "epci": "Metz Métropole",
+    "bati": "Un habitat pavillonnaire récent, en lotissements, avec de grandes parcelles et la proximité immédiate de zones d'activité et de restauration.",
+    "reseau": "Des canalisations privatives en PVC mais souvent longues, traversant de grands jardins avant de rejoindre le réseau public."
+  },
   "context": "Commune du sud de l'agglomération messine, à l'habitat pavillonnaire récent, voisine de zones d'activités et de restauration.",
-  "metaTitle": "Débouchage de canalisation à Augny (57)",
-  "metaDescription": "Débouchage de canalisation à Augny : particuliers et professionnels. WC, évier, regard, bac à graisse, curage. Intervention 7j/7.",
+  "metaTitle": "Canalisation bouchée Augny (57), débouchage sans casse",
+  "metaDescription": "Particuliers et entreprises d'Augny : débouchage de WC, d'évier, de regard et de bac à graisse, au furet ou à l'hydrocureur. Nous répondons 7j/7.",
   "h1": "Débouchage de canalisation à Augny",
   "intro": "Nous intervenons à Augny (57685) pour les particuliers comme pour les professionnels : débouchage de WC, d'éviers et de douches, curage haute pression, inspection caméra et entretien de bac à graisse. Située au sud de l'agglomération messine, la commune associe un habitat pavillonnaire récent et la proximité de zones d'activités, ce qui met côte à côte deux publics aux besoins très différents.",
   "blocks": [
@@ -14,11 +22,18 @@
     },
     {
       "heading": "Pour les professionnels du secteur",
-      "body": "Restaurants, boulangeries, cantines et collectivités du secteur d'Augny relèvent d'un autre régime : celui du bac à graisse et du curage des réseaux de cuisine. Le bac retient les matières grasses avant qu'elles n'atteignent l'assainissement, mais il se remplit et ne se régule pas seul. Quand la couche de graisse en surface atteint le niveau de sortie, les graisses repartent dans la canalisation qu'elles colmatent progressivement. Nous vidons le bac, décollons les graisses figées sur les parois, curons les canalisations d'entrée et de sortie, évacuons le contenu en filière agréée et remettons un bordereau d'intervention. Nous intervenons en dehors des heures de service pour que la cuisine reste opérationnelle."
+      "body": "Restaurants, boulangeries, cantines et collectivités du secteur d'Augny relèvent d'un autre régime : celui du bac à graisse et du curage des réseaux de cuisine. Le bac retient les matières grasses avant qu'elles n'atteignent l'assainissement, mais il se remplit et ne se régule pas seul. Quand la couche de graisse en surface atteint le niveau de sortie, les graisses repartent dans la canalisation qu'elles colmatent progressivement. Nous vidons le bac, décollons les graisses figées sur les parois, curons les canalisations d'entrée et de sortie, évacuons le contenu en filière agréée et remettons un bordereau d'intervention. Nous intervenons en dehors des heures de service pour que la cuisine reste opérationnelle.",
+      "image": "/zones/corps-augny.jpg",
+      "imageAlt": "Bac à graisse inox ouvert et vidé dans une cour de cuisine professionnelle",
+      "imageCaption": "À Augny, les demandes viennent aussi des cuisines professionnelles et de leur bac à graisse."
     },
     {
       "heading": "Urgence et communes voisines",
       "body": "Notre ligne est ouverte 7j/7, week-ends et jours fériés compris, à Augny comme sur le reste de l'agglomération. En cas de refoulement chez un particulier comme dans un établissement, arrêtez les usages d'eau concernés et appelez-nous. Depuis Augny, nous couvrons également Marly, Moulins-lès-Metz, Ars-sur-Moselle, Montigny-lès-Metz et les quartiers sud de Metz, dans un rayon d'environ 30 km."
+    },
+    {
+      "heading": "Le réseau d'assainissement à Augny",
+      "body": "Avec 2 207 habitants répartis sur 15 km², Augny a une densité nettement plus faible que ses voisines de l'agglomération : les parcelles sont grandes, les tracés d'évacuation entre la maison et le réseau public sont donc souvent longs. Sur un lotissement récent, cela veut dire un réseau en PVC globalement sain, mais des canalisations qui traversent plusieurs dizaines de mètres de jardin avant d'atteindre le collecteur, avec davantage de coudes et de raccords qu'un tracé court. Chaque raccord est un point où un défaut de pente ou un tassement de terrain peut créer une zone de dépôt. Le réseau public, lui, relève de Metz Métropole depuis le collecteur de rue. Nous intervenons sur la partie privative, du regard de visite jusqu'aux appareils, et nous précisons toujours au client si le point bloqué se trouve avant ou après cette limite, pour éviter une intervention qui ne relève pas de notre périmètre."
     }
   ],
   "neighbours": [
@@ -38,6 +53,13 @@
     {
       "q": "Un lotissement récent peut-il avoir un défaut de pente ?",
       "a": "Oui, c'est même relativement fréquent. Le tassement du remblai dans les années qui suivent la construction, ou des travaux d'aménagement extérieur, peuvent créer un point bas sur une conduite pourtant posée correctement à l'origine. L'eau y stagne et les matières s'y déposent, ce qui se traduit par un réseau qui se rebouche toujours au même endroit. L'inspection caméra permet de le confirmer et de le localiser."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Population, superficie et code INSEE : API Géo (INSEE, La Poste)",
+      "url": "https://geo.api.gouv.fr/communes?nom=Augny&codeDepartement=57",
+      "date": "consulté le 20 septembre 2026"
     }
   ]
 }

@@ -2,9 +2,17 @@
   "slug": "marly",
   "name": "Marly",
   "postalCode": "57155",
+  "reperes": {
+    "insee": "57447",
+    "population": "10 286 habitants",
+    "surface": "10,8 km²",
+    "epci": "Metz Métropole",
+    "bati": "Un habitat résidentiel pavillonnaire de taille moyenne, avec jardins et terrasses sur la plus grande partie du territoire communal.",
+    "reseau": "Des canalisations privatives qui courent pour l'essentiel sous les jardins, avec une longueur qui varie selon la profondeur de chaque parcelle."
+  },
   "context": "Commune résidentielle au sud de Metz, largement pavillonnaire, avec de nombreux réseaux d'évacuation enterrés sous jardin ou terrasse.",
-  "metaTitle": "Débouchage de canalisation à Marly (57)",
-  "metaDescription": "Débouchage de canalisation à Marly, près de Metz : WC, évier, douche, regard et réseau enterré. Intervention 7j/7, prix annoncé avant.",
+  "metaTitle": "Débouchage et curage de canalisation, Marly (57)",
+  "metaDescription": "WC bouché, évier qui refoule ou regard qui déborde à Marly ? Nous débouchons au furet ou à l'hydrocureur, sans creuser le jardin. Ligne ouverte 7j/7.",
   "h1": "Débouchage de canalisation à Marly",
   "intro": "Nous intervenons à Marly (57155) pour le débouchage de WC, d'éviers, de douches et de canalisations enterrées. Commune résidentielle du sud de l'agglomération messine, Marly est essentiellement pavillonnaire : la plus grande partie du réseau d'évacuation y court sous les jardins et les terrasses, ce qui déplace les causes de blocage vers l'extérieur du logement.",
   "blocks": [
@@ -14,11 +22,18 @@
     },
     {
       "heading": "Pourquoi les réseaux enterrés se bouchent en secteur pavillonnaire",
-      "body": "Trois causes reviennent constamment. Les racines, d'abord : haies, arbustes et arbres plantés à proximité du tracé finissent par trouver un joint légèrement ouvert et s'y installent en chevelu qui retient tout ce qui passe. Les défauts de pente ensuite, soit d'origine, soit apparus après un affaissement du terrain ou des travaux d'aménagement extérieur : l'eau stagne dans le creux et les matières s'y déposent. Les dépôts enfin, graisses de cuisine et calcaire, qui réduisent lentement le diamètre utile de la conduite. Un débouchage rétablit l'écoulement dans les trois cas, mais seule une inspection caméra dit laquelle des trois vous concerne, et donc s'il faut prévoir un curage périodique ou une reprise de canalisation."
+      "body": "Trois causes reviennent constamment. Les racines, d'abord : haies, arbustes et arbres plantés à proximité du tracé finissent par trouver un joint légèrement ouvert et s'y installent en chevelu qui retient tout ce qui passe. Les défauts de pente ensuite, soit d'origine, soit apparus après un affaissement du terrain ou des travaux d'aménagement extérieur : l'eau stagne dans le creux et les matières s'y déposent. Les dépôts enfin, graisses de cuisine et calcaire, qui réduisent lentement le diamètre utile de la conduite. Un débouchage rétablit l'écoulement dans les trois cas, mais seule une inspection caméra dit laquelle des trois vous concerne, et donc s'il faut prévoir un curage périodique ou une reprise de canalisation.",
+      "image": "/zones/corps-marly.jpg",
+      "imageAlt": "Regard de visite ouvert dans la pelouse d’un pavillon, câble de furet enroulé à côté",
+      "imageCaption": "À Marly, la conduite enterrée se traite par le regard, sans ouvrir le jardin."
     },
     {
       "heading": "Urgence et communes voisines",
       "body": "Si votre regard déborde ou si plusieurs évacuations refoulent en même temps à Marly, arrêtez d'utiliser l'eau dans la maison et appelez-nous. Notre ligne est ouverte 7j/7, week-ends et jours fériés compris. Depuis Marly, nous couvrons également Metz et ses quartiers sud dont le Sablon et Magny, Montigny-lès-Metz, Augny et les autres communes du sud de l'agglomération, dans un rayon d'environ 30 km."
+    },
+    {
+      "heading": "Le réseau d'assainissement à Marly",
+      "body": "Marly rassemble 10 286 habitants sur 10,8 km², une commune de taille moyenne où l'essentiel du bâti est pavillonnaire avec jardin. La conséquence directe pour l'assainissement : la canalisation privative qui relie la maison au réseau public traverse quasi systématiquement une pelouse, une allée ou une terrasse, sur une longueur qui dépend de la profondeur de la parcelle. C'est cette portion enterrée, invisible au quotidien, qui concentre l'essentiel des interventions que nous menons sur la commune, bien plus que les appareils intérieurs. Le réseau public de collecte, géré par Metz Métropole, prend le relais au niveau du regard de branchement, en limite de propriété. Sur une commune de cette taille, les tracés et les profondeurs varient sensiblement d'un quartier à l'autre selon l'ancienneté du lotissement, ce qui nous conduit à toujours localiser le regard avant d'évaluer la longueur de flexible nécessaire."
     }
   ],
   "neighbours": [
@@ -42,6 +57,13 @@
     {
       "q": "Le bouchon est-il chez moi ou sur le réseau public ?",
       "a": "Le regard de visite en limite de propriété sert de point de partage. S'il est plein et que le refoulement remonte vers la maison, le bouchon est en aval, potentiellement sur le branchement public. S'il est vide alors que la maison refoule, il est sur votre partie privative. Nous faisons ce constat en ouvrant le regard et nous vous orientons vers le service compétent si la responsabilité est publique."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Population, superficie et code INSEE : API Géo (INSEE, La Poste)",
+      "url": "https://geo.api.gouv.fr/communes?nom=Marly&codeDepartement=57",
+      "date": "consulté le 20 septembre 2026"
     }
   ]
 }

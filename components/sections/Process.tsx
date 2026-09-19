@@ -53,13 +53,17 @@ export function Process() {
                   </span>
                 </div>
 
-                <h3 className="mt-6 text-xl text-sand-50">{step.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-sand-300">{step.desc}</p>
-
-                <p className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-ink-900/70 px-3 py-1 text-xs font-medium uppercase tracking-wider text-accent-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-accent-400" aria-hidden="true" />
-                  {step.duration}
+                <h3 className="mt-6 text-center text-xl text-sand-50 lg:text-left">{step.title}</h3>
+                <p className="mt-3 text-center text-sm leading-relaxed text-sand-300 lg:text-left">
+                  {step.desc}
                 </p>
+
+                <div className="mt-6 flex justify-center lg:justify-start">
+                  <p className="inline-flex items-center gap-1.5 rounded-full bg-ink-900/70 px-3 py-1 text-xs font-medium uppercase tracking-wider text-accent-300">
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent-400" aria-hidden="true" />
+                    {step.duration}
+                  </p>
+                </div>
               </div>
             </AnimatedSection>
           ))}

@@ -4,7 +4,7 @@
   "icon": "camera",
   "navTitle": "Inspection caméra",
   "h1": "Inspection caméra de canalisation à Metz",
-  "metaTitle": "Inspection caméra de canalisation à Metz",
+  "metaTitle": "Inspection caméra et diagnostic de canalisation, Metz",
   "metaDescription": "Passage caméra de canalisation à Metz : voir l'état réel du réseau, localiser une casse, des racines ou une contre-pente. Compte rendu remis.",
   "intro": "L'inspection caméra consiste à faire progresser une caméra étanche dans la canalisation pour voir son état réel, de l'intérieur, sans rien ouvrir ni creuser. Elle répond à une question précise : pourquoi ça se rebouche, et où exactement. Nous la proposons à Metz et dans l'agglomération quand le bouchon revient, quand la cause est incertaine, ou avant d'engager des travaux sur un réseau enterré.",
   "bullets": [
@@ -19,7 +19,10 @@
     },
     {
       "heading": "Ce que la caméra montre",
-      "body": "La caméra remonte la conduite depuis un regard ou un point de dégorgement et affiche l'intérieur en direct. On y voit les dépôts et l'épaisseur de tartre restant sur la paroi, les racines entrées par un joint et leur point d'entrée exact, les fissures, les emboîtements décalés et les portions écrasées ou affaissées, ainsi que les contre-pentes où l'eau stagne au lieu de s'écouler. La sonde permet de repérer l'emplacement du défaut depuis la surface et sa profondeur, ce qui évite d'ouvrir au hasard si une réparation est nécessaire. Nous vous remettons un compte rendu avec ce qui a été observé et à quel endroit."
+      "body": "La caméra remonte la conduite depuis un regard ou un point de dégorgement et affiche l'intérieur en direct. On y voit les dépôts et l'épaisseur de tartre restant sur la paroi, les racines entrées par un joint et leur point d'entrée exact, les fissures, les emboîtements décalés et les portions écrasées ou affaissées, ainsi que les contre-pentes où l'eau stagne au lieu de s'écouler. La sonde permet de repérer l'emplacement du défaut depuis la surface et sa profondeur, ce qui évite d'ouvrir au hasard si une réparation est nécessaire. Nous vous remettons un compte rendu avec ce qui a été observé et à quel endroit.",
+      "image": "/services/corps-inspection-camera-canalisation.jpg",
+      "imageAlt": "Enrouleur de caméra d’inspection écran replié, posé sur un tapis près d’une évacuation ouverte",
+      "imageCaption": "La caméra sert à trancher : bouchon d’usage ou défaut de canalisation."
     },
     {
       "heading": "Ce que l'inspection permet de décider",

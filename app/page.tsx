@@ -16,8 +16,10 @@ import { LeadForm } from '@/components/ui/LeadForm'
 import { Faq } from '@/components/ui/Faq'
 import { CtaBanner } from '@/components/ui/CtaBanner'
 
-const TITLE = `Débouchage de canalisations à ${siteConfig.city}, intervention rapide`
-const DESC = `Débouchage et curage de canalisations à ${siteConfig.city} et dans l'agglomération : WC, évier, douche, colonne d'immeuble, regard, bac à graisse. Urgence 7j/7, prix annoncé avant intervention.`
+// Requête d'argent visée : « débouchage canalisation Metz » (24 impressions en
+// 28 jours, position 76) et « sos canalisation bouchée » (40 impressions).
+const TITLE = `Débouchage canalisation ${siteConfig.city}, SOS urgence 7j/7`
+const DESC = `Canalisation bouchée à ${siteConfig.city} ? WC, évier, douche, regard ou colonne d'immeuble débouchés sans casse, 7j/7. Prix annoncé avant l'intervention.`
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESC, path: '/' })
 
@@ -34,8 +36,9 @@ export default function HomePage() {
       <Process />
       <Stats />
       <WhyUs />
-      {siteConfig.features.gallery && <Gallery />}
+      {/* Communes desservies en bloc 8, jamais plus haut (règle Rémy 18/09/2026). */}
       <ServiceArea zones={zones} />
+      {siteConfig.features.gallery && <Gallery />}
 
       <section id="devis" className="bg-sand-100 py-24 lg:py-32" aria-labelledby="devis-title">
         <div className="mx-auto max-w-3xl px-6 lg:px-10">

@@ -2,9 +2,17 @@
   "slug": "saint-julien-les-metz",
   "name": "Saint-Julien-lès-Metz",
   "postalCode": "57070",
+  "reperes": {
+    "insee": "57616",
+    "population": "3 554 habitants",
+    "surface": "4,5 km²",
+    "epci": "Metz Métropole",
+    "bati": "Un habitat pavillonnaire installé sur un coteau, avec un dénivelé sensible entre le haut et le bas de la commune.",
+    "reseau": "Des canalisations en forte pente, dont le comportement à l'écoulement diffère nettement entre le haut et le bas du territoire."
+  },
   "context": "Commune pavillonnaire au nord-est de Metz, installée sur un coteau, avec des réseaux d'évacuation souvent en forte pente.",
-  "metaTitle": "Débouchage de canalisation à Saint-Julien-lès-Metz (57)",
-  "metaDescription": "Débouchage de canalisation à Saint-Julien-lès-Metz : WC, évier, douche, regard et réseau enterré. Intervention 7j/7, prix annoncé avant.",
+  "metaTitle": "Urgence canalisation bouchée Saint-Julien-lès-Metz (57)",
+  "metaDescription": "Canalisation bouchée à Saint-Julien-lès-Metz ? Nous intervenons sur WC, éviers, douches et réseaux enterrés, 7j/7, avec le prix annoncé avant.",
   "h1": "Débouchage de canalisation à Saint-Julien-lès-Metz",
   "intro": "Nous intervenons à Saint-Julien-lès-Metz (57070) pour le débouchage de canalisations et le curage haute pression. Commune pavillonnaire installée sur le coteau au nord-est de Metz, elle présente une particularité utile à connaître : ses réseaux d'évacuation sont souvent en pente marquée, ce qui change la façon dont les bouchons s'y forment.",
   "blocks": [
@@ -14,11 +22,18 @@
     },
     {
       "heading": "Nos interventions sur la commune",
-      "body": "Nous traitons les WC bouchés par la cuvette, les éviers et lavabos par le siphon, les douches et baignoires par la bonde, et le réseau enterré par le regard de visite, sans terrassement. Sur un pavillon de coteau, nous vérifions systématiquement le regard le plus bas du tracé, celui qui reçoit l'ensemble du réseau : c'est le point où les matières se déposent et où l'on comprend en quelques minutes si le blocage est en amont ou en aval. Quand un réseau se rebouche à intervalle régulier, nous proposons un curage haute pression puis une inspection caméra plutôt qu'un énième débouchage ponctuel."
+      "body": "Nous traitons les WC bouchés par la cuvette, les éviers et lavabos par le siphon, les douches et baignoires par la bonde, et le réseau enterré par le regard de visite, sans terrassement. Sur un pavillon de coteau, nous vérifions systématiquement le regard le plus bas du tracé, celui qui reçoit l'ensemble du réseau : c'est le point où les matières se déposent et où l'on comprend en quelques minutes si le blocage est en amont ou en aval. Quand un réseau se rebouche à intervalle régulier, nous proposons un curage haute pression puis une inspection caméra plutôt qu'un énième débouchage ponctuel.",
+      "image": "/zones/corps-saint-julien-les-metz.jpg",
+      "imageAlt": "Regard de visite ouvert en bas d’une pelouse en pente, eau claire dans la cunette",
+      "imageCaption": "En bas de pente, le regard est le point où se lit l’état réel de l’écoulement."
     },
     {
       "heading": "Urgence et communes voisines",
       "body": "En cas de refoulement à Saint-Julien-lès-Metz, cessez d'utiliser l'eau, protégez le sol et appelez-nous ; notre ligne est ouverte 7j/7, week-ends et jours fériés compris. Depuis Saint-Julien, nous couvrons également Metz et ses quartiers est dont Vallières, Bellecroix et Queuleu, Woippy, ainsi que les communes voisines du plateau, dans un rayon d'environ 30 km autour de Metz."
+    },
+    {
+      "heading": "Le réseau d'assainissement à Saint-Julien-lès-Metz",
+      "body": "Saint-Julien-lès-Metz compte 3 554 habitants sur 4,5 km², un territoire de coteau où l'altitude varie sensiblement entre le haut et le bas de la commune. Le réseau public de collecte, qui relève de Metz Métropole, descend logiquement vers l'aval, ce qui signifie que les maisons situées en partie haute ont des canalisations privatives plus longues et plus pentues que celles du bas de commune, proches du collecteur principal. Cette différence d'altitude explique aussi pourquoi un même type de bouchon ne se traite pas de la même façon d'un bout à l'autre de la commune : en partie haute, la vitesse de l'eau laisse les matières solides se déposer plus loin ; en partie basse, le passage au réseau public est plus rapide mais le débit reçu depuis l'amont y est plus important en cas de fortes pluies. Nous situons systématiquement la maison dans ce profil avant de choisir la méthode d'intervention."
     }
   ],
   "neighbours": [
@@ -38,6 +53,13 @@
     {
       "q": "Que faire si le regard de visite déborde ?",
       "a": "Un regard plein signifie que le bouchon est en aval, entre ce regard et le réseau public. N'utilisez plus l'eau dans la maison, car tout ce qui part y remontera. Ne tentez pas de vider le regard : cela ne traite pas la cause et vous exposez inutilement à des eaux usées. Appelez-nous, l'intervention se fait par ce même regard."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Population, superficie et code INSEE : API Géo (INSEE, La Poste)",
+      "url": "https://geo.api.gouv.fr/communes?nom=Saint-Julien-lès-Metz&codeDepartement=57",
+      "date": "consulté le 20 septembre 2026"
     }
   ]
 }
