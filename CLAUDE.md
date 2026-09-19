@@ -5,6 +5,23 @@
 
 ---
 
+## 0. REQUÊTE D'ARGENT DU SITE (lue par tasks/check-fin-de-site.py)
+
+- Requête d'argent du site : « débouchage canalisation Metz ».
+  AUCUN volume de recherche n'est déclaré ici : nous n'avons pas de mesure
+  DataForSEO sur cette requête, et une impression Search Console n'est pas un
+  volume. Ce qui est mesuré, et seulement cela : 34 impressions sur 90 jours
+  pour cette requête exacte dans la Search Console du site, relevées le
+  20/09/2026 (24 sur 28 jours).
+  Elle doit figurer dans le title et le H1 de l'accueil, et le mot « débouchage »
+  dans le title de chaque page de commune.
+- Requêtes secondaires, impressions Search Console sur 90 jours au 20/09/2026 :
+  « débouchage canalisation marly » 83, « canalisations bouchées racines » 65,
+  « sos canalisation bouchée » 58, « wc bouché marly » 39,
+  « plombier marange-silvange » 37.
+
+---
+
 ## 1. CONTEXTE DU PROJET
 
 - **Modèle économique : rank & rent.** On construit un site local, on le classe en SEO
