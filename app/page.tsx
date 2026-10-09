@@ -56,7 +56,7 @@ export default function HomePage() {
 
       <Faq
         items={siteConfig.homeFaq as unknown as { q: string; a: string }[]}
-        subtitle={`Prix, urgence, produits déboucheurs, responsabilité locataire ou propriétaire : ce qu'on nous demande le plus souvent à ${siteConfig.city}.`}
+        subtitle={`Prix, urgence, produits déboucheurs, responsabilité locataire ou propriétaire. Ce qu'on nous demande le plus souvent à ${siteConfig.city}.`}
       />
 
       <CtaBanner />

@@ -57,7 +57,7 @@
   ],
   "sources": [
     {
-      "label": "Population, superficie et code INSEE : API Géo (INSEE, La Poste)",
+      "label": "Population, superficie et code INSEE, API Géo (INSEE, La Poste)",
       "url": "https://geo.api.gouv.fr/communes?nom=Longeville-lès-Metz&codeDepartement=57",
       "date": "consulté le 20 septembre 2026"
     }

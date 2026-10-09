@@ -18,7 +18,7 @@
   "blocks": [
     {
       "heading": "Deux habitats, deux types de bouchons",
-      "body": "Dans les immeubles collectifs de Woippy, l'essentiel des blocages vient des colonnes d'évacuation, particulièrement des colonnes de cuisine qui se chargent de graisses année après année jusqu'à ce que le diamètre utile ne suffise plus. Le symptôme typique est le refoulement chez les logements du bas alors que ce sont les étages hauts qui utilisent l'eau. Dans les secteurs pavillonnaires, la cause se déplace vers l'extérieur. C'est la canalisation enterrée entre la maison et le réseau public qui pose problème, à cause de racines entrées par un joint, d'un affaissement ou d'une accumulation de dépôts sur une conduite à faible pente. Nous adaptons la méthode au cas : furet ou hydrocureur depuis les accès communs en collectif, débouchage par le regard de visite en maison individuelle."
+      "body": "Dans les immeubles collectifs de Woippy, l'essentiel des blocages vient des colonnes d'évacuation, particulièrement des colonnes de cuisine qui se chargent de graisses année après année jusqu'à ce que le diamètre utile ne suffise plus. Le symptôme typique est le refoulement chez les logements du bas alors que ce sont les étages hauts qui utilisent l'eau. Dans les secteurs pavillonnaires, la cause se déplace vers l'extérieur. C'est la canalisation enterrée entre la maison et le réseau public qui pose problème, à cause de racines entrées par un joint, d'un affaissement ou d'une accumulation de dépôts sur une conduite à faible pente. Nous adaptons la méthode au cas, furet ou hydrocureur depuis les accès communs en collectif, débouchage par le regard de visite en maison individuelle."
     },
     {
       "heading": "Repérer un problème sur le réseau enterré",
@@ -57,7 +57,7 @@
   ],
   "sources": [
     {
-      "label": "Population, superficie et code INSEE : API Géo (INSEE, La Poste)",
+      "label": "Population, superficie et code INSEE, API Géo (INSEE, La Poste)",
       "url": "https://geo.api.gouv.fr/communes?nom=Woippy&codeDepartement=57",
       "date": "consulté le 20 septembre 2026"
     }

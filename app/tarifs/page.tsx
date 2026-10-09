@@ -243,7 +243,7 @@ export default function TarifsPage() {
               ))}
             </div>
             <p className="mt-5 text-center leading-relaxed text-sand-700 lg:text-left">
-              Le détail de chaque intervention est décrit sur sa page :{' '}
+              Le détail de chaque intervention est décrit sur sa page,{' '}
               <Link href="/services/urgence-debouchage-canalisation" className="font-medium text-brand-700 underline underline-offset-2 hover:text-brand-600">
                 urgence débouchage
               </Link>
@@ -291,7 +291,7 @@ export default function TarifsPage() {
                 <span className="text-gradient-ink italic"> et on vous rappelle</span>
               </>
             }
-            subtitle="Décrivez ce qui refoule et depuis quand : c'est ce qui nous permet d'annoncer une prestation et son prix, plutôt qu'une fourchette générale."
+            subtitle="Décrivez ce qui refoule et depuis quand. Avec ça, nous annonçons une prestation et son prix, pas une fourchette générale."
           />
           <div className="mt-12">
             <LeadForm />

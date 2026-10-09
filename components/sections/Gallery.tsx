@@ -32,7 +32,7 @@ const items = [
     src: '/gallery/04-regard-exterieur-2.jpg',
     alt: 'Regard de visite ouvert en bordure de pelouse, sur une terrasse en pierre claire',
     title: 'Regard et canalisation enterrée',
-    caption: 'Racines, affaissement, mauvaise pente : ça se voit au regard.',
+    caption: 'Racines, affaissement, mauvaise pente, tout se voit au regard.',
   },
   {
     src: '/gallery/05-colonne-immeuble-2.jpg',

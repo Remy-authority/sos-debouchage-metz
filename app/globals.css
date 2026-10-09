@@ -238,3 +238,7 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Lignes équilibrées (10/10/2026, contrôle check-lignes) : textes courts répartis
+   sur des lignes de longueur proche (le navigateur ne le fait que jusqu'à 6 lignes). */
+h2, h3, h4, summary, figcaption, p, li, dd, a, button, label, legend { text-wrap: balance; }
