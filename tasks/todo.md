@@ -1,5 +1,50 @@
 # tasks/todo.md — SOS Débouchage Metz
 
+## Session du 10/10/2026 : MISE À JOUR COMPLÈTE (GO Rémy 10/10, niveau forage Poitou et Lorraine)
+
+Objectif : aperçu complet pour le 13/10 au soir (bilan d'essai Eco Assainissement le 14/10).
+Rien sur `main` sans GO. Branche à créer : `maj/scrollytelling-2026-10`.
+
+### État des lieux (§0), mesuré le 10/10/2026
+- Search Console relevée le 09/10 (cockpit/data/gsc) + requête page × requête 90 j (tasks/.maj-metz/gsc-page-query-90j.txt).
+- 4 listes :
+  1. Pages vues 10 fois ou plus sans clic (28 j) : zones/marly 97, zones/woippy 60, conseils/racines 28,
+     conseils/bruit-glouglou 27, zones/montigny 24, zones/moulins 21, conseils/curage-copropriété 20,
+     zones/marange 20, contact 17, /zones 14, conseils/mousse-eau 12, zones/saint-julien 12,
+     services/urgence 11, zones/ars 11, zones/augny 11, zones/longeville 10.
+  2. Gains rapides (position 8 à 30) : « débouchage marly » 11,5 (28 j), « débouchage canalisation woippy » 20,
+     « débouchage canalisation marly » 25, « inspection canalisation camera » 28.
+  3. Requêtes de prix : aucune (0 vue sur 90 j).
+  4. Page pilier : /zones/marly (260 vues sur 90 j).
+- Note AVANT : 3/10 (1 ❌ H1 sans la requête et avec deux-points · 2 ✅ · 3 ❌ Marly sans H2 sur ses requêtes ·
+  4 ✅ · 5 ❌ · 6 ✅ · 7 ❌ bloc 1 téléphone voilé, 4 lignes de titre · 8 ❌ aucun schéma sur l'accueil ·
+  9 ❌ 47 brouillons = 9 semaines · 10 ❌).
+- Contrôles production (3cee4d5) : footprint ECHEC 51 phrases (gabarit commun), design 4 défauts, blocs-pages OK
+  (sur l'alias vercel.app), visuels-articles OK, navigation OK ; check-texte ECHEC 1 255 mots, plus long 59.
+- Vitesse mobile production : 87 / 90 / 90, médiane 90, LCP 3,4 s.
+
+### Expressions à garder (§1 quater A, 5 vues ou un clic sur 90 j, page par page)
+- Accueil : « sos canalisation bouchée » (67, mots séparés aujourd'hui), « débouchage canalisation metz » (21),
+  « sos debouchage » (6, 1 clic).
+- /zones/marly : « débouchage canalisation marly » (115), « débouchage marly » (65), « wc bouché marly » (53),
+  « débouchage wc marly » (21) : aujourd'hui en mots séparés, à poser en clair (title, H1, H2).
+- /zones/woippy : « débouchage canalisation woippy » (29).
+- /zones/montigny-les-metz : « débouchage canalisation montigny-lès-metz » (42), présente.
+- Écartées : « plombier … », « debarras … » (hors métier), « débouchage canalisation rémilly/talange » (communes non couvertes).
+
+### Chantiers (après GO des scénarios et du budget)
+- [ ] Bloc 1 scrollytelling (photo salle de bain, plongée, coupe de la canalisation, bouchon, caméra, jet, « sans casser le carrelage »)
+- [ ] Bloc 3 scrollytelling (coupe couleur d'une maison messine, 5 étapes)
+- [ ] Formulaire noir (mêmes champs, JSON comparé avant/après, route et destinataires inchangés)
+- [ ] Accueil à 750 mots, 25 mots par paragraphe, icônes du métier animées en continu, angles 2 à 4 px
+- [ ] Zones : carte de l'agglomération messine, communes cliquables, bloc 7 ou 8
+- [ ] H1 accueil avec « débouchage canalisation Metz », sans deux-points
+- [ ] Pilier Marly + Woippy : title, H1, H2 sur les requêtes réelles, paragraphes à 45 mots
+- [ ] Titres et descriptions des 16 pages vues sans clic
+- [ ] Autoblog : +18 brouillons (65 = 3 mois à 5/semaine)
+- [ ] Promesse « 24h/24 · 7j/7 » : selon la réponse de Rémy
+- [ ] Contrôles ×2, check-texte, check-lignes, vitesse ×3 alternée, relecture à froid, Rank OS, ETAT
+
 ## Session du 20/09/2026 (CEO du site, branche `optim/tarifs-zones-mobile`)
 
 Commande de Rémy : 6 chantiers, une branche de travail, rien sur `main` sans GO.

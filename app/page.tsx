@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { siteConfig } from '@/config/site.config'
 import { getServices, getZones } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
-import { Hero } from '@/components/sections/Hero'
+import { HeroPlongee } from '@/components/sections/HeroPlongee'
 import { TrustBar } from '@/components/sections/TrustBar'
 import { About } from '@/components/sections/About'
 import { Services } from '@/components/sections/Services'
@@ -29,7 +29,7 @@ export default function HomePage() {
 
   return (
     <>
-      <Hero />
+      <HeroPlongee />
       <TrustBar />
       <About />
       <Services services={services} />

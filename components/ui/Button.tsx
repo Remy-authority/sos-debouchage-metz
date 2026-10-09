@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { ComponentProps, ReactNode } from 'react'
 
 /**
- * Bouton unique du site. Boutons pleinement arrondis, micro-échelle au survol et
+ * Bouton unique du site. Angles presque droits (3 px, octobre 2026), micro-échelle au survol et
  * halo coloré : la signature d'action reprise de la référence PROTEC-DARD.
  *
  * Règle de couleur du site : `accent` (vermillon) est réservé à l'ACTION urgente
@@ -12,7 +12,7 @@ type Variant = 'accent' | 'brand' | 'ghost' | 'outline'
 type Size = 'sm' | 'md' | 'lg'
 
 const base =
-  'group relative inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 focus-visible:ring-offset-2 focus-visible:ring-offset-sand-50 disabled:pointer-events-none disabled:opacity-50'
+  'group relative inline-flex items-center justify-center gap-2 rounded-[3px] font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 focus-visible:ring-offset-2 focus-visible:ring-offset-sand-50 disabled:pointer-events-none disabled:opacity-50'
 
 const variants: Record<Variant, string> = {
   accent:

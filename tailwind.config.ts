@@ -41,9 +41,9 @@ const config: Config = {
         display: ['var(--font-fraunces)', 'ui-serif', 'Georgia', 'serif'],
       },
       borderRadius: {
-        card: '1.5rem',
-        panel: '2rem',
-        hero: '2.5rem',
+        card: '4px',
+        panel: '4px',
+        hero: '4px',
       },
       boxShadow: {
         card: '0 1px 2px rgb(7 26 30 / 0.05), 0 8px 24px -8px rgb(7 26 30 / 0.12)',

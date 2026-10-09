@@ -57,8 +57,11 @@ export function Header({ services, zones }: { services: NavService[]; zones: Nav
   // Les pages détail zone/prestation/conseil n'ont pas de hero sombre : elles
   // démarrent directement sur le bandeau clair du fil d'Ariane (Breadcrumbs),
   // contrairement aux autres pages qui posent un PageHeader sombre en haut.
+  // L'accueil aussi depuis octobre 2026 : son bloc 1 est une salle de bain claire.
   const hasLightTop =
-    /^\/(zones|services|conseils)\/[^/]+\/?$/.test(pathname) || /^\/tarifs\/?$/.test(pathname)
+    pathname === '/' ||
+    /^\/(zones|services|conseils)\/[^/]+\/?$/.test(pathname) ||
+    /^\/tarifs\/?$/.test(pathname)
 
   // Le menu mobile ouvert force l'en-tête clair : sinon la barre sombre flotte
   // au-dessus d'un panneau crème, sans cohérence.
