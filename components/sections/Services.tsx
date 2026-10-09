@@ -68,21 +68,6 @@ export function Services({ services }: { services: Service[] }) {
             </AnimatedSection>
           ))}
         </ul>
-
-        {/* Renvoi vers /tarifs : paragraphe de corps uniquement. La page Tarifs
-            n'est jamais au menu ni en bouton du bloc 1 (règle Rémy, 18/09/2026). */}
-        <p className="mx-auto mt-10 max-w-2xl text-center text-base leading-relaxed text-sand-300">
-          Un ordre de prix d&apos;abord&nbsp;? Les fourchettes publiées pour chaque intervention, avec
-          leur source, sont sur{' '}
-          <Link
-            href="/tarifs"
-            className="inline-flex items-center gap-1.5 font-medium text-accent-400 underline underline-offset-4 transition-colors hover:text-accent-300"
-          >
-            notre page des tarifs
-            <ArrowRight size={15} aria-hidden="true" />
-          </Link>
-          .
-        </p>
       </div>
     </section>
   )
