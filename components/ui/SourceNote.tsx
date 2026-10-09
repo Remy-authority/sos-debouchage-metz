@@ -23,7 +23,7 @@ export function SourceNote({
   const link = tone === 'dark' ? 'text-brand-300' : 'text-brand-600'
 
   return (
-    <p className={`text-xs leading-relaxed ${base} ${className}`}>
+    <div className={`text-xs leading-relaxed ${base} ${className}`}>
       <span className="font-semibold uppercase tracking-[0.14em]">
         {items.length > 1 ? 'Sources' : 'Source'}
       </span>{' '}
@@ -42,7 +42,7 @@ export function SourceNote({
           , {s.date}
         </span>
       ))}
-    </p>
+    </div>
   )
 }
 

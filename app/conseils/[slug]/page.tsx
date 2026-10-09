@@ -123,9 +123,9 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
                   <li key={s.slug}>
                     <Link
                       href={`/services/${s.slug}`}
-                      className="group flex items-center gap-3 rounded-2xl border border-sand-200 bg-white p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-400/40"
+                      className="group flex items-center gap-3 rounded-[3px] border border-sand-200 bg-white p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-400/40"
                     >
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-600/10 text-brand-600">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[3px] bg-brand-600/10 text-brand-600">
                         <ServiceIcon icon={s.icon} className="h-5 w-5" />
                       </span>
                       <span className="text-sm font-medium text-ink-900 group-hover:text-brand-700">

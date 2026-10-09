@@ -10,8 +10,8 @@ import { LegalPage } from '@/components/layout/LegalPage'
  * « À compléter », jamais une valeur inventée. Page indexable (signal E-E-A-T).
  */
 export const metadata: Metadata = buildMetadata({
-  title: 'Mentions légales',
-  description: `Mentions légales de ${siteConfig.businessName}.`,
+  title: `Mentions légales, ${siteConfig.businessName}`,
+  description: `Mentions légales du site ${siteConfig.businessName}, débouchage de canalisations à ${siteConfig.city} et alentour. Éditeur, hébergeur et données personnelles.`,
   path: '/mentions-legales',
 })
 

@@ -90,7 +90,7 @@ export default function ContactPage() {
                   key={label}
                   className="flex items-start gap-4 rounded-card border border-sand-200 bg-white p-5"
                 >
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-brand-600/10 text-brand-600">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[3px] bg-brand-600/10 text-brand-600">
                     <Icon size={20} />
                   </span>
                   <div>
@@ -150,7 +150,7 @@ export default function ContactPage() {
                     href={`/services/${s.slug}`}
                     className="group flex h-full items-center gap-3 rounded-card border border-sand-200 bg-white p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-400/40 hover:shadow-card"
                   >
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-brand-600/10 text-brand-600">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[3px] bg-brand-600/10 text-brand-600">
                       <ServiceIcon icon={s.icon} className="h-5 w-5" />
                     </span>
                     <span className="text-sm font-medium text-ink-900 group-hover:text-brand-700">

@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation'
 import { Building2, Euro, MapPin, Phone, Ruler, Users } from 'lucide-react'
 import { getServices, getZone, getZones } from '@/lib/content'
 import { buildMetadata, jsonLdScript, zoneJsonLd } from '@/lib/seo'
+import { enParagraphes } from '@/lib/text'
 import { siteConfig } from '@/config/site.config'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 import { Button } from '@/components/ui/Button'
@@ -90,9 +91,11 @@ export default function ZonePage({ params }: { params: { slug: string } }) {
               {zone.name} · {zone.postalCode}
             </p>
             <h1 className="mt-5 text-4xl leading-[1.1] text-sand-50 md:text-5xl">{zone.h1}</h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-sand-200 lg:mx-0">
-              {zone.intro}
-            </p>
+            {enParagraphes(zone.intro).map((p, i) => (
+              <p key={i} className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-sand-200 lg:mx-0">
+                {p}
+              </p>
+            ))}
             <div className="mt-8">
               <Button href={`tel:${siteConfig.phone}`} variant="accent" size="lg">
                 <Phone size={18} strokeWidth={2.5} />
@@ -142,9 +145,11 @@ export default function ZonePage({ params }: { params: { slug: string } }) {
                     </div>
                   ))}
                 </dl>
-                <p className="mt-5 text-center leading-relaxed text-sand-600 lg:text-left">
-                  {zone.reperes.bati} {zone.reperes.reseau}
-                </p>
+                {enParagraphes(`${zone.reperes.bati} ${zone.reperes.reseau}`).map((p, i) => (
+                  <p key={i} className="mt-5 text-center leading-relaxed text-sand-600 lg:text-left">
+                    {p}
+                  </p>
+                ))}
                 {zone.sources && zone.sources.length > 0 && (
                   <SourceNote items={zone.sources} className="mt-4 text-center lg:text-left" />
                 )}
@@ -167,7 +172,7 @@ export default function ZonePage({ params }: { params: { slug: string } }) {
                     href={`/services/${s.slug}`}
                     className="group flex items-center gap-3 rounded-card border border-sand-200 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-400/40 hover:shadow-card"
                   >
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-brand-600/10 text-brand-600">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[3px] bg-brand-600/10 text-brand-600">
                       <ServiceIcon icon={s.icon} className="h-5 w-5" />
                     </span>
                     <span className="font-medium text-ink-900 group-hover:text-brand-700">
@@ -181,19 +186,19 @@ export default function ZonePage({ params }: { params: { slug: string } }) {
 
           <AnimatedSection className="mt-14">
             <div className="rounded-panel border border-brand-600/20 bg-brand-600/5 p-6 text-center lg:p-8 lg:text-left">
-              <span className="mx-auto flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-600 text-white lg:mx-0">
+              <span className="mx-auto flex h-11 w-11 items-center justify-center rounded-[3px] bg-brand-600 text-white lg:mx-0">
                 <Euro size={20} />
               </span>
               <h2 className="mt-5 text-2xl">Combien coûte un débouchage à {zone.name} ?</h2>
               <p className="mt-3 leading-relaxed text-sand-700">
-                Le prix ne dépend pas de la commune mais de la prestation : un WC ou un évier
-                débouché au furet n&apos;a pas le même coût qu&apos;un hydrocurage de conduite
-                enterrée ou qu&apos;une inspection caméra. Nous avons mis les fourchettes
-                publiées, poste par poste, avec leur source et leur date, sur une page dédiée.
+                Le prix dépend de la prestation, pas de la commune. Un WC débouché au furet ne
+                coûte pas autant qu&apos;un hydrocurage de conduite enterrée ou qu&apos;une
+                inspection caméra. Les fourchettes publiées, poste par poste et sourcées, sont
+                sur une page dédiée.
               </p>
               <Link
                 href="/tarifs"
-                className="mt-5 inline-flex items-center gap-2 rounded-full bg-ink-950 px-5 py-2.5 text-sm font-medium text-sand-50 transition-colors hover:bg-brand-700"
+                className="mt-5 inline-flex items-center gap-2 rounded-[3px] bg-ink-950 px-5 py-2.5 text-sm font-medium text-sand-50 transition-colors hover:bg-brand-700"
               >
                 Voir les tarifs poste par poste
                 <span aria-hidden="true">&rarr;</span>
@@ -212,12 +217,12 @@ export default function ZonePage({ params }: { params: { slug: string } }) {
                       {match ? (
                         <Link
                           href={`/zones/${match.slug}`}
-                          className="inline-flex rounded-full border border-sand-300 bg-white px-4 py-2 text-sm text-sand-700 transition-colors hover:border-brand-500 hover:text-brand-700"
+                          className="inline-flex rounded-[3px] border border-sand-300 bg-white px-4 py-2 text-sm text-sand-700 transition-colors hover:border-brand-500 hover:text-brand-700"
                         >
                           {n}
                         </Link>
                       ) : (
-                        <span className="inline-flex rounded-full border border-sand-200 bg-sand-100 px-4 py-2 text-sm text-sand-600">
+                        <span className="inline-flex rounded-[3px] border border-sand-200 bg-sand-100 px-4 py-2 text-sm text-sand-600">
                           {n}
                         </span>
                       )}

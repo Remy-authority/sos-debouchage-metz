@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
-import { extractNumberedSteps } from '@/lib/text'
+import { enParagraphes, extractNumberedSteps } from '@/lib/text'
 import type { ContentBlock } from '@/lib/content'
 
 /**
@@ -19,14 +19,14 @@ export function ServiceBlock({ block, eager = false }: { block: ContentBlock; ea
 
       {steps ? (
         <>
-          {steps.lead && <p>{steps.lead}</p>}
+          {steps.lead && enParagraphes(steps.lead).map((p, i) => <p key={i}>{p}</p>)}
           <ol className="mt-6 space-y-3">
             {steps.steps.map((s, i) => (
               <li
                 key={s.slice(0, 32)}
                 className="flex gap-4 rounded-card border border-sand-200 bg-white p-5 shadow-card"
               >
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-500 font-display text-sm font-medium text-white">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[3px] bg-accent-500 font-display text-sm font-medium text-white">
                   {i + 1}
                 </span>
                 <span className="leading-relaxed text-sand-700">{s}</span>
@@ -35,7 +35,7 @@ export function ServiceBlock({ block, eager = false }: { block: ContentBlock; ea
           </ol>
         </>
       ) : (
-        <p>{block.body}</p>
+        enParagraphes(block.body).map((p, i) => <p key={i}>{p}</p>)
       )}
 
       {block.image && (

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, Info, Phone } from 'lucide-react'
 import tarifs from '@/content/tarifs.json'
+import { enParagraphes } from '@/lib/text'
 import { siteConfig } from '@/config/site.config'
 import { buildMetadata } from '@/lib/seo'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
@@ -74,9 +75,11 @@ export default function TarifsPage() {
             <h1 className="mt-5 text-4xl leading-[1.1] text-sand-50 md:text-5xl lg:text-[3.25rem]">
               {tarifs.h1}
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-sand-200 lg:mx-0">
-              {tarifs.intro}
-            </p>
+            {enParagraphes(tarifs.intro).map((p, i) => (
+              <p key={i} className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-sand-200 lg:mx-0">
+                {p}
+              </p>
+            ))}
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
               <Button href={`tel:${siteConfig.phone}`} variant="accent" size="lg">
                 <Phone size={18} strokeWidth={2.5} />
@@ -107,9 +110,11 @@ export default function TarifsPage() {
       <article className="bg-sand-50 py-16 lg:py-24">
         <div className="mx-auto max-w-4xl px-6 lg:px-10">
           <AnimatedSection>
-            <p className="rounded-card border-l-4 border-accent-500 bg-white px-6 py-5 text-center text-base leading-relaxed text-sand-700 shadow-card lg:text-left lg:text-lg">
-              {tarifs.introSuite}
-            </p>
+            <div className="space-y-3 rounded-card border-l-4 border-accent-500 bg-white px-6 py-5 text-center text-base leading-relaxed text-sand-700 shadow-card lg:text-left lg:text-lg">
+              {enParagraphes(tarifs.introSuite).map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
           </AnimatedSection>
 
           {/* ── Trois chiffres clés ── */}
@@ -197,14 +202,16 @@ export default function TarifsPage() {
           {/* ── Majoration horaire ── */}
           <AnimatedSection className="mt-16 rounded-card border border-accent-400/30 bg-accent-500/5 p-7 lg:p-9">
             <h2 className="flex flex-col items-center gap-3 text-center text-2xl lg:flex-row lg:items-start lg:text-left">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-accent-500/15 text-accent-600">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[3px] bg-accent-500/15 text-accent-600">
                 <Info size={20} />
               </span>
               <span>{tarifs.majoration.heading}</span>
             </h2>
-            <p className="mt-5 text-center leading-relaxed text-sand-700 lg:text-left">
-              {tarifs.majoration.body}
-            </p>
+            {enParagraphes(tarifs.majoration.body).map((p, i) => (
+              <p key={i} className="mt-5 text-center leading-relaxed text-sand-700 lg:text-left">
+                {p}
+              </p>
+            ))}
             <SourceNote
               items={resolve(tarifs.majoration.sourceKeys)}
               className="mt-4 text-center lg:text-left"

@@ -35,3 +35,24 @@ export function extractNumberedSteps(body: string): NumberedSteps | null {
 
   return { lead, steps }
 }
+
+/**
+ * Découpe un corps de texte en paragraphes de `max` mots au plus (règle #R67 des
+ * pages intérieures : 45 mots), aux fins de phrase seulement. Aucun mot n'est
+ * retiré ni réécrit : la page garde exactement le même texte pour Google.
+ */
+export function enParagraphes(texte: string, max = 45): string[] {
+  const phrases = texte.match(/[^.!?…]+(?:[.!?…]+|$)(?:\s+|$)/g)?.map((p) => p.trim()).filter(Boolean) ?? [texte]
+  const mots = (s: string) => s.split(/\s+/).filter(Boolean).length
+  const paras: string[] = []
+  let cur = ''
+  for (const p of phrases) {
+    const essai = cur ? `${cur} ${p}` : p
+    if (cur && mots(essai) > max) {
+      paras.push(cur)
+      cur = p
+    } else cur = essai
+  }
+  if (cur) paras.push(cur)
+  return paras
+}

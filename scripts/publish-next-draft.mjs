@@ -65,6 +65,16 @@ if (!fmMatch) {
   process.exit(1)
 }
 let fm = fmMatch[1]
+
+// Règle #R50 : un brouillon dont le title servi (30-60 caractères) ou la description
+// (120-160) sort des limites n'est jamais publié.
+const champ = (k) => (fm.match(new RegExp(`^${k}:\\s*"(.*)"\\s*$`, 'm')) || [])[1] || ''
+const lt = [...champ('title')].length
+const ld = [...champ('description')].length
+if (lt < 30 || lt > 60 || ld < 120 || ld > 160) {
+  console.error(`::error::${draftFile} hors limites (title ${lt} caractères, attendu 30-60 ; description ${ld}, attendu 120-160). Publication annulée.`)
+  process.exit(1)
+}
 if (/^date:.*$/m.test(fm)) {
   fm = fm.replace(/^date:.*$/m, `date: "${today}"`)
 } else {
