@@ -50,9 +50,9 @@ const TYPES: { id: string; label: string; Icon: () => JSX.Element }[] = [
     label: 'WC, toilettes',
     Icon: () => (
       <svg {...svg}>
-        <path d="M6 4h7v6H6z" />
-        <path d="M4 10h14v1a6 6 0 0 1-6 6H9a5 5 0 0 1-5-5z" />
-        <path d="M9 16l-1 4h6l-1-4" />
+        <path d="M6 3h6v7H6z" />
+        <path d="M4 10h16c0 3.9-3.1 7-7 7h-2a6 6 0 0 1-6-6z" />
+        <path d="M9.5 17 9 21h6l-.5-4" />
       </svg>
     ),
   },
@@ -61,10 +61,10 @@ const TYPES: { id: string; label: string; Icon: () => JSX.Element }[] = [
     label: 'Évier, lavabo',
     Icon: () => (
       <svg {...svg}>
-        <path d="M3 11h18l-2 5a3 3 0 0 1-3 2H8a3 3 0 0 1-3-2z" />
-        <path d="M12 11V5a2 2 0 0 1 4 0" />
-        <path className="lf-goutte" d="M16 7.5v1.2" />
-        <path d="M12 18v3" />
+        <path d="M3 11h18l-1.6 4.3A3 3 0 0 1 16.6 17H7.4a3 3 0 0 1-2.8-1.7z" />
+        <path d="M12 11V5.5a2.5 2.5 0 0 1 5 0" />
+        <path className="lf-goutte" d="M17 8.5v1.2" />
+        <path d="M12 17v4" />
       </svg>
     ),
   },
@@ -73,9 +73,9 @@ const TYPES: { id: string; label: string; Icon: () => JSX.Element }[] = [
     label: 'Douche, baignoire',
     Icon: () => (
       <svg {...svg}>
-        <path d="M5 21V6a3 3 0 0 1 6 0" />
-        <path d="M8 9h6l-1-2H9z" />
-        <path className="lf-goutte" d="M9 12v1.5M11 12v1.5M13 12v1.5" />
+        <path d="M6 21V7a4 4 0 0 1 8 0" />
+        <path d="M10 10h8l-1.5-3h-5z" />
+        <path className="lf-goutte" d="M11.5 13v1.5M14 13v1.5M16.5 13v1.5" />
         <path d="M3 21h18" />
       </svg>
     ),
@@ -85,9 +85,9 @@ const TYPES: { id: string; label: string; Icon: () => JSX.Element }[] = [
     label: 'Odeurs, refoulement',
     Icon: () => (
       <svg {...svg}>
-        <path d="M4 20h16" />
-        <path d="M10 20v-5h4v5" />
-        <path className="lf-odeur" d="M9 11c-1-1.5 1-2.5 0-4M12 11c-1-1.5 1-2.5 0-4M15 11c-1-1.5 1-2.5 0-4" />
+        <path d="M3 21h18" />
+        <path d="M9 21v-5h6v5" />
+        <path className="lf-odeur" d="M8 12c-1.2-1.8 1.2-3 0-5s1.2-2.6 0-4M12 12c-1.2-1.8 1.2-3 0-5s1.2-2.6 0-4M16 12c-1.2-1.8 1.2-3 0-5s1.2-2.6 0-4" />
       </svg>
     ),
   },
@@ -96,10 +96,10 @@ const TYPES: { id: string; label: string; Icon: () => JSX.Element }[] = [
     label: 'Regard, enterré',
     Icon: () => (
       <svg {...svg}>
-        <path d="M2 9h20" />
-        <path d="M8 9v11h8V9" />
-        <path d="M6.5 7h11" />
-        <path d="M2 16h6M16 16h6" />
+        <path d="M3 8h18" />
+        <path d="M8 8v13h8V8" />
+        <path d="M7 5h10" />
+        <path d="M3 16h5M16 16h5" />
       </svg>
     ),
   },
@@ -108,8 +108,8 @@ const TYPES: { id: string; label: string; Icon: () => JSX.Element }[] = [
     label: "Colonne d'immeuble",
     Icon: () => (
       <svg {...svg}>
-        <path d="M5 21V3h11v18" />
-        <path d="M8 7h2M8 11h2M8 15h2M13 7v14" />
+        <path d="M6 21V3h12v18" />
+        <path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2" />
         <path d="M3 21h18" />
       </svg>
     ),
@@ -119,9 +119,9 @@ const TYPES: { id: string; label: string; Icon: () => JSX.Element }[] = [
     label: 'Bac à graisse',
     Icon: () => (
       <svg {...svg}>
-        <path d="M3 9h18v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        <path d="M3 8h18v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
         <path d="M3 13h18" />
-        <path d="M8 9V6M16 9V6" />
+        <path d="M8 8V4M16 8V4" />
       </svg>
     ),
   },
@@ -178,8 +178,8 @@ function Choix({
         className="peer sr-only"
       />
       <span
-        className={`flex h-full w-full items-center justify-center rounded-[3px] border text-center font-medium leading-snug transition-colors duration-150 peer-focus-visible:ring-2 peer-focus-visible:ring-accent-300 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-ink-950 ${
-          compacte ? 'min-h-[48px] px-2 py-2 text-[13.5px]' : 'min-h-[52px] gap-2.5 px-2.5 py-2 text-[13px] lg:justify-start lg:text-left'
+        className={`flex h-full w-full items-center rounded-[3px] border font-medium leading-snug transition-colors duration-150 peer-focus-visible:ring-2 peer-focus-visible:ring-accent-300 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-ink-950 ${
+          compacte ? 'min-h-[48px] justify-center px-2 py-2 text-center text-[13.5px]' : 'min-h-[52px] justify-start gap-2.5 px-3 py-2 text-left text-[13px]'
         } ${
           checked
             ? 'border-accent-400 bg-accent-500 text-white'

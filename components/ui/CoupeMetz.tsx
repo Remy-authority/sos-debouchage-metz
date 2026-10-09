@@ -1,26 +1,30 @@
 /**
- * CoupeMetz, le dessin du « bloc 1 qui plonge » (mise à jour 10/2026, scénario validé par Rémy le
+ * CoupeMetz, le dessin du « bloc 1 qui plonge » (mise à jour 10/2026, scénario revu avec Rémy le
  * 10/10/2026). Ce que le client paie sans jamais le voir : la canalisation sous son carrelage.
  *
  * Repère : celui de la photo `public/accueil/salle-de-bain-camera-*.avif` ramenée à 1600 px de
  * large (1600 x 893). Le dessin déborde de la photo à droite (le jardin, le regard, la rue) et en
- * bas (le sous-sol), de x -400 à 4200 et de y -400 à 2100. La coupe s'ouvre SOUS la photo : le bord
- * bas de la photo (y 893) est la face avant coupée de la dalle, la salle de bain reste entière.
+ * bas (le sous-sol), de x -400 à 4200 et de y -400 à 1900. La coupe passe AU PIED DU MUR (y 690) :
+ * au-dessus, le mur et le WC suspendu de la photo ; dessous, le sol coupé. Le tuyau sort donc du
+ * mur, sous le WC, comme dans une vraie maison, et jamais à travers le carrelage de la photo.
  *
  * Relevés sur agrandissement quadrillé (pixels à 1600 px) :
  *   WC suspendu        x 734 à 865 (axe 800), bas de la cuvette y 677
  *   pied du mur        y 672 sous le WC (haut de la plinthe y 654)
- *   mallette caméra    x 882 à 1067, écran y 600 à 665
+ *   mallette caméra    couvercle x 905 à 1068, de y 556 au sol ; au-dessus de la coupe, elle est
+ *                      remplacée par `mur-sans-mallette.webp` (mur reconstruit ligne par ligne
+ *                      entre les pixels nets de part et d'autre, x 896 à 1076, y 546 à 692)
  *
  * Le scénario, piloté par `poserCoupe(svg, p)` avec p (0 à 1) l'avancée de la piste :
- *   1. le carrelage s'ouvre : carreau, chape, dalle, hérisson, remblai ;
- *   2. la canalisation part du WC, passe sous la dalle et la façade, file sous la pelouse ;
- *   3. un joint fissuré, les racines de l'arbre entrées dans le tuyau, l'eau bloquée derrière ;
- *   4. la caméra entre par le regard et trouve la cause, puis le jet découpe les racines ;
- *   5. l'eau repart vers l'égout ; « Sans casser le carrelage ».
+ *   1. le sol s'ouvre au pied du mur : carreau, chape, dalle, hérisson, remblai ;
+ *   2. le tuyau du WC descend sous la dalle, passe sous la façade et file vers le regard ;
+ *   3. un bouchon de lingettes dans le tuyau, l'eau bloquée derrière ;
+ *   4. la caméra entre par le regard et trouve le bouchon, puis le jet le dégage ;
+ *   5. l'eau repart vers l'égout ; le sol se referme sur la salle de bain intacte,
+ *      « Sans casser le carrelage ».
  * Attributs lus : `data-trace` (trait qui se dessine), `data-fondu` (apparition), `data-sortie`
  * (disparition), chacun « début,fin » en p ; `data-glisse` (« début,fin,x0,x1 », translation
- * horizontale) ; `data-ep` (épaisseur en pixels d'ÉCRAN) ; `data-echelle` (groupe d'étiquette
+ * le long du tuyau) ; `data-ep` (épaisseur en pixels d'ÉCRAN) ; `data-echelle` (groupe d'étiquette
  * dessiné en pixels d'écran, posé au point visé).
  *
  * Aucune cote, aucun chiffre : coupe de principe. Les étiquettes sont du vrai texte (SVG).
@@ -34,10 +38,12 @@ export const HAUTEUR_PHOTO = 893
 export const AXE = 800
 /** Pied du WC, point visé par la caméra pendant l'avancée. */
 export const PIED_WC = 672
-/** Face coupée de la dalle : le bord bas de la photo. */
-export const SOL = HAUTEUR_PHOTO
+/** Ligne de coupe : le sol, juste devant le pied du mur, sous la cuvette. */
+export const SOL = 690
 /** Débord du dessin autour de la photo. */
-export const CADRE = { x0: -400, x1: 4200, y0: -400, y1: 2100 }
+export const CADRE = { x0: -400, x1: 4200, y0: -400, y1: 1900 }
+/** Avancée de la piste où la coupe est complète, l'eau repartie (repli sans animation). */
+export const P_COUPE_COMPLETE = 0.62
 
 /* ---------- Couleurs ---------- */
 const NUIT = '#0B1E23'
@@ -48,6 +54,9 @@ const EAU = '#2FA7C4'
 const EAU_CLAIRE = '#9EE3F2'
 const TUYAU = '#9AA6AB'
 const DEDANS = '#13262B'
+/** Câble de la caméra : orange, pour ne jamais se confondre avec le câble jaune de la photo. */
+const CABLE = '#F08A24'
+const FLEXIBLE = '#E6EBED'
 
 /* ---------- Couches sous le carrelage ---------- */
 const CARREAU = { haut: SOL, bas: SOL + 9 }
@@ -55,27 +64,27 @@ const CHAPE = { haut: SOL + 9, bas: SOL + 28 }
 const DALLE = { haut: SOL + 28, bas: SOL + 66 }
 const HERISSON = { haut: SOL + 66, bas: SOL + 88 }
 /** La façade, coupée : pierre de Jaumont, fondation plus profonde. */
-const FACADE = { x0: 1560, x1: 1640, haut: 120, pied: 1100 }
-const SEMELLE = { x0: 1528, x1: 1672, haut: 1100, bas: 1132 }
+const FACADE = { x0: 1560, x1: 1640, haut: 120, pied: SOL + 207 }
+const SEMELLE = { x0: 1528, x1: 1672, haut: SOL + 207, bas: SOL + 239 }
 /** Le jardin, un peu plus bas que le sol de la maison. */
 const PELOUSE = SOL + 28
-const REGARD = { x0: 2066, x1: 2134, paroi: 14, bas: 1077 }
+const REGARD = { x0: 2066, x1: 2134, paroi: 14, bas: SOL + 184 }
 const REGARD_AXE = (REGARD.x0 + REGARD.x1) / 2
-const ARBRE = { x: 1880, pied: PELOUSE, tete: 580 }
+/** La mallette de la photo, posée sur le sol coupé : le mur reconstruit derrière elle. */
+const MUR_NET = { href: '/accueil/mur-sans-mallette.webp', x: 896, y: 546, w: 180, h: 146 }
 
 /* ---------- La canalisation ---------- */
 type P = readonly [number, number]
 const r1 = (v: number) => Math.round(v * 10) / 10
-const chemin = (pts: readonly P[]) => `M${pts.map(([x, y]) => `${r1(x)} ${r1(y)}`).join('L')}`
 /** Pente régulière du collecteur, de l'aplomb du WC jusqu'à la rue. */
 const PENTE = 0.018
-const pente = (x: number) => 1030 + (x - AXE) * PENTE
+const pente = (x: number) => SOL + 137 + (x - AXE) * PENTE
 const DIAM = 30
-const JOINT = 1765
-const RACINES = { x0: 1700, x1: 1792 }
+const BOUCHON = { x0: 1700, x1: 1792 }
 /** Tracé du collecteur : descente sous le WC, coude, puis la longue pente vers la rue. */
-const TRACE = `M${AXE} ${SOL}L${AXE} ${pente(AXE) - 34}Q${AXE} ${pente(AXE)} ${AXE + 34} ${r1(pente(AXE + 34))}L${CADRE.x1} ${r1(pente(CADRE.x1))}`
-const EN_AMONT = `M${AXE} ${SOL}L${AXE} ${pente(AXE) - 34}Q${AXE} ${pente(AXE)} ${AXE + 34} ${r1(pente(AXE + 34))}L${RACINES.x0} ${r1(pente(RACINES.x0))}`
+const coude = `M${AXE} ${SOL}L${AXE} ${r1(pente(AXE) - 34)}Q${AXE} ${r1(pente(AXE))} ${AXE + 34} ${r1(pente(AXE + 34))}`
+const TRACE = `${coude}L${CADRE.x1} ${r1(pente(CADRE.x1))}`
+const EN_AMONT = `${coude}L${BOUCHON.x0} ${r1(pente(BOUCHON.x0))}`
 
 /** Nombre pseudo-aléatoire stable (même dessin au serveur et au navigateur). */
 const hasard = (n: number) => {
@@ -83,34 +92,26 @@ const hasard = (n: number) => {
   return v - Math.floor(v)
 }
 
-/** Les racines dans le tuyau : un chevelu serré, entré par le joint. */
-const CHEVELU = (() => {
-  let d = ''
-  for (let i = 0; i < 26; i++) {
-    const x0 = JOINT - 2 + (hasard(i) - 0.5) * 8
-    const y0 = pente(JOINT) - DIAM / 2 + 3
-    const x1 = RACINES.x0 + hasard(i + 40) * (RACINES.x1 - RACINES.x0)
-    const y1 = pente(x1) + (hasard(i + 80) - 0.5) * (DIAM - 8)
-    const cx = (x0 + x1) / 2 + (hasard(i + 120) - 0.5) * 30
-    const cy = (y0 + y1) / 2 + (hasard(i + 160) - 0.5) * 14
-    d += `M${r1(x0)} ${r1(y0)}Q${r1(cx)} ${r1(cy)} ${r1(x1)} ${r1(y1)}`
-  }
-  return d
-})()
-/** Les racines de l'arbre, sous la pelouse ; la première descend jusqu'au joint. */
-const RACINES_ARBRE = [
-  `M${ARBRE.x - 6} ${PELOUSE + 4}C${ARBRE.x - 40} 951 ${JOINT + 60} 981 ${JOINT + 4} ${r1(pente(JOINT) - DIAM / 2 - 1)}`,
-  `M${ARBRE.x + 4} ${PELOUSE + 4}C${ARBRE.x + 30} 961 ${ARBRE.x + 120} 981 ${ARBRE.x + 190} 1011`,
-  `M${ARBRE.x - 2} ${PELOUSE + 6}C${ARBRE.x - 10} 981 ${ARBRE.x - 40} 1021 ${ARBRE.x - 70} 1101`,
-  `M${ARBRE.x + 2} ${PELOUSE + 6}C${ARBRE.x + 18} 991 ${ARBRE.x + 50} 1041 ${ARBRE.x + 60} 1121`,
-  `M${ARBRE.x - 4} ${PELOUSE + 3}C${ARBRE.x - 60} 933 ${ARBRE.x - 130} 941 ${ARBRE.x - 200} 966`,
-]
-/** Les morceaux de racines emportés par l'eau, vers le regard. */
-const MORCEAUX = Array.from({ length: 7 }, (_, i) => ({
-  x: RACINES.x0 + 8 + i * 13,
-  dy: (hasard(i + 300) - 0.5) * 12,
-  r: hasard(i + 330) * 50,
-}))
+/** Une lingette froissée : un polygone irrégulier et un pli. */
+const froisse = (cx: number, cy: number, rx: number, ry: number, n: number) => {
+  const pts = Array.from({ length: 7 }, (_, k) => {
+    const a = (k / 7) * Math.PI * 2 + hasard(n + k) * 0.5
+    const r = 0.72 + hasard(n + k + 20) * 0.4
+    return `${r1(cx + Math.cos(a) * rx * r)} ${r1(cy + Math.sin(a) * ry * r)}`
+  })
+  return { forme: `M${pts.join('L')}Z`, pli: `M${r1(cx - rx * 0.5)} ${r1(cy - 1)}Q${r1(cx)} ${r1(cy + ry * 0.4)} ${r1(cx + rx * 0.45)} ${r1(cy - ry * 0.2)}` }
+}
+const TEINTES = ['#F4F0E6', '#E2D9C6', '#D0C4AC']
+/** Le bouchon : des lingettes tassées qui remplissent le tuyau. */
+const LINGETTES = Array.from({ length: 10 }, (_, i) => {
+  const x = BOUCHON.x0 + 7 + i * 9 + (hasard(i + 500) - 0.5) * 5
+  return { ...froisse(x, pente(x) + (hasard(i + 520) - 0.5) * 7, 8 + hasard(i + 540) * 5, 5 + hasard(i + 560) * 2.5, i * 31), teinte: TEINTES[i % 3] }
+})
+/** Les morceaux dégagés par le jet, emportés vers le regard puis l'égout. */
+const MORCEAUX = Array.from({ length: 8 }, (_, i) => {
+  const x = BOUCHON.x0 + 6 + i * 12
+  return { ...froisse(x, pente(x) + (hasard(i + 300) - 0.5) * 9, 4 + hasard(i + 330) * 2.5, 3 + hasard(i + 350) * 1.5, i * 17 + 400), teinte: TEINTES[i % 3] }
+})
 
 /* ---------- La façade en pierre de Jaumont ---------- */
 const ASSISES = (() => {
@@ -131,68 +132,68 @@ type Etiquette = {
   ordi: { dx: number; dy: number; texte: string; vise?: P }
   mobile: { dx: number; dy: number; texte: string[]; vise?: P }
   fondu: [number, number]
-  sortie?: [number, number]
+  sortie: [number, number]
   fort?: boolean
 }
+/** Toutes les étiquettes de la coupe s'effacent quand le sol se referme. */
+const REFERME: [number, number] = [0.78, 0.81]
 const ETIQUETTES: Etiquette[] = [
   {
     vise: [700, (DALLE.haut + DALLE.bas) / 2],
     ordi: { dx: -30, dy: 90, texte: 'Sous le carrelage, la chape et la dalle' },
     mobile: { dx: -20, dy: 30, texte: ['Sous le carrelage,', 'la chape et la dalle'], vise: [1000, (DALLE.haut + DALLE.bas) / 2] },
-    fondu: [0.2, 0.26],
-    sortie: [0.62, 0.66],
+    fondu: [0.17, 0.22],
+    sortie: [0.26, 0.29],
   },
   {
     vise: [1150, pente(1150)],
-    ordi: { dx: -40, dy: 58, texte: 'La canalisation part vers le jardin' },
-    mobile: { dx: -20, dy: 52, texte: ['La canalisation part', 'vers le jardin'], vise: [960, pente(960)] },
-    fondu: [0.29, 0.35],
+    ordi: { dx: -40, dy: 58, texte: 'Le tuyau du WC file vers le regard' },
+    mobile: { dx: -20, dy: 52, texte: ['Le tuyau du WC', 'file vers le regard'], vise: [960, pente(960)] },
+    fondu: [0.25, 0.31],
+    sortie: REFERME,
   },
   {
-    vise: [JOINT + 2, pente(JOINT) - DIAM / 2],
-    ordi: { dx: 24, dy: -92, texte: 'Un joint fissuré' },
-    mobile: { dx: 14, dy: -64, texte: ['Un joint fissuré'] },
+    vise: [BOUCHON.x0 + 30, pente(BOUCHON.x0 + 30) + 4],
+    ordi: { dx: -40, dy: 70, texte: 'Des lingettes bouchent le tuyau' },
+    mobile: { dx: 8, dy: 150, texte: ['Des lingettes', 'bouchent le tuyau'] },
     fondu: [0.37, 0.42],
-    sortie: [0.66, 0.7],
+    sortie: [0.53, 0.56],
   },
   {
-    vise: [RACINES.x0 + 30, pente(RACINES.x0 + 30) + 6],
-    ordi: { dx: -40, dy: 70, texte: 'Les racines bouchent le tuyau' },
-    mobile: { dx: 8, dy: 150, texte: ['Les racines', 'bouchent le tuyau'] },
-    fondu: [0.41, 0.46],
-    sortie: [0.57, 0.6],
-  },
-  {
-    vise: [(REGARD.x0 + REGARD.x1) / 2, PELOUSE - 6],
+    vise: [REGARD_AXE, PELOUSE - 6],
     ordi: { dx: 30, dy: -70, texte: 'Le regard' },
     mobile: { dx: -16, dy: 150, texte: ['Le regard'], vise: [REGARD_AXE, REGARD.bas + 16] },
-    fondu: [0.39, 0.44],
+    fondu: [0.31, 0.36],
+    sortie: REFERME,
   },
   {
     vise: [1840, pente(1840)],
-    ordi: { dx: 40, dy: 74, texte: 'La caméra trouve la cause' },
-    mobile: { dx: 10, dy: 70, texte: ['La caméra', 'trouve la cause'] },
-    fondu: [0.48, 0.52],
-    sortie: [0.535, 0.56],
+    ordi: { dx: 40, dy: 74, texte: 'La caméra trouve le bouchon' },
+    mobile: { dx: 10, dy: 70, texte: ['La caméra', 'trouve le bouchon'] },
+    fondu: [0.45, 0.48],
+    sortie: [0.495, 0.51],
   },
   {
     vise: [1745, pente(1745)],
-    ordi: { dx: 40, dy: 74, texte: 'Le jet découpe les racines' },
-    mobile: { dx: 10, dy: 70, texte: ['Le jet découpe', 'les racines'] },
-    fondu: [0.56, 0.6],
-    sortie: [0.635, 0.66],
+    ordi: { dx: 40, dy: 74, texte: 'Le jet haute pression le dégage' },
+    mobile: { dx: 10, dy: 70, texte: ['Le jet haute pression', 'le dégage'] },
+    fondu: [0.51, 0.54],
+    sortie: [0.565, 0.585],
   },
   {
-    vise: [2400, pente(2400)],
+    vise: [1960, pente(1960)],
     ordi: { dx: -30, dy: 64, texte: "L'eau repart vers l'égout" },
     mobile: { dx: -60, dy: 110, texte: ["L'eau repart", "vers l'égout"], vise: [1880, pente(1880)] },
-    fondu: [0.64, 0.69],
+    fondu: [0.57, 0.61],
+    sortie: REFERME,
   },
   {
-    vise: [1300, CARREAU.haut + 1],
-    ordi: { dx: -20, dy: -110, texte: 'Sans casser le carrelage' },
-    mobile: { dx: 0, dy: -104, texte: ['Sans casser', 'le carrelage'], vise: [1175, CARREAU.haut + 1] },
-    fondu: [0.72, 0.8],
+    // Sur la photo revenue : le carrelage, intact, devant le mur.
+    vise: [610, 706],
+    ordi: { dx: 0, dy: -150, texte: 'Sans casser le carrelage' },
+    mobile: { dx: 0, dy: -96, texte: ['Sans casser', 'le carrelage'] },
+    fondu: [0.85, 0.89],
+    sortie: [0.93, 0.95],
     fort: true,
   },
 ]
@@ -215,7 +216,7 @@ function Cartouche({ e, version }: { e: Etiquette; version: 'ordi' | 'mobile' })
   const fondu = `${e.fondu[0]},${e.fondu[1]}`
   const amorce = `${e.fondu[0]},${(e.fondu[0] + e.fondu[1]) / 2}`
   return (
-    <g data-sortie={e.sortie ? `${e.sortie[0]},${e.sortie[1]}` : undefined}>
+    <g data-sortie={`${e.sortie[0]},${e.sortie[1]}`}>
       <path d={`M0 0L${dx} ${dy}`} stroke={MIEL} strokeWidth={1.4} pathLength={1} data-trace={amorce} />
       <rect x={-3.5} y={-3.5} width={7} height={7} fill={MIEL} data-fondu={amorce} />
       <g data-fondu={fondu}>
@@ -260,7 +261,7 @@ export function CoupeMetz({ className, style, svgRef }: { className?: string; st
       className={className}
       style={style}
       role="img"
-      aria-label="Coupe sous une salle de bain à Metz : sous le carrelage, la chape et la dalle ; la canalisation part du WC vers le jardin ; un joint fissuré laisse entrer les racines d'un arbre qui bouchent le tuyau ; la caméra entre par le regard et trouve la cause, le jet haute pression découpe les racines, l'eau repart vers l'égout, sans casser le carrelage"
+      aria-label="Coupe sous une salle de bain à Metz : sous le carrelage, la chape et la dalle ; le tuyau du WC descend sous la dalle et file vers le regard du jardin ; des lingettes bouchent le tuyau ; la caméra entre par le regard et trouve le bouchon, le jet haute pression le dégage, l'eau repart vers l'égout, sans casser le carrelage"
     >
       <defs>
         <pattern id={`${id}-carreau`} width="64" height="9" patternUnits="userSpaceOnUse">
@@ -294,150 +295,125 @@ export function CoupeMetz({ className, style, svgRef }: { className?: string; st
         <clipPath id={`${id}-avant-regard`} clipPathUnits="userSpaceOnUse">
           <rect x={CADRE.x0} y={CADRE.y0} width={REGARD_AXE + 2 - CADRE.x0} height={CADRE.y1 - CADRE.y0} />
         </clipPath>
-        <radialGradient id={`${id}-feuillage`} cx="0.4" cy="0.35" r="0.7">
-          <stop offset="0" stopColor="#7FA75A" />
-          <stop offset="1" stopColor="#4E7536" />
-        </radialGradient>
       </defs>
 
-      {/* ── 1. Dehors : le ciel, puis la pelouse (apparaissent avec la façade) ── */}
-      <g data-fondu="0.28,0.34">
-        {/* Le ciel commence au bord de la photo : au-dessus du mur cassé, on voit dehors. */}
-        <rect x={LARGEUR} y={CADRE.y0} width={CADRE.x1 - LARGEUR} height={PELOUSE - CADRE.y0} fill={m('ciel')} />
-      </g>
+      {/* Tout le dessin de la coupe s'efface quand le sol se referme sur la salle de bain. */}
+      <g data-sortie="0.8,0.86">
+        {/* ── 1. Dehors : le ciel, puis la pelouse (apparaissent avec la façade) ── */}
+        <g data-fondu="0.24,0.3">
+          {/* Le ciel commence au bord de la photo : au-dessus du mur cassé, on voit dehors. */}
+          <rect x={LARGEUR} y={CADRE.y0} width={CADRE.x1 - LARGEUR} height={PELOUSE - CADRE.y0} fill={m('ciel')} />
+        </g>
 
-      {/* ── 2. Sous le carrelage : le sol s'ouvre couche après couche ── */}
-      <rect x={CADRE.x0} y={SOL} width={W} height={CADRE.y1 - SOL} fill={NUIT} data-fondu="0.12,0.17" />
-      <rect {...sousSol(HERISSON.bas, CADRE.y1, CADRE.x0, FACADE.x1 + 2)} fill={m('terre')} data-fondu="0.2,0.26" />
-      <rect {...sousSol(HERISSON.haut, HERISSON.bas)} fill={m('gravier')} data-fondu="0.18,0.23" />
-      <rect {...sousSol(DALLE.haut, DALLE.bas)} fill={m('beton')} data-fondu="0.16,0.21" />
-      <rect {...sousSol(CHAPE.haut, CHAPE.bas)} fill="#B9B3A6" data-fondu="0.15,0.2" />
-      <rect {...sousSol(CARREAU.haut, CARREAU.bas)} fill={m('carreau')} data-fondu="0.14,0.19" />
-      {/* Le jardin : terre végétale et remblai, sous la pelouse. */}
-      <g data-fondu="0.28,0.34">
-        <rect x={FACADE.x1} y={PELOUSE} width={CADRE.x1 - FACADE.x1} height={CADRE.y1 - PELOUSE} fill={m('terre')} />
-        <rect x={FACADE.x1} y={PELOUSE} width={CADRE.x1 - FACADE.x1} height={48} fill="#3B2C20" />
-        <rect x={FACADE.x1} y={PELOUSE - 7} width={CADRE.x1 - FACADE.x1} height={9} fill="#5F8F3C" />
-        <path
-          d={Array.from({ length: Math.ceil((CADRE.x1 - FACADE.x1) / 16) }, (_, i) => {
-            const x = FACADE.x1 + 6 + i * 16 + hasard(i) * 8
-            return `M${r1(x)} ${PELOUSE - 6}l${r1(-3 + hasard(i + 9) * 6)} ${r1(-7 - hasard(i + 5) * 6)}`
-          }).join('')}
-          stroke="#6FA246"
-          strokeWidth={2.2}
-          strokeLinecap="round"
-        />
-      </g>
-      {/* La ligne de coupe, tracée de gauche à droite sous le carrelage. */}
-      <path d={`M${CADRE.x0} ${SOL}H${FACADE.x0}`} stroke={MIEL} strokeOpacity={0.9} pathLength={1} data-ep="1.6" data-trace="0.13,0.2" />
+        {/* ── 2. Le sol s'ouvre au pied du mur, couche après couche ── */}
+        {/* La mallette, posée sur le sol coupé, laisse place au mur voisin. */}
+        <image href={MUR_NET.href} x={MUR_NET.x} y={MUR_NET.y} width={MUR_NET.w} height={MUR_NET.h} preserveAspectRatio="none" data-fondu="0.1,0.15" />
+        <rect x={CADRE.x0} y={SOL} width={W} height={CADRE.y1 - SOL} fill={NUIT} data-fondu="0.1,0.15" />
+        <rect {...sousSol(HERISSON.bas, CADRE.y1, CADRE.x0, FACADE.x1 + 2)} fill={m('terre')} data-fondu="0.17,0.23" />
+        <rect {...sousSol(HERISSON.haut, HERISSON.bas)} fill={m('gravier')} data-fondu="0.15,0.2" />
+        <rect {...sousSol(DALLE.haut, DALLE.bas)} fill={m('beton')} data-fondu="0.13,0.18" />
+        <rect {...sousSol(CHAPE.haut, CHAPE.bas)} fill="#B9B3A6" data-fondu="0.12,0.17" />
+        <rect {...sousSol(CARREAU.haut, CARREAU.bas)} fill={m('carreau')} data-fondu="0.11,0.16" />
+        {/* Le jardin : terre végétale et remblai, sous la pelouse. */}
+        <g data-fondu="0.24,0.3">
+          <rect x={FACADE.x1} y={PELOUSE} width={CADRE.x1 - FACADE.x1} height={CADRE.y1 - PELOUSE} fill={m('terre')} />
+          <rect x={FACADE.x1} y={PELOUSE} width={CADRE.x1 - FACADE.x1} height={48} fill="#3B2C20" />
+          <rect x={FACADE.x1} y={PELOUSE - 7} width={CADRE.x1 - FACADE.x1} height={9} fill="#5F8F3C" />
+          <path
+            d={Array.from({ length: Math.ceil((CADRE.x1 - FACADE.x1) / 16) }, (_, i) => {
+              const x = FACADE.x1 + 6 + i * 16 + hasard(i) * 8
+              return `M${r1(x)} ${PELOUSE - 6}l${r1(-3 + hasard(i + 9) * 6)} ${r1(-7 - hasard(i + 5) * 6)}`
+            }).join('')}
+            stroke="#6FA246"
+            strokeWidth={2.2}
+            strokeLinecap="round"
+          />
+        </g>
+        {/* La ligne de coupe, tracée de gauche à droite au pied du mur. */}
+        <path d={`M${CADRE.x0} ${SOL}H${FACADE.x0}`} stroke={MIEL} strokeOpacity={0.9} pathLength={1} data-ep="1.6" data-trace="0.1,0.17" />
 
-      {/* ── 3. La façade coupée, en pierre de Jaumont, et sa fondation ── */}
-      <g data-fondu="0.27,0.33">
-        <rect x={FACADE.x0} y={FACADE.haut} width={FACADE.x1 - FACADE.x0} height={FACADE.pied - FACADE.haut} fill="#C9A44E" />
-        <path d={ASSISES} stroke="#8E6E2C" strokeWidth={2} fill="none" />
-        <rect x={SEMELLE.x0} y={SEMELLE.haut} width={SEMELLE.x1 - SEMELLE.x0} height={SEMELLE.bas - SEMELLE.haut} fill={m('beton')} />
-        {/* Arrachement en haut du mur : la coupe s'arrête là. */}
-        <path d={`M${FACADE.x0} ${FACADE.haut}l14 -10 12 8 16 -12 14 10 14 -6V${FACADE.haut + 4}H${FACADE.x0}Z`} fill="#C9A44E" />
-      </g>
+        {/* ── 3. La façade coupée, en pierre de Jaumont, et sa fondation ── */}
+        <g data-fondu="0.23,0.29">
+          <rect x={FACADE.x0} y={FACADE.haut} width={FACADE.x1 - FACADE.x0} height={FACADE.pied - FACADE.haut} fill="#C9A44E" />
+          <path d={ASSISES} stroke="#8E6E2C" strokeWidth={2} fill="none" />
+          <rect x={SEMELLE.x0} y={SEMELLE.haut} width={SEMELLE.x1 - SEMELLE.x0} height={SEMELLE.bas - SEMELLE.haut} fill={m('beton')} />
+          {/* Arrachement en haut du mur : la coupe s'arrête là. */}
+          <path d={`M${FACADE.x0} ${FACADE.haut}l14 -10 12 8 16 -12 14 10 14 -6V${FACADE.haut + 4}H${FACADE.x0}Z`} fill="#C9A44E" />
+        </g>
 
-      {/* ── 4. L'arbre et ses racines ── */}
-      <g data-fondu="0.32,0.38">
-        <path d={`M${ARBRE.x - 13} ${ARBRE.pied}C${ARBRE.x - 9} 781 ${ARBRE.x - 4} 701 ${ARBRE.x - 6} ${ARBRE.tete}H${ARBRE.x + 8}C${ARBRE.x + 6} 701 ${ARBRE.x + 10} 781 ${ARBRE.x + 15} ${ARBRE.pied}Z`} fill="#5B4331" />
-        <path d={`M${ARBRE.x} 691l-46 -58M${ARBRE.x + 2} 651l40 -50`} stroke="#5B4331" strokeWidth={9} strokeLinecap="round" />
-        {[
-          [ARBRE.x - 70, 581, 92],
-          [ARBRE.x + 70, 571, 96],
-          [ARBRE.x, 511, 112],
-          [ARBRE.x - 20, 621, 84],
-          [ARBRE.x + 30, 631, 78],
-        ].map(([cx, cy, r], i) => (
-          <circle key={i} cx={cx} cy={cy} r={r} fill={m('feuillage')} />
-        ))}
-      </g>
-      <g fill="none" stroke="#7A5A3E" strokeLinecap="round">
-        {RACINES_ARBRE.map((d, i) => (
-          <path key={i} d={d} strokeWidth={i === 0 ? 7 : 5 - i * 0.6} pathLength={1} data-trace={`${0.34 + i * 0.008},${0.43 + i * 0.006}`} />
-        ))}
-      </g>
+        {/* ── 4. Le regard, dans le jardin ── */}
+        <g data-fondu="0.29,0.35">
+          <rect x={REGARD.x0 - REGARD.paroi} y={PELOUSE} width={REGARD.paroi} height={REGARD.bas - PELOUSE} fill={m('beton')} />
+          <rect x={REGARD.x1} y={PELOUSE} width={REGARD.paroi} height={REGARD.bas - PELOUSE} fill={m('beton')} />
+          <rect x={REGARD.x0 - REGARD.paroi} y={REGARD.bas} width={REGARD.x1 - REGARD.x0 + 2 * REGARD.paroi} height={16} fill={m('beton')} />
+          <rect x={REGARD.x0} y={PELOUSE} width={REGARD.x1 - REGARD.x0} height={REGARD.bas - PELOUSE} fill={DEDANS} />
+          <rect x={REGARD.x0 - REGARD.paroi - 8} y={PELOUSE - 12} width={REGARD.x1 - REGARD.x0 + 2 * REGARD.paroi + 16} height={12} rx={1.5} fill="#3D4549" />
+          <path d={`M${REGARD.x0 - 14} ${PELOUSE - 6}H${REGARD.x1 + 14}`} stroke="#5D676C" strokeWidth={2} strokeDasharray="6 5" />
+        </g>
 
-      {/* ── 5. Le regard, dans le jardin ── */}
-      <g data-fondu="0.33,0.39">
-        <rect x={REGARD.x0 - REGARD.paroi} y={PELOUSE} width={REGARD.paroi} height={REGARD.bas - PELOUSE} fill={m('beton')} />
-        <rect x={REGARD.x1} y={PELOUSE} width={REGARD.paroi} height={REGARD.bas - PELOUSE} fill={m('beton')} />
-        <rect x={REGARD.x0 - REGARD.paroi} y={REGARD.bas} width={REGARD.x1 - REGARD.x0 + 2 * REGARD.paroi} height={16} fill={m('beton')} />
-        <rect x={REGARD.x0} y={PELOUSE} width={REGARD.x1 - REGARD.x0} height={REGARD.bas - PELOUSE} fill={DEDANS} />
-        <rect x={REGARD.x0 - REGARD.paroi - 8} y={PELOUSE - 12} width={REGARD.x1 - REGARD.x0 + 2 * REGARD.paroi + 16} height={12} rx={1.5} fill="#3D4549" />
-        <path d={`M${REGARD.x0 - 14} ${PELOUSE - 6}H${REGARD.x1 + 14}`} stroke="#5D676C" strokeWidth={2} strokeDasharray="6 5" />
-      </g>
+        {/* ── 5. La canalisation, du pied du WC à la rue ── */}
+        <g fill="none" strokeLinejoin="round">
+          <path d={TRACE} stroke={TUYAU} strokeWidth={DIAM + 6} pathLength={1} data-trace="0.16,0.36" />
+          <path d={TRACE} stroke={DEDANS} strokeWidth={DIAM - 6} pathLength={1} data-trace="0.16,0.36" />
+        </g>
+        {/* Le passage dans la fondation. */}
+        <g data-fondu="0.27,0.32">
+          <rect x={FACADE.x0 - 4} y={pente(FACADE.x0) - DIAM / 2 - 7} width={FACADE.x1 - FACADE.x0 + 8} height={DIAM + 14} fill="none" stroke="#3D4549" strokeWidth={3} />
+        </g>
 
-      {/* ── 6. La canalisation, du WC à la rue ── */}
-      <g fill="none" strokeLinejoin="round">
-        <path d={TRACE} stroke={TUYAU} strokeWidth={DIAM + 6} pathLength={1} data-trace="0.19,0.4" />
-        <path d={TRACE} stroke={DEDANS} strokeWidth={DIAM - 6} pathLength={1} data-trace="0.19,0.4" />
-      </g>
-      {/* Sous le WC, le départ de la canalisation en pointillé à travers le carrelage de la photo. */}
-      <path
-        d={`M${AXE - 12} ${PIED_WC + 8}V${SOL}M${AXE + 12} ${PIED_WC + 8}V${SOL}`}
-        stroke={MIEL}
-        strokeDasharray="7 6"
-        fill="none"
-        data-ep="2"
-        data-fondu="0.17,0.22"
-      />
-      {/* Le passage dans la fondation, et l'emboîture fissurée près de l'arbre. */}
-      <g data-fondu="0.3,0.36">
-        <rect x={FACADE.x0 - 4} y={pente(FACADE.x0) - DIAM / 2 - 7} width={FACADE.x1 - FACADE.x0 + 8} height={DIAM + 14} fill="none" stroke="#3D4549" strokeWidth={3} />
-      </g>
-      <g data-fondu="0.36,0.41">
-        <rect x={JOINT - 10} y={pente(JOINT) - DIAM / 2 - 6} width={20} height={DIAM + 12} rx={1.5} fill="#828E93" />
-        <path d={`M${JOINT - 4} ${pente(JOINT) - DIAM / 2 - 6}l4 6-3 4 5 5`} stroke={NUIT} strokeWidth={2.4} fill="none" strokeLinejoin="round" />
-      </g>
-
-      {/* L'eau bloquée derrière le bouchon (en amont), qui ne s'écoule pas. */}
-      <path d={EN_AMONT} fill="none" stroke={EAU} strokeOpacity={0.8} strokeWidth={DIAM - 12} data-fondu="0.42,0.47" data-sortie="0.6,0.64" />
-      {/* Le bouchon de racines. */}
-      <path d={CHEVELU} fill="none" stroke="#C49A6C" strokeWidth={2.4} strokeLinecap="round" data-fondu="0.4,0.45" data-sortie="0.56,0.61" />
-      {/* Les morceaux coupés, emportés vers le regard. */}
-      <g data-fondu="0.57,0.6" data-sortie="0.66,0.7">
-        <g data-glisse="0.58,0.7,0,330">
-          {MORCEAUX.map((b, i) => (
-            <path key={i} d={`M${b.x - 5} ${r1(pente(b.x) + b.dy)}l10 ${r1((b.r - 25) / 12)}`} stroke="#C49A6C" strokeWidth={3} strokeLinecap="round" />
+        {/* L'eau bloquée derrière le bouchon (en amont), qui ne s'écoule pas. */}
+        <path d={EN_AMONT} fill="none" stroke={EAU} strokeOpacity={0.8} strokeWidth={DIAM - 12} data-fondu="0.37,0.41" data-sortie="0.55,0.58" />
+        {/* Le bouchon de lingettes. */}
+        <g data-fondu="0.34,0.38" data-sortie="0.53,0.56" stroke="#9C907A" strokeWidth={1.1} strokeLinejoin="round">
+          {LINGETTES.map((l, i) => (
+            <g key={i}>
+              <path d={l.forme} fill={l.teinte} />
+              <path d={l.pli} fill="none" />
+            </g>
           ))}
         </g>
-      </g>
-
-      {/* ── 7. La caméra d'inspection descend par le regard puis remonte le tuyau ── */}
-      <g data-fondu="0.46,0.48" data-sortie="0.535,0.555">
-        <path d={`M${REGARD_AXE} ${PELOUSE - 4}L${REGARD_AXE} ${pente(REGARD_AXE)}`} fill="none" stroke="#E8C23A" strokeWidth={4} />
-        <g clipPath={`url(#${id}-avant-regard)`}>
-          <g data-glisse="0.46,0.51,240,0">
-            <path d={`M1848 ${pente(1848)}L${REGARD_AXE + 300} ${pente(REGARD_AXE + 300)}`} fill="none" stroke="#E8C23A" strokeWidth={4} />
-            <rect x={1838} y={pente(1838) - 7} width={22} height={14} rx={2} fill="#C9D0D3" />
-            <path d={`M1838 ${pente(1838)}L1760 ${pente(1760) - 13}L1760 ${pente(1760) + 13}Z`} fill={m('cone')} data-fondu="0.49,0.52" />
+        {/* Les morceaux dégagés, emportés vers le regard puis l'égout. */}
+        <g data-fondu="0.53,0.55" data-sortie="0.6,0.64">
+          <g data-glisse="0.53,0.64,0,520" stroke="#9C907A" strokeWidth={0.9} strokeLinejoin="round">
+            {MORCEAUX.map((b, i) => (
+              <path key={i} d={b.forme} fill={b.teinte} />
+            ))}
           </g>
         </g>
-      </g>
 
-      {/* ── 8. Le jet haute pression traverse le bouchon ── */}
-      <g data-fondu="0.53,0.55" data-sortie="0.62,0.645">
-        <path d={`M${REGARD_AXE} ${PELOUSE - 4}L${REGARD_AXE} ${pente(REGARD_AXE)}`} fill="none" stroke="#1E1E1E" strokeWidth={5} />
-        <g clipPath={`url(#${id}-avant-regard)`}>
-          <g data-glisse="0.53,0.6,330,0">
-            <path d={`M1712 ${pente(1712)}L${REGARD_AXE + 400} ${pente(REGARD_AXE + 400)}`} fill="none" stroke="#1E1E1E" strokeWidth={5} />
-            <rect x={1700} y={pente(1700) - 6} width={18} height={12} rx={2} fill="#D7DCDE" />
-            {/* Jets vers l'avant et vers l'arrière, qui pulsent en continu. */}
-            <g className="cm-jet" stroke={EAU_CLAIRE} strokeWidth={2.4} strokeLinecap="round">
-              <path d={`M1700 ${pente(1700) - 3}l-30 -7M1700 ${pente(1700) + 3}l-30 7M1700 ${pente(1700)}h-34`} />
-              <path d={`M1718 ${pente(1718) - 4}l26 -8M1718 ${pente(1718) + 4}l26 8`} />
+        {/* ── 6. La caméra d'inspection descend par le regard puis remonte le tuyau ── */}
+        <g data-fondu="0.42,0.44" data-sortie="0.495,0.51">
+          <path d={`M${REGARD_AXE} ${PELOUSE - 4}L${REGARD_AXE} ${pente(REGARD_AXE)}`} fill="none" stroke={CABLE} strokeWidth={4} />
+          <g clipPath={`url(#${id}-avant-regard)`}>
+            <g data-glisse="0.42,0.47,240,0">
+              <path d={`M1848 ${pente(1848)}L${REGARD_AXE + 300} ${pente(REGARD_AXE + 300)}`} fill="none" stroke={CABLE} strokeWidth={4} />
+              <rect x={1838} y={pente(1838) - 7} width={22} height={14} rx={2} fill="#C9D0D3" />
+              <path d={`M1838 ${pente(1838)}L1760 ${pente(1760) - 13}L1760 ${pente(1760) + 13}Z`} fill={m('cone')} data-fondu="0.45,0.47" />
             </g>
           </g>
         </g>
-      </g>
 
-      {/* ── 9. L'eau repart, du WC jusqu'à la rue, en continu ── */}
-      <g data-fondu="0.6,0.66">
-        <path d={TRACE} fill="none" stroke={EAU} strokeWidth={DIAM - 14} strokeLinejoin="round" />
-        <path d={TRACE} className="cm-flux" fill="none" stroke={EAU_CLAIRE} strokeWidth={4} strokeLinejoin="round" pathLength={1} strokeDasharray="0.012 0.018" />
+        {/* ── 7. Le jet haute pression remonte jusqu'au bouchon et le dégage ── */}
+        <g data-fondu="0.5,0.515" data-sortie="0.57,0.59">
+          <path d={`M${REGARD_AXE} ${PELOUSE - 4}L${REGARD_AXE} ${pente(REGARD_AXE)}`} fill="none" stroke={FLEXIBLE} strokeWidth={5} />
+          <g clipPath={`url(#${id}-avant-regard)`}>
+            <g data-glisse="0.505,0.55,330,0">
+              <path d={`M1712 ${pente(1712)}L${REGARD_AXE + 400} ${pente(REGARD_AXE + 400)}`} fill="none" stroke={FLEXIBLE} strokeWidth={5} />
+              <rect x={1700} y={pente(1700) - 6} width={18} height={12} rx={2} fill="#7D898E" />
+              {/* Jets vers l'avant et vers l'arrière, qui pulsent en continu. */}
+              <g className="cm-jet" stroke={EAU_CLAIRE} strokeWidth={2.4} strokeLinecap="round">
+                <path d={`M1700 ${pente(1700) - 3}l-30 -7M1700 ${pente(1700) + 3}l-30 7M1700 ${pente(1700)}h-34`} />
+                <path d={`M1718 ${pente(1718) - 4}l26 -8M1718 ${pente(1718) + 4}l26 8`} />
+              </g>
+            </g>
+          </g>
+        </g>
+
+        {/* ── 8. L'eau repart, du WC jusqu'à la rue, en continu ── */}
+        <g data-fondu="0.56,0.6">
+          <path d={TRACE} fill="none" stroke={EAU} strokeWidth={DIAM - 14} strokeLinejoin="round" />
+          <path d={TRACE} className="cm-flux" fill="none" stroke={EAU_CLAIRE} strokeWidth={4} strokeLinejoin="round" pathLength={1} strokeDasharray="0.012 0.018" />
+        </g>
       </g>
 
       {/* Étiquettes : deux jeux, ordinateur et téléphone. */}

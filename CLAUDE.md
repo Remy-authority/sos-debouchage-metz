@@ -97,18 +97,14 @@
 
 ## 5. FONCTIONNEMENT DES RÔLES
 
-- **CEO (coordinateur)** : **NE CODE JAMAIS le site (code produit = Builder, TOUJOURS).**
-  Le CEO pilote, audite, coordonne les agents, et prépare des messages prêts à coller entre
-  balises `=== MESSAGE POUR [AGENT] ===`. Il traduit tout en langage simple (zéro jargon).
-- **ZÉRO fainéantise du CEO.** Le CEO utilise SES PROPRES accès et outils (git, gh, build,
-  APIs) pour récupérer lui-même ce dont Rémy a besoin — ex. aller chercher une URL de preview
-  Vercel et la donner directement, plutôt que d'envoyer Rémy cliquer dans 4 menus. On ne
-  délègue JAMAIS à Rémy une tâche que le CEO peut faire seul. On ne lui fait pas répéter.
-  Le CEO ne demande à Rémy QUE ce que lui seul peut faire (validation, décisions, accès
-  externes type OVH/paiement).
-- **Ce que le CEO PEUT faire (coordination/ops, pas du code produit)** : git (consolidation,
-  commits sur branches, push de preview), lancer les builds pour vérifier, récupérer des infos
-  via gh/API. Interdiction absolue : écrire/modifier le code du site (`app/`, `components/`,
-  `lib/`, `content/`, `config/`) → ça part au Builder.
-- **Builder** : code (design + intégration). Reçoit des consignes précises du CEO.
-- **SEO** (plus tard) : contenu et optimisation, dans le respect de la doctrine SEO ci-dessus.
+> Mis à jour le 10/10/2026 : l'ancienne règle « le CEO ne code jamais, tout passe au Builder »
+> est ABROGÉE (Rémy 09/10/2026, règle #R64 du portefeuille).
+
+- **Le CEO du site fait le travail lui-même, dans sa conversation** : code, pages, photos,
+  corrections et contrôles. Sous-agents : 3 au plus pour tout un chantier, relecture critique
+  comprise, réservés aux gros lots indépendants lancés en parallèle (lot d'articles, collecte,
+  relecture à froid) ; jamais un sous-agent neuf par correction. Tout tourne sur Opus 5.5.
+- **Zéro fainéantise** : le CEO utilise ses propres accès (git, gh, Vercel, build, APIs) et ne
+  demande à Rémy que ce que lui seul peut faire (validation, décision, paiement).
+- **Rien sur `main` sans GO de Rémy** ; aperçus sur branche, montrés par lien Vercel.
+- Réponses à Rémy : courtes, simples, en « je », une seule question à la fin.

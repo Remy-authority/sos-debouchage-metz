@@ -3,24 +3,24 @@
 import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type MouseEvent, type Ref } from 'react'
 import * as ReactDOM from 'react-dom'
 import { LeadForm } from '@/components/ui/LeadForm'
-import { AXE, CADRE, CSS_COUPE, CoupeMetz, HAUTEUR_PHOTO, LARGEUR, PIED_WC, ajusterCoupe, poserCoupe } from '@/components/ui/CoupeMetz'
+import { AXE, CADRE, CSS_COUPE, CoupeMetz, HAUTEUR_PHOTO, LARGEUR, PIED_WC, P_COUPE_COMPLETE, ajusterCoupe, poserCoupe } from '@/components/ui/CoupeMetz'
 import { siteConfig } from '@/config/site.config'
 
 /**
  * HeroPlongee, le « bloc 1 qui plonge » de sos-debouchage-metz.fr (octobre 2026, scénario
- * validé par Rémy le 10/10/2026). Ce que le client paie sans jamais le voir : la canalisation
+ * revu avec Rémy le 10/10/2026). Ce que le client paie sans jamais le voir : la canalisation
  * sous son carrelage. Cinq temps, pilotés par le défilement :
  *
  *  1. ÉCRAN 1   une salle de bain claire, le WC suspendu, la mallette de la caméra d'inspection
  *               ouverte sur une bâche ; le titre sur le mur, deux boutons, le formulaire noir.
  *               Téléphone : la photo calée en bas, son mur prolongé jusqu'en haut de l'écran.
  *  2. AVANCÉE   texte et formulaire s'effacent, la caméra s'approche du pied du WC.
- *  3. PLONGÉE   la dalle s'ouvre sous la photo, couche après couche ; la canalisation descend,
+ *  3. PLONGÉE   le sol s'ouvre au pied du mur, couche après couche ; le tuyau du WC descend,
  *               file sous la façade en pierre de Jaumont et sous la pelouse.
- *  4. LA CAUSE  un joint fissuré, les racines de l'arbre dans le tuyau, l'eau bloquée ; la
- *               caméra entre par le regard, puis le jet découpe les racines ; l'eau repart.
- *  5. RECUL     la vue entière, « Sans casser le carrelage » ; sur ordinateur, le formulaire
- *               revient à droite et reste utilisable.
+ *  4. LA CAUSE  un bouchon de lingettes, l'eau bloquée ; la caméra entre par le regard, puis
+ *               le jet haute pression dégage le bouchon ; l'eau repart.
+ *  5. RETOUR    la caméra recule jusqu'à la salle de bain, le sol se referme, « Sans casser le
+ *               carrelage », puis le titre, les boutons et le formulaire reviennent : l'écran 1.
  *
  * Moteur repris de forage-puits-poitou.fr : une piste haute (380 vh) porte une scène collée sous
  * l'en-tête ; un seul requestAnimationFrame par défilement ; transform et opacité posés dans le
@@ -59,22 +59,23 @@ type Rect = { x: number; y: number; w: number; h: number }
 /** Point visé, repère de toutes les positions de caméra : le pied du WC. */
 const VISE = { x: AXE, y: PIED_WC }
 /** Les cadrages successifs, dans le repère de la photo (1600 x 893). */
+/** `fin` ne sert qu'au repli sans animation : la coupe complète, fixe. */
 const CADRES: Record<Format, { plonge: Rect; tuyau: Rect; cause: Rect; fin: Rect }> = {
   ordi: {
-    plonge: { x: 500, y: 640, w: 740, h: 500 },
-    tuyau: { x: 1420, y: 560, w: 860, h: 600 },
-    cause: { x: 1600, y: 900, w: 580, h: 290 },
-    fin: { x: 380, y: 120, w: 2120, h: 1060 },
+    plonge: { x: 500, y: 437, w: 740, h: 500 },
+    tuyau: { x: 1420, y: 357, w: 860, h: 600 },
+    cause: { x: 1600, y: 697, w: 580, h: 290 },
+    fin: { x: 480, y: 380, w: 1940, h: 640 },
   },
   mobile: {
-    plonge: { x: 640, y: 640, w: 380, h: 560 },
-    tuyau: { x: 1630, y: 540, w: 540, h: 700 },
-    cause: { x: 1650, y: 920, w: 520, h: 300 },
-    fin: { x: 1160, y: 300, w: 1040, h: 1000 },
+    plonge: { x: 640, y: 437, w: 380, h: 560 },
+    tuyau: { x: 1630, y: 337, w: 540, h: 700 },
+    cause: { x: 1650, y: 717, w: 520, h: 300 },
+    fin: { x: 640, y: 440, w: 1540, h: 900 },
   },
 }
 /** Bornes des temps, en fraction de la piste (mêmes repères que les attributs de CoupeMetz). */
-const T = { avance: 0.16, plonge: 0.3, tuyau: 0.44, cause: 0.5, action: 0.64, recul: 0.8, form0: 0.7, form1: 0.8 }
+const T = { avance: 0.14, plonge: 0.27, tuyau: 0.38, cause: 0.44, action: 0.62, retour: 0.8, texte0: 0.91, texte1: 0.97 }
 
 const effetAvantPeinture = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 const borne = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v))
@@ -184,8 +185,6 @@ export function HeroPlongee() {
     let cPlonge = c0
     let cTuyau = c0
     let cCause = c0
-    let cFin = c0
-    let bordForm = 0
     let zoomPose = 0
 
     const mesurer = () => {
@@ -216,24 +215,12 @@ export function HeroPlongee() {
         c1 = { s, vx: W / 2, vy: Math.max(Hs * 0.5, Hs - (H - VISE.y) * s) }
       }
 
-      // Zones utiles de l'écran : ordinateur, à gauche du formulaire qui revient ; téléphone,
-      // au-dessus de la barre d'appel du bas.
-      if (format === 'ordi') {
-        const f = formRef.current
-        if (f) {
-          const avant = f.style.transform
-          f.style.transform = ''
-          bordForm = f.getBoundingClientRect().left - rs.left
-          f.style.transform = avant
-        } else bordForm = W * 0.7
-      }
+      // Zone utile de l'écran ; au téléphone, au-dessus de la barre d'appel du bas.
       const plein: Rect = format === 'ordi' ? { x: 32, y: 24, w: W - 64, h: Hs - 48 } : { x: 10, y: 14, w: W - 20, h: Hs - (W < 768 ? 92 : 40) }
-      const gauche: Rect = format === 'ordi' ? { x: 28, y: 20, w: bordForm - 64, h: Hs - 40 } : plein
       const k = CADRES[format]
       cPlonge = cadrer(k.plonge, plein)
       cTuyau = cadrer(k.tuyau, plein)
       cCause = cadrer(k.cause, plein)
-      cFin = cadrer(k.fin, gauche)
       zoomPose = 0
     }
 
@@ -245,37 +232,35 @@ export function HeroPlongee() {
 
     let raf = 0
     let derniere = -1
+    let derniereFuite = 0
     let pPose = -1
     let planVisible = false
     const peindre = () => {
       raf = 0
       const rp = piste.getBoundingClientRect()
       const p = borne((haut - rp.top) / Math.max(1, rp.height - Hs))
-      if (p === derniere) return
+      // Téléphone : le texte revenu à la fin est collé à l'écran ; il repart avec la scène.
+      const fuite = format === 'mobile' ? Math.min(0, rp.bottom - haut - Hs) : 0
+      if (p === derniere && fuite === derniereFuite) return
       derniere = p
+      derniereFuite = fuite
 
-      // Texte (et formulaire sur ordinateur) : effacés sur les 7 premiers pour cent.
-      const f = borne(p / 0.07)
-      const visible = 1 - doux(f)
-      const formRevient = format === 'ordi' && p >= T.form0
-      const aEffacer = format === 'ordi' ? (formRevient ? [texteRef.current] : [texteRef.current, formRef.current]) : [contenuRef.current]
+      // Texte (et formulaire sur ordinateur) : effacés sur les 7 premiers pour cent, revenus à la
+      // fin, à leur place de l'écran 1.
+      const f = doux(borne(p / 0.07))
+      const g = doux(borne((p - T.texte0) / (T.texte1 - T.texte0)))
+      const visible = p < 0.5 ? 1 - f : g
+      const decale = p < 0.5 ? (format === 'ordi' ? -22 : -60) * f : 14 * (1 - g)
+      const aEffacer = format === 'ordi' ? [texteRef.current, formRef.current] : [contenuRef.current]
       if (fondMobileRef.current) fondMobileRef.current.style.visibility = format === 'mobile' && p > 0 ? 'hidden' : ''
       for (const el of aEffacer) {
         if (!el) continue
         el.style.opacity = visible.toFixed(3)
-        el.style.transform = f > 0 ? `translateY(${((format === 'ordi' ? -22 : -60) * doux(f)).toFixed(1)}px)` : ''
+        el.style.transform = decale || fuite ? `translateY(${(decale + fuite).toFixed(1)}px)` : ''
         el.style.visibility = visible < 0.02 ? 'hidden' : ''
         el.style.pointerEvents = visible < 0.6 ? 'none' : ''
       }
       if (format === 'mobile' && formRef.current) formRef.current.removeAttribute('style')
-      if (formRevient && formRef.current) {
-        const g = doux(borne((p - T.form0) / (T.form1 - T.form0)))
-        const el = formRef.current
-        el.style.opacity = g.toFixed(3)
-        el.style.transform = g < 1 ? `translateX(${((1 - g) * (W - bordForm + 24)).toFixed(1)}px)` : ''
-        el.style.visibility = g < 0.02 ? 'hidden' : ''
-        el.style.pointerEvents = g < 0.9 ? 'none' : ''
-      }
 
       // Caméra.
       let c: Camera
@@ -286,8 +271,8 @@ export function HeroPlongee() {
       else if (p <= T.tuyau) c = vers(cPlonge, cTuyau, elan((p - T.plonge) / (T.tuyau - T.plonge), 0.2, 0.2))
       else if (p <= T.cause) c = vers(cTuyau, cCause, elan((p - T.tuyau) / (T.cause - T.tuyau), 0.2, 0))
       else if (p <= T.action) c = cCause
-      else if (p <= T.recul) c = versCentre(cCause, cFin, elan((p - T.action) / (T.recul - T.action), 0, 0), W / 2, Hs / 2)
-      else c = cFin
+      else if (p <= T.retour) c = versCentre(cCause, c0, elan((p - T.action) / (T.retour - T.action), 0, 0), W / 2, Hs / 2)
+      else c = c0
       placer(photoRef.current, c)
       placer(planRef.current, c)
       if (murRef.current) {
@@ -295,7 +280,7 @@ export function HeroPlongee() {
         murRef.current.style.transform = `translate3d(${cx.toFixed(2)}px,${(cy - MUR_H * c.s).toFixed(2)}px,0) scale(${c.s.toFixed(5)})`
       }
       if (photoRef.current) photoRef.current.style.visibility = format === 'mobile' && p === 0 ? 'hidden' : ''
-      const montrer = p > T.avance * 0.6
+      const montrer = p > T.avance * 0.6 && p < T.texte1
       if (montrer !== planVisible && planRef.current) {
         planVisible = montrer
         planRef.current.style.visibility = montrer ? 'visible' : 'hidden'
@@ -388,7 +373,7 @@ export function HeroPlongee() {
           <div className="absolute inset-x-0 top-0 h-[10%]" style={{ backgroundImage: MUR, maskImage: 'linear-gradient(180deg,#000,transparent)', WebkitMaskImage: 'linear-gradient(180deg,#000,transparent)' }} />
         </div>
       </div>
-      <div ref={contenuRef} className="relative mx-auto w-full max-w-xl px-5 pb-6 pt-8 text-center sm:px-8 sm:pt-12 lg:max-w-none lg:px-0 lg:pb-0 lg:pt-0 lg:text-left">
+      <div ref={contenuRef} className="relative mx-auto w-full max-w-xl px-5 pb-6 pt-[calc(2rem+9svh)] text-center sm:px-8 sm:pt-12 lg:max-w-none lg:px-0 lg:pb-0 lg:pt-0 lg:text-left">
         <p className="flex items-center justify-center gap-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-700 lg:justify-start lg:text-[12px]">
           <span className="hidden h-px w-8 bg-brand-700/60 lg:block" aria-hidden="true" />
           SOS canalisation bouchée à {siteConfig.city}
@@ -519,7 +504,7 @@ function Planche({ r, classe }: { r: Rect; classe: string }) {
     const el = boite.current
     const svg = el?.querySelector('svg')
     if (!el || !svg) return
-    poserCoupe(svg, 1)
+    poserCoupe(svg, P_COUPE_COMPLETE)
     const ro = new ResizeObserver(() => {
       if (el.offsetWidth > 0) ajusterCoupe(svg, el.offsetWidth / r.w)
     })
