@@ -50,7 +50,7 @@ const MUR =
 const MUR_H = 1600
 const PHOTO_MOBILE = '68%'
 const GRILLE =
-  'lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-[minmax(0,27rem)_minmax(0,1fr)_21rem] lg:items-center lg:gap-6 lg:px-10 xl:grid-cols-[minmax(0,29rem)_minmax(0,1fr)_22rem]'
+  'lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-[minmax(0,27rem)_minmax(0,1fr)_21rem] lg:items-stretch lg:gap-6 lg:px-10 xl:grid-cols-[minmax(0,29rem)_minmax(0,1fr)_22rem]'
 
 /* ---------- Séquence ---------- */
 type Format = 'ordi' | 'mobile'
@@ -429,7 +429,7 @@ export function HeroPlongee() {
             <div className="bp-colle contents lg:block">
               <div className="bp-cadre contents lg:flex lg:items-center">
                 <div className={`contents ${GRILLE}`}>
-                  <div className="bp-texte relative order-1 lg:col-start-1">
+                  <div className="bp-texte relative order-1 lg:col-start-1 lg:flex lg:flex-col lg:justify-center">
                     <div ref={texteRef} className="pointer-events-auto">
                       {texte}
                     </div>
@@ -437,7 +437,7 @@ export function HeroPlongee() {
                   <div
                     ref={formRef}
                     id="formulaire"
-                    className="bp-form relative z-10 order-3 w-full scroll-mt-24 bg-ink-950 pb-12 pt-8 lg:pointer-events-auto lg:col-start-3 lg:bg-transparent lg:p-0"
+                    className="bp-form relative z-10 order-3 w-full scroll-mt-24 bg-ink-950 pb-12 pt-8 lg:pointer-events-auto lg:col-start-3 lg:flex lg:flex-col lg:justify-center lg:bg-transparent lg:p-0"
                   >
                     <div className="mx-auto w-full max-w-md px-5 sm:px-8 lg:max-w-none lg:px-0">
                       <LeadForm variante="hero" />

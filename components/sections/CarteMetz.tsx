@@ -87,7 +87,7 @@ export function CarteMetz({ zones }: { zones: Zone[] }) {
           subtitle={`Nous intervenons dans un rayon d'environ ${serviceArea.radiusKm} km. Choisissez votre commune sur la carte.`}
         />
 
-        <div className="mt-10 grid gap-8 lg:mt-16 lg:grid-cols-[1.25fr_1fr] lg:items-center lg:gap-16">
+        <div className="mt-10 grid gap-8 lg:mt-16 lg:grid-cols-[1.25fr_1fr] lg:items-stretch lg:gap-16">
           <TraceAuDefilement className="carte-metz mx-auto w-full max-w-[560px]">
             <svg
               viewBox={`0 0 ${CARTE_W} ${CARTE_H}`}
@@ -201,7 +201,7 @@ export function CarteMetz({ zones }: { zones: Zone[] }) {
             </svg>
           </TraceAuDefilement>
 
-          <div className="text-center lg:text-left">
+          <div className="text-center lg:flex lg:flex-col lg:justify-center lg:text-left">
             <h3 className="text-2xl text-ink-950 lg:text-3xl">Les communes desservies</h3>
             <ul className="mt-5 grid grid-cols-2 gap-x-4 border-t border-sand-200 sm:gap-x-8" role="list">
               {communes.map((c) => (
