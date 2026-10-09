@@ -127,9 +127,9 @@ const CSS = `
 }
 @keyframes bp-appel{0%,100%{transform:rotate(0)}8%{transform:rotate(-14deg)}16%{transform:rotate(12deg)}24%{transform:rotate(-8deg)}32%{transform:rotate(0)}}
 .bp-appel{animation:bp-appel 3.2s ease-in-out infinite;transform-origin:50% 60%}
-@keyframes bp-devis{0%{stroke-dashoffset:1}45%,100%{stroke-dashoffset:0}}
-.bp-devis{stroke-dasharray:1;animation:bp-devis 3.2s ease-out infinite}
-@media (prefers-reduced-motion:reduce){.bp-appel,.bp-devis{animation:none}}
+@keyframes bp-rappel{0%,55%,100%{transform:translate(0,0)}70%{transform:translate(-2px,2px)}85%{transform:translate(0,0)}}
+.bp-rappel{animation:bp-rappel 2.6s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.bp-appel,.bp-rappel{animation:none}}
 ${CSS_COUPE}`
 
 export function HeroPlongee() {
@@ -344,7 +344,7 @@ export function HeroPlongee() {
     }
   }, [mode])
 
-  // « Demander un devis » : sur ordinateur, le formulaire est déjà là, on y met le focus.
+  // « Être rappelé » : sur ordinateur, le formulaire est déjà là, on y met le focus.
   const versFormulaire = (e: MouseEvent<HTMLAnchorElement>) => {
     if (!window.matchMedia('(min-width: 1024px)').matches) return
     const cible = formRef.current?.querySelector<HTMLInputElement>('input[type="radio"]')
@@ -403,11 +403,10 @@ export function HeroPlongee() {
             className="inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[3px] bg-ink-950 px-3 text-[14px] font-semibold text-white transition hover:bg-ink-800 sm:px-6 sm:text-[15px]"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-[18px] w-[18px] shrink-0" aria-hidden="true">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-              <path d="M14 2v6h6" />
-              <path className="bp-devis" pathLength={1} d="M8 13h8M8 17h5" />
+              <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" />
+              <path className="bp-rappel" d="M22 2l-6 6M16 3v5h5" />
             </svg>
-            Demander un devis
+            Être rappelé
           </a>
         </div>
       </div>

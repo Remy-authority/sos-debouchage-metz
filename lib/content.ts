@@ -35,6 +35,8 @@ export interface Service {
   slug: string
   /** Intitulé court (nav / carte). */
   navTitle: string
+  /** Phrase de la carte d'accueil (15 mots au plus). */
+  carte?: string
   h1: string
   metaTitle: string
   metaDescription: string

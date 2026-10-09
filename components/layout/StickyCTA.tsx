@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { FileText, Phone } from 'lucide-react'
+import { Phone, PhoneIncoming } from 'lucide-react'
 import { EASE } from '@/lib/motion'
 import { siteConfig } from '@/config/site.config'
 
@@ -41,12 +41,12 @@ export function StickyCTA() {
           >
             <a
               href="/contact#formulaire"
-              aria-label="Demander un devis"
+              aria-label="Être rappelé"
               className="group relative flex h-14 w-14 items-center justify-center rounded-[3px] bg-brand-600 text-white shadow-glow-brand transition-all duration-300 hover:scale-110"
             >
-              <FileText size={21} strokeWidth={2.2} />
+              <PhoneIncoming size={21} strokeWidth={2.2} />
               <span className="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded-[3px] bg-ink-950 px-3 py-1.5 text-xs font-medium text-sand-50 group-hover:block">
-                Demander un devis
+                Être rappelé
               </span>
             </a>
             <a
@@ -72,17 +72,17 @@ export function StickyCTA() {
           >
             <a
               href={`tel:${siteConfig.phone}`}
-              className="flex min-h-[52px] flex-[2] items-center justify-center gap-2 rounded-[3px] bg-accent-500 px-4 font-semibold text-white"
+              className="flex min-h-[52px] flex-[1.45] items-center justify-center gap-2 whitespace-nowrap rounded-[3px] bg-accent-500 px-3 font-semibold text-white"
             >
               <Phone size={18} strokeWidth={2.5} />
               {siteConfig.phoneDisplay}
             </a>
             <a
               href="/contact#formulaire"
-              className="flex min-h-[52px] flex-1 items-center justify-center gap-2 rounded-[3px] border border-sand-50/20 bg-white/10 px-4 text-sm font-semibold text-sand-50"
+              className="flex min-h-[52px] flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-[3px] border border-sand-50/20 bg-white/10 px-2 text-sm font-semibold text-sand-50"
             >
-              <FileText size={16} />
-              Devis
+              <PhoneIncoming size={16} />
+              Être rappelé
             </a>
           </motion.div>
         </>

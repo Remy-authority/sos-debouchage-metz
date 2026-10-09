@@ -507,7 +507,7 @@ export function LeadForm({ variante = 'standard' }: LeadFormProps) {
                 disabled={status === 'sending'}
                 className="mt-4 inline-flex min-h-[52px] w-full items-center justify-center rounded-[3px] bg-accent-500 px-6 text-[15px] font-semibold text-white transition hover:bg-accent-400 disabled:cursor-wait disabled:opacity-70"
               >
-                {status === 'sending' ? 'Envoi en cours' : 'Envoyer ma demande'}
+                {status === 'sending' ? 'Envoi en cours' : 'Être rappelé'}
               </button>
               <p className={`mt-3 text-xs leading-relaxed text-white/55 ${equilibre}`}>
                 Vos données servent à vous rappeler, jamais revendues.{' '}

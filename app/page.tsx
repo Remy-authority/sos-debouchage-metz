@@ -4,13 +4,10 @@ import { getServices, getZones } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 import { HeroPlongee } from '@/components/sections/HeroPlongee'
 import { TrustBar } from '@/components/sections/TrustBar'
-import { About } from '@/components/sections/About'
 import { Services } from '@/components/sections/Services'
-import { Process } from '@/components/sections/Process'
-import { Stats } from '@/components/sections/Stats'
-import { WhyUs } from '@/components/sections/WhyUs'
+import { ChantierMetz } from '@/components/sections/ChantierMetz'
 import { Gallery } from '@/components/sections/Gallery'
-import { ServiceArea } from '@/components/sections/ServiceArea'
+import { CarteMetz } from '@/components/sections/CarteMetz'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { LeadForm } from '@/components/ui/LeadForm'
 import { Faq } from '@/components/ui/Faq'
@@ -31,13 +28,8 @@ export default function HomePage() {
     <>
       <HeroPlongee />
       <TrustBar />
-      <About />
       <Services services={services} />
-      <Process />
-      <Stats />
-      <WhyUs />
-      {/* Communes desservies en bloc 8, jamais plus haut (règle Rémy 18/09/2026). */}
-      <ServiceArea zones={zones} />
+      <ChantierMetz />
       {siteConfig.features.gallery && <Gallery />}
 
       <section id="devis" className="bg-sand-100 py-24 lg:py-32" aria-labelledby="devis-title">
@@ -58,6 +50,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Carte des communes en bloc 7, jamais plus haut (règles Rémy 18/09 et 01/10/2026). */}
+      <CarteMetz zones={zones} />
 
       <Faq
         items={siteConfig.homeFaq as unknown as { q: string; a: string }[]}

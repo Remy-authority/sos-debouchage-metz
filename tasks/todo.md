@@ -33,16 +33,16 @@ Rien sur `main` sans GO. Branche à créer : `maj/scrollytelling-2026-10`.
 - Écartées : « plombier … », « debarras … » (hors métier), « débouchage canalisation rémilly/talange » (communes non couvertes).
 
 ### Chantiers (après GO des scénarios et du budget)
-- [ ] Bloc 1 scrollytelling (photo salle de bain, plongée, coupe de la canalisation, bouchon, caméra, jet, « sans casser le carrelage »)
+- [x] Bloc 1 scrollytelling : VALIDÉ par Rémy le 10/10 (0d6f782), bouchon de lingettes, retour sur la salle de bain
 - [ ] Bloc 3 scrollytelling (coupe couleur d'une maison messine, 5 étapes)
-- [ ] Formulaire noir (mêmes champs, JSON comparé avant/après, route et destinataires inchangés)
+- [x] Formulaire noir (mêmes champs, JSON comparé avant/après, route et destinataires inchangés), icônes alignées
 - [ ] Accueil à 750 mots, 25 mots par paragraphe, icônes du métier animées en continu, angles 2 à 4 px
 - [ ] Zones : carte de l'agglomération messine, communes cliquables, bloc 7 ou 8
-- [ ] H1 accueil avec « débouchage canalisation Metz », sans deux-points
+- [x] H1 accueil « Débouchage canalisation Metz, sans casse »
 - [ ] Pilier Marly + Woippy : title, H1, H2 sur les requêtes réelles, paragraphes à 45 mots
 - [ ] Titres et descriptions des 16 pages vues sans clic
 - [ ] Autoblog : +18 brouillons (65 = 3 mois à 5/semaine)
-- [ ] Promesse « 24h/24 · 7j/7 » : selon la réponse de Rémy
+- [x] Promesse « 24h/24 · 7j/7 » : GARDÉE (Rémy 10/10)
 - [ ] Contrôles ×2, check-texte, check-lignes, vitesse ×3 alternée, relecture à froid, Rank OS, ETAT
 
 ## Session du 20/09/2026 (CEO du site, branche `optim/tarifs-zones-mobile`)
