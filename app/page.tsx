@@ -43,7 +43,7 @@ export default function HomePage() {
                 <span className="text-gradient-ink italic"> et on vous rappelle</span>
               </>
             }
-            subtitle="Plus vous êtes précis sur ce qui refoule et depuis quand, plus notre estimation au téléphone sera juste."
+            subtitle="Dites-nous quel appareil déborde et depuis combien de temps, le prix annoncé n'en sera que plus juste."
           />
           <div className="mt-12">
             <LeadForm />

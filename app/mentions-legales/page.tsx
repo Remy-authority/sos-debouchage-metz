@@ -56,9 +56,9 @@ export default function MentionsLegales() {
       <section>
         <h2>Prestataire des interventions</h2>
         <p>
-          L&apos;éditeur du site n&apos;est pas l&apos;entreprise qui réalise les interventions de
-          débouchage. Les coordonnées, l&apos;assurance et les qualifications de l&apos;artisan
-          prestataire sont publiées ici dès la mise en service commerciale du site.
+          Les débouchages présentés ici sont réalisés par une entreprise distincte de
+          l&apos;éditeur du site. Le nom, l&apos;assurance professionnelle et les qualifications de cette
+          entreprise figureront sur cette page dès l&apos;ouverture commerciale du site.
         </p>
       </section>
 
@@ -84,9 +84,9 @@ export default function MentionsLegales() {
       <section>
         <h2>Propriété intellectuelle</h2>
         <p>
-          L&apos;ensemble des contenus de ce site (textes, visuels, identité graphique) est protégé
-          par le droit de la propriété intellectuelle. Toute reproduction, même partielle, est
-          interdite sans autorisation préalable écrite.
+          Textes, photos, schémas et charte graphique de {siteConfig.businessName} relèvent du droit
+          d&apos;auteur. Les copier, en tout ou en partie, demande l&apos;accord écrit de
+          l&apos;éditeur.
         </p>
       </section>
 

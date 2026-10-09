@@ -210,17 +210,17 @@ export const siteConfig = {
     {
       icon: 'clock',
       title: 'Une ligne ouverte 7j/7',
-      desc: "Refoulement, WC bouché, odeurs : ces situations ne choisissent pas leur horaire. Vous nous joignez le week-end et les jours fériés.",
+      desc: "Refoulement, WC bouché, odeurs : ces situations ne choisissent pas leur horaire. Samedi, dimanche ou 14 juillet, quelqu'un décroche.",
     },
     {
       icon: 'euro',
       title: 'Le prix annoncé avant',
-      desc: "Vous savez ce que coûte l'intervention avant qu'elle commence. Pas de supplément découvert une fois le camion sur place.",
+      desc: "Vous connaissez la somme avant que le furet entre dans le tuyau. Pas de supplément découvert une fois le camion sur place.",
     },
     {
       icon: 'star',
       title: 'Artisan local, pas une plateforme',
-      desc: "Vous parlez à la personne qui intervient. Pas de centrale d'appel qui revend votre demande au premier disponible.",
+      desc: "Vous parlez à la personne qui intervient. Votre appel n'est ni trié par un standard ni cédé à une autre entreprise.",
     },
   ],
 
@@ -228,11 +228,11 @@ export const siteConfig = {
   homeFaq: [
     {
       q: 'Combien coûte un débouchage de canalisation à Metz ?',
-      a: "Le prix dépend de la prestation : un débouchage au furet sur un évier ou un WC n'a pas le même coût qu'un hydrocurage de colonne ou qu'une inspection caméra. Nous annonçons le tarif au téléphone en fonction de ce que vous décrivez, puis nous le confirmons sur place avant de commencer. Aucun travail n'est lancé sans votre accord.",
+      a: "Le prix dépend de la prestation : un débouchage au furet sur un évier ou un WC n'a pas le même coût qu'un hydrocurage de colonne ou qu'une inspection caméra. Votre description suffit pour chiffrer au téléphone, et ce chiffre est redit devant l'évacuation avant le moindre geste. Aucun travail n'est lancé sans votre accord.",
     },
     {
-      q: 'Intervenez-vous en urgence le soir, le week-end et les jours fériés ?',
-      a: "Oui. Un refoulement d'eaux usées ou des WC bouchés dans un logement occupé ne peuvent pas attendre le lundi. Notre ligne est ouverte 7j/7 pour les urgences sur Metz et les communes de l'agglomération dans un rayon d'environ 30 km.",
+      q: 'Un WC bouché un dimanche soir à Metz, vous venez ?',
+      a: "Oui. Un refoulement d'eaux usées ou des WC bouchés dans un logement occupé ne peuvent pas attendre le lundi. Nous répondons tous les jours, à Metz comme dans les villages à une trentaine de kilomètres.",
     },
     {
       q: 'Faut-il casser un mur ou creuser pour déboucher une canalisation ?',

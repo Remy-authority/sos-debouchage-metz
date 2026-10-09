@@ -157,8 +157,8 @@ export function Hero() {
                 Le prix est annoncé avant qu&apos;on ouvre la mallette.
               </p>
               <p className="mt-3 text-sm leading-relaxed text-sand-300">
-                Vous décrivez le symptôme, nous annonçons la prestation et son tarif. Si ce qu&apos;on
-                trouve sur place change la donne, vous le savez avant, pas après.
+                Vous décrivez le symptôme, nous annonçons la prestation et son tarif. Une surprise dans
+                le tuyau modifie le prix&nbsp;? Vous l&apos;apprenez avant le travail, jamais sur la facture.
               </p>
 
               <div className="mt-8 grid grid-cols-2 gap-4">

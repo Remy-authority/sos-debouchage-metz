@@ -52,8 +52,8 @@ export default function ConseilsListing() {
                 Les premiers articles arrivent bientôt
               </p>
               <p className="mt-4 leading-relaxed text-sand-600">
-                En attendant, une question sur une canalisation qui s&apos;écoule mal&nbsp;? Appelez,
-                on vous répond directement.
+                Un évier qui gargouille ou un WC qui se vide lentement&nbsp;? Un appel, et vous avez
+                la réponse de vive voix.
               </p>
               <a
                 href={`tel:${siteConfig.phone}`}

@@ -201,7 +201,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
       <CtaBanner
         title={`${service.navTitle} à ${siteConfig.city} ?`}
-        subtitle="Appelez pour une estimation immédiate, ou décrivez la situation en ligne et nous vous rappelons."
+        subtitle="Un appel donne le prix tout de suite. Sinon, laissez trois mots sur votre souci, nous rappelons."
       />
     </>
   )

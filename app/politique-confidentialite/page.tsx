@@ -18,7 +18,7 @@ export default function PolitiqueConfidentialite() {
   return (
     <LegalPage
       title="Politique de confidentialité"
-      subtitle="Ce que deviennent les informations que vous nous transmettez."
+      subtitle="Votre nom, votre numéro et votre message, où ils vont et combien de temps."
     >
       <section>
         <h2>Responsable du traitement</h2>

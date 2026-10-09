@@ -29,15 +29,15 @@ export default function ZonesHub() {
       a: `Nous intervenons à ${city} (tous les quartiers : ${serviceArea.districts.slice(0, 6).join(', ')} et les autres) et dans les communes de l'agglomération dans un rayon d'environ ${serviceArea.radiusKm} km : ${names.join(', ')}.`,
     },
     {
-      q: 'Ma commune ne figure pas dans la liste, intervenez-vous quand même ?',
+      q: "Mon village autour de Metz n'a pas de page, venez-vous aussi ?",
       a: `La liste ci-dessus regroupe les communes qui ont une page dédiée, mais notre zone est plus large. Nous couvrons ${city} et ses environs dans un rayon d'environ ${serviceArea.radiusKm} km. En cas de doute sur votre secteur, appelez-nous : nous vous répondons tout de suite.`,
     },
     {
       q: `Le délai est-il plus long en dehors de ${city} ?`,
-      a: "Le délai dépend surtout du planning en cours, pas de la distance : les communes de l'agglomération sont toutes à quelques minutes de route. Nous vous annonçons un créneau réaliste au moment de l'appel plutôt qu'une promesse générique.",
+      a: "Toutes ces communes sont à quelques minutes de Metz, ce sont donc nos chantiers du moment qui fixent l'heure de passage. Elle vous est donnée pendant l'appel, telle que nous pouvons la tenir.",
     },
     {
-      q: 'Le déplacement dans une commune voisine est-il facturé en plus ?',
+      q: 'Le trajet hors de Metz coûte-t-il un supplément ?',
       a: `Le tarif que nous annonçons au téléphone couvre l'intervention dans notre zone autour de ${city}. S'il devait y avoir un supplément lié à un secteur particulièrement éloigné, vous le sauriez avant de nous engager, pas au moment de la facture.`,
     },
   ]

@@ -19,8 +19,8 @@ export default function CGU() {
       <section>
         <h2>1. Acceptation</h2>
         <p>
-          En consultant ce site, vous acceptez les présentes conditions générales
-          d&apos;utilisation. Si vous les refusez, il vous appartient de ne pas utiliser le site.
+          Naviguer sur {siteConfig.businessName} revient à accepter les règles ci-dessous. Une
+          personne qui ne les accepte pas doit quitter le site et ne pas s&apos;en servir.
         </p>
       </section>
       <section>
@@ -35,33 +35,32 @@ export default function CGU() {
       <section>
         <h2>3. Demandes envoyées via le site</h2>
         <p>
-          L&apos;envoi d&apos;une demande via le formulaire ne vaut ni commande ni engagement
-          contractuel. Elle déclenche une prise de contact, à l&apos;issue de laquelle une
-          prestation peut être proposée, acceptée ou refusée par l&apos;une ou l&apos;autre partie.
+          Remplir le formulaire de débouchage ne vous engage à rien et ne passe aucune commande.
+          Nous vous rappelons, nous parlons de votre canalisation, et chacun reste libre de donner
+          suite ou non à l&apos;intervention proposée.
         </p>
       </section>
       <section>
         <h2>4. Contenus des conseils</h2>
         <p>
-          Les articles de la rubrique conseils sont des informations générales. Ils ne remplacent
-          pas un diagnostic sur place. Aucune responsabilité ne saurait être engagée en cas de
-          dommage résultant de la mise en oeuvre d&apos;un geste décrit sans vérification préalable
-          de la situation réelle.
+          Nos conseils sur les WC, éviers et regards décrivent des cas courants, pas votre réseau
+          à vous. Un geste appliqué sans avoir vérifié l&apos;état réel de la canalisation se fait
+          sous votre seule responsabilité, l&apos;éditeur ne pouvant en répondre.
         </p>
       </section>
       <section>
         <h2>5. Responsabilité</h2>
         <p>
-          L&apos;éditeur met tout en oeuvre pour assurer l&apos;exactitude des informations
-          publiées, sans garantie d&apos;exhaustivité. Il ne peut être tenu responsable des dommages
-          indirects résultant de l&apos;utilisation du site ou d&apos;une interruption de service.
+          Les pages sont relues avec soin, sans prétendre couvrir tous les cas. Une panne du site,
+          une page indisponible ou un usage indirect de son contenu n&apos;ouvrent droit à aucune
+          indemnité de la part de l&apos;éditeur.
         </p>
       </section>
       <section>
         <h2>6. Droit applicable</h2>
         <p>
-          Les présentes conditions sont régies par le droit français. Tout litige relève de la
-          compétence des tribunaux français.
+          Ces règles relèvent du droit français, et un désaccord sur leur application se règle
+          devant les juridictions françaises.
         </p>
       </section>
     </LegalPage>

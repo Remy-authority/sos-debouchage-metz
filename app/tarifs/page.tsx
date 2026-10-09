@@ -313,7 +313,7 @@ export default function TarifsPage() {
             <span className="text-gradient-accent">de sortir le matériel.</span>
           </>
         }
-        subtitle="Décrivez le symptôme en deux phrases. Nous vous disons quelle prestation s'impose, ce qu'elle coûte et sous quel délai nous pouvons passer."
+        subtitle="Décrivez le symptôme en deux phrases. En retour, vous savez quel matériel il faut, à quel prix et à quelle heure nous arrivons."
       />
     </>
   )

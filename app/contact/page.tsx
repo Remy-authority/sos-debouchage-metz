@@ -44,8 +44,8 @@ const contactFaq = [
     a: "Quel appareil est touché (WC, évier, douche, regard, colonne), depuis quand, si une seule ou plusieurs évacuations sont concernées, si vous avez un regard de visite accessible, et si vous êtes locataire, propriétaire ou syndic. Avec ces cinq éléments, nous savons dans quelle prestation vous êtes et nous annonçons son tarif avant de nous déplacer.",
   },
   {
-    q: 'Répondez-vous le soir, le week-end et les jours fériés ?',
-    a: "Oui, la ligne est ouverte 7j/7 pour les urgences sur Metz et les communes de l'agglomération. Un refoulement d'eaux usées dans un logement occupé ne peut pas attendre le lundi.",
+    q: "Un dimanche ou un soir de fête, quelqu'un répond ?",
+    a: "Oui, à toute heure, pour Metz et toute l'agglomération. Un refoulement d'eaux usées dans un logement occupé ne peut pas attendre le lundi.",
   },
   {
     q: 'Que se passe-t-il après l\u2019envoi du formulaire ?',
@@ -78,9 +78,9 @@ export default function ContactPage() {
             <AnimatedSection>
               <h2 className="text-3xl">Nous joindre</h2>
               <p className="mt-4 leading-relaxed text-sand-600">
-                Une canalisation qui refoule ne se décrit pas bien par écrit. Si l&apos;eau monte,
-                appelez : c&apos;est plus rapide et nous pouvons vous guider tout de suite sur les
-                gestes à faire en attendant.
+                Une canalisation qui refoule ne se décrit pas bien par écrit. Quand le niveau
+                grimpe dans la cuvette ou la douche, un coup de fil va plus vite, et nous vous
+                expliquons de vive voix quoi couper et quoi protéger.
               </p>
             </AnimatedSection>
 

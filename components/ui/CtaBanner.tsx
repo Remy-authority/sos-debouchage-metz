@@ -44,7 +44,7 @@ export function CtaBanner({
 
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-sand-300">
               {subtitle ??
-                "Décrivez le symptôme en deux phrases. Nous vous disons quelle prestation s'impose, ce qu'elle coûte et sous quel délai nous pouvons passer."}
+                "Décrivez le symptôme en deux phrases. Furet, hydrocureur ou caméra, nous vous disons lequel il faut, son prix et quand nous passons."}
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
