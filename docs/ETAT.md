@@ -1,7 +1,7 @@
 # ETAT.md — Journal de bord SOS Débouchage Metz
 
 > Mémoire du projet. Chaque session lit ce fichier en arrivant et le met à jour avant de finir.
-> Dernière mise à jour : 2026-07-27 (session Autoblog lot T3 : 30 nouveaux drafts, réserve à 80 articles ≈ 6 mois).
+> Dernière mise à jour : 2026-10-10 (mise à jour scrollytelling, aperçu complet sur branche, contrôles au vert).
 
 ---
 
@@ -443,3 +443,21 @@ ce site :**
   déjà enregistrées dans Rank OS pour ce site, arrivées par mail direct sur `contact@`. Seul le
   chemin « formulaire du site vers Resend » n'a jamais été emprunté par personne, c'est ce que
   mesure le contrôle. La preuve viendra du premier vrai client qui remplira le formulaire.
+- **10/10/2026 (CEO du site, mise à jour scrollytelling, branche `maj/scrollytelling-2026-10`, PAS sur main)** :
+  accueil entier VALIDÉ par Rémy le 10/10 (« absolument exceptionnel »), renvoi vers les tarifs
+  sous les prestations retiré à sa demande. Puis, sur son « oui go » : pages Marly et Woippy,
+  titres et descriptions des 16 pages dans les limites, 18 brouillons neufs (097 à 114, 66 en
+  réserve), anti-copie remis à zéro (articles, zones, pages légales, FAQ réécrites), deux-points
+  retirés des titres d'articles et des phrases courtes, lignes équilibrées (`text-wrap: balance`),
+  colonnes du bloc 1 et de la carte alignées en hauteur (comme Lorraine et Poitou).
+  **Série au commit `d105e3b`** (via `controle.sh`) : design « AUCUN DÉFAUT », blocs-pages,
+  navigation, visuels-articles, texte (accueil et pages intérieures) et footprint, tous CODE 0.
+  `tsc` CODE 0. Vitesse mobile (médiane de 3, en alternance) : aperçu 85 contre 81 en production.
+  Garde-fou #R68 : seule baisse, « sos debouchage » sur l'accueil (5 à 4 occurrences), acceptée.
+  Promesse 24h/24 7j/7 GARDÉE (Rémy 10/10). Chaîne de contact intacte (route, champs envoyés,
+  destinataires, 09 39 20 03 10), formulaire non testé (partenaire payant).
+  **Reste** : photos de tête des 12 pages de zone (des rues, #R60 demande la prestation ;
+  ~0,60 $ d'images, 0,23 $ restants sur le budget, GO de Rémy à demander) ; au GO de mise en
+  ligne : merge `origin/main`, `check-fin-de-site.py` et `check-googlebot.py`, Rank OS (entrée
+  `travaux`, `autoblogEndsAt` recalculée sur 66 brouillons à 5 par semaine, capture, pages à
+  indexer).
