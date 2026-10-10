@@ -464,7 +464,10 @@ ce site :**
   blocs-pages, navigation, visuels-articles, texte et footprint CODE 0. Nouvelle photo de Marly
   vérifiée sur l'aperçu Vercel ; À REVÉRIFIER sur le domaine après la mise en ligne (cache
   d'images de Vercel).
-  **Reste** : au GO de mise en
-  ligne : merge `origin/main`, `check-fin-de-site.py` et `check-googlebot.py`, Rank OS (entrée
-  `travaux`, `autoblogEndsAt` recalculée sur 66 brouillons à 5 par semaine, capture, pages à
-  indexer).
+  **EN LIGNE le 10/10/2026** (GO Rémy « ok parfait go en ligne ») : main avancé sur `f9bbed7`,
+  déploiement Production vérifié (curl 200, titles servis, « Être rappelé » présent, photo de
+  Marly neuve sur le domaine). `check-googlebot.py https://www.sos-debouchage-metz.fr` CODE 0.
+  `check-fin-de-site.py www.sos-debouchage-metz.fr` : 1 défaut, le même qu'avant (Resend, test du
+  formulaire refusé par Rémy le 20/09 pour ne pas déranger le partenaire payant).
+  Rank OS (`bcaee9dd`, déployé) : entrée `travaux` 3 → 9, capture refaite, 12 pages à indexer,
+  `autoblogEndsAt` 2027-01-11 (66 brouillons à 5 par semaine), tâche « Mettre à jour Metz » cochée.
