@@ -456,8 +456,15 @@ ce site :**
   Garde-fou #R68 : seule baisse, « sos debouchage » sur l'accueil (5 à 4 occurrences), acceptée.
   Promesse 24h/24 7j/7 GARDÉE (Rémy 10/10). Chaîne de contact intacte (route, champs envoyés,
   destinataires, 09 39 20 03 10), formulaire non testé (partenaire payant).
-  **Reste** : photos de tête des 12 pages de zone (des rues, #R60 demande la prestation ;
-  ~0,60 $ d'images, 0,23 $ restants sur le budget, GO de Rémy à demander) ; au GO de mise en
+  **Photos des 12 communes** (GO Rémy 10/10 « ok go », +0,60 $) : la photo de tête montre
+  désormais le débouchage lui-même, un geste et un décor différents par commune (furet dans le
+  WC à Marly, siphon de cuisine à Montigny, camion de curage à Augny, caméra à Plappeville…).
+  15 tirages nano-banana, 2 refaits (furet posé au sol, bras sortant du mur), 0,60 $ dépensés,
+  budget images épuisé (1,12 $ au total). Commit `83cd29b` : série complète refaite, design,
+  blocs-pages, navigation, visuels-articles, texte et footprint CODE 0. Nouvelle photo de Marly
+  vérifiée sur l'aperçu Vercel ; À REVÉRIFIER sur le domaine après la mise en ligne (cache
+  d'images de Vercel).
+  **Reste** : au GO de mise en
   ligne : merge `origin/main`, `check-fin-de-site.py` et `check-googlebot.py`, Rank OS (entrée
   `travaux`, `autoblogEndsAt` recalculée sur 66 brouillons à 5 par semaine, capture, pages à
   indexer).
