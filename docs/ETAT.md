@@ -1,7 +1,25 @@
 # ETAT.md — Journal de bord SOS Débouchage Metz
 
 > Mémoire du projet. Chaque session lit ce fichier en arrivant et le met à jour avant de finir.
-> Dernière mise à jour : 2026-10-10 (mise à jour scrollytelling, aperçu complet sur branche, contrôles au vert).
+> Dernière mise à jour : 2026-11-06 (articles à 7 par semaine, GO Rémy 05/11).
+
+---
+
+## 📰 06/11/2026 : ARTICLES À 7 PAR SEMAINE (GO Rémy 05/11, kickoff tasks/KICKOFF-articles-7-semaine-debouchage-metz-05-11.md)
+
+- AVANT (Search Console 28 j) : site 9 clics, 460 impressions, position 25,8 ; articles 3 clics, 184 impressions,
+  position 14,2 (33 pages) ; 73 pages indexées sur 94. Point zéro pour comparer début décembre.
+- Stock : ancien stock retiré (41 brouillons courts + 5 brouillons de ville), 93 brouillons neufs 101-193
+  (calendrier docs/CALENDRIER-EDITORIAL.md), travaux facturables de Débouche Canalisation (Kevin Wetzel) d'abord.
+  1 article de ville publié supprimé, 301 vers /conseils/curage-preventif-canalisation-frequence (servi en 308).
+- Robot : cron `17 5 * * *` (1 par jour), `npm ci` avant, `scripts/verifier-brouillon.mjs` refuse un brouillon
+  hors limites (title 30-60, description 120-160, 3 FAQ, 600 mots, pas de tiret cadratin, pas d'image d'avance).
+- Images : `config/image-style.json` réécrit en termes POSITIFS le 06/11 : FLUX ne comprend pas la négation,
+  « never a flooded room » lui faisait dessiner des sols inondés (2 images du 1er article refusées puis régénérées).
+- Contrôles : footprint CODE 0 OK (f684bdb), visuels-articles CODE 0 (f684bdb), fin-de-site 2 défauts hors
+  chantier (test Resend refusé par Rémy le 20/09 ; déploiement Rank OS, voir compte rendu).
+- Premier article publié par le robot (run 42125311538) : /conseils/chemisage-canalisation-principe-prix-ou-tranchee,
+  200, images vues. Réserve : 92 brouillons, fin le 05/02/2027. Rank OS à jour (0d537437b), tâche A7 cochée.
 
 ---
 

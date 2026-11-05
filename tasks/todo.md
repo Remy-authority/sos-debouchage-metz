@@ -1,5 +1,13 @@
 # tasks/todo.md — SOS Débouchage Metz
 
+## 06/11/2026 : articles à 7 par semaine (GO Rémy 05/11) : FAIT
+- [x] Data Search Console, calendrier 93 brouillons, doublons et articles de ville traités
+- [x] Rédaction, relecture à froid de 10 (6 corrigés), anti-copie CODE 0
+- [x] Robot 1 par jour, test de publication, images vues (consigne réécrite en positif)
+- [x] Rank OS : 7 par semaine, réserve au 05/02/2027, travaux, tâche A7 cochée
+- [ ] Début décembre : comparer les articles au point zéro (3 clics, 184 vues, position 14,2 sur 28 j)
+- [ ] Regarder les images des 3 prochains articles publiés (consigne positive à confirmer)
+
 ## Session du 10/10/2026 : MISE À JOUR COMPLÈTE (GO Rémy 10/10, niveau forage Poitou et Lorraine)
 
 Objectif : aperçu complet pour le 13/10 au soir (bilan d'essai Eco Assainissement le 14/10).
