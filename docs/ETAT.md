@@ -16,8 +16,8 @@
   hors limites (title 30-60, description 120-160, 3 FAQ, 600 mots, pas de tiret cadratin, pas d'image d'avance).
 - Images : `config/image-style.json` réécrit en termes POSITIFS le 06/11 : FLUX ne comprend pas la négation,
   « never a flooded room » lui faisait dessiner des sols inondés (2 images du 1er article refusées puis régénérées).
-- Contrôles : footprint CODE 0 OK (f684bdb), visuels-articles CODE 0 (f684bdb), fin-de-site 2 défauts hors
-  chantier (test Resend refusé par Rémy le 20/09 ; déploiement Rank OS, voir compte rendu).
+- Contrôles : footprint CODE 0 OK (f684bdb), visuels-articles CODE 0 (f684bdb), fin-de-site CODE 1 (1705849),
+  1 seul défaut connu hors chantier : test Resend refusé par Rémy le 20/09.
 - Premier article publié par le robot (run 42125311538) : /conseils/chemisage-canalisation-principe-prix-ou-tranchee,
   200, images vues. Réserve : 92 brouillons, fin le 05/02/2027. Rank OS à jour (0d537437b), tâche A7 cochée.
 
