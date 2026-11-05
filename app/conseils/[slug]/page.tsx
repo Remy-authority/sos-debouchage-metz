@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import remarkGfm from 'remark-gfm'
 import { Clock } from 'lucide-react'
 import {
   getArticle,
@@ -112,7 +113,11 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
           )}
 
           <div className="article-prose">
-            <MDXRemote source={article.content} components={mdxComponents} />
+            <MDXRemote
+              source={article.content}
+              components={mdxComponents}
+              options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+            />
           </div>
 
           {linked.length > 0 && (

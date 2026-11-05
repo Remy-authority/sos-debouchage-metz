@@ -1,9 +1,10 @@
 /**
  * publish-next-draft.mjs — publie le plus ancien article en attente.
  *
- * Appelé par .github/workflows/publish-article.yml (lun/mer/ven).
+ * Appelé par .github/workflows/publish-article.yml (chaque jour, 7 par semaine depuis le 05/11/2026).
  * Logique :
- *  1. Liste content/drafts/*.mdx, tri alphabétique (préfixes 001-, 002-… => le plus petit d'abord).
+ *  1. Liste content/drafts/*.mdx, tri alphabétique (préfixes 001-, 002-… => le plus petit d'abord),
+ *     et prend le premier brouillon conforme (verifier-brouillon.mjs) ; aucun conforme = échec.
  *  2. Si vide : log un avertissement clair et sort en succès (exit 0), sans rien publier.
  *  3. Sinon : déplace le 1er draft vers content/conseils/ en retirant le préfixe numérique,
  *     met `date:` du frontmatter à la date du jour (Europe/Paris), déplace un éventuel dossier
@@ -14,6 +15,7 @@
  */
 import fs from 'node:fs'
 import path from 'node:path'
+import { verifierBrouillon } from './verifier-brouillon.mjs'
 
 const ROOT = process.cwd()
 const DRAFTS = path.join(ROOT, 'content', 'drafts')
@@ -43,7 +45,16 @@ if (drafts.length === 0) {
   process.exit(0)
 }
 
-const draftFile = drafts[0]
+const draftFile = drafts.find((f) => {
+  const defauts = verifierBrouillon(fs.readFileSync(path.join(DRAFTS, f), 'utf8'), path.join(DRAFTS, f))
+  if (defauts.length) console.error(`::error::${f} refusé : ${defauts.join(' ; ')}`)
+  return defauts.length === 0
+})
+if (!draftFile) {
+  console.error('::error::Aucun brouillon conforme dans content/drafts/. Publication annulée.')
+  setOutput('published', 'false')
+  process.exit(1)
+}
 const draftBase = draftFile.replace(/\.mdx$/, '')
 const targetFile = draftFile.replace(/^\d+[-_]/, '') // retire le préfixe 001- / 002_
 const srcPath = path.join(DRAFTS, draftFile)
@@ -66,15 +77,6 @@ if (!fmMatch) {
 }
 let fm = fmMatch[1]
 
-// Règle #R50 : un brouillon dont le title servi (30-60 caractères) ou la description
-// (120-160) sort des limites n'est jamais publié.
-const champ = (k) => (fm.match(new RegExp(`^${k}:\\s*"(.*)"\\s*$`, 'm')) || [])[1] || ''
-const lt = [...champ('title')].length
-const ld = [...champ('description')].length
-if (lt < 30 || lt > 60 || ld < 120 || ld > 160) {
-  console.error(`::error::${draftFile} hors limites (title ${lt} caractères, attendu 30-60 ; description ${ld}, attendu 120-160). Publication annulée.`)
-  process.exit(1)
-}
 if (/^date:.*$/m.test(fm)) {
   fm = fm.replace(/^date:.*$/m, `date: "${today}"`)
 } else {

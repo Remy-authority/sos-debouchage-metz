@@ -1,16 +1,16 @@
 name: Publier un article (autoblog)
 
-# Publie automatiquement le plus ancien article de content/drafts/ du lundi au vendredi.
+# Publie automatiquement chaque jour le plus ancien article conforme de content/drafts/.
 # Le push sur main déclenche le redéploiement Vercel. Cadence portée de 3 à 5 par semaine
-# le 20/09/2026 (décision Rémy).
+# le 20/09/2026, puis à 7 par semaine le 05/11/2026 (décisions Rémy).
 #
-# Fuseau : cron GitHub = UTC. On tire à 05:00 UTC toute l'année (~7h à Paris en été,
-# ~6h en hiver). L'heure exacte n'est pas critique, on ne gère donc pas le DST.
+# Fuseau : cron GitHub = UTC. On tire à 05:17 UTC toute l'année (~7h17 à Paris en été,
+# ~6h17 en hiver). L'heure exacte n'est pas critique, on ne gère donc pas le DST.
 
 on:
   schedule:
-    - cron: '17 5 * * 1-5' # du lundi au vendredi à 05:17 UTC (minute décalée le 29/08/2026 : GitHub saute les crons à l'heure pile)
-  workflow_dispatch: {} # déclenchement manuel (test immédiat, sans attendre lundi)
+    - cron: '17 5 * * *' # 7 articles par semaine, Rémy 05/11/2026 (chaque jour à 05:17 UTC ; minute décalée le 29/08/2026 : GitHub saute les crons à l'heure pile)
+  workflow_dispatch: {} # déclenchement manuel (test immédiat, sans attendre le lendemain)
 
 # Le GITHUB_TOKEN doit pouvoir committer/pusher sur main.
 permissions:
@@ -36,13 +36,13 @@ jobs:
         with:
           node-version: 20
 
-      - name: Publier le plus ancien draft
+      # Avant la publication : le contrôle des brouillons (verifier-brouillon.mjs) lit gray-matter.
+      - name: Installer les dependances
+        run: npm ci --no-audit --no-fund
+
+      - name: Publier le plus ancien draft conforme
         id: pub
         run: node scripts/publish-next-draft.mjs
-
-      - name: Installer les dependances
-        if: steps.pub.outputs.published == 'true'
-        run: npm ci --no-audit --no-fund
 
       # Genere la couverture manquante et le visuel de corps de l'article qui vient d'etre
       # publie (recette RENT & RANK/docs/RECETTE-VISUELS-ARTICLES.md). Si la generation

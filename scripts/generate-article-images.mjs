@@ -78,6 +78,7 @@ let body = raw.slice(finFrontmatter + 4)
 /** Prompt commun : ancrage local + consignes de rendu. */
 function habillerPrompt(scene) {
   return [
+    ...(style.sujetImpose ? [style.sujetImpose] : []),
     `Photographie documentaire professionnelle, réaliste, haute qualité.`,
     `Sujet : ${scene}`,
     `Lieu : ${style.contexte}. Décor, matériaux et architecture cohérents avec cette région française.`,
