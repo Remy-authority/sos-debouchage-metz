@@ -1,11 +1,11 @@
 {
-  "_comment": "Mentions légales. Éditeur = société propriétaire du site (DYONISOS LTD, droit UK), données réelles fournies par Rémy. L'éditeur du site n'est PAS le prestataire des interventions : les infos de l'artisan (assurance RC pro / décennale) seront ajoutées à la location. Ne jamais inventer de valeurs. Hébergeur (Vercel) pré-rempli. emailContact et telephone sont en DEMO tant que Rémy n'a pas fourni la ligne dédiée du site.",
+  "_comment": "Mentions légales. Éditeur = société propriétaire du site (LEGIONIS LTD, droit UK), données réelles fournies par Rémy. L'éditeur du site n'est PAS le prestataire des interventions : les infos de l'artisan (assurance RC pro / décennale) seront ajoutées à la location. Ne jamais inventer de valeurs. Hébergeur (Vercel) pré-rempli. emailContact et telephone sont en DEMO tant que Rémy n'a pas fourni la ligne dédiée du site.",
   "editeur": {
-    "raisonSociale": "DYONISOS LTD",
+    "raisonSociale": "LEGIONIS LTD",
     "formeJuridique": "Private Limited Company (société à responsabilité limitée de droit anglais)",
-    "numeroImmatriculation": "14807222",
+    "numeroImmatriculation": "17580608",
     "registre": "Companies House (Royaume-Uni)",
-    "adresse": "67 Eastover Road, High Littleton, Bristol, BS39 6HZ, Royaume-Uni",
+    "adresse": "82a James Carter Road, Mildenhall, IP28 7DE, Royaume-Uni",
     "directeurPublication": "Remy Zaoui",
     "emailContact": "contact@sos-debouchage-metz.fr",
     "telephone": "09 39 20 03 10"
@@ -22,7 +22,7 @@
     "contact": "privacy@vercel.com"
   },
   "confidentialite": {
-    "responsableTraitement": "DYONISOS LTD, éditeur du site.",
+    "responsableTraitement": "LEGIONIS LTD, éditeur du site.",
     "finalite": "Traitement des demandes de contact et d'intervention envoyées via le formulaire du site.",
     "baseLegale": "Consentement de la personne concernée (art. 6.1.a RGPD).",
     "donneesCollectees": [
