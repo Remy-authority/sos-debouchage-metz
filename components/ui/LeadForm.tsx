@@ -279,6 +279,11 @@ export function LeadForm({ variante = 'standard' }: LeadFormProps) {
     titreRef.current?.focus({ preventScroll: true })
   }, [step])
 
+  // Étape atteinte, comptée par `SuiviVisite` (Rémy 13/11/2026 : savoir à quelle étape on abandonne).
+  useEffect(() => {
+    if (step > 1) window.dispatchEvent(new CustomEvent('rr-etape', { detail: step }))
+  }, [step])
+
   function set<K extends keyof Fields>(key: K, value: Fields[K]) {
     setFields((prev) => ({ ...prev, [key]: value }))
   }
@@ -322,6 +327,7 @@ export function LeadForm({ variante = 'standard' }: LeadFormProps) {
 
   return (
     <div
+      data-clic-formulaire
       className={`relative rounded-[3px] bg-ink-950 text-center text-white shadow-[0_24px_60px_-20px_rgb(0_0_0/0.55)] lg:text-left ${hero ? 'p-5 md:p-6' : 'p-6 md:p-8'}`}
       role="region"
       aria-label="Formulaire de demande"
