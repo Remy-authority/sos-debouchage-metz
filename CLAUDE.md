@@ -22,6 +22,12 @@
 
 ---
 
+## 0 bis. ATELIER ET NOTE GOOGLE
+
+- Atelier affiché (Rémy 22/11/2026) : si le partenaire part, vider `atelier` dans `config/site.config.ts` le jour même. Note Google relue à chaque mise à jour : sous 4,5 ou sous 15 avis, elle se retire.
+
+---
+
 ## 1. CONTEXTE DU PROJET
 
 - **Modèle économique : rank & rent.** On construit un site local, on le classe en SEO

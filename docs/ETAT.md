@@ -1,7 +1,26 @@
 # ETAT.md — Journal de bord SOS Débouchage Metz
 
 > Mémoire du projet. Chaque session lit ce fichier en arrivant et le met à jour avant de finir.
-> Dernière mise à jour : 2026-11-06 (articles à 7 par semaine, GO Rémy 05/11).
+> Dernière mise à jour : 2026-11-22 (atelier affiché, note Google, carte 40 km, GO Rémy 22/11).
+
+---
+
+## 📍 22/11/2026 : ATELIER AFFICHÉ, NOTE GOOGLE, CARTE 40 KM (GO Rémy 22/11, en ligne main 063b105)
+
+- Un seul réglage `atelier` dans `config/site.config.ts` (rue sans numéro, ville, point, note, avis, date du relevé).
+  Vide = plus rien ne s'affiche nulle part. Aucune donnée structurée d'avis, aucun nom de partenaire, aucun lien Google.
+- Note Google sur UNE ligne (Rémy, tour 4) : logo G + « 5,0 sur 5 · 50 avis clients », affichée seulement si
+  4,5 et 15 avis au moins (`components/ui/Atelier.tsx`). Relevé du 22/11/2026.
+- Carte du secteur refaite (#R60) : 651 communes à 40 km toutes en vert, noms écrits, point lumineux de l'atelier
+  sans étiquette, une ligne dessous « Notre atelier, rue Victor Poulain, Woippy ». Générateur
+  `scripts/carte-secteur.py` (contours geo.api.gouv.fr 57, 54, 55, ~8 min) ; rayon 30 km passé à 40 km partout.
+- Accueil retouché à la demande de Rémy : formulaire dans le bloc 1 au téléphone, formulaire court (#R84),
+  second formulaire tout en bas juste au-dessus du pied de page, pied de page compact, colonnes alignées.
+- Contrôles au commit 063b105 : audit-design CODE 0 « AUCUN DÉFAUT », check-navigation CODE 0, check-texte CODE 0.
+  En ligne : curl 200 avec le vrai titre ; `check-fin-de-site.py www.sos-debouchage-metz.fr` CODE 0 « OK : contrôle
+  SEO et GEO complet, aucun défaut ». ATTENTION : lancer le contrôle sur l'hôte www (l'apex répond 308 vers www,
+  ce qui donne 2 faux défauts : accueil 308 et clé IndexNow 308).
+- Indexation non demandée (consigne du kickoff).
 
 ---
 
