@@ -396,7 +396,7 @@ export function HeroPlongee() {
             canalisation <span className="text-brand-700">à {siteConfig.city}</span>
           </span>
         </h1>
-        <p className="mx-auto mt-3 max-w-[22rem] text-[15.5px] leading-snug text-ink-900/85 [text-wrap:balance] sm:max-w-[26rem] sm:text-base lg:mx-0 lg:mt-5 lg:max-w-[27rem] lg:text-[18px]">
+        <p className="mx-auto mt-3 max-w-[22rem] text-[15.5px] leading-snug text-ink-900/85 max-[359px]:text-[14px] [text-wrap:balance] sm:max-w-[26rem] sm:text-base lg:mx-0 lg:mt-5 lg:max-w-[27rem] lg:text-[18px]">
           WC ou évier bouché ? Nous débouchons sans casse,{' '}
           <span className="whitespace-nowrap font-semibold text-[#15803D]">{siteConfig.availability}</span>.
         </p>
