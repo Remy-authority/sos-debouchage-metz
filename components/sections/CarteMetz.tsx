@@ -60,7 +60,7 @@ export function CarteMetz() {
           }
         />
 
-        <div className="mt-10 grid items-center gap-8 lg:mt-14 lg:grid-cols-[1.45fr_1fr] lg:gap-14">
+        <div className="mt-10 grid items-start gap-8 lg:mt-14 lg:grid-cols-[1.45fr_1fr] lg:gap-14">
           <figure className="m-0">
             <TraceAuDefilement className="carte-secteur mx-auto w-full max-w-[620px]">
               <div
