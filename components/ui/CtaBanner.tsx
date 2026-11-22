@@ -20,8 +20,8 @@ export function CtaBanner({
 }) {
   return (
     <section id="appel" aria-labelledby="appel-titre" className="bg-sand-100 py-16 lg:py-24">
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 sm:px-6 lg:grid-cols-[minmax(0,1fr)_28rem] lg:gap-16 lg:px-10">
-        <AnimatedSection className="text-center lg:text-left">
+      <div className="mx-auto grid max-w-7xl items-stretch gap-10 px-5 sm:px-6 lg:grid-cols-[minmax(0,1fr)_28rem] lg:gap-16 lg:px-10">
+        <AnimatedSection className="text-center lg:flex lg:flex-col lg:items-start lg:justify-center lg:text-left">
           <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-accent-600">
             Devis gratuit · {siteConfig.availability}
           </p>
