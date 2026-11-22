@@ -1,9 +1,10 @@
 'use client'
 
-import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type MouseEvent, type Ref } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type Ref } from 'react'
 import * as ReactDOM from 'react-dom'
-import { LeadForm } from '@/components/ui/LeadForm'
-import { LigneAtelier } from '@/components/ui/Atelier'
+import { flushSync } from 'react-dom'
+import { EVENEMENT_TOUCHE, LeadForm } from '@/components/ui/LeadForm'
+import { NoteGoogle } from '@/components/ui/Atelier'
 import { AXE, CADRE, CSS_COUPE, CoupeMetz, HAUTEUR_PHOTO, LARGEUR, PIED_WC, P_COUPE_COMPLETE, ajusterCoupe, poserCoupe } from '@/components/ui/CoupeMetz'
 import { siteConfig } from '@/config/site.config'
 
@@ -13,8 +14,9 @@ import { siteConfig } from '@/config/site.config'
  * sous son carrelage. Cinq temps, pilotés par le défilement :
  *
  *  1. ÉCRAN 1   une salle de bain claire, le WC suspendu, la mallette de la caméra d'inspection
- *               ouverte sur une bâche ; le titre sur le mur, deux boutons, le formulaire noir.
- *               Téléphone : la photo calée en bas, son mur prolongé jusqu'en haut de l'écran.
+ *               ouverte sur une bâche ; le titre sur le mur, la note Google, le formulaire.
+ *               Téléphone : la photo calée en bas, son mur prolongé jusqu'en haut de l'écran, le
+ *               formulaire DANS l'écran 1, sous le titre, sans boutons (Rémy 22/11/2026, #R84).
  *  2. AVANCÉE   texte et formulaire s'effacent, la caméra s'approche du pied du WC.
  *  3. PLONGÉE   le sol s'ouvre au pied du mur, couche après couche ; le tuyau du WC descend,
  *               file sous la façade en pierre de Jaumont et sous la pelouse.
@@ -28,6 +30,9 @@ import { siteConfig } from '@/config/site.config'
  * DOM, jamais un rendu React. La photo de l'écran 1 est le premier rendu du serveur (LCP).
  * Repli (« réduire les animations », économie de données, réseau lent) : l'écran 1 fixe, puis la
  * coupe complète, fixe, juste dessous.
+ * FORMULAIRE TOUCHÉ = FILM ARRÊTÉ pour de bon (#R84, modèle SOS Chauffage Besançon) : au premier
+ * choix fait dans le formulaire du bloc 1, retour à l'écran fixe ; le formulaire garde sa place à
+ * l'écran (défilement compensé) et ne s'efface plus jamais.
  */
 
 /* ---------- Photo ---------- */
@@ -116,7 +121,6 @@ const CSS = `
 .bp-photo1{height:min(58%,calc(100% - 330px))}
 @media (min-width:640px){.bp-photo1{height:68%}}
 .bp[data-seq] .bp-piste{height:380svh}
-@media (max-width:1023px){.bp:not([data-seq]) .bp-form{padding-top:48px}.bp[data-seq] .bp-form{margin-top:-48px;padding-top:0}}
 .bp[data-seq] .bp-scene{position:sticky;top:var(--haut);height:max(calc(100svh - var(--haut)),560px)}
 .bp[data-seq] .bp-texte{position:sticky;top:var(--haut);height:0;z-index:10;pointer-events:none}
 @media (min-width:1024px){
@@ -129,11 +133,6 @@ const CSS = `
 .bp[data-seq] .bp-colle{position:sticky;top:var(--haut)}
 .bp[data-seq] .bp-texte{position:relative;top:auto;height:auto;pointer-events:auto}
 }
-@keyframes bp-appel{0%,100%{transform:rotate(0)}8%{transform:rotate(-14deg)}16%{transform:rotate(12deg)}24%{transform:rotate(-8deg)}32%{transform:rotate(0)}}
-.bp-appel{animation:bp-appel 3.2s ease-in-out infinite;transform-origin:50% 60%}
-@keyframes bp-rappel{0%,55%,100%{transform:translate(0,0)}70%{transform:translate(-2px,2px)}85%{transform:translate(0,0)}}
-.bp-rappel{animation:bp-rappel 2.6s ease-in-out infinite}
-@media (prefers-reduced-motion:reduce){.bp-appel,.bp-rappel{animation:none}}
 ${CSS_COUPE}`
 
 export function HeroPlongee() {
@@ -155,10 +154,29 @@ export function HeroPlongee() {
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const choisir = () => setMode(mq.matches || connexionLente() ? 'repli' : 'sequence')
+    let touche = false
+    const choisir = () => setMode(touche ? 'fixe' : mq.matches || connexionLente() ? 'repli' : 'sequence')
+    const surTouche = (e: Event) => {
+      if (touche) return
+      touche = true
+      const cible = `[data-lead-form="${String((e as CustomEvent).detail)}"]`
+      // Hors du rendu en cours : l'étape 2 est d'abord peinte, puis le bloc change sous elle.
+      window.setTimeout(() => {
+        const avant = document.querySelector(cible)?.getBoundingClientRect().top
+        flushSync(() => setMode('fixe'))
+        const apres = document.querySelector(cible)?.getBoundingClientRect().top
+        if (avant !== undefined && apres !== undefined && Math.abs(apres - avant) > 1) {
+          window.scrollBy({ top: apres - avant, behavior: 'instant' as ScrollBehavior })
+        }
+      }, 0)
+    }
     choisir()
     mq.addEventListener('change', choisir)
-    return () => mq.removeEventListener('change', choisir)
+    window.addEventListener(EVENEMENT_TOUCHE, surTouche)
+    return () => {
+      mq.removeEventListener('change', choisir)
+      window.removeEventListener(EVENEMENT_TOUCHE, surTouche)
+    }
   }, [])
 
   // L'en-tête est fixe : le bloc 1 commence sous lui, à la hauteur mesurée.
@@ -264,7 +282,6 @@ export function HeroPlongee() {
         el.style.visibility = visible < 0.02 ? 'hidden' : ''
         el.style.pointerEvents = visible < 0.6 ? 'none' : ''
       }
-      if (format === 'mobile' && formRef.current) formRef.current.removeAttribute('style')
 
       // Caméra.
       let c: Camera
@@ -348,16 +365,6 @@ export function HeroPlongee() {
     }
   }, [mode])
 
-  // « Être rappelé » : sur ordinateur, le formulaire est déjà là, on y met le focus.
-  const versFormulaire = (e: MouseEvent<HTMLAnchorElement>) => {
-    if (!window.matchMedia('(min-width: 1024px)').matches) return
-    const cible = formRef.current?.querySelector<HTMLInputElement>('input[type="radio"]')
-    if (!cible) return
-    e.preventDefault()
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-    cible.focus({ preventScroll: true })
-  }
-
   const photo = (classe: string, alt = '', style?: CSSProperties, ref?: Ref<HTMLImageElement>, refSource?: Ref<HTMLSourceElement>) => (
     <picture>
       <source ref={refSource} type="image/avif" srcSet={SRCSET_AVIF} sizes={TAILLES_ECRAN1} />
@@ -377,41 +384,25 @@ export function HeroPlongee() {
           <div className="absolute inset-x-0 top-0 h-[10%]" style={{ backgroundImage: MUR, maskImage: 'linear-gradient(180deg,#000,transparent)', WebkitMaskImage: 'linear-gradient(180deg,#000,transparent)' }} />
         </div>
       </div>
-      <div ref={contenuRef} className="relative mx-auto w-full max-w-xl px-5 pb-6 pt-[calc(2rem+19svh)] text-center sm:px-8 sm:pt-12 lg:max-w-none lg:px-0 lg:pb-0 lg:pt-0 lg:text-left">
-        <p className="flex items-center justify-center gap-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-700 lg:justify-start lg:text-[12px]">
-          <span className="hidden h-px w-8 bg-brand-700/60 lg:block" aria-hidden="true" />
+      {/* Téléphone : titre, phrase, note Google et formulaire, centrés ensemble dans l'écran 1. */}
+      <div ref={contenuRef} className="relative mx-auto my-auto w-full max-w-xl px-5 py-6 text-center sm:px-8 lg:my-0 lg:max-w-none lg:px-0 lg:py-0 lg:text-left">
+        <p className="hidden items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-brand-700 lg:flex">
+          <span className="h-px w-8 bg-brand-700/60" aria-hidden="true" />
           SOS canalisation bouchée à {siteConfig.city}
         </p>
-        <h1 id="titre-hero" className="mt-3 font-display text-[clamp(1.7rem,8.2vw,3.3rem)] font-medium leading-[1.06] tracking-tight text-ink-950 lg:mt-4 lg:text-[2.6rem] xl:text-[3rem]">
-          <span className="block whitespace-nowrap">Débouchage canalisation </span>
-          <span className="block whitespace-nowrap text-brand-700">{siteConfig.city}, sans casse</span>
+        <h1 id="titre-hero" className="font-display text-[clamp(1.9rem,9vw,3.3rem)] font-medium leading-[1.04] tracking-tight text-ink-950 lg:mt-4 lg:text-[2.75rem] xl:text-[3.15rem]">
+          <span className="block">Débouchage</span>
+          <span className="block whitespace-nowrap">
+            canalisation <span className="text-brand-700">à {siteConfig.city}</span>
+          </span>
         </h1>
-        <p className="mx-auto mt-3 max-w-[30rem] text-[15px] leading-relaxed text-ink-900/80 sm:text-base lg:mx-0 lg:mt-5 lg:text-[17.5px]">
-          <span className="block text-balance">WC, évier ou regard bouché, {siteConfig.availability}.</span>
+        <p className="mx-auto mt-3 max-w-[22rem] text-[15.5px] leading-snug text-ink-900/85 [text-wrap:balance] sm:max-w-[26rem] sm:text-base lg:mx-0 lg:mt-5 lg:max-w-[27rem] lg:text-[18px]">
+          WC ou évier bouché ? Nous débouchons sans casse,{' '}
+          <span className="whitespace-nowrap font-semibold text-[#15803D]">{siteConfig.availability}</span>.
         </p>
-        <LigneAtelier className="mt-3 lg:mt-4" />
-        <div className="mt-5 grid grid-cols-2 gap-2 sm:mx-auto sm:max-w-md lg:mx-0 lg:mt-8 lg:flex lg:max-w-none lg:gap-2.5">
-          <a
-            href={`tel:${siteConfig.phone}`}
-            className="inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[3px] bg-accent-500 px-3 text-[14px] font-semibold text-white transition hover:bg-accent-400 sm:px-6 sm:text-[15px]"
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="bp-appel h-[18px] w-[18px] shrink-0" aria-hidden="true">
-              <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" />
-            </svg>
-            <span className="lg:hidden">Appeler</span>
-            <span className="hidden lg:inline">{siteConfig.phoneDisplay}</span>
-          </a>
-          <a
-            href="#formulaire"
-            onClick={versFormulaire}
-            className="inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[3px] bg-ink-950 px-3 text-[14px] font-semibold text-white transition hover:bg-ink-800 sm:px-6 sm:text-[15px]"
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-[18px] w-[18px] shrink-0" aria-hidden="true">
-              <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" />
-              <path className="bp-rappel" d="M22 2l-6 6M16 3v5h5" />
-            </svg>
-            Être rappelé
-          </a>
+        <NoteGoogle className="mt-3 lg:mt-5" />
+        <div className="mx-auto mt-5 max-w-md lg:hidden">
+          <LeadForm ecran1 memoire idPrefix="m-" />
         </div>
       </div>
     </div>
@@ -440,12 +431,9 @@ export function HeroPlongee() {
                   </div>
                   <div
                     ref={formRef}
-                    id="formulaire"
-                    className="bp-form relative z-10 order-3 w-full scroll-mt-24 bg-ink-950 pb-12 pt-8 lg:pointer-events-auto lg:col-start-3 lg:flex lg:flex-col lg:justify-center lg:bg-transparent lg:p-0"
+                    className="bp-form relative z-10 hidden w-full lg:pointer-events-auto lg:col-start-3 lg:flex lg:flex-col lg:justify-center"
                   >
-                    <div className="mx-auto w-full max-w-md px-5 sm:px-8 lg:max-w-none lg:px-0">
-                      <LeadForm variante="hero" />
-                    </div>
+                    <LeadForm ecran1 memoire idPrefix="d-" />
                   </div>
                 </div>
               </div>

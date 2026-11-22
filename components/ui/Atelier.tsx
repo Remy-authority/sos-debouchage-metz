@@ -18,10 +18,10 @@ export function adresseAtelier(a: Atelier) {
   return `${a.rue}, ${a.ville}`
 }
 
-/** « 5,0/5 sur Google · 50 avis » (l'étoile est dessinée à part). */
+/** « 5,0/5 · 50 avis » (le logo Google est dessiné à part, aucune étoile : Rémy 22/11/2026). */
 export function noteTexte(a: Atelier & { note: number; avis: number }) {
   const note = a.note.toLocaleString('fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })
-  return `${note}/5 sur Google · ${a.avis} avis`
+  return `${note}/5 · ${a.avis} avis`
 }
 
 /** Petit repère de carte dessiné. */
@@ -41,29 +41,25 @@ export function RepereAtelier({ className = '' }: { className?: string }) {
   )
 }
 
-export function Etoile({ className = '' }: { className?: string }) {
+/** Le « G » de Google, en quatre couleurs. */
+export function LogoGoogle({ className = '' }: { className?: string }) {
   return (
-    <svg viewBox="0 0 16 16" className={className} aria-hidden="true">
-      <path d="M8 1.2l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 12l-4.2 2.2.8-4.7L1.2 6.2l4.7-.7z" fill="#E8A317" />
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path fill="#4285F4" d="M23.5 12.27c0-.85-.08-1.67-.22-2.45H12v4.64h6.45a5.52 5.52 0 0 1-2.4 3.62v3h3.88c2.27-2.09 3.57-5.17 3.57-8.81z" />
+      <path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.94-2.92l-3.88-3c-1.07.72-2.45 1.15-4.06 1.15-3.13 0-5.78-2.11-6.72-4.95H1.27v3.1A12 12 0 0 0 12 24z" />
+      <path fill="#FBBC05" d="M5.28 14.28a7.2 7.2 0 0 1 0-4.56v-3.1H1.27a12 12 0 0 0 0 10.76z" />
+      <path fill="#EA4335" d="M12 4.77c1.76 0 3.34.61 4.59 1.8l3.44-3.44A11.5 11.5 0 0 0 12 0 12 12 0 0 0 1.27 6.62l4.01 3.1C6.22 6.88 8.87 4.77 12 4.77z" />
     </svg>
   )
 }
 
-/** Ligne sobre du bloc 1 : adresse de l'atelier puis note Google, sans pilule ni badge. */
-export function LigneAtelier({ className = '' }: { className?: string }) {
-  if (!atelier) return null
+/** Petite ligne du bloc 1 : le logo Google et la note, rien d'autre (ni adresse, ni étoile, ni lien). */
+export function NoteGoogle({ className = '' }: { className?: string }) {
+  if (!noteAffichable(atelier)) return null
   return (
-    <p className={`flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[12px] leading-snug text-ink-900/75 min-[360px]:text-[13px] lg:justify-start lg:text-[14px] ${className}`}>
-      <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
-        <RepereAtelier className="h-[15px] w-[15px] shrink-0 text-brand-700" />
-        {atelier.mot} · {adresseAtelier(atelier)}
-      </span>
-      {noteAffichable(atelier) && (
-        <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
-          <Etoile className="h-[14px] w-[14px] shrink-0" />
-          {noteTexte(atelier)}
-        </span>
-      )}
+    <p className={`flex items-center justify-center gap-2 text-[13.5px] font-semibold leading-none text-ink-900/80 lg:justify-start lg:text-[14.5px] ${className}`}>
+      <LogoGoogle className="h-[17px] w-[17px] shrink-0" />
+      <span className="whitespace-nowrap">{noteTexte(atelier)}</span>
     </p>
   )
 }

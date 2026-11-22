@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Clock, Mail, MapPin, Phone, Warehouse } from 'lucide-react'
-import { atelier, adresseAtelier, noteAffichable, noteTexte, Etoile } from '@/components/ui/Atelier'
+import { atelier, adresseAtelier, noteAffichable, noteTexte, LogoGoogle } from '@/components/ui/Atelier'
 import { siteConfig } from '@/config/site.config'
 import { buildMetadata } from '@/lib/seo'
 import { PageHeader } from '@/components/layout/PageHeader'
@@ -123,7 +123,7 @@ export default function ContactPage() {
                     <p className="mt-1 font-medium text-ink-950">{adresseAtelier(atelier)}</p>
                     {noteAffichable(atelier) && (
                       <p className="mt-1.5 flex items-center gap-1.5 text-sm text-ink-900/75">
-                        <Etoile className="h-[14px] w-[14px] shrink-0" />
+                        <LogoGoogle className="h-[15px] w-[15px] shrink-0" />
                         {noteTexte(atelier)}
                       </p>
                     )}
@@ -140,7 +140,8 @@ export default function ContactPage() {
             </AnimatedSection>
           </div>
 
-          <div className="lg:col-span-7">
+          {/* Téléphone : le formulaire d'abord (#R84), les coordonnées ensuite. */}
+          <div className="-order-1 lg:order-none lg:col-span-7">
             <div id="formulaire" className="scroll-mt-28">
               <LeadForm />
             </div>

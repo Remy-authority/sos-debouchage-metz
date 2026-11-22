@@ -137,6 +137,17 @@ async function alerterSms(lead: Lead): Promise<void> {
   }
 }
 
+/**
+ * Aperçu Vercel (branche) : la demande est acceptée mais ne part NULLE PART (ni mail, ni SMS),
+ * pour essayer le formulaire sans fausse demande chez le partenaire (#R84). La production
+ * (`VERCEL_ENV === 'production'`) est inchangée. `GET` le dit : `{"envoi":false}` en aperçu.
+ */
+const APERCU = process.env.VERCEL_ENV === 'preview'
+
+export async function GET() {
+  return NextResponse.json({ envoi: !APERCU })
+}
+
 export async function POST(request: NextRequest) {
   const formPost = isFormPost(request)
   try {
@@ -155,8 +166,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ ok: false, error: 'Nom et téléphone requis.' }, { status: 400 })
     }
 
-    await deliver(lead)
-    await alerterSms(lead)
+    if (!APERCU) {
+      await deliver(lead)
+      await alerterSms(lead)
+    }
 
     return formPost
       ? NextResponse.redirect(new URL('/merci', request.url), 303)
