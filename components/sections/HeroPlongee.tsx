@@ -3,6 +3,7 @@
 import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type MouseEvent, type Ref } from 'react'
 import * as ReactDOM from 'react-dom'
 import { LeadForm } from '@/components/ui/LeadForm'
+import { LigneAtelier } from '@/components/ui/Atelier'
 import { AXE, CADRE, CSS_COUPE, CoupeMetz, HAUTEUR_PHOTO, LARGEUR, PIED_WC, P_COUPE_COMPLETE, ajusterCoupe, poserCoupe } from '@/components/ui/CoupeMetz'
 import { siteConfig } from '@/config/site.config'
 
@@ -48,7 +49,8 @@ const H = HAUTEUR_PHOTO
 const MUR =
   'linear-gradient(90deg,#D7D4C9 0%,#D2C9C0 6.25%,#D0C8BD 12.5%,#D0C6BA 18.75%,#C5BDAB 25%,#C2B7A5 31.25%,#D0C8BD 37.5%,#D9D1C4 43.75%,#DED7C7 50%,#DED6C1 56.25%,#DBD3BE 62.5%,#DACFB7 68.75%,#DBCCB2 75%,#DED4BA 81.25%,#E2DBC8 87.5%,#CFC9AD 93.75%,#D6D0B8 100%)'
 const MUR_H = 1600
-const PHOTO_MOBILE = '68%'
+// Photo du bloc 1 au téléphone (classe .bp-photo1) : calée assez bas pour que le texte soit centré
+// en hauteur sans couvrir la plaque de chasse, même sur un écran court ; tablette inchangée (#R70, 22/11/2026).
 const GRILLE =
   'lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-[minmax(0,27rem)_minmax(0,1fr)_21rem] lg:items-stretch lg:gap-6 lg:px-10 xl:grid-cols-[minmax(0,29rem)_minmax(0,1fr)_22rem]'
 
@@ -111,6 +113,8 @@ const CSS = `
 .bp-piste{position:relative}
 .bp-scene{position:relative;overflow:hidden;height:0}
 .bp-ecran{min-height:max(calc(100svh - var(--haut)),560px)}
+.bp-photo1{height:min(58%,calc(100% - 330px))}
+@media (min-width:640px){.bp-photo1{height:68%}}
 .bp[data-seq] .bp-piste{height:380svh}
 @media (max-width:1023px){.bp:not([data-seq]) .bp-form{padding-top:48px}.bp[data-seq] .bp-form{margin-top:-48px;padding-top:0}}
 .bp[data-seq] .bp-scene{position:sticky;top:var(--haut);height:max(calc(100svh - var(--haut)),560px)}
@@ -367,13 +371,13 @@ export function HeroPlongee() {
       {/* Téléphone et tablette : le mur prolongé puis la photo calée en bas, en plein écran
           derrière le texte. Ils cèdent la place à leur copie de la scène au premier défilement. */}
       <div ref={fondMobileRef} aria-hidden="true" className="absolute inset-0 overflow-hidden lg:hidden">
-        <div data-photo-ecran1="" className="absolute bottom-0 left-1/2 -translate-x-1/2" style={{ height: PHOTO_MOBILE, aspectRatio: `${LARGEUR} / ${H}` }}>
+        <div data-photo-ecran1="" className="bp-photo1 absolute bottom-0 left-1/2 -translate-x-1/2" style={{ aspectRatio: `${LARGEUR} / ${H}` }}>
           <div className="absolute inset-x-0 bottom-full h-[200vh]" style={{ backgroundImage: MUR }} />
           {photo('absolute inset-0 h-full w-full')}
           <div className="absolute inset-x-0 top-0 h-[10%]" style={{ backgroundImage: MUR, maskImage: 'linear-gradient(180deg,#000,transparent)', WebkitMaskImage: 'linear-gradient(180deg,#000,transparent)' }} />
         </div>
       </div>
-      <div ref={contenuRef} className="relative mx-auto w-full max-w-xl px-5 pb-6 pt-[calc(2rem+9svh)] text-center sm:px-8 sm:pt-12 lg:max-w-none lg:px-0 lg:pb-0 lg:pt-0 lg:text-left">
+      <div ref={contenuRef} className="relative mx-auto w-full max-w-xl px-5 pb-6 pt-[calc(2rem+19svh)] text-center sm:px-8 sm:pt-12 lg:max-w-none lg:px-0 lg:pb-0 lg:pt-0 lg:text-left">
         <p className="flex items-center justify-center gap-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-700 lg:justify-start lg:text-[12px]">
           <span className="hidden h-px w-8 bg-brand-700/60 lg:block" aria-hidden="true" />
           SOS canalisation bouchée à {siteConfig.city}
@@ -383,9 +387,9 @@ export function HeroPlongee() {
           <span className="block whitespace-nowrap text-brand-700">{siteConfig.city}, sans casse</span>
         </h1>
         <p className="mx-auto mt-3 max-w-[30rem] text-[15px] leading-relaxed text-ink-900/80 sm:text-base lg:mx-0 lg:mt-5 lg:text-[17.5px]">
-          <span className="block text-balance">WC, évier ou regard bouché, {siteConfig.availability}.{' '}</span>
-          <span className="block text-balance">La caméra trouve la cause, puis nous débouchons.</span>
+          <span className="block text-balance">WC, évier ou regard bouché, {siteConfig.availability}.</span>
         </p>
+        <LigneAtelier className="mt-3 lg:mt-4" />
         <div className="mt-5 grid grid-cols-2 gap-2 sm:mx-auto sm:max-w-md lg:mx-0 lg:mt-8 lg:flex lg:max-w-none lg:gap-2.5">
           <a
             href={`tel:${siteConfig.phone}`}

@@ -5,7 +5,8 @@ import { SectionHeader } from '@/components/ui/SectionHeader'
 import { Button } from '@/components/ui/Button'
 import { TraceAuDefilement } from '@/components/ui/TraceAuDefilement'
 import { siteConfig } from '@/config/site.config'
-import { CARTE_H, CARTE_W, COMMUNES_SERVIES, COMMUNES_VOISINES, MOSELLE } from '@/lib/carte-metz'
+import { CARTE_H, CARTE_W, COMMUNES_SERVIES, COMMUNES_VOISINES, MOSELLE, projeter } from '@/lib/carte-metz'
+import { atelier } from '@/components/ui/Atelier'
 import type { Zone } from '@/lib/content'
 
 /**
@@ -40,6 +41,7 @@ const ETIQUETTES: Record<string, Etiquette> = {
 
 const METZ = COMMUNES_SERVIES.find((c) => c.slug === 'metz')!
 const AUTRES = COMMUNES_SERVIES.filter((c) => c.slug !== 'metz')
+const ATELIER = atelier ? projeter(atelier.lon, atelier.lat) : null
 
 /** Rang d'apparition : de Metz vers l'extérieur. */
 function delai(cx: number, cy: number) {
@@ -51,16 +53,22 @@ const STYLE = `
 .carte-metz [data-commune]{transition:fill .2s ease}
 .carte-metz[data-etat="cache"] [data-moselle]{stroke-dashoffset:1.02}
 .carte-metz[data-etat="cache"] [data-commune],.carte-metz[data-etat="cache"] [data-metz]{fill-opacity:0}
-.carte-metz[data-etat="cache"] [data-nom]{opacity:0}
+.carte-metz[data-etat="cache"] [data-nom],.carte-metz[data-etat="cache"] [data-atelier]{opacity:0}
 .carte-metz[data-etat="vu"] [data-moselle]{transition:stroke-dashoffset 1400ms cubic-bezier(.45,0,.2,1)}
 .carte-metz[data-etat="vu"] [data-metz]{transition:fill-opacity 600ms ease-out 300ms}
 .carte-metz[data-etat="vu"] [data-commune]{transition:fill-opacity 520ms ease-out calc(500ms + var(--d,0ms)),fill .2s ease}
 .carte-metz[data-etat="vu"] [data-nom]{transition:opacity 420ms ease-out calc(800ms + var(--d,0ms))}
+.carte-metz[data-etat="vu"] [data-atelier]{transition:opacity 500ms ease-out 1500ms}
 .carte-metz a:hover [data-commune],.carte-metz a:focus-visible [data-commune]{fill:rgb(var(--c-accent-500));fill-opacity:.9}
 .carte-metz a:focus-visible{outline:none}
 @media (max-width:639px){.carte-metz [data-nom] text{font-size:15.5px}}
+.carte-metz [data-halo]{transform-box:fill-box;transform-origin:center;animation:carte-halo 2.4s ease-out infinite}
+@keyframes carte-halo{0%{transform:scale(.6);opacity:.55}80%,100%{transform:scale(2.6);opacity:0}}
+@media (max-width:639px){.carte-metz [data-atelier] text{font-size:16px}}
 @media (prefers-reduced-motion:reduce){
   .carte-metz *{transition:none!important}
+  .carte-metz [data-halo]{animation:none;transform:scale(1.7);opacity:.28}
+  .carte-metz [data-atelier]{opacity:1!important}
   .carte-metz [data-moselle]{stroke-dashoffset:0!important}
   .carte-metz [data-nom]{opacity:1!important}
 }
@@ -197,6 +205,28 @@ export function CarteMetz({ zones }: { zones: Zone[] }) {
                     {city}
                   </text>
                 </g>
+
+                {/* Point lumineux de l'atelier (Rémy 22/11/2026), aux coordonnées réelles de la
+                    rue. Étiquette à gauche du point, entre les noms de Woippy et de Plappeville. */}
+                {ATELIER && (
+                  <g data-atelier="" pointerEvents="none">
+                    <circle data-halo="" cx={ATELIER.x} cy={ATELIER.y} r="7" fill="rgb(var(--c-accent-400))" />
+                    <circle cx={ATELIER.x} cy={ATELIER.y} r="5.2" fill="rgb(var(--c-accent-500))" stroke="#FFFFFF" strokeWidth="2" />
+                    <text
+                      x={ATELIER.x - 11}
+                      textAnchor="end"
+                      fontSize="12.5"
+                      fill="rgb(var(--c-ink-950))"
+                      stroke="#FFFFFF"
+                      strokeWidth="3.5"
+                      strokeLinejoin="round"
+                      paintOrder="stroke"
+                    >
+                      <tspan x={ATELIER.x - 11} y={ATELIER.y - 2} fontWeight="700">{atelier!.mot}</tspan>
+                      <tspan x={ATELIER.x - 11} dy="1.2em" fontWeight="500">{atelier!.rue}</tspan>
+                    </text>
+                  </g>
+                )}
               </g>
             </svg>
           </TraceAuDefilement>

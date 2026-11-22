@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { Clock, Mail, MapPin, Phone } from 'lucide-react'
+import { Clock, Mail, MapPin, Phone, Warehouse } from 'lucide-react'
+import { atelier, adresseAtelier, noteAffichable, noteTexte, Etoile } from '@/components/ui/Atelier'
 import { siteConfig } from '@/config/site.config'
 import { buildMetadata } from '@/lib/seo'
 import { PageHeader } from '@/components/layout/PageHeader'
@@ -110,6 +111,25 @@ export default function ContactPage() {
                   </div>
                 </div>
               ))}
+              {atelier && (
+                <div className="flex items-start gap-4 rounded-card border border-sand-200 bg-white p-5">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[3px] bg-brand-600/10 text-brand-600">
+                    <Warehouse size={20} />
+                  </span>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-sand-500">
+                      {atelier.mot}
+                    </p>
+                    <p className="mt-1 font-medium text-ink-950">{adresseAtelier(atelier)}</p>
+                    {noteAffichable(atelier) && (
+                      <p className="mt-1.5 flex items-center gap-1.5 text-sm text-ink-900/75">
+                        <Etoile className="h-[14px] w-[14px] shrink-0" />
+                        {noteTexte(atelier)}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              )}
             </AnimatedSection>
 
             <AnimatedSection delay={0.2} className="mt-8">

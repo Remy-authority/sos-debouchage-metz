@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { Clock, Mail, MapPin, Phone } from 'lucide-react'
+import { Clock, Mail, MapPin, Phone, Warehouse } from 'lucide-react'
+import { atelier, adresseAtelier } from '@/components/ui/Atelier'
 import { Logo } from '@/components/ui/Logo'
 import { FooterLinks } from '@/components/layout/FooterLinks'
 import { LiveDot } from '@/components/ui/LiveDot'
@@ -67,6 +68,16 @@ export function Footer() {
                   {siteConfig.email}
                 </a>
               </li>
+              {atelier && (
+                <li className="flex items-start justify-center gap-3 text-left lg:justify-start">
+                  <Warehouse size={16} className="mt-0.5 shrink-0 text-accent-400" />
+                  <span className="text-sand-300">
+                    {atelier.mot}
+                    <br />
+                    {adresseAtelier(atelier)}
+                  </span>
+                </li>
+              )}
               <li className="flex items-start justify-center gap-3 text-left lg:justify-start">
                 <MapPin size={16} className="mt-0.5 shrink-0 text-accent-400" />
                 <span className="text-sand-300">

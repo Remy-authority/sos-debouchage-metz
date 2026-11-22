@@ -19,6 +19,17 @@
 
 export type SiteConfig = typeof siteConfig
 
+export type Atelier = {
+  mot: string
+  rue: string
+  ville: string
+  lon: number
+  lat: number
+  note: number | null
+  avis: number | null
+  releveLe: string
+}
+
 export const siteConfig = {
   /* ── Identité commerciale (louable / remplaçable par l'artisan locataire) ── */
   businessName: 'SOS Débouchage Metz',
@@ -251,6 +262,29 @@ export const siteConfig = {
       a: "Quand plusieurs logements refoulent en même temps, le problème est sur la colonne ou le collecteur : c'est une partie commune, donc du ressort du syndic. Prévenez le syndic ou le gardien. Nous intervenons aussi bien pour un syndic ou un bailleur que pour un particulier, avec un compte rendu d'intervention.",
     },
   ],
+
+  /**
+   * Atelier de l'entreprise qui intervient (Rémy 22/11/2026). UN seul réglage :
+   * l'accueil (bloc 1 et carte), la page contact et le pied de page le lisent.
+   * `atelier: null` = plus rien ne s'affiche nulle part : à faire LE JOUR MÊME
+   * si le partenaire part (#R75). Jamais le numéro de la rue, jamais de nom,
+   * jamais de lien. RIEN dans les données structurées (ni address ni avis).
+   * `note` et `avis` à null quand la note ne s'affiche pas : elle ne s'affiche
+   * que pour un partenaire qui paie, à 4,5 au moins ET 15 avis au moins
+   * (`noteAffichable` le revérifie). Relue à chaque mise à jour du site.
+   * `lon`/`lat` : centre de la rue (api-adresse.data.gouv.fr, sans numéro),
+   * pour le point de la carte des zones.
+   */
+  atelier: {
+    mot: 'Notre atelier',
+    rue: 'rue Victor Poulain',
+    ville: 'Woippy',
+    lon: 6.165051,
+    lat: 49.149889,
+    note: 5.0,
+    avis: 50,
+    releveLe: '2026-11-22',
+  } as Atelier | null,
 
   /* ── Légal (GABARIT, à compléter par Rémy avant prod) ── */
   legal: {
