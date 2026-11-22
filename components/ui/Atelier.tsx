@@ -18,10 +18,10 @@ export function adresseAtelier(a: Atelier) {
   return `${a.rue}, ${a.ville}`
 }
 
-/** « 5,0/5 · 50 avis » (le logo Google est dessiné à part, aucune étoile : Rémy 22/11/2026). */
+/** « Note Google 5,0 sur 5, d’après 50 avis » (le logo Google est dessiné à part, aucune étoile : Rémy 22/11/2026). */
 export function noteTexte(a: Atelier & { note: number; avis: number }) {
   const note = a.note.toLocaleString('fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })
-  return `${note}/5 · ${a.avis} avis`
+  return `Note Google ${note} sur 5, d’après ${a.avis} avis`
 }
 
 /** Petit repère de carte dessiné. */
@@ -56,10 +56,20 @@ export function LogoGoogle({ className = '' }: { className?: string }) {
 /** Petite ligne du bloc 1 : le logo Google et la note, rien d'autre (ni adresse, ni étoile, ni lien). */
 export function NoteGoogle({ className = '' }: { className?: string }) {
   if (!noteAffichable(atelier)) return null
+  const note = atelier.note.toLocaleString('fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })
+  // Encadré blanc lisible sur la photo (Rémy 22/11/2026 : « 5,0/5 · 50 avis », personne ne comprend) :
+  // la phrase dit en clair ce qu'est le chiffre. Pas d'étoile, pas de lien vers Google.
   return (
-    <p className={`flex items-center justify-center gap-2 text-[13.5px] font-semibold leading-none text-ink-900/80 lg:justify-start lg:text-[14.5px] ${className}`}>
-      <LogoGoogle className="h-[17px] w-[17px] shrink-0" />
-      <span className="whitespace-nowrap">{noteTexte(atelier)}</span>
-    </p>
+    <div className={`flex justify-center lg:justify-start ${className}`}>
+      <p className="inline-flex items-center gap-3 rounded-[4px] bg-white px-3.5 py-2 text-left shadow-[0_8px_24px_-12px_rgba(9,30,34,0.45)] ring-1 ring-ink-950/5">
+        <LogoGoogle className="h-[22px] w-[22px] shrink-0" />
+        <span className="leading-tight">
+          <span className="block whitespace-nowrap text-[14px] text-ink-950">
+            Note Google <strong className="font-semibold">{note} sur 5</strong>
+          </span>
+          <span className="block whitespace-nowrap text-[12.5px] text-ink-900/65">d’après {atelier.avis} avis clients</span>
+        </span>
+      </p>
+    </div>
   )
 }

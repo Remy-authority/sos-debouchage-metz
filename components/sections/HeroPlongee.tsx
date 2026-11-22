@@ -424,14 +424,14 @@ export function HeroPlongee() {
             <div className="bp-colle contents lg:block">
               <div className="bp-cadre contents lg:flex lg:items-center">
                 <div className={`contents ${GRILLE}`}>
-                  <div className="bp-texte relative order-1 lg:col-start-1 lg:flex lg:flex-col lg:justify-center">
+                  <div className="bp-texte relative order-1 lg:col-start-1 lg:row-start-1 lg:flex lg:flex-col lg:justify-center">
                     <div ref={texteRef} className="pointer-events-auto">
                       {texte}
                     </div>
                   </div>
                   <div
                     ref={formRef}
-                    className="bp-form relative z-10 hidden w-full lg:pointer-events-auto lg:col-start-3 lg:flex lg:flex-col lg:justify-center"
+                    className="bp-form relative z-10 hidden w-full lg:pointer-events-auto lg:col-start-3 lg:row-start-1 lg:flex lg:flex-col lg:justify-center"
                   >
                     <LeadForm ecran1 memoire idPrefix="d-" />
                   </div>

@@ -27,7 +27,7 @@ export function Services({ services }: { services: Service[] }) {
           title={
             <>
               Chaque bouchon a
-              <span className="text-gradient-accent"> sa bonne méthode</span>
+              {' '}<span className="text-gradient-accent">sa bonne méthode</span>
             </>
           }
           subtitle="Du siphon de la salle de bain à la colonne d’immeuble, nous choisissons la technique qui débouche sans abîmer."

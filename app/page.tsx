@@ -8,8 +8,6 @@ import { Services } from '@/components/sections/Services'
 import { ChantierMetz } from '@/components/sections/ChantierMetz'
 import { Gallery } from '@/components/sections/Gallery'
 import { CarteMetz } from '@/components/sections/CarteMetz'
-import { SectionHeader } from '@/components/ui/SectionHeader'
-import { LeadForm } from '@/components/ui/LeadForm'
 import { Faq } from '@/components/ui/Faq'
 import { CtaBanner } from '@/components/ui/CtaBanner'
 
@@ -32,32 +30,13 @@ export default function HomePage() {
       <ChantierMetz />
       {siteConfig.features.gallery && <Gallery />}
 
-      <section id="devis" className="bg-sand-100 py-24 lg:py-32" aria-labelledby="devis-title">
-        <div className="mx-auto max-w-3xl px-6 lg:px-10">
-          <SectionHeader
-            id="devis-title"
-            eyebrow="Décrire ma situation"
-            title={
-              <>
-                Trois questions,
-                <span className="text-gradient-ink italic"> et on vous rappelle</span>
-              </>
-            }
-            subtitle="Dites-nous quel appareil déborde et depuis combien de temps, le prix annoncé n'en sera que plus juste."
-          />
-          <div className="mt-12">
-            <LeadForm />
-          </div>
-        </div>
-      </section>
-
-      {/* Carte des communes en bloc 7, jamais plus haut (règles Rémy 18/09 et 01/10/2026). */}
-      <CarteMetz zones={zones} />
-
       <Faq
         items={siteConfig.homeFaq as unknown as { q: string; a: string }[]}
         subtitle={`Prix, urgence, produits déboucheurs, responsabilité locataire ou propriétaire. Ce qu'on nous demande le plus souvent à ${siteConfig.city}.`}
       />
+
+      {/* Carte des communes en bloc 7 (après la FAQ), jamais plus haut (règles Rémy 18/09 et 01/10/2026). */}
+      <CarteMetz zones={zones} />
 
       <CtaBanner />
     </>

@@ -38,7 +38,7 @@ export default function ConseilsListing() {
         title={
           <>
             Comprendre
-            <span className="text-gradient-accent"> ses canalisations</span>
+            {' '}<span className="text-gradient-accent">ses canalisations</span>
           </>
         }
         subtitle="Ce qu'il faut faire, ce qu'il ne faut surtout pas faire, et comment éviter que le bouchon revienne."

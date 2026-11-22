@@ -200,8 +200,8 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       <Faq items={service.faq} eyebrow={service.navTitle} />
 
       <CtaBanner
-        title={`${service.navTitle} à ${siteConfig.city} ?`}
-        subtitle="Un appel donne le prix tout de suite. Sinon, laissez trois mots sur votre souci, nous rappelons."
+        title={`${service.navTitle} à ${siteConfig.city}\u00a0?`}
+        subtitle="Trois questions, et nous rappelons avec le prix."
       />
     </>
   )

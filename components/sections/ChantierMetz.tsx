@@ -479,7 +479,7 @@ export function ChantierMetz() {
       title={
         <>
           Du coup de fil
-          <span className="text-gradient-ink italic"> à l’eau qui repart</span>
+          {' '}<span className="text-gradient-ink italic">à l’eau qui repart</span>
         </>
       }
       subtitle="Une maison messine, un tuyau bouché sous le jardin. Voici ce que nous faisons, étape par étape."

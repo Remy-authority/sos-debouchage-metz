@@ -9,7 +9,6 @@ import { Button } from '@/components/ui/Button'
 import Link from 'next/link'
 import { LeadForm } from '@/components/ui/LeadForm'
 import { Faq } from '@/components/ui/Faq'
-import { CtaBanner } from '@/components/ui/CtaBanner'
 import { ServiceIcon } from '@/components/ui/ServiceIcon'
 import { getServices } from '@/lib/content'
 
@@ -67,7 +66,7 @@ export default function ContactPage() {
         title={
           <>
             Dites-nous ce qui
-            <span className="text-gradient-accent"> ne s&apos;écoule plus</span>
+            {' '}<span className="text-gradient-accent">ne s&apos;écoule plus</span>
           </>
         }
         subtitle="Par téléphone pour une urgence, par le formulaire si ça peut attendre quelques heures."
@@ -191,7 +190,6 @@ export default function ContactPage() {
         subtitle="Ce qu'on nous demande le plus souvent au moment de prendre contact."
       />
 
-      <CtaBanner />
     </>
   )
 }

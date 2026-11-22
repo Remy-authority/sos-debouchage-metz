@@ -9,9 +9,7 @@ import { buildMetadata } from '@/lib/seo'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 import { Button } from '@/components/ui/Button'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
-import { SectionHeader } from '@/components/ui/SectionHeader'
 import { SourceNote, type Source } from '@/components/ui/SourceNote'
-import { LeadForm } from '@/components/ui/LeadForm'
 import { Faq } from '@/components/ui/Faq'
 import { CtaBanner } from '@/components/ui/CtaBanner'
 
@@ -85,7 +83,7 @@ export default function TarifsPage() {
                 <Phone size={18} strokeWidth={2.5} />
                 {siteConfig.phoneDisplay}
               </Button>
-              <Button href="#devis" variant="ghost" size="lg">
+              <Button href="#appel" variant="ghost" size="lg">
                 Décrire ma situation
                 <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
               </Button>
@@ -279,26 +277,6 @@ export default function TarifsPage() {
         </div>
       </article>
 
-      {/* ── Formulaire ── */}
-      <section id="devis" className="bg-sand-100 py-20 lg:py-28" aria-labelledby="devis-tarifs">
-        <div className="mx-auto max-w-3xl px-6 lg:px-10">
-          <SectionHeader
-            id="devis-tarifs"
-            eyebrow="Décrire ma situation"
-            title={
-              <>
-                Trois questions,
-                <span className="text-gradient-ink italic"> et on vous rappelle</span>
-              </>
-            }
-            subtitle="Décrivez ce qui refoule et depuis quand. Avec ça, nous annonçons une prestation et son prix, pas une fourchette générale."
-          />
-          <div className="mt-12">
-            <LeadForm />
-          </div>
-        </div>
-      </section>
-
       <Faq
         items={tarifs.faq}
         eyebrow="Prix et devis"
@@ -313,7 +291,7 @@ export default function TarifsPage() {
             <span className="text-gradient-accent">de sortir le matériel.</span>
           </>
         }
-        subtitle="Décrivez le symptôme en deux phrases. En retour, vous savez quel matériel il faut, à quel prix et à quelle heure nous arrivons."
+        subtitle="Trois questions, et nous rappelons avec le prix."
       />
     </>
   )

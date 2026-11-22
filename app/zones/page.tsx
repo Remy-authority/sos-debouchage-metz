@@ -114,7 +114,7 @@ export default function ZonesHub() {
         title={
           <>
             Vos questions
-            <span className="text-gradient-ink italic"> sur notre secteur</span>
+            {' '}<span className="text-gradient-ink italic">sur notre secteur</span>
           </>
         }
       />

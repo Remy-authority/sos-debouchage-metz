@@ -66,7 +66,7 @@ export function Gallery() {
           title={
             <>
               Les situations
-              <span className="text-gradient-accent"> que nous traitons</span>
+              {' '}<span className="text-gradient-accent">que nous traitons</span>
             </>
           }
           subtitle="Six cas de figure qui reviennent tout le temps sur l'agglomération messine, et l'outil qui va avec."
