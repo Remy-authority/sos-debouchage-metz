@@ -1,271 +1,187 @@
-import type { CSSProperties } from 'react'
 import Link from 'next/link'
-import { ArrowRight, Phone } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { Button } from '@/components/ui/Button'
 import { TraceAuDefilement } from '@/components/ui/TraceAuDefilement'
+import { atelier, adresseAtelier } from '@/components/ui/Atelier'
 import { siteConfig } from '@/config/site.config'
-import { CARTE_H, CARTE_W, COMMUNES_SERVIES, COMMUNES_VOISINES, MOSELLE, projeter } from '@/lib/carte-metz'
-import { atelier } from '@/components/ui/Atelier'
-import type { Zone } from '@/lib/content'
+import { CARTE, NOMS, PAGES } from './carte-secteur-data'
 
 /**
- * Bloc 7 de l'accueil (mise à jour du 10/10/2026, règles #R60 et #R46) : CARTE DE
- * L'AGGLOMÉRATION dessinée, jamais une photo. Chaque commune desservie est une
- * zone cliquable vers sa page ; Metz, l'accueil lui-même, est en teinte forte.
- * Contours réels (geo.api.gouv.fr, IGN Admin Express), figés dans lib/carte-metz.ts :
- * aucune requête au rendu. Les communes voisines sans page restent en gris clair.
- *
- * Au défilement : la Moselle se trace, puis les communes se colorent de Metz vers
- * l'extérieur, puis les noms se posent. Tout est visible sans JavaScript.
+ * Zone d'intervention de l'accueil (#R46, #R60 ; refaite le 22/11/2026, Rémy : « pourquoi les
+ * autres villes ne sont pas mises en vert ? »). La VRAIE carte : toutes les communes à 40 km de
+ * Metz ou moins, en vert, sans aucune zone grise dans le cercle ; contours officiels
+ * (geo.api.gouv.fr) dans deux images statiques (scripts/carte-secteur.py) ; par-dessus, en code :
+ * le rayon de 40 km, les noms (en gras les communes qui ont leur page, cliquables), le repère de
+ * Metz et le point lumineux de l'atelier, expliqué par une seule ligne sous la carte.
+ * Au défilement, le vert s'étend depuis Metz ; sans JavaScript ou avec « réduire les animations »,
+ * carte entière et immobile (TraceAuDefilement reste en « fixe »).
  */
 
-type Etiquette = { x: number; y: number; ancre?: 'start' | 'middle' | 'end'; trait?: [number, number] }
-
-/** Place du nom de chaque commune. Les petites communes de la côte ouest, serrées
- *  autour du Mont Saint-Quentin, ont leur nom sorti à gauche avec un trait fin. */
-const ETIQUETTES: Record<string, Etiquette> = {
-  'marange-silvange': { x: 205, y: 82 },
-  woippy: { x: 290, y: 234 },
-  'saint-julien-les-metz': { x: 410, y: 258, trait: [400, 264] },
-  plappeville: { x: 158, y: 300, ancre: 'end', trait: [162, 296] },
-  'le-ban-saint-martin': { x: 158, y: 331, ancre: 'end', trait: [162, 327] },
-  'scy-chazelles': { x: 158, y: 362, ancre: 'end', trait: [162, 358] },
-  'longeville-les-metz': { x: 158, y: 393, ancre: 'end', trait: [162, 389] },
-  'moulins-les-metz': { x: 158, y: 433, ancre: 'end', trait: [162, 429] },
-  'ars-sur-moselle': { x: 76, y: 478 },
-  'montigny-les-metz': { x: 290, y: 446 },
-  marly: { x: 282, y: 520 },
-  augny: { x: 211, y: 552 },
-}
-
-const METZ = COMMUNES_SERVIES.find((c) => c.slug === 'metz')!
-const AUTRES = COMMUNES_SERVIES.filter((c) => c.slug !== 'metz')
-const ATELIER = atelier ? projeter(atelier.lon, atelier.lat) : null
-
-/** Rang d'apparition : de Metz vers l'extérieur. */
-function delai(cx: number, cy: number) {
-  return Math.round(Math.hypot(cx - METZ.cx, cy - METZ.cy) * 2.4)
-}
-
 const STYLE = `
-.carte-metz [data-moselle]{stroke-dasharray:1 2;stroke-dashoffset:0}
-.carte-metz [data-commune]{transition:fill .2s ease}
-.carte-metz[data-etat="cache"] [data-moselle]{stroke-dashoffset:1.02}
-.carte-metz[data-etat="cache"] [data-commune],.carte-metz[data-etat="cache"] [data-metz]{fill-opacity:0}
-.carte-metz[data-etat="cache"] [data-nom],.carte-metz[data-etat="cache"] [data-atelier]{opacity:0}
-.carte-metz[data-etat="vu"] [data-moselle]{transition:stroke-dashoffset 1400ms cubic-bezier(.45,0,.2,1)}
-.carte-metz[data-etat="vu"] [data-metz]{transition:fill-opacity 600ms ease-out 300ms}
-.carte-metz[data-etat="vu"] [data-commune]{transition:fill-opacity 520ms ease-out calc(500ms + var(--d,0ms)),fill .2s ease}
-.carte-metz[data-etat="vu"] [data-nom]{transition:opacity 420ms ease-out calc(800ms + var(--d,0ms))}
-.carte-metz[data-etat="vu"] [data-atelier]{transition:opacity 500ms ease-out 1500ms}
-.carte-metz a:hover [data-commune],.carte-metz a:focus-visible [data-commune]{fill:rgb(var(--c-accent-500));fill-opacity:.9}
-.carte-metz a:focus-visible{outline:none}
-@media (max-width:639px){.carte-metz [data-nom] text{font-size:15.5px}}
-.carte-metz [data-halo]{transform-box:fill-box;transform-origin:center;animation:carte-halo 2.4s ease-out infinite}
-@keyframes carte-halo{0%{transform:scale(.6);opacity:.55}80%,100%{transform:scale(2.6);opacity:0}}
-@media (max-width:639px){.carte-metz [data-atelier] text{font-size:16px}}
+.carte-secteur .carte-vert{clip-path:circle(75% at var(--cx) var(--cy));transition:clip-path 1.8s cubic-bezier(.4,0,.2,1) .15s}
+.carte-secteur[data-etat="cache"] .carte-vert{clip-path:circle(0% at var(--cx) var(--cy));transition:none}
+.carte-secteur .carte-rayon{opacity:.85;transition:opacity .6s ease-out 1.6s}
+.carte-secteur[data-etat="cache"] .carte-rayon{opacity:0;transition:none}
+.carte-secteur .carte-onde{transform-box:fill-box;transform-origin:center;animation:carte-onde 2.6s ease-out infinite}
+.carte-secteur .atelier-halo{transform-box:fill-box;transform-origin:center;opacity:.45;animation:atelier-pulse 2.4s ease-out infinite}
+@keyframes carte-onde{from{transform:scale(1);opacity:.9}to{transform:scale(4.5);opacity:0}}
+@keyframes atelier-pulse{0%{transform:scale(.6);opacity:.75}100%{transform:scale(1.6);opacity:0}}
 @media (prefers-reduced-motion:reduce){
-  .carte-metz *{transition:none!important}
-  .carte-metz [data-halo]{animation:none;transform:scale(1.7);opacity:.28}
-  .carte-metz [data-atelier]{opacity:1!important}
-  .carte-metz [data-moselle]{stroke-dashoffset:0!important}
-  .carte-metz [data-nom]{opacity:1!important}
+  .carte-secteur .carte-vert,.carte-secteur .carte-rayon{transition:none}
+  .carte-secteur .carte-onde{animation:none;opacity:0}
+  .carte-secteur .atelier-halo{animation:none}
 }
 `
 
-export function CarteMetz({ zones }: { zones: Zone[] }) {
-  const { city, serviceArea } = siteConfig
-  const pages = new Set(zones.map((z) => z.slug))
-  const communes = AUTRES.filter((c) => pages.has(c.slug)).sort((a, b) => a.nom.localeCompare(b.nom, 'fr'))
+export function CarteMetz() {
+  const { city } = siteConfig
+  const liste = [...PAGES].sort((a, b) => a.nom.localeCompare(b.nom, 'fr'))
+  const { w, h, cx, cy, rayon, cadre, metz } = CARTE
+  // Typé à la main : le fichier généré écrit `null` quand l'atelier est vidé dans la config.
+  const at = CARTE.atelier as { x: number; y: number } | null
+  const angle = -Math.PI / 4
+  const noms = [
+    ...NOMS.map((n) => ({ ...n, gras: false })),
+    ...PAGES.filter((p) => p.etiquette).map((p) => ({ nom: p.nom, etiquette: p.etiquette!, gras: true })),
+  ]
 
   return (
     <section id="zone" className="relative bg-white py-16 lg:py-28" aria-labelledby="zone-title">
       <style dangerouslySetInnerHTML={{ __html: STYLE }} />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
         <SectionHeader
           id="zone-title"
           eyebrow="Zone d'intervention"
           title={
             <>
-              {city} et{' '}
-              <span className="text-gradient-ink italic">son agglomération</span>
+              Toutes les communes à {CARTE.km}&nbsp;km{' '}
+              <span className="text-gradient-ink italic">autour de {city}</span>
             </>
           }
-          subtitle={`Nous intervenons dans un rayon d'environ ${serviceArea.radiusKm} km. Choisissez votre commune sur la carte.`}
         />
 
-        <div className="mt-10 grid gap-8 lg:mt-16 lg:grid-cols-[1.25fr_1fr] lg:items-stretch lg:gap-16">
-          <TraceAuDefilement className="carte-metz mx-auto w-full max-w-[560px]">
-            <svg
-              viewBox={`0 0 ${CARTE_W} ${CARTE_H}`}
-              className="h-auto w-full"
-              role="img"
-              aria-label={`Carte de ${city} et des communes desservies`}
-            >
-              <defs>
-                <clipPath id="cadre-carte">
-                  <rect width={CARTE_W} height={CARTE_H} rx="3" />
-                </clipPath>
-              </defs>
-              <g clipPath="url(#cadre-carte)">
-                <rect width={CARTE_W} height={CARTE_H} fill="rgb(var(--c-sand-50))" />
-                {COMMUNES_VOISINES.map((d, i) => (
-                  <path key={i} d={d} fill="rgb(var(--c-sand-200))" fillOpacity="0.55" stroke="#FFFFFF" strokeWidth="1" />
-                ))}
-
-                <path
-                  d={METZ.d}
-                  data-metz=""
-                  fill="rgb(var(--c-brand-700))"
-                  fillOpacity="0.92"
-                  stroke="#FFFFFF"
-                  strokeWidth="1.6"
-                />
-                {communes.map((c) => (
-                  <a key={c.slug} href={`/zones/${c.slug}`} aria-label={`Débouchage à ${c.nom}`}>
-                    <title>{c.nom}</title>
-                    <path
-                      d={c.d}
-                      data-commune=""
-                      fill="rgb(var(--c-brand-500))"
-                      fillOpacity="0.5"
-                      stroke="#FFFFFF"
-                      strokeWidth="1.6"
-                      style={{ '--d': `${delai(c.cx, c.cy)}ms`, cursor: 'pointer' } as CSSProperties}
-                    />
-                  </a>
-                ))}
-
-                <path
-                  d={MOSELLE}
-                  data-moselle=""
-                  pathLength={1}
-                  fill="none"
-                  stroke="#4FA3C7"
-                  strokeWidth="5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  pointerEvents="none"
-                />
-                <text
-                  x="356"
-                  y="168"
-                  transform="rotate(-84 356 168)"
-                  fontSize="11.5"
-                  fontStyle="italic"
-                  fill="#2D7FA6"
-                  data-nom=""
-                  pointerEvents="none"
-                >
-                  la Moselle
-                </text>
-
-                <g pointerEvents="none" fontSize="12.5" fontWeight="600" fill="rgb(var(--c-ink-950))">
-                  {communes.map((c) => {
-                    const e = ETIQUETTES[c.slug]
-                    if (!e) return null
-                    return (
-                      <g key={c.slug} data-nom="" style={{ '--d': `${delai(c.cx, c.cy)}ms` } as CSSProperties}>
-                        {e.trait && (
-                          <path
-                            d={`M${c.cx} ${c.cy} L${e.trait[0]} ${e.trait[1]}`}
-                            stroke="rgb(var(--c-ink-950))"
-                            strokeOpacity="0.55"
-                            strokeWidth="1"
-                            fill="none"
-                          />
-                        )}
-                        {e.trait && (
-                          <circle cx={c.cx} cy={c.cy} r="3.4" fill="#FFFFFF" stroke="rgb(var(--c-ink-950))" strokeWidth="1.4" />
-                        )}
-                        <text
-                          x={e.x}
-                          y={e.y}
-                          textAnchor={e.ancre ?? 'middle'}
-                          stroke="#FFFFFF"
-                          strokeWidth="3.5"
-                          strokeLinejoin="round"
-                          paintOrder="stroke"
-                        >
-                          {c.nom}
-                        </text>
-                      </g>
-                    )
-                  })}
-                  <text
-                    x={METZ.cx + 14}
-                    y={METZ.cy + 10}
-                    textAnchor="middle"
-                    fontSize="24"
-                    fontWeight="700"
-                    fill="#FFFFFF"
-                    data-nom=""
-                  >
-                    {city}
-                  </text>
-                </g>
-
-                {/* Point lumineux de l'atelier (Rémy 22/11/2026), aux coordonnées réelles de la
-                    rue. Étiquette à gauche du point, entre les noms de Woippy et de Plappeville. */}
-                {ATELIER && (
-                  <g data-atelier="" pointerEvents="none">
-                    <circle data-halo="" cx={ATELIER.x} cy={ATELIER.y} r="7" fill="rgb(var(--c-accent-400))" />
-                    <circle cx={ATELIER.x} cy={ATELIER.y} r="5.2" fill="rgb(var(--c-accent-500))" stroke="#FFFFFF" strokeWidth="2" />
+        <div className="mt-10 grid items-center gap-8 lg:mt-14 lg:grid-cols-[1.45fr_1fr] lg:gap-14">
+          <figure className="m-0">
+            <TraceAuDefilement className="carte-secteur mx-auto w-full max-w-[620px]">
+              <div
+                className="relative aspect-square"
+                style={{ ['--cx' as string]: `${(cx / w) * 100}%`, ['--cy' as string]: `${(cy / h) * 100}%` }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/carte/secteur-gris.svg" alt="" width={w} height={h} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/carte/secteur-vert.svg" alt="" width={w} height={h} loading="lazy" decoding="async" className="carte-vert absolute inset-0 h-full w-full" />
+                <svg viewBox={`0 0 ${w} ${h}`} className="absolute inset-0 h-full w-full" role="group" aria-labelledby="carte-legende">
+                  <title id="carte-legende">
+                    {`Carte de ${city} et des ${CARTE.servies} communes où nous intervenons, en vert, dans un rayon de ${CARTE.km} km`}
+                  </title>
+                  {PAGES.map((p) => (
+                    <Link key={p.slug} href={`/zones/${p.slug}`} aria-label={`Débouchage à ${p.nom}`} className="group">
+                      <path
+                        d={p.d}
+                        className="fill-transparent stroke-brand-700/50 transition-[fill] duration-200 group-hover:fill-accent-500/30 group-focus-visible:fill-accent-500/30"
+                        strokeWidth="1.6"
+                      />
+                    </Link>
+                  ))}
+                  <g aria-hidden="true" pointerEvents="none">
+                    <circle cx={cx} cy={cy} r={rayon} fill="none" className="carte-rayon stroke-brand-700" strokeWidth="2.6" strokeDasharray="11 9" />
+                    <circle cx={cx} cy={cy} r={cadre - 1.5} fill="none" stroke="#D9D4CC" strokeWidth="3" />
                     <text
-                      x={ATELIER.x - 11}
-                      textAnchor="end"
-                      fontSize="12.5"
-                      fill="rgb(var(--c-ink-950))"
-                      stroke="#FFFFFF"
-                      strokeWidth="3.5"
+                      x={cx + rayon * Math.cos(angle)}
+                      y={cy + rayon * Math.sin(angle)}
+                      className="carte-rayon fill-brand-700"
+                      textAnchor="middle"
+                      dominantBaseline="middle"
+                      fontSize="28"
+                      fontWeight="700"
+                      stroke="#fff"
+                      strokeWidth="8"
                       strokeLinejoin="round"
                       paintOrder="stroke"
                     >
-                      <tspan x={ATELIER.x - 11} y={ATELIER.y - 2} fontWeight="700">{atelier!.mot}</tspan>
-                      <tspan x={ATELIER.x - 11} dy="1.2em" fontWeight="500">{atelier!.rue}</tspan>
+                      {CARTE.km} km
                     </text>
                   </g>
-                )}
-              </g>
-            </svg>
-          </TraceAuDefilement>
+                  <g aria-hidden="true" pointerEvents="none" stroke="rgb(255 255 255 / .9)" strokeLinejoin="round" paintOrder="stroke">
+                    {noms.map(({ nom, etiquette: e, gras }) => (
+                      <text
+                        key={nom}
+                        x={e.x}
+                        y={e.y}
+                        fontSize={e.taille}
+                        strokeWidth={e.taille * 0.26}
+                        fontWeight={gras ? 700 : 500}
+                        fill={gras ? '#0F1A12' : '#3A423D'}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                      >
+                        {e.lignes.length === 2 ? (
+                          <>
+                            <tspan x={e.x} dy="-0.56em">{e.lignes[0]}</tspan>
+                            <tspan x={e.x} dy="1.12em">{e.lignes[1]}</tspan>
+                          </>
+                        ) : (
+                          e.lignes[0]
+                        )}
+                      </text>
+                    ))}
+                    {/* Metz : le repère du centre et son nom. */}
+                    <circle cx={metz.x} cy={metz.y} r="9" fill="#fff" className="stroke-brand-700" strokeWidth="5" />
+                    <circle cx={metz.x} cy={metz.y} r="9" fill="none" className="carte-onde stroke-brand-700" strokeWidth="3" />
+                    <text x={metz.x} y={metz.y - 30} fontSize="34" fontWeight="800" strokeWidth="8" fill="#0F1A12" textAnchor="middle" dominantBaseline="middle">
+                      {city}
+                    </text>
+                    {/* L'atelier : un point lumineux, sans nom sur la carte (la ligne dessous le dit). */}
+                    {atelier && at && (
+                      <>
+                        <circle cx={at.x} cy={at.y} r="15" className="atelier-halo fill-accent-400" stroke="none" />
+                        <circle cx={at.x} cy={at.y} r="7.5" className="fill-accent-500" stroke="#fff" strokeWidth="3" />
+                      </>
+                    )}
+                  </g>
+                </svg>
+              </div>
+            </TraceAuDefilement>
+            {atelier && (
+              <figcaption className="mt-4 flex items-center justify-center gap-2 text-center text-[14px] text-ink-900/75">
+                <span
+                  className="inline-block h-3 w-3 shrink-0 rounded-full border-2 border-white bg-accent-500 shadow-[0_0_0_3px_rgb(var(--c-accent-400)/0.4)]"
+                  aria-hidden="true"
+                />
+                {atelier.mot}, {adresseAtelier(atelier)}
+              </figcaption>
+            )}
+          </figure>
 
-          <div className="text-center lg:flex lg:flex-col lg:justify-center lg:text-left">
-            <h3 className="text-2xl text-ink-950 lg:text-3xl">Les communes desservies</h3>
-            <ul className="mt-5 grid grid-cols-2 gap-x-4 border-t border-sand-200 sm:gap-x-8" role="list">
-              {communes.map((c) => (
-                <li key={c.slug} className="border-b border-sand-200">
-                  <Link
-                    href={`/zones/${c.slug}`}
-                    className="group flex min-h-[44px] items-center justify-center gap-1.5 py-2 text-[15px] text-ink-900 transition-colors hover:text-accent-500 lg:justify-between"
-                  >
-                    {c.nom}
-                    <ArrowRight
-                      size={15}
-                      aria-hidden="true"
-                      className="hidden shrink-0 text-sand-400 transition-transform group-hover:translate-x-1 group-hover:text-accent-500 lg:block"
-                    />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-5 text-[15px] leading-relaxed text-sand-600">
-              Et tous les quartiers de {city}, du {serviceArea.districts[1]} à {serviceArea.districts[3]}.
-            </p>
-            <div className="mt-7 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
-              <Button href={`tel:${siteConfig.phone}`} variant="accent" size="lg">
-                <Phone size={18} strokeWidth={2.5} aria-hidden="true" />
-                Vérifier ma commune
-              </Button>
-              <Link
-                href="/zones"
-                className="inline-flex items-center gap-1.5 text-[15px] font-medium text-brand-600 underline underline-offset-4 transition-colors hover:text-accent-500"
-              >
-                Toutes les zones
-                <ArrowRight size={15} aria-hidden="true" />
-              </Link>
+          {/* Ordinateur seulement (décision du 22/11/2026, Niort) : la liste des communes qui ont
+              leur page ; au téléphone, la carte suffit (noms cliquables, lien « Toutes les zones »). */}
+          <div className="text-center lg:text-left">
+            <div className="hidden lg:block">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-600">
+                Les communes voisines de {city}
+              </p>
+              <ul className="mt-3 grid grid-cols-2 gap-x-8 border-t border-sand-200">
+                {liste.map((c) => (
+                  <li key={c.slug} className="border-b border-sand-200">
+                    <Link
+                      href={`/zones/${c.slug}`}
+                      className="group flex items-start gap-2.5 py-3 text-[15px] font-medium leading-snug text-ink-900 transition-colors hover:text-accent-500"
+                    >
+                      <span className="mt-[0.3em] h-2.5 w-2.5 shrink-0 rounded-[2px] bg-[#9CCB8C] transition-colors group-hover:bg-accent-500" aria-hidden="true" />
+                      {c.nom}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
+            <Link
+              href="/zones"
+              className="inline-flex items-center gap-1.5 text-[15px] font-medium text-brand-600 underline underline-offset-4 transition-colors hover:text-accent-500 lg:mt-5"
+            >
+              Toutes les zones
+              <ArrowRight size={15} aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </div>

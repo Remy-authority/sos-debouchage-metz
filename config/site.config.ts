@@ -114,7 +114,7 @@ export const siteConfig = {
   /* ── Zone d'intervention (schema areaServed + bloc zones) ── */
   serviceArea: {
     base: 'Metz',
-    radiusKm: 30,
+    radiusKm: 40,
     // Quartiers de Metz cités pour la couverture géo fine (maillage, pas de page dédiée).
     districts: [
       'Centre-ville', 'Sablon', 'Queuleu', 'Borny', 'Bellecroix',

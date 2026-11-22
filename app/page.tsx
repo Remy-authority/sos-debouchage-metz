@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { siteConfig } from '@/config/site.config'
-import { getServices, getZones } from '@/lib/content'
+import { getServices } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 import { HeroPlongee } from '@/components/sections/HeroPlongee'
 import { TrustBar } from '@/components/sections/TrustBar'
@@ -20,7 +20,6 @@ export const metadata: Metadata = buildMetadata({ title: TITLE, description: DES
 
 export default function HomePage() {
   const services = getServices()
-  const zones = getZones()
 
   return (
     <>
@@ -36,7 +35,7 @@ export default function HomePage() {
       />
 
       {/* Carte des communes en bloc 7 (après la FAQ), jamais plus haut (règles Rémy 18/09 et 01/10/2026). */}
-      <CarteMetz zones={zones} />
+      <CarteMetz />
 
       <CtaBanner />
     </>

@@ -57,17 +57,15 @@ export function LogoGoogle({ className = '' }: { className?: string }) {
 export function NoteGoogle({ className = '' }: { className?: string }) {
   if (!noteAffichable(atelier)) return null
   const note = atelier.note.toLocaleString('fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })
-  // Encadré blanc lisible sur la photo (Rémy 22/11/2026 : « 5,0/5 · 50 avis », personne ne comprend) :
-  // la phrase dit en clair ce qu'est le chiffre. Pas d'étoile, pas de lien vers Google.
+  // Encadré blanc sur UNE ligne (Rémy 22/11/2026 : ni « 5,0/5 · 50 avis » illisible, ni deux lignes) :
+  // logo Google, « 5,0 sur 5 · 50 avis clients ». Pas d'étoile, pas de lien vers Google.
   return (
     <div className={`flex justify-center lg:justify-start ${className}`}>
-      <p className="inline-flex items-center gap-3 rounded-[4px] bg-white px-3.5 py-2 text-left shadow-[0_8px_24px_-12px_rgba(9,30,34,0.45)] ring-1 ring-ink-950/5">
-        <LogoGoogle className="h-[22px] w-[22px] shrink-0" />
-        <span className="leading-tight">
-          <span className="block whitespace-nowrap text-[14px] text-ink-950">
-            Note Google <strong className="font-semibold">{note} sur 5</strong>
-          </span>
-          <span className="block whitespace-nowrap text-[12.5px] text-ink-900/65">d’après {atelier.avis} avis clients</span>
+      <p className="inline-flex items-center gap-2.5 whitespace-nowrap rounded-[4px] bg-white px-3 py-1.5 text-[14px] leading-none text-ink-950 shadow-[0_8px_24px_-12px_rgba(9,30,34,0.45)] ring-1 ring-ink-950/5">
+        <LogoGoogle className="h-[18px] w-[18px] shrink-0" />
+        <span>
+          <strong className="font-semibold">{note} sur 5</strong>
+          <span className="text-ink-900/65"> · {atelier.avis} avis clients</span>
         </span>
       </p>
     </div>
